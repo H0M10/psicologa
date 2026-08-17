@@ -3,7 +3,7 @@
 #
 #   User-agent: *
 #   Allow: /
-#   Sitemap: https://TU-USUARIO.github.io/TU-REPO/sitemap.xml
+#   Sitemap: https://h0m10.github.io/psicologa/sitemap.xml
 #
 # y borra la etiqueta <meta name="robots" content="noindex, nofollow"> de index.html
 

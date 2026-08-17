@@ -61,7 +61,10 @@ credibilidad en lugar de sumarla.
 |---|---|---|
 | `assets/img/retrato.svg` | Retrato profesional, mirando a cámara | vertical 4:5 |
 | `assets/img/consultorio.svg` | Foto del consultorio o una más informal de ella | vertical 3:4 |
-| `assets/img/portada.svg` | Imagen para cuando compartan el link en WhatsApp/redes | 1200 × 630 px |
+| `assets/img/portada.jpg` | Imagen para cuando compartan el link en WhatsApp/redes | 1200 × 630 px |
+
+> ⚠️ La portada **tiene que ser `.jpg` o `.png`**. WhatsApp y Facebook no leen SVG,
+> así que hasta que la cambies el link se compartirá sin vista previa.
 
 **Cómo sustituirlas:** guarda tus fotos como `.jpg` en `assets/img/` y cambia la ruta
 en `index.html`. Por ejemplo, cambia esto:
@@ -81,13 +84,15 @@ por esto:
 
 ---
 
-## 4. Al final, cuando ya tengas la URL de GitHub Pages
+## 4. El día del lanzamiento — quitar el modo borrador
 
-Reemplaza `https://usuario.github.io/psicologa/` por la dirección real en:
+El sitio vive en **https://h0m10.github.io/psicologa/** y ahora mismo está en
+modo borrador: **Google no lo indexa**, a propósito, porque anuncia una cédula
+inventada. Cuando el contenido ya sea real:
 
-- [ ] `index.html` → etiqueta `<link rel="canonical">`
-- [ ] `robots.txt`
-- [ ] `sitemap.xml`
+- [ ] Borra la etiqueta `<meta name="robots" content="noindex, nofollow">` de `index.html`
+- [ ] Sustituye `robots.txt` por la versión que viene comentada dentro del archivo
+- [ ] Cambia `og:image` a un `.jpg` o `.png` real
 
 ---
 
