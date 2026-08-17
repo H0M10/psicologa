@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ⚠️ EDITAR: título y descripción (esto es lo que sale en Google) -->
+<title>Mtra. Valeria Fuentes · Psicóloga clínica en Querétaro</title>
+<meta name="description" content="Psicóloga clínica en Querétaro. Terapia para ansiedad, depresión, duelo y autoestima. Consulta presencial y en línea. Agenda tu primera sesión por WhatsApp.">
+<meta name="theme-color" content="#F4EADB">
+
+<!-- ⚠️⚠️ BORRAR ESTA LÍNEA EL DÍA DEL LANZAMIENTO ⚠️⚠️
+     Mientras el sitio tenga datos de ejemplo (cédula 00000000, nombre falso),
+     esto evita que Google lo indexe. Bórrala cuando el contenido sea real,
+     y cambia también robots.txt. -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="canonical" href="https://usuario.github.io/psicologa/">
+
+<!-- Redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Mtra. Valeria Fuentes · Psicóloga clínica">
+<meta property="og:description" content="Terapia para ansiedad, depresión, duelo y autoestima. Presencial en Querétaro y en línea.">
+<meta property="og:image" content="assets/img/portada.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Tipografía: Fraunces (display retro) + Jost (geométrica, tipo Futura) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,0..100,0..1;1,9..144,400..700,0..100,0..1&family=Jost:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+
+<!-- Mapa (Leaflet + OpenStreetMap: gratis, sin API key) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Datos para Google (ficha de negocio local) — ⚠️ EDITAR junto con config.js -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Psychologist", "LocalBusiness"],
+  "name": "Mtra. Valeria Fuentes · Psicología clínica",
+  "description": "Consulta de psicología clínica para adultos: ansiedad, depresión, duelo y autoestima.",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Ejemplo 123, interior 4",
+    "addressLocality": "Santiago de Querétaro",
+    "addressRegion": "Qro.",
+    "postalCode": "76000",
+    "addressCountry": "MX"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 20.588793, "longitude": -100.389888 },
+  "telephone": "+52 442 000 0000",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- ══════════ ENCABEZADO ══════════ -->
+<header class="header" id="header">
+  <div class="wrap header__in">
+
+    <a class="marca" href="#inicio" aria-label="Inicio">
+      <svg class="marca__sello" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="#2F6F73"/>
+        <path d="M24 10a14 14 0 0 1 0 28" fill="#D9A63C"/>
+        <circle cx="24" cy="24" r="6.5" fill="#FBF6ED"/>
+        <circle cx="24" cy="24" r="2.6" fill="#B9532F"/>
+      </svg>
+      <span class="marca__txt">
+        <b class="marca__nom" data-cfg="nombreCorto">Valeria Fuentes</b>
+        <span class="marca__rol" data-cfg="profesion">Psicología clínica</span>
+      </span>
+    </a>
+
+    <button class="hamburguesa" id="btnMenu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <ul class="nav__lista">
+        <li><a class="nav__link" href="#servicios">Cómo te acompaño</a></li>
+        <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+        <li><a class="nav__link" href="#proceso">Primera sesión</a></li>
+        <li><a class="nav__link" href="#preguntas">Preguntas</a></li>
+        <li><a class="nav__link" href="#ubicacion">Consultorio</a></li>
+      </ul>
+      <span class="header__acciones">
+        <a class="btn btn--sm" data-wa href="#" rel="noopener">Agendar por WhatsApp</a>
+      </span>
+    </nav>
+
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ══════════ PORTADA ══════════ -->
+<section class="hero" id="inicio">
+  <svg class="hero__deco" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="98" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="100" cy="100" r="72" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="100" cy="100" r="46" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <path d="M100 2v196M2 100h196M30 30l140 140M170 30L30 170" stroke="currentColor" stroke-width=".7"/>
+  </svg>
+
+  <div class="wrap hero__grid">
+    <div class="hero__texto">
+      <!-- ⚠️ EDITAR: evita frases que caduquen ("cupo esta semana"). Mejor un hecho estable. -->
+      <p class="hero__kicker reveal">Consulta presencial y en línea</p>
+
+      <!-- ⚠️ EDITAR: este titular debe decir A QUIÉN ayudas, no "bienvenido a mi sitio" -->
+      <h1 class="reveal" style="--d:80ms">
+        Un espacio para dejar de <em>cargar con todo</em> en silencio.
+      </h1>
+
+      <p class="hero__sub reveal" style="--d:180ms">
+        Psicoterapia para adultos que viven con ansiedad, tristeza persistente
+        o una sensación constante de estar al límite. Presencial en Querétaro
+        y en línea desde donde estés.
+      </p>
+
+      <div class="hero__acciones reveal" style="--d:260ms">
+        <a class="btn" data-wa href="#" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a class="btn btn--linea" href="#ubicacion">Ver el consultorio</a>
+      </div>
+
+      <p class="hero__nota reveal" style="--d:340ms">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        Respondo personalmente, normalmente el mismo día.
+      </p>
+    </div>
+
+    <figure class="retrato reveal" style="--d:200ms">
+      <div class="retrato__disco" aria-hidden="true"></div>
+      <svg class="retrato__estrella" viewBox="0 0 100 100" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M50 4v92M4 50h92M17 17l66 66M83 17L17 83"/>
+        </g>
+        <circle cx="50" cy="50" r="7" fill="currentColor"/>
+      </svg>
+      <div class="retrato__marco">
+        <!-- ⚠️ EDITAR: sustituye por una FOTO REAL de la psicóloga (retrato vertical 4:5).
+             Las guías de sitios de terapeutas coinciden: la foto real es el factor
+             número uno de confianza. Nada de fotos de stock ni de sillones vacíos. -->
+        <img src="assets/img/retrato.svg" alt="Retrato de la Mtra. Valeria Fuentes, psicóloga clínica" width="800" height="1000">
+      </div>
+      <div class="retrato__anillo" aria-hidden="true"></div>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════ SERVICIOS ══════════ -->
+<section class="seccion servicios" id="servicios">
+  <div class="wrap">
+    <div class="servicios__cabeza">
+      <div class="reveal">
+        <p class="eyebrow">Cómo te acompaño</p>
+        <h2 class="titulo-seccion">Motivos frecuentes de consulta</h2>
+      </div>
+      <p class="plomo reveal" style="--d:100ms">
+        No necesitas estar en crisis para empezar. Estas son las razones
+        por las que más gente llega a consulta.
+      </p>
+    </div>
+
+    <!-- ⚠️ EDITAR: cambia estas cuatro tarjetas por tus especialidades reales -->
+    <div class="tarjetas">
+      <article class="tarjeta reveal" style="--c:var(--terracota)">
+        <div class="tarjeta__icono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 2h4"/></svg>
+        </div>
+        <h3>Ansiedad y estrés</h3>
+        <p>Pensamientos que no paran, tensión en el cuerpo, dificultad para dormir o la sensación de estar siempre alerta. Trabajamos para bajar el volumen y recuperar el descanso.</p>
+        <ul><li>Ataques de pánico</li><li>Estrés laboral</li><li>Preocupación constante</li></ul>
+      </article>
+
+      <article class="tarjeta reveal" style="--c:var(--teal); --d:90ms">
+        <div class="tarjeta__icono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg>
+        </div>
+        <h3>Tristeza y duelo</h3>
+        <p>Cuando algo perdió sentido, cuesta levantarse o una pérdida sigue doliendo más de lo que crees que "debería". Le damos lugar a eso, sin prisa.</p>
+        <ul><li>Depresión</li><li>Pérdidas</li><li>Cambios de vida</li></ul>
+      </article>
+
+      <article class="tarjeta reveal" style="--c:var(--oliva); --d:180ms">
+        <div class="tarjeta__icono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg>
+        </div>
+        <h3>Autoestima y vínculos</h3>
+        <p>Relaciones que se repiten, dificultad para poner límites o esa voz interna que nunca está conforme. Revisamos de dónde viene y cómo cambiarla.</p>
+        <ul><li>Límites</li><li>Relaciones de pareja</li><li>Autoexigencia</li></ul>
+      </article>
+
+      <article class="tarjeta reveal" style="--c:var(--mostaza); --d:270ms">
+        <div class="tarjeta__icono">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5" width="19" height="13" rx="2.5"/><path d="M8 21h8"/></svg>
+        </div>
+        <h3>Terapia en línea</h3>
+        <p>La misma terapia, por videollamada. Útil si vives fuera de Querétaro, viajas seguido o simplemente prefieres tu propio espacio.</p>
+        <ul><li>Videollamada</li><li>Horarios flexibles</li><li>Desde cualquier ciudad</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOBRE MÍ ══════════ -->
+<section class="seccion sobre" id="sobre-mi">
+  <div class="wrap sobre__grid">
+    <figure class="sobre__foto reveal">
+      <!-- ⚠️ EDITAR: segunda foto real, más informal que la de portada -->
+      <img src="assets/img/consultorio.svg" alt="La Mtra. Valeria Fuentes en su consultorio" width="600" height="800">
+    </figure>
+
+    <div class="sobre__texto reveal" style="--d:120ms">
+      <p class="eyebrow">Sobre mí</p>
+      <h2 class="titulo-seccion">Mucho gusto, soy Valeria</h2>
+
+      <!-- ⚠️ EDITAR: 3 o 4 frases. Cuenta POR QUÉ eres psicóloga y con quién
+           te gusta trabajar. Es la sección que más se lee después del titular. -->
+      <p style="margin-top:1.6rem">
+        Soy psicóloga clínica y llevo más de ocho años acompañando a adultos
+        que llegan agotados de sostenerlo todo. Estudié en la Universidad
+        Autónoma de Querétaro y me formé en terapia cognitivo-conductual y
+        enfoque humanista.
+      </p>
+      <p>
+        Elegí esta profesión porque crecí viendo lo caro que sale callar lo que
+        duele. En consulta no vas a encontrar un diagnóstico apresurado ni
+        consejos de manual: vas a encontrar a alguien que escucha en serio,
+        que pregunta lo que hay que preguntar y que trabaja contigo a tu ritmo.
+      </p>
+      <p>
+        Trabajo sobre todo con personas de entre 20 y 45 años, y me interesa
+        especialmente el momento en que alguien decide dejar de vivir en
+        automático.
+      </p>
+
+      <p class="sobre__firma">Valeria</p>
+
+      <!-- ⚠️ EDITAR: formación real -->
+      <ul class="credenciales">
+        <li><b>Cédula</b><span>00000000 — Licenciatura en Psicología, SEP</span></li>
+        <li><b>Formación</b><span>Maestría en Psicoterapia Cognitivo-Conductual</span></li>
+        <li><b>Enfoque</b><span>Cognitivo-conductual con perspectiva humanista</span></li>
+        <li><b>Idiomas</b><span>Español e inglés</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESO ══════════ -->
+<section class="seccion proceso" id="proceso">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Cómo empezamos</p>
+      <h2 class="titulo-seccion">Pedir la primera cita es lo más difícil. Y toma dos minutos.</h2>
+      <p class="plomo">
+        Para que sepas exactamente qué va a pasar antes de escribir.
+      </p>
+    </div>
+
+    <div class="pasos">
+      <article class="paso reveal">
+        <span class="paso__num" aria-hidden="true">01</span>
+        <h3>Me escribes</h3>
+        <p>Por WhatsApp, con la frase que puedas. No necesitas explicar todo ni tener claro el motivo. Te respondo yo, no un asistente.</p>
+      </article>
+      <article class="paso reveal" style="--d:120ms">
+        <span class="paso__num" aria-hidden="true">02</span>
+        <h3>Primera sesión</h3>
+        <p>Cincuenta minutos para conocernos. Me cuentas qué te trae, resolvemos dudas y definimos si soy la persona indicada para acompañarte.</p>
+      </article>
+      <article class="paso reveal" style="--d:240ms">
+        <span class="paso__num" aria-hidden="true">03</span>
+        <h3>Trabajamos juntos</h3>
+        <p>Acordamos objetivos claros y una frecuencia realista. Revisamos avances cada cierto tiempo: la terapia tiene un principio y también un final.</p>
+      </article>
+    </div>
+  </div>
+
+  <svg class="proceso__onda" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 60V28c120 0 120 18 240 18s120-30 240-30 120 26 240 26 120-24 240-24 120 20 240 20 120-14 240-14v36Z" fill="currentColor"/>
+  </svg>
+</section>
+
+<!-- ══════════ PREGUNTAS FRECUENTES ══════════ -->
+<section class="seccion faq" id="preguntas">
+  <div class="wrap faq__grid">
+    <div class="reveal">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="titulo-seccion">Lo que casi siempre me preguntan</h2>
+      <p class="plomo">
+        Si tienes una duda que no está aquí, escríbeme. Preguntar no compromete a nada.
+      </p>
+      <p style="margin-top:2rem">
+        <a class="btn btn--teal" data-wa href="#" rel="noopener">Hacer una pregunta</a>
+      </p>
+    </div>
+
+    <!-- ⚠️ EDITAR: precios, duración y política de cancelación reales -->
+    <div class="faq__lista reveal" style="--d:120ms">
+      <details class="faq__item" open>
+        <summary>¿Cuánto dura y cuánto cuesta una sesión?</summary>
+        <div class="faq__respuesta">
+          <p>Cada sesión dura 50 minutos y tiene un costo de $000 MXN, igual en consultorio que en línea. Acepto transferencia y efectivo. Si el costo es un obstáculo, dímelo: manejo algunos espacios a cuota reducida.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>¿Cada cuánto tendría que ir?</summary>
+        <div class="faq__respuesta">
+          <p>Al inicio suele ser una vez por semana, porque ayuda a tomar impulso. Conforme avanzamos, muchas personas pasan a sesiones cada quince días. Lo definimos juntos y se puede ajustar.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>¿Lo que hablemos es confidencial?</summary>
+        <div class="faq__respuesta">
+          <p>Sí. Todo lo que ocurre en sesión está protegido por el secreto profesional y el código ético de la psicología. Las únicas excepciones son las que marca la ley: riesgo grave para tu vida o la de otra persona.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>¿La terapia en línea funciona igual?</summary>
+        <div class="faq__respuesta">
+          <p>Para la mayoría de los motivos de consulta, sí. La evidencia muestra resultados equivalentes a los presenciales. Sólo necesitas conexión estable y un lugar donde puedas hablar sin interrupciones.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>¿Cómo sé si de verdad necesito terapia?</summary>
+        <div class="faq__respuesta">
+          <p>No hace falta tocar fondo. Si algo te pesa desde hace semanas, si estás repitiendo un patrón que no te gusta o si simplemente quieres entenderte mejor, es motivo suficiente. La primera sesión también sirve para resolver esta pregunta.</p>
+        </div>
+      </details>
+      <details class="faq__item">
+        <summary>¿Qué pasa si necesito cancelar?</summary>
+        <div class="faq__respuesta">
+          <p>Puedes reprogramar sin costo avisando con al menos 24 horas de anticipación. Con menos tiempo, la sesión se cobra, porque ese espacio quedó reservado para ti.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ UBICACIÓN + MAPA ══════════ -->
+<section class="seccion ubicacion" id="ubicacion">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">El consultorio</p>
+      <h2 class="titulo-seccion">Dónde nos vemos</h2>
+      <p class="plomo">
+        Un espacio tranquilo, privado y con estacionamiento. Toca el mapa para
+        moverlo, o abre la ruta directo en tu app favorita.
+      </p>
+    </div>
+
+    <div class="ubicacion__grid">
+
+      <div class="direccion reveal">
+        <p class="eyebrow" style="margin-bottom:.8rem">Dirección</p>
+        <p class="direccion__dom" data-cfg="calle">Av. Ejemplo 123, interior 4</p>
+        <p class="direccion__ciudad">
+          <span data-cfg="colonia">Col. Centro</span><br>
+          <span data-cfg="ciudad">Santiago de Querétaro, Qro.</span>
+          <span data-cfg="cp">76000</span>
+        </p>
+        <p class="direccion__ref" data-cfg="referencia">
+          Edificio de fachada blanca, junto a la farmacia.
+        </p>
+
+        <div class="direccion__rutas">
+          <a class="btn btn--sm btn--teal" id="rutaGoogle" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            Google Maps
+          </a>
+          <a class="btn btn--sm btn--linea" id="rutaWaze" href="#" target="_blank" rel="noopener">Waze</a>
+          <a class="btn btn--sm btn--linea" id="rutaApple" href="#" target="_blank" rel="noopener">Apple Maps</a>
+        </div>
+
+        <ul class="horarios" id="horarios">
+          <!-- Se rellena desde config.js -->
+        </ul>
+      </div>
+
+      <div class="mapa-caja reveal" style="--d:120ms">
+        <p class="mapa-caja__etq">Consultorio</p>
+        <div id="mapa" role="application" aria-label="Mapa interactivo con la ubicación del consultorio"></div>
+        <div class="mapa-fallback" id="mapaFallback">
+          <p><strong>No se pudo cargar el mapa.</strong><br>Abre la ubicación directamente:</p>
+          <p><a class="btn btn--sm btn--teal" id="rutaGoogle2" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CIERRE ══════════ -->
+<section class="seccion cta">
+  <svg class="cta__arcos" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M100 300V150a100 100 0 0 1 200 0v150"/>
+      <path d="M180 300V170a20 20 0 0 1 40 0v130"/>
+      <path d="M900 300V120a150 150 0 0 1 300 0v180"/>
+      <path d="M1000 300V180a50 50 0 0 1 100 0v120"/>
+      <circle cx="600" cy="80" r="46"/><circle cx="600" cy="80" r="24"/>
+    </g>
+  </svg>
+
+  <div class="wrap cta__in">
+    <h2 class="reveal">¿Lo pensamos juntos?</h2>
+    <p class="reveal" style="--d:100ms">
+      Escríbeme por WhatsApp y te respondo personalmente. Sin formularios,
+      sin listas de espera y sin compromiso de agendar.
+    </p>
+    <div class="cta__acciones reveal" style="--d:200ms">
+      <a class="btn" data-wa href="#" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a class="btn btn--linea" id="btnTel" href="#">Llamar por teléfono</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ PIE ══════════ -->
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie__grid">
+      <div>
+        <a class="marca" href="#inicio" style="margin-bottom:1rem">
+          <svg class="marca__sello" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="#2F6F73"/>
+            <path d="M24 10a14 14 0 0 1 0 28" fill="#D9A63C"/>
+            <circle cx="24" cy="24" r="6.5" fill="#FBF6ED"/>
+            <circle cx="24" cy="24" r="2.6" fill="#B9532F"/>
+          </svg>
+          <span class="marca__txt">
+            <b class="marca__nom" data-cfg="nombreCorto">Valeria Fuentes</b>
+            <span class="marca__rol" data-cfg="profesion">Psicología clínica</span>
+          </span>
+        </a>
+        <p class="pie__aviso">
+          Este sitio tiene fines informativos y no sustituye una valoración
+          profesional. Si estás en una situación de riesgo, llama a la
+          <strong>Línea de la Vida: 800 911 2000</strong> (24 h, gratuita en México)
+          o acude al servicio de urgencias más cercano.
+        </p>
+      </div>
+
+      <div>
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="#servicios">Cómo te acompaño</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proceso">Primera sesión</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          <li><a href="#ubicacion">Consultorio</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
+          <li><a id="pieTel" href="#">Teléfono</a></li>
+          <li><a id="pieMail" href="#">Correo</a></li>
+          <li><a id="pieMapa" href="#" target="_blank" rel="noopener">Cómo llegar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pie__legal">
+      <span>© <span id="anio">2026</span> <span data-cfg="nombre">Valeria Fuentes</span>. Todos los derechos reservados.</span>
+      <span>Cédula profesional <span data-cfg="cedula">00000000</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a class="wa-flotante" id="waFlotante" data-wa href="#" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

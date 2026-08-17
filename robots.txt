@@ -1,0 +1,11 @@
+# ⚠️ MODO BORRADOR — el sitio todavía tiene datos de ejemplo.
+# El día del lanzamiento sustituye todo este archivo por:
+#
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://TU-USUARIO.github.io/TU-REPO/sitemap.xml
+#
+# y borra la etiqueta <meta name="robots" content="noindex, nofollow"> de index.html
+
+User-agent: *
+Disallow: /
