@@ -224,7 +224,8 @@
   var bioBtn = document.getElementById('bioBtn');
 
   if (bioMas && bioBtn) {
-    var esMovil = window.matchMedia('(max-width: 760px)');
+    // Mismo punto de corte que la barra inferior en styles.css
+    var esMovil = window.matchMedia('(max-width: 900px)');
 
     var prepararBio = function () {
       if (esMovil.matches) {

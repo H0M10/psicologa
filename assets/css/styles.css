@@ -1249,7 +1249,21 @@ p { text-wrap: pretty; }
   .paso::before { display: none; }
 }
 
-@media (max-width: 760px) {
+/* El menú de escritorio son 6 enlaces: por debajo de 1160px el botón del
+   encabezado ya no cabe junto a ellos. La llamada a la acción sigue en la
+   portada, en la sección de agendar y en el cierre, así que no se pierde. */
+@media (max-width: 1160px) {
+  .header__acciones { display: none; }
+}
+/* Entre 900 y 1000px los 6 enlaces van justos: un punto menos de cuerpo */
+@media (max-width: 1000px) {
+  .nav__link { font-size: .85rem; }
+  .header__in { gap: 1rem; }
+}
+
+/* Por debajo de 900px el menú horizontal tampoco cabe: manda la barra
+   inferior, que además funciona muy bien en tablet. */
+@media (max-width: 900px) {
 
   /* ---- Navegación: fuera el cajón lateral, entra la barra inferior ------- */
   .nav { display: none; }
