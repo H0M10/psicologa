@@ -44,6 +44,10 @@ Abre el archivo y busca `⚠️ EDITAR`. Cada aparición marca algo por cambiar:
 - [ ] **Biografía "Sobre mí"** — 3 o 4 frases contando *por qué* es psicóloga.
 - [ ] **Lista de credenciales** — cédula, maestría, enfoque, idiomas.
 - [ ] **Preguntas frecuentes** — sobre todo el **precio** y la política de cancelación.
+- [ ] **Sección "Agendar cita"** → el bloque de **datos prácticos** al final: duración,
+      costo, formas de pago y política de cancelación. Que coincidan con las FAQ.
+- [ ] **`whatsapp.mensaje` en `config.js`** — ese texto se muestra literalmente en
+      la vista previa de la sección de agendar, así que revísalo bien.
 - [ ] **Datos del bloque `application/ld+json`** (arriba del todo) — es la ficha que lee Google.
 
 ---

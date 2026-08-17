@@ -49,7 +49,14 @@
 
   // Teléfono y correo
   var tel = String(CFG.telefono || '').replace(/[^\d+]/g, '');
-  ['btnTel', 'pieTel', 'llamarMovil'].forEach(function (id) {
+  // Vista previa del mensaje: enseñar exactamente qué se va a enviar
+  // quita incertidumbre, que es la fricción principal al agendar
+  var preview = document.getElementById('waPreview');
+  if (preview && CFG.whatsapp && CFG.whatsapp.mensaje) {
+    preview.textContent = CFG.whatsapp.mensaje;
+  }
+
+  ['btnTel', 'pieTel', 'llamarMovil', 'agendarTel'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el && tel) el.href = 'tel:' + tel;
   });
@@ -198,6 +205,16 @@
     });
 
     secciones.forEach(function (s) { espia.observe(s); });
+  }
+
+  /* Al llegar a "Agendar", el botón central se resalta: la acción que toca */
+  var secAgendar = document.getElementById('agendar');
+  var waTab = document.querySelector('.tabbar__wa');
+
+  if (secAgendar && waTab && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (ent) {
+      waTab.classList.toggle('is-llamando', ent[0].isIntersecting);
+    }, { threshold: .25 }).observe(secAgendar);
   }
 
   /* ------------------------------------------------------------------ */

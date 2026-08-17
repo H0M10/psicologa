@@ -88,11 +88,14 @@
 
     <!-- Navegación de escritorio. En celular se oculta: allí manda la barra inferior. -->
     <nav class="nav" aria-label="Principal">
+      <!-- Etiquetas cortas y con la palabra informativa al principio:
+           en el escaneo en F solo se leen las primeras palabras -->
       <ul class="nav__lista">
-        <li><a class="nav__link" href="#servicios">Cómo te acompaño</a></li>
+        <li><a class="nav__link" href="#servicios">Terapia</a></li>
         <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
         <li><a class="nav__link" href="#proceso">Primera sesión</a></li>
         <li><a class="nav__link" href="#preguntas">Preguntas</a></li>
+        <li><a class="nav__link" href="#agendar">Agendar</a></li>
         <li><a class="nav__link" href="#ubicacion">Consultorio</a></li>
       </ul>
       <span class="header__acciones">
@@ -290,28 +293,29 @@
 <section class="seccion proceso" id="proceso">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">Cómo empezamos</p>
-      <h2 class="titulo-seccion">Pedir la primera cita es lo más difícil. Y toma dos minutos.</h2>
+      <p class="eyebrow">La primera sesión</p>
+      <h2 class="titulo-seccion">Qué pasa exactamente el primer día</h2>
       <p class="plomo">
-        Para que sepas exactamente qué va a pasar antes de escribir.
+        Saber qué esperar quita la mitad del nervio. Esto es todo lo que ocurre.
       </p>
     </div>
 
+    <!-- ⚠️ EDITAR: ajusta duración y forma de trabajar -->
     <div class="pasos">
       <article class="paso reveal">
         <span class="paso__num" aria-hidden="true">01</span>
-        <h3>Me escribes</h3>
-        <p>Por WhatsApp, con la frase que puedas. No necesitas explicar todo ni tener claro el motivo. Te respondo yo, no un asistente.</p>
+        <h3>Nos conocemos</h3>
+        <p>Cincuenta minutos. Me cuentas qué te trae, con el detalle que quieras y hasta donde quieras. No hay cuestionarios, ni pruebas, ni un formato rígido.</p>
       </article>
       <article class="paso reveal" style="--d:120ms">
         <span class="paso__num" aria-hidden="true">02</span>
-        <h3>Primera sesión</h3>
-        <p>Cincuenta minutos para conocernos. Me cuentas qué te trae, resolvemos dudas y definimos si soy la persona indicada para acompañarte.</p>
+        <h3>Resuelves tus dudas</h3>
+        <p>Cómo trabajo, cada cuánto nos veríamos, cuánto suele durar un proceso. Pregunta lo que necesites: es tu tiempo y tu decisión.</p>
       </article>
       <article class="paso reveal" style="--d:240ms">
         <span class="paso__num" aria-hidden="true">03</span>
-        <h3>Trabajamos juntos</h3>
-        <p>Acordamos objetivos claros y una frecuencia realista. Revisamos avances cada cierto tiempo: la terapia tiene un principio y también un final.</p>
+        <h3>Decidimos juntos</h3>
+        <p>Si sientes que encajamos, definimos objetivos y frecuencia. Y si no, te recomiendo a alguien que se ajuste mejor a lo que buscas.</p>
       </article>
     </div>
   </div>
@@ -374,6 +378,97 @@
         </div>
       </details>
     </div>
+  </div>
+</section>
+
+<!-- ══════════ AGENDAR CITA ══════════ -->
+<section class="seccion agendar" id="agendar">
+  <div class="wrap">
+
+    <div class="reveal">
+      <p class="eyebrow">Agendar cita</p>
+      <h2 class="titulo-seccion">Tres pasos, y el primero lo das en diez segundos</h2>
+      <p class="plomo">
+        No hay formularios, ni registro, ni listas de espera. Se agenda por
+        WhatsApp y te contesto yo.
+      </p>
+    </div>
+
+    <div class="agendar__grid">
+
+      <!-- Paso 1: destacado, porque es el único que depende del visitante -->
+      <div class="paso1 reveal">
+        <span class="paso1__num" aria-hidden="true">01</span>
+        <div class="paso1__cuerpo">
+          <h3>Escríbeme por WhatsApp</h3>
+          <p>
+            Es el primer paso y el único que tienes que dar tú. No hace falta
+            que expliques nada ni que tengas claro el motivo: con un
+            «hola, quiero agendar» es suficiente.
+          </p>
+
+          <!-- Enseñar el mensaje exacto que se va a enviar reduce la
+               incertidumbre, que es la principal fricción al reservar -->
+          <figure class="burbuja">
+            <figcaption>Se enviará este mensaje, y puedes cambiarlo antes:</figcaption>
+            <blockquote id="waPreview">Hola, vi tu página web y me gustaría agendar una primera sesión.</blockquote>
+          </figure>
+
+          <a class="btn paso1__btn" data-wa href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+            Abrir WhatsApp ahora
+          </a>
+          <p class="paso1__alt">
+            ¿Prefieres llamar? <a id="agendarTel" href="#">Marcar por teléfono</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Pasos 2 y 3: los hago yo, van en menor jerarquía -->
+      <ol class="siguientes reveal" style="--d:140ms">
+        <li>
+          <span class="siguientes__num" aria-hidden="true">02</span>
+          <div>
+            <h3>Buscamos hueco</h3>
+            <p>Te paso los horarios libres más cercanos. Si ninguno te sirve, buscamos otro: hay espacios temprano y por la tarde.</p>
+          </div>
+        </li>
+        <li>
+          <span class="siguientes__num" aria-hidden="true">03</span>
+          <div>
+            <h3>Queda confirmada</h3>
+            <p>Te mando la dirección exacta con la ubicación, o el enlace de videollamada si la prefieres en línea. Y te recuerdo un día antes.</p>
+          </div>
+        </li>
+      </ol>
+
+    </div>
+
+    <!-- Datos prácticos: la transparencia de precio reduce el abandono -->
+    <!-- ⚠️ EDITAR: precio, formas de pago y política reales -->
+    <ul class="practico reveal">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+        <b>Duración</b>
+        <span>50 minutos por sesión</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M2.5 10h19"/></svg>
+        <b>Costo</b>
+        <span>$000 MXN, igual en línea</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <b>Pago</b>
+        <span>Transferencia o efectivo</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <b>Cancelación</b>
+        <span>Gratis con 24 h de aviso</span>
+      </li>
+    </ul>
+
   </div>
 </section>
 
@@ -500,6 +595,7 @@
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#proceso">Primera sesión</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          <li><a href="#agendar">Agendar cita</a></li>
           <li><a href="#ubicacion">Consultorio</a></li>
         </ul>
       </div>
