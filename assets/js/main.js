@@ -49,7 +49,7 @@
 
   // Teléfono y correo
   var tel = String(CFG.telefono || '').replace(/[^\d+]/g, '');
-  ['btnTel', 'pieTel'].forEach(function (id) {
+  ['btnTel', 'pieTel', 'barraTel'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el && tel) el.href = 'tel:' + tel;
   });
@@ -91,6 +91,11 @@
   /* ------------------------------------------------------------------ */
   var cajaMapa = document.getElementById('mapa');
   var fallback = document.getElementById('mapaFallback');
+  var escudo   = document.getElementById('mapaToque');
+
+  // ¿Pantalla táctil? Entonces el mapa arranca bloqueado, porque si no
+  // arrastrar el dedo mueve el mapa en vez de desplazar la página.
+  var esTactil = window.matchMedia('(pointer: coarse)').matches;
 
   if (cajaMapa) {
     if (typeof L === 'undefined' || typeof LAT !== 'number' || typeof LNG !== 'number') {
@@ -101,8 +106,18 @@
           center: [LAT, LNG],
           zoom: C.zoom || 16,
           scrollWheelZoom: false,   // evita capturar el scroll de la página
+          dragging: !esTactil,      // en celular se activa al tocar el escudo
           attributionControl: true
         });
+
+        if (esTactil && escudo) {
+          escudo.hidden = false;
+          escudo.addEventListener('click', function () {
+            mapa.dragging.enable();
+            escudo.classList.add('se-va');
+            setTimeout(function () { escudo.hidden = true; }, 400);
+          });
+        }
 
         // Ctrl/⌘ + rueda sí hace zoom (comportamiento esperado en escritorio)
         mapa.on('focus', function () { mapa.scrollWheelZoom.enable(); });
@@ -170,12 +185,15 @@
   /* ------------------------------------------------------------------ */
   var header = document.getElementById('header');
   var flotante = document.getElementById('waFlotante');
+  var barra = document.querySelector('.barra-movil');
   var ticking = false;
 
   function alScroll() {
     var y = window.scrollY;
     if (header) header.classList.toggle('is-stuck', y > 24);
+    // Aparecen cuando el botón de la portada ya se fue de pantalla
     if (flotante) flotante.classList.toggle('is-on', y > 520);
+    if (barra) barra.classList.toggle('is-on', y > 420);
     ticking = false;
   }
 

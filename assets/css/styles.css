@@ -51,6 +51,9 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
   -webkit-text-size-adjust: 100%;
+  /* clip y no hidden: hidden en html+body crea un contenedor de scroll
+     y rompe el position:sticky del encabezado. clip recorta sin hacerlo. */
+  overflow-x: clip;
 }
 
 body {
@@ -60,7 +63,9 @@ body {
   color: var(--espresso);
   background: var(--crema);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
+  /* Gris azulado por defecto al tocar → lo cambiamos por un destello terracota */
+  -webkit-tap-highlight-color: rgba(185, 83, 47, .18);
 }
 
 /* Grano de papel: textura sutil sobre todo el documento */
@@ -185,7 +190,7 @@ p { text-wrap: pretty; }
   color: var(--crema);
   box-shadow: 0 12px 24px -14px rgba(46, 38, 34, .7);
 }
-.btn--sm { padding: .6rem 1.15rem; font-size: var(--t-xs); }
+.btn--sm { padding: .6rem 1.15rem; font-size: var(--t-xs); min-height: 44px; }
 
 /* --- 5. Encabezado --------------------------------------------------------- */
 .header {
@@ -274,8 +279,8 @@ p { text-wrap: pretty; }
 
 .hamburguesa {
   display: none;
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 48px;   /* mínimo táctil de Material Design */
+  height: 48px;
   border: 2px solid var(--espresso);
   border-radius: 50%;
   background: transparent;
@@ -717,7 +722,9 @@ p { text-wrap: pretty; }
 }
 #mapa {
   width: 100%;
-  height: clamp(360px, 46vh, 520px);
+  height: clamp(340px, 46vh, 520px);
+  /* dvh evita el salto cuando la barra del navegador móvil se oculta */
+  height: clamp(340px, 46dvh, 520px);
   background: var(--crema-2);
   z-index: 1;
 }
@@ -930,6 +937,83 @@ p { text-wrap: pretty; }
 .wa-flotante:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(46, 38, 34, .85); }
 .wa-flotante svg { width: 1.5rem; height: 1.5rem; flex: none; }
 
+/* --- 14b. Barra de acciones inferior (solo celular) ------------------------
+   Va abajo a propósito: es la zona que alcanza el pulgar con una sola mano.
+   Incluye llamada directa, que en móvil convierte mucho mejor que un formulario.
+   -------------------------------------------------------------------------- */
+.barra-movil {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 940;
+  gap: .6rem;
+  padding: .6rem var(--gutter);
+  /* Respeta la barra de gestos del iPhone */
+  padding-bottom: calc(.6rem + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--papel) 94%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border-top: 2px solid var(--espresso);
+  box-shadow: 0 -14px 30px -22px rgba(46, 38, 34, .9);
+  transform: translateY(110%);
+  transition: transform .45s var(--ease);
+}
+.barra-movil.is-on { transform: none; }
+
+.barra-movil__btn {
+  flex: 1 1 0;
+  min-height: 52px;          /* holgado sobre el mínimo de 48px */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 999px;
+  border: 2px solid var(--espresso);
+  text-decoration: none;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: .04em;
+  transition: transform .2s var(--ease), filter .2s var(--ease);
+}
+.barra-movil__btn:active { transform: translateY(2px); filter: brightness(.94); }
+.barra-movil__btn svg { width: 1.35rem; height: 1.35rem; flex: none; }
+.barra-movil__btn--wa  { background: var(--oliva);     color: #FDF7EF; }
+.barra-movil__btn--tel { background: var(--terracota); color: #FDF7EF; }
+
+/* --- 14c. Escudo táctil del mapa ------------------------------------------
+   Sin esto, arrastrar el dedo sobre el mapa mueve el mapa en lugar de
+   desplazar la página, y el usuario queda atrapado a media pantalla.
+   -------------------------------------------------------------------------- */
+.mapa-toque {
+  position: absolute;
+  inset: 0;
+  z-index: 550;
+  border: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--espresso) 30%, transparent);
+  backdrop-filter: blur(1px);
+  transition: opacity .35s var(--ease);
+}
+.mapa-toque[hidden] { display: none; }
+.mapa-toque.se-va { opacity: 0; pointer-events: none; }
+.mapa-toque__txt {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: var(--papel);
+  border: 2px solid var(--espresso);
+  border-radius: 999px;
+  padding: .7rem 1.2rem;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  color: var(--espresso);
+  box-shadow: 0 4px 0 rgba(46, 38, 34, .35);
+}
+.mapa-toque__txt svg { width: 1.2rem; height: 1.2rem; flex: none; color: var(--terracota); }
+
 /* --- 15. Revelado al hacer scroll ----------------------------------------- */
 .reveal {
   opacity: 0;
@@ -947,7 +1031,8 @@ p { text-wrap: pretty; }
   .ubicacion__grid { grid-template-columns: 1fr; }
 
   .hero__grid { gap: 3.5rem; }
-  .retrato { order: -1; width: min(100%, 330px); }
+  /* La foto va primero: es la señal de confianza más fuerte de la página */
+  .retrato { order: -1; width: min(100%, 300px); }
   .sobre__foto { max-width: 340px; }
   .pie__grid { grid-template-columns: 1fr 1fr; }
   .servicios__cabeza { grid-template-columns: 1fr; align-items: start; }
@@ -978,13 +1063,75 @@ p { text-wrap: pretty; }
   .header__acciones { display: block; width: 100%; }
   .header__acciones .btn { width: 100%; justify-content: center; }
 
+  /* Sombras desplazadas más cortas: a 14px se salían de la pantalla */
   .retrato__marco { box-shadow: 9px 9px 0 -2px var(--mostaza), 9px 9px 0 0 var(--espresso); }
   .direccion { box-shadow: 6px 6px 0 -1px var(--teal); }
   .direccion__rutas .btn { flex: 1 1 100%; }
   .pie__grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .credenciales li { grid-template-columns: 1fr; gap: .1rem; }
-  .wa-flotante span { display: none; }
-  .wa-flotante { padding: 1rem; }
+
+  /* La barra inferior sustituye al botón flotante */
+  .wa-flotante { display: none; }
+  .barra-movil { display: flex; }
+  /* Espacio para que la barra no tape el final del pie */
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+
+  /* Portada más compacta para que el titular entre pronto */
+  .hero { padding-top: 2rem; }
+  .retrato { width: min(78%, 260px); }
+  .retrato__estrella { width: 3.4rem; }
+  .hero__sub { font-size: var(--t-base); }
+
+  /* Botones a todo el ancho: más fáciles de acertar con el pulgar */
+  .hero__acciones .btn,
+  .cta__acciones .btn { flex: 1 1 100%; justify-content: center; }
+
+  /* Texto de tarjetas a 16px: por debajo de eso se lee mal en celular */
+  .tarjeta p { font-size: var(--t-base); }
+  .tarjeta { padding: 1.7rem 1.4rem 1.6rem; }
+
+  /* Menos margen lateral perdido en pantallas estrechas */
+  .direccion { padding: 1.6rem 1.3rem; }
+}
+
+/* --- 16b. Dispositivos táctiles: áreas de toque -----------------------------
+   Apple pide 44×44 px como mínimo, Material Design 48×48 y 8 px de separación.
+   -------------------------------------------------------------------------- */
+@media (pointer: coarse) {
+  .nav__link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .pie ul { gap: .1rem; }
+  .pie ul a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .faq__item summary { padding-block: 1.15rem; }
+  /* Los controles de zoom de Leaflet vienen a 30 px de fábrica */
+  .leaflet-touch .leaflet-bar a {
+    width: 42px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+  }
+}
+
+/* --- 16c. Pantallas muy estrechas (iPhone SE y similares) ------------------ */
+@media (max-width: 380px) {
+  .barra-movil__btn { font-size: var(--t-xs); gap: .35rem; }
+  .direccion__rutas { gap: .5rem; }
+  .marca__sello { width: 2.4rem; height: 2.4rem; }
+  .marca__nom { font-size: 1rem; }
+}
+
+/* --- 16d. Celular en horizontal ------------------------------------------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { padding-block: 2rem; }
+  .barra-movil { display: none; }   /* se comería media pantalla */
+  body { padding-bottom: 0; }
+  #mapa { height: 300px; }
 }
 
 /* --- 17. Accesibilidad: movimiento reducido ------------------------------- */
