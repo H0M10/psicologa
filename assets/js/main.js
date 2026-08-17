@@ -49,7 +49,7 @@
 
   // Teléfono y correo
   var tel = String(CFG.telefono || '').replace(/[^\d+]/g, '');
-  ['btnTel', 'pieTel', 'barraTel'].forEach(function (id) {
+  ['btnTel', 'pieTel', 'llamarMovil'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el && tel) el.href = 'tel:' + tel;
   });
@@ -157,26 +157,78 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* 5. Menú móvil                                                      */
+  /* 5. Barra de pestañas: marcar la sección en la que estás            */
   /* ------------------------------------------------------------------ */
-  var btnMenu = document.getElementById('btnMenu');
-  var nav = document.getElementById('nav');
+  var pestanas = document.querySelectorAll('.tabbar__item[data-spy]');
 
-  if (btnMenu && nav) {
-    var alternar = function (abrir) {
-      var estado = abrir !== undefined ? abrir : !nav.classList.contains('is-open');
-      nav.classList.toggle('is-open', estado);
-      btnMenu.setAttribute('aria-expanded', String(estado));
-      btnMenu.setAttribute('aria-label', estado ? 'Cerrar menú' : 'Abrir menú');
-      document.body.style.overflow = estado ? 'hidden' : '';
+  if (pestanas.length && 'IntersectionObserver' in window) {
+    var porId = {};
+    var secciones = [];
+
+    Array.prototype.forEach.call(pestanas, function (p) {
+      var id = p.getAttribute('data-spy');
+      var sec = document.getElementById(id);
+      if (sec) { porId[id] = p; secciones.push(sec); }
+    });
+
+    var visibles = {};
+
+    var espia = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        visibles[en.target.id] = en.isIntersecting ? en.intersectionRatio : 0;
+      });
+
+      // Gana la sección que más superficie ocupa en pantalla
+      var mejorId = null, mejor = 0;
+      Object.keys(visibles).forEach(function (id) {
+        if (visibles[id] > mejor) { mejor = visibles[id]; mejorId = id; }
+      });
+
+      Array.prototype.forEach.call(pestanas, function (p) {
+        p.classList.toggle('is-activo', p.getAttribute('data-spy') === mejorId);
+        if (p.getAttribute('data-spy') === mejorId) {
+          p.setAttribute('aria-current', 'true');
+        } else {
+          p.removeAttribute('aria-current');
+        }
+      });
+    }, {
+      threshold: [0, .15, .35, .6, .9],
+      rootMargin: '-72px 0px -45% 0px'   // descuenta encabezado y barra inferior
+    });
+
+    secciones.forEach(function (s) { espia.observe(s); });
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 5b. Biografía plegable (solo donde la barra inferior está activa)  */
+  /* ------------------------------------------------------------------ */
+  var bioMas = document.getElementById('bioMas');
+  var bioBtn = document.getElementById('bioBtn');
+
+  if (bioMas && bioBtn) {
+    var esMovil = window.matchMedia('(max-width: 760px)');
+
+    var prepararBio = function () {
+      if (esMovil.matches) {
+        // La clase la pone el JS: sin JS el texto se ve completo
+        bioMas.classList.add('js-plegable');
+        bioBtn.hidden = false;
+      } else {
+        bioMas.classList.remove('js-plegable', 'esta-abierto');
+        bioBtn.hidden = true;
+        bioBtn.setAttribute('aria-expanded', 'false');
+        bioBtn.querySelector('.mas__btn-txt').textContent = 'Leer más';
+      }
     };
 
-    btnMenu.addEventListener('click', function () { alternar(); });
-    nav.addEventListener('click', function (e) {
-      if (e.target.closest('a')) alternar(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) alternar(false);
+    prepararBio();
+    if (esMovil.addEventListener) esMovil.addEventListener('change', prepararBio);
+
+    bioBtn.addEventListener('click', function () {
+      var abierto = bioMas.classList.toggle('esta-abierto');
+      bioBtn.setAttribute('aria-expanded', String(abierto));
+      bioBtn.querySelector('.mas__btn-txt').textContent = abierto ? 'Leer menos' : 'Leer más';
     });
   }
 
@@ -185,15 +237,13 @@
   /* ------------------------------------------------------------------ */
   var header = document.getElementById('header');
   var flotante = document.getElementById('waFlotante');
-  var barra = document.querySelector('.barra-movil');
   var ticking = false;
 
   function alScroll() {
     var y = window.scrollY;
     if (header) header.classList.toggle('is-stuck', y > 24);
-    // Aparecen cuando el botón de la portada ya se fue de pantalla
+    // Solo el flotante de escritorio: la barra de pestañas está siempre visible
     if (flotante) flotante.classList.toggle('is-on', y > 520);
-    if (barra) barra.classList.toggle('is-on', y > 420);
     ticking = false;
   }
 

@@ -277,28 +277,22 @@ p { text-wrap: pretty; }
 .nav__link:hover { color: var(--espresso); }
 .nav__link:hover::after { transform: scaleX(1); transform-origin: left; }
 
-.hamburguesa {
+/* Botón de llamada del encabezado: aparece solo en celular */
+.llamar-movil {
   display: none;
-  width: 48px;   /* mínimo táctil de Material Design */
+  width: 48px;
   height: 48px;
+  flex: none;
+  place-items: center;
   border: 2px solid var(--espresso);
   border-radius: 50%;
+  color: var(--espresso);
   background: transparent;
-  cursor: pointer;
-  padding: 0;
-  place-items: center;
+  text-decoration: none;
+  transition: background .25s var(--ease), color .25s var(--ease);
 }
-.hamburguesa span {
-  display: block;
-  width: 1.05rem;
-  height: 2px;
-  background: var(--espresso);
-  transition: transform .35s var(--ease), opacity .2s;
-}
-.hamburguesa span + span { margin-top: 4px; }
-.hamburguesa[aria-expanded='true'] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburguesa[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
-.hamburguesa[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.llamar-movil svg { width: 1.25rem; height: 1.25rem; }
+.llamar-movil:active { background: var(--espresso); color: var(--crema); }
 
 /* --- 6. Hero --------------------------------------------------------------- */
 .hero {
@@ -937,49 +931,121 @@ p { text-wrap: pretty; }
 .wa-flotante:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(46, 38, 34, .85); }
 .wa-flotante svg { width: 1.5rem; height: 1.5rem; flex: none; }
 
-/* --- 14b. Barra de acciones inferior (solo celular) ------------------------
-   Va abajo a propósito: es la zona que alcanza el pulgar con una sola mano.
-   Incluye llamada directa, que en móvil convierte mucho mejor que un formulario.
+/* --- 14b. Barra de pestañas inferior (solo celular) ------------------------
+   Sustituye al menú hamburguesa. La navegación oculta cuesta un 20% de
+   descubrimiento de contenido y un 15% más de tiempo por tarea (NN/G),
+   así que aquí va siempre visible y en la zona del pulgar.
    -------------------------------------------------------------------------- */
-.barra-movil {
+.tabbar {
   display: none;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 940;
-  gap: .6rem;
-  padding: .6rem var(--gutter);
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: .15rem;
+  padding: .45rem .4rem;
   /* Respeta la barra de gestos del iPhone */
-  padding-bottom: calc(.6rem + env(safe-area-inset-bottom, 0px));
-  background: color-mix(in srgb, var(--papel) 94%, transparent);
-  backdrop-filter: blur(14px) saturate(1.3);
+  padding-bottom: calc(.45rem + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--papel) 95%, transparent);
+  backdrop-filter: blur(16px) saturate(1.4);
   border-top: 2px solid var(--espresso);
-  box-shadow: 0 -14px 30px -22px rgba(46, 38, 34, .9);
-  transform: translateY(110%);
-  transition: transform .45s var(--ease);
+  box-shadow: 0 -14px 32px -24px rgba(46, 38, 34, .95);
 }
-.barra-movil.is-on { transform: none; }
 
-.barra-movil__btn {
+.tabbar__item {
   flex: 1 1 0;
-  min-height: 52px;          /* holgado sobre el mínimo de 48px */
-  display: inline-flex;
+  min-width: 0;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
-  border-radius: 999px;
-  border: 2px solid var(--espresso);
+  gap: .2rem;
+  padding: .3rem .1rem;
+  border-radius: 14px;
   text-decoration: none;
+  color: var(--espresso-sv);
+  transition: color .25s var(--ease), background .25s var(--ease);
+}
+.tabbar__item svg { width: 1.35rem; height: 1.35rem; flex: none; }
+.tabbar__item span {
+  font-size: .63rem;
+  letter-spacing: .04em;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+.tabbar__item:active { background: color-mix(in srgb, var(--espresso) 8%, transparent); }
+
+/* Sección activa: se ilumina sola al hacer scroll */
+.tabbar__item.is-activo { color: var(--terracota); }
+.tabbar__item.is-activo svg { stroke-width: 2.1; }
+.tabbar__item.is-activo span { font-weight: 500; }
+
+/* WhatsApp al centro: la posición más cómoda para el pulgar */
+.tabbar__wa {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  /* Sobresale por encima de la barra: deja claro cuál es LA acción */
+  margin: -20px .15rem .3rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 0;
+  border-radius: 50%;
+  background: var(--oliva);
+  color: #FDF7EF;
+  border: 2.5px solid var(--espresso);
+  text-decoration: none;
+  box-shadow: 0 4px 0 rgba(46, 38, 34, .85), 0 14px 26px -14px rgba(46, 38, 34, .9);
+  transition: transform .2s var(--ease), background .25s var(--ease);
+}
+.tabbar__wa svg { width: 1.7rem; height: 1.7rem; }
+.tabbar__wa-txt {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.tabbar__wa:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(46, 38, 34, .85);
+}
+
+/* --- 14e. Pista de deslizamiento y "leer más" ------------------------------ */
+.desliza {
+  display: none;
+  align-items: center;
+  gap: .45rem;
+  font-size: var(--t-xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--espresso-sv);
+  margin-bottom: .9rem;
+}
+.desliza svg { width: 1.1rem; height: 1.1rem; color: var(--terracota); }
+
+.mas__btn {
+  display: none;
+  align-items: center;
+  gap: .45rem;
+  margin-top: 1rem;
+  padding: .7rem 1.2rem;
+  min-height: 44px;
+  background: transparent;
+  border: 2px solid var(--espresso);
+  border-radius: 999px;
   font-size: var(--t-sm);
   font-weight: 500;
-  letter-spacing: .04em;
-  transition: transform .2s var(--ease), filter .2s var(--ease);
+  cursor: pointer;
 }
-.barra-movil__btn:active { transform: translateY(2px); filter: brightness(.94); }
-.barra-movil__btn svg { width: 1.35rem; height: 1.35rem; flex: none; }
-.barra-movil__btn--wa  { background: var(--oliva);     color: #FDF7EF; }
-.barra-movil__btn--tel { background: var(--terracota); color: #FDF7EF; }
+.mas__btn[hidden] { display: none; }
+.mas__btn svg { width: 1.1rem; height: 1.1rem; transition: transform .35s var(--ease); }
+.mas__btn[aria-expanded='true'] svg { transform: rotate(180deg); }
 
 /* --- 14c. Escudo táctil del mapa ------------------------------------------
    Sin esto, arrastrar el dedo sobre el mapa mueve el mapa en lugar de
@@ -1040,58 +1106,102 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 760px) {
-  .hamburguesa { display: grid; }
-  .nav {
-    position: fixed;
-    inset: 0 0 0 auto;
-    width: min(82vw, 330px);
-    background: var(--papel);
-    border-left: 2px solid var(--espresso);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    transform: translateX(100%);
-    transition: transform .5s var(--ease);
-    box-shadow: -30px 0 60px -40px rgba(46, 38, 34, .9);
-  }
-  .nav.is-open { transform: none; }
-  .nav__lista { flex-direction: column; gap: 1.4rem; }
-  .nav__link { font-size: var(--t-lg); font-family: var(--display); color: var(--espresso); }
-  /* El botón viaja con el nav: en móvil aparece dentro del cajón lateral */
-  .header__acciones { display: block; width: 100%; }
-  .header__acciones .btn { width: 100%; justify-content: center; }
 
-  /* Sombras desplazadas más cortas: a 14px se salían de la pantalla */
-  .retrato__marco { box-shadow: 9px 9px 0 -2px var(--mostaza), 9px 9px 0 0 var(--espresso); }
-  .direccion { box-shadow: 6px 6px 0 -1px var(--teal); }
-  .direccion__rutas .btn { flex: 1 1 100%; }
-  .pie__grid { grid-template-columns: 1fr; gap: 1.8rem; }
-  .credenciales li { grid-template-columns: 1fr; gap: .1rem; }
-
-  /* La barra inferior sustituye al botón flotante */
+  /* ---- Navegación: fuera el cajón lateral, entra la barra inferior ------- */
+  .nav { display: none; }
+  .llamar-movil { display: grid; }
   .wa-flotante { display: none; }
-  .barra-movil { display: flex; }
-  /* Espacio para que la barra no tape el final del pie */
-  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .tabbar { display: flex; }
+  /* Hueco para que la barra no tape el final del pie */
+  body { padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+  /* Al saltar de sección, que el título no quede debajo del encabezado */
+  html { scroll-padding-top: 4.75rem; }
 
-  /* Portada más compacta para que el titular entre pronto */
-  .hero { padding-top: 2rem; }
-  .retrato { width: min(78%, 260px); }
-  .retrato__estrella { width: 3.4rem; }
-  .hero__sub { font-size: var(--t-base); }
+  /* ---- Ritmo vertical apretado ------------------------------------------
+     El 81% del tiempo de lectura se gasta en las 3 primeras pantallas,
+     así que cada pantalla desperdiciada cuesta cara.                       */
+  :root { --sec: 3.25rem; }
+  .titulo-seccion { max-width: none; font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
+  .plomo { font-size: var(--t-base); margin-top: .9rem; }
+  .eyebrow { margin-bottom: .7rem; }
 
-  /* Botones a todo el ancho: más fáciles de acertar con el pulgar */
+  /* ---- Portada: una pantalla, un trabajo -------------------------------- */
+  .hero { padding-top: 1.25rem; padding-bottom: 2.75rem; }
+  .hero__grid { gap: 1.6rem; }
+  .hero h1 { font-size: clamp(2.05rem, 8.4vw, 2.9rem); }
+  .hero__kicker { margin-bottom: .9rem; }
+  .hero__sub { font-size: var(--t-base); margin-top: .9rem; }
+  .hero__acciones { margin-top: 1.4rem; }
+  .hero__nota { margin-top: 1rem; }
+  .retrato { width: min(62%, 210px); }
+  .retrato__estrella { width: 2.7rem; }
+  .retrato__marco { box-shadow: 7px 7px 0 -2px var(--mostaza), 7px 7px 0 0 var(--espresso); }
   .hero__acciones .btn,
   .cta__acciones .btn { flex: 1 1 100%; justify-content: center; }
 
-  /* Texto de tarjetas a 16px: por debajo de eso se lee mal en celular */
+  /* ---- Servicios: deslizar de lado en vez de apilar 4 tarjetas ----------
+     Ahorra unas tres pantallas. La siguiente tarjeta asoma por el borde
+     para que se note que hay más.                                          */
+  .desliza { display: flex; }
+  .servicios__cabeza { margin-bottom: 1.4rem; }
+  .tarjetas {
+    display: flex;
+    gap: .85rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: .35rem var(--gutter) 1rem;
+  }
+  .tarjetas::-webkit-scrollbar { display: none; }
+  .tarjeta {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+    padding: 1.5rem 1.25rem 1.35rem;
+  }
   .tarjeta p { font-size: var(--t-base); }
-  .tarjeta { padding: 1.7rem 1.4rem 1.6rem; }
+  .tarjeta:hover { transform: none; box-shadow: none; }
+  .tarjeta h3 { font-size: 1.35rem; }
 
-  /* Menos margen lateral perdido en pantallas estrechas */
-  .direccion { padding: 1.6rem 1.3rem; }
+  /* ---- Sobre mí: biografía plegada -------------------------------------- */
+  .sobre__grid { gap: 1.6rem; }
+  .sobre__foto { max-width: 205px; margin-inline: auto; }
+  .sobre__foto::before { inset: -.8rem -.8rem 1.6rem .9rem; }
+  .sobre__texto p { font-size: var(--t-base); }
+  .sobre__texto p[style] { margin-top: 1rem !important; }
+  .mas.js-plegable {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .45s var(--ease);
+  }
+  .mas.js-plegable .mas__in { overflow: hidden; }
+  .mas.js-plegable.esta-abierto { grid-template-rows: 1fr; }
+  .mas__btn { display: inline-flex; }
+  .sobre__firma { font-size: 1.35rem; margin-top: 1.1rem; }
+  .credenciales { margin-top: 1.4rem; }
+  .credenciales li { grid-template-columns: 1fr; gap: .1rem; padding: .7rem 0; }
+
+  /* ---- Proceso ---------------------------------------------------------- */
+  .pasos { gap: 1.3rem; margin-top: 1.6rem; }
+  .paso { padding-top: 2.5rem; }
+  .paso__num { font-size: 2.4rem; }
+  .paso h3 { font-size: 1.3rem; }
+
+  /* ---- Preguntas -------------------------------------------------------- */
+  .faq__grid { gap: 1.4rem; }
+  .faq__item summary { font-size: var(--t-base); padding-right: 2.6rem; }
+
+  /* ---- Consultorio ------------------------------------------------------ */
+  .ubicacion__grid { gap: 1.4rem; margin-top: 1.6rem; }
+  .direccion { padding: 1.5rem 1.2rem; box-shadow: 6px 6px 0 -1px var(--teal); }
+  .direccion__rutas .btn { flex: 1 1 100%; }
+
+  /* ---- Cierre y pie ----------------------------------------------------- */
+  .cta p { font-size: var(--t-base); margin-top: 1rem; }
+  .cta__acciones { margin-top: 1.6rem; }
+  .pie { padding-block: 2.5rem 1.5rem; }
+  .pie__grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 /* --- 16b. Dispositivos táctiles: áreas de toque -----------------------------
@@ -1120,18 +1230,25 @@ p { text-wrap: pretty; }
 
 /* --- 16c. Pantallas muy estrechas (iPhone SE y similares) ------------------ */
 @media (max-width: 380px) {
-  .barra-movil__btn { font-size: var(--t-xs); gap: .35rem; }
+  .tabbar__item span { font-size: .58rem; }
+  .tabbar__item svg { width: 1.25rem; height: 1.25rem; }
+  .tabbar__wa { width: 54px; height: 54px; }
+  .tabbar__wa svg { width: 1.5rem; height: 1.5rem; }
   .direccion__rutas { gap: .5rem; }
   .marca__sello { width: 2.4rem; height: 2.4rem; }
   .marca__nom { font-size: 1rem; }
+  .marca__rol { font-size: .6rem; }
+  .tarjeta { flex-basis: 84%; }
 }
 
 /* --- 16d. Celular en horizontal ------------------------------------------- */
 @media (max-height: 480px) and (orientation: landscape) {
-  .hero { padding-block: 2rem; }
-  .barra-movil { display: none; }   /* se comería media pantalla */
+  .hero { padding-block: 1.5rem; }
+  .tabbar { display: none; }        /* se comería media pantalla */
+  .wa-flotante { display: inline-flex; }
   body { padding-bottom: 0; }
-  #mapa { height: 300px; }
+  #mapa { height: 260px; }
+  .retrato { width: min(45%, 170px); }
 }
 
 /* --- 17. Accesibilidad: movimiento reducido ------------------------------- */
