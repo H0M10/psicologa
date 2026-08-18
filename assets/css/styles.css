@@ -658,132 +658,8 @@ p { text-wrap: pretty; }
   to   { opacity: 1; transform: none; }
 }
 
-/* --- 10b. Agendar cita -----------------------------------------------------
-   Jerarquía deliberada: el paso 1 es el único que depende del visitante,
-   así que ocupa el doble de peso visual que los pasos 2 y 3.
-   -------------------------------------------------------------------------- */
-.agendar { background: var(--crema-2); }
-
-.agendar__grid {
-  display: grid;
-  grid-template-columns: 1.25fr .85fr;
-  gap: clamp(2rem, 1rem + 3.5vw, 4rem);
-  align-items: start;
-  margin-top: clamp(2.2rem, 1.5rem + 2.5vw, 3.4rem);
-}
-
-/* Paso 1 destacado */
-.paso1 {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.4rem;
-  background: var(--papel);
-  border: 2px solid var(--espresso);
-  border-radius: 22px 22px 22px 5px;
-  padding: 2rem 1.9rem;
-  box-shadow: 12px 12px 0 -2px var(--terracota);
-}
-.paso1__num {
-  font-family: var(--display);
-  font-size: 3.2rem;
-  font-weight: 600;
-  font-variation-settings: 'SOFT' 90, 'WONK' 1;
-  line-height: .9;
-  color: var(--terracota);
-}
-.paso1__cuerpo h3 { font-size: var(--t-xl); margin-bottom: .6rem; }
-.paso1__cuerpo > p { color: var(--espresso-sv); max-width: 58ch; }
-.paso1__btn { margin-top: 1.4rem; }
-.paso1__alt {
-  margin-top: .9rem;
-  font-size: var(--t-sm);
-  color: var(--espresso-sv);
-}
-.paso1__alt a { color: var(--terracota); font-weight: 500; }
-
-/* Vista previa del mensaje que se va a enviar */
-.burbuja {
-  margin: 1.3rem 0 0;
-  padding: 0;
-}
-.burbuja figcaption {
-  font-size: var(--t-xs);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--espresso-sv);
-  margin-bottom: .5rem;
-}
-.burbuja blockquote {
-  margin: 0;
-  position: relative;
-  background: color-mix(in srgb, var(--oliva) 15%, var(--papel));
-  border: 1.5px solid color-mix(in srgb, var(--oliva) 45%, transparent);
-  border-radius: 14px 14px 14px 3px;
-  padding: .85rem 1.05rem;
-  font-size: var(--t-sm);
-  line-height: 1.55;
-  color: var(--espresso);
-  max-width: 46ch;
-}
-
-/* Pasos 2 y 3, en menor jerarquía */
-.siguientes {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: .1rem;
-}
-.siguientes li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.1rem;
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--linea);
-}
-.siguientes li:first-child { border-top: 1px solid var(--linea); }
-.siguientes__num {
-  font-family: var(--display);
-  font-size: 1.7rem;
-  font-weight: 600;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1.2px var(--teal);
-}
-.siguientes h3 { font-size: var(--t-lg); margin-bottom: .3rem; }
-.siguientes p { color: var(--espresso-sv); font-size: var(--t-sm); max-width: 50ch; }
-
-/* Datos prácticos */
-.practico {
-  list-style: none;
-  padding: 0;
-  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--linea);
-  border: 1px solid var(--linea);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.practico li {
-  background: var(--crema-2);
-  padding: 1.3rem 1.2rem;
-  display: grid;
-  gap: .25rem;
-}
-.practico svg { width: 1.4rem; height: 1.4rem; color: var(--terracota); }
-.practico b {
-  font-size: var(--t-xs);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--espresso-sv);
-  font-weight: 500;
-}
-.practico span { font-family: var(--display); font-size: 1.05rem; font-weight: 600; }
-
 /* --- 11. Ubicación + mapa -------------------------------------------------- */
-.ubicacion { background: var(--crema); }
+.ubicacion { background: var(--crema-2); }
 .ubicacion__grid {
   display: grid;
   grid-template-columns: .82fr 1.18fr;
@@ -1150,15 +1026,6 @@ p { text-wrap: pretty; }
   transform: translateY(3px);
   box-shadow: 0 1px 0 rgba(46, 38, 34, .85);
 }
-/* En la sección "Agendar" el botón se anuncia: es justo lo que toca hacer */
-.tabbar__wa.is-llamando {
-  background: var(--terracota);
-  animation: anillo 2.2s var(--ease) infinite;
-}
-@keyframes anillo {
-  0%, 100% { box-shadow: 0 4px 0 rgba(46,38,34,.85), 0 0 0 0 color-mix(in srgb, var(--terracota) 55%, transparent); }
-  55%      { box-shadow: 0 4px 0 rgba(46,38,34,.85), 0 0 0 .85rem transparent; }
-}
 
 /* --- 14e. Pista de deslizamiento y "leer más" ------------------------------ */
 .desliza {
@@ -1249,9 +1116,9 @@ p { text-wrap: pretty; }
   .paso::before { display: none; }
 }
 
-/* El menú de escritorio son 6 enlaces: por debajo de 1160px el botón del
-   encabezado ya no cabe junto a ellos. La llamada a la acción sigue en la
-   portada, en la sección de agendar y en el cierre, así que no se pierde. */
+/* Por debajo de 1160px el botón del encabezado ya no cabe junto a los enlaces.
+   La llamada a la acción sigue en la portada y en el cierre, y en celular
+   está siempre visible en la barra inferior, así que no se pierde. */
 @media (max-width: 1160px) {
   .header__acciones { display: none; }
 }
@@ -1349,24 +1216,6 @@ p { text-wrap: pretty; }
   /* ---- Preguntas -------------------------------------------------------- */
   .faq__grid { gap: 1.4rem; }
   .faq__item summary { font-size: var(--t-base); padding-right: 2.6rem; }
-
-  /* ---- Agendar ---------------------------------------------------------- */
-  .agendar__grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.6rem; }
-  .paso1 {
-    grid-template-columns: 1fr;
-    gap: .5rem;
-    padding: 1.5rem 1.25rem;
-    box-shadow: 6px 6px 0 -1px var(--terracota);
-  }
-  .paso1__num { font-size: 2.3rem; }
-  .paso1__cuerpo h3 { font-size: 1.35rem; }
-  .paso1__btn { width: 100%; justify-content: center; }
-  .burbuja blockquote { max-width: none; }
-  .siguientes li { padding: 1.1rem 0; gap: .85rem; }
-  .siguientes__num { font-size: 1.45rem; }
-  .practico { grid-template-columns: 1fr 1fr; margin-top: 1.6rem; }
-  .practico li { padding: 1rem .9rem; }
-  .practico span { font-size: .95rem; }
 
   /* ---- Consultorio ------------------------------------------------------ */
   .ubicacion__grid { gap: 1.4rem; margin-top: 1.6rem; }

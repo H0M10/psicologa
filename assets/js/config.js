@@ -33,20 +33,25 @@ window.SITE_CONFIG = {
 
   /* --- Consultorio ----------------------------------------------------- */
   consultorio: {
-    nombre: 'Consultorio Roble',
-    calle: 'Av. Ejemplo 123, interior 4',
-    colonia: 'Col. Centro',
+    nombre: 'Consultorio',
+    calle: 'Mauricio Garcés 808',
+    colonia: 'La Joya',
     ciudad: 'Santiago de Querétaro, Qro.',
-    cp: '76000',
+    cp: '76180',
     pais: 'México',
-    referencia: 'Edificio de fachada blanca, junto a la farmacia. Estacionamiento en el sótano.',
 
-    // COORDENADAS DEL CONSULTORIO  ← lo más importante del mapa
-    // Cómo obtenerlas: abre Google Maps, clic derecho sobre el punto exacto
-    // y copia los dos números que aparecen arriba del menú.
-    lat: 20.588793,
-    lng: -100.389888,
-    zoom: 16
+    // Referencia para llegar (deja '' y no se muestra nada).
+    // Ej: 'Edificio de fachada gris, timbre 4. Hay estacionamiento en la calle.'
+    referencia: '',
+
+    // ⚠️ COORDENADAS — VERIFICAR ANTES DE PUBLICAR
+    // Estas apuntan a la calle Mauricio Garcés (CP 76180), pero NO al
+    // número 808 exacto: el callejero abierto no llega a ese detalle.
+    // Para afinar: abre Google Maps, busca la dirección, haz clic derecho
+    // justo sobre la puerta y copia los dos números del menú.
+    lat: 20.572439,
+    lng: -100.4184025,
+    zoom: 17
   },
 
   /* --- Horarios (se imprimen tal cual en la sección de ubicación) ------- */

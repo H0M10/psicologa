@@ -17,8 +17,8 @@ Es el único archivo que controla contacto y mapa. Cámbialo y todo el sitio se 
 | `whatsapp.mensaje` | Texto que se autoescribe al abrir el chat | — |
 | `telefono` | Teléfono para llamar | `+52 442 123 4567` |
 | `email` | Correo de contacto | — |
-| `consultorio.lat` / `.lng` | **Coordenadas exactas** (ver abajo) | `20.588793` |
-| `consultorio.*` | Calle, colonia, ciudad, CP, referencia | — |
+| `consultorio.lat` / `.lng` | **Coordenadas exactas** (ver abajo) | `20.572439` |
+| `consultorio.*` | Calle, colonia, ciudad, CP, referencia | ya cargados |
 | `horarios` | Días y horas de atención | — |
 
 ### 📍 Cómo sacar las coordenadas exactas
@@ -44,10 +44,8 @@ Abre el archivo y busca `⚠️ EDITAR`. Cada aparición marca algo por cambiar:
 - [ ] **Biografía "Sobre mí"** — 3 o 4 frases contando *por qué* es psicóloga.
 - [ ] **Lista de credenciales** — cédula, maestría, enfoque, idiomas.
 - [ ] **Preguntas frecuentes** — sobre todo el **precio** y la política de cancelación.
-- [ ] **Sección "Agendar cita"** → el bloque de **datos prácticos** al final: duración,
-      costo, formas de pago y política de cancelación. Que coincidan con las FAQ.
-- [ ] **`whatsapp.mensaje` en `config.js`** — ese texto se muestra literalmente en
-      la vista previa de la sección de agendar, así que revísalo bien.
+- [ ] **`whatsapp.mensaje` en `config.js`** — es el texto que se escribe solo
+      cuando abren el chat, así que revísalo bien.
 - [ ] **Datos del bloque `application/ld+json`** (arriba del todo) — es la ficha que lee Google.
 
 ---
