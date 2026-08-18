@@ -660,21 +660,37 @@ p { text-wrap: pretty; }
 
 /* --- 11. Ubicación + mapa -------------------------------------------------- */
 .ubicacion { background: var(--crema-2); }
-.ubicacion__grid {
+/* Orden deliberado: mapa → rutas → dirección escrita.
+   Lo que ubica de verdad va primero; el texto es el respaldo. */
+.ubicacion .mapa-caja { margin-top: clamp(2.2rem, 1.5rem + 2.5vw, 3.4rem); }
+
+.rutas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.1rem;
+}
+.rutas .btn { justify-content: center; }
+.rutas__ppal { flex: 1 1 min(100%, 22rem); }
+.rutas .btn--linea { flex: 1 1 8rem; }
+
+.ubicacion__datos {
   display: grid;
-  grid-template-columns: .82fr 1.18fr;
-  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(1.2rem, .8rem + 1.5vw, 2rem);
   align-items: start;
-  margin-top: clamp(2.2rem, 1.5rem + 2.5vw, 3.4rem);
+  margin-top: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
 }
 
 .direccion {
   background: var(--papel);
   border: 2px solid var(--espresso);
   border-radius: 20px 20px 20px 4px;
-  padding: 2rem 1.8rem;
+  padding: 1.8rem 1.7rem;
   box-shadow: 10px 10px 0 -2px var(--teal);
+  height: 100%;
 }
+.direccion--horas { box-shadow: 10px 10px 0 -2px var(--mostaza); }
 .direccion__dom {
   font-family: var(--display);
   font-size: var(--t-xl);
@@ -689,22 +705,10 @@ p { text-wrap: pretty; }
   padding-left: 1rem;
   border-left: 3px solid var(--mostaza);
 }
-.direccion__rutas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1.7rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--linea);
-}
-.direccion__rutas .btn { flex: 1 1 auto; justify-content: center; }
-
 .horarios {
   list-style: none;
   padding: 0;
-  margin-top: 1.7rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--linea);
+  margin: 0;
 }
 .horarios li {
   display: flex;
@@ -1105,7 +1109,7 @@ p { text-wrap: pretty; }
   .hero__grid,
   .sobre__grid,
   .faq__grid,
-  .ubicacion__grid { grid-template-columns: 1fr; }
+  .ubicacion__datos { grid-template-columns: 1fr; }
 
   .hero__grid { gap: 3.5rem; }
   /* La foto va primero: es la señal de confianza más fuerte de la página */
@@ -1218,9 +1222,13 @@ p { text-wrap: pretty; }
   .faq__item summary { font-size: var(--t-base); padding-right: 2.6rem; }
 
   /* ---- Consultorio ------------------------------------------------------ */
-  .ubicacion__grid { gap: 1.4rem; margin-top: 1.6rem; }
-  .direccion { padding: 1.5rem 1.2rem; box-shadow: 6px 6px 0 -1px var(--teal); }
-  .direccion__rutas .btn { flex: 1 1 100%; }
+  .ubicacion .mapa-caja { margin-top: 1.6rem; }
+  .ubicacion__datos { gap: 1rem; margin-top: 1.4rem; }
+  .direccion { padding: 1.4rem 1.2rem; box-shadow: 6px 6px 0 -1px var(--teal); }
+  .direccion--horas { box-shadow: 6px 6px 0 -1px var(--mostaza); }
+  /* Google Maps a todo el ancho; Waze y Apple se reparten la fila de abajo */
+  .rutas__ppal { flex: 1 1 100%; }
+  .rutas .btn--linea { flex: 1 1 40%; }
 
   /* ---- Cierre y pie ----------------------------------------------------- */
   .cta p { font-size: var(--t-base); margin-top: 1rem; }
@@ -1259,7 +1267,7 @@ p { text-wrap: pretty; }
   .tabbar__item svg { width: 1.25rem; height: 1.25rem; }
   .tabbar__wa { width: 54px; height: 54px; }
   .tabbar__wa svg { width: 1.5rem; height: 1.5rem; }
-  .direccion__rutas { gap: .5rem; }
+  .rutas { gap: .5rem; }
   .marca__sello { width: 2.4rem; height: 2.4rem; }
   .marca__nom { font-size: 1rem; }
   .marca__rol { font-size: .6rem; }

@@ -390,14 +390,42 @@
       <p class="eyebrow">El consultorio</p>
       <h2 class="titulo-seccion">Dónde nos vemos</h2>
       <p class="plomo">
-        Un espacio tranquilo, privado y con estacionamiento. Toca el mapa para
-        moverlo, o abre la ruta directo en tu app favorita.
+        Un espacio tranquilo, privado y con estacionamiento. Abre la ruta
+        directo en tu app favorita, o mueve el mapa para reconocer la zona.
       </p>
     </div>
 
-    <div class="ubicacion__grid">
+    <!-- 1. El mapa primero: lo que de verdad ubica el consultorio -->
+    <div class="mapa-caja reveal">
+      <p class="mapa-caja__etq">Consultorio</p>
+      <div id="mapa" role="application" aria-label="Mapa interactivo con la ubicación del consultorio"></div>
 
-      <div class="direccion reveal">
+      <!-- En celular el mapa arranca bloqueado para no secuestrar el scroll de la página -->
+      <button class="mapa-toque" id="mapaToque" type="button" hidden>
+        <span class="mapa-toque__txt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 11a3 3 0 1 1 6 0c0 2-3 3-3 5"/><circle cx="12" cy="19" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="10"/></svg>
+          Toca para mover el mapa
+        </span>
+      </button>
+      <div class="mapa-fallback" id="mapaFallback">
+        <p><strong>No se pudo cargar el mapa.</strong><br>Abre la ubicación directamente:</p>
+        <p><a class="btn btn--sm btn--teal" id="rutaGoogle2" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+      </div>
+    </div>
+
+    <!-- 2. Las rutas, pegadas al mapa: un toque y ya vas en camino -->
+    <div class="rutas reveal">
+      <a class="btn btn--teal rutas__ppal" id="rutaGoogle" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Cómo llegar con Google Maps
+      </a>
+      <a class="btn btn--linea" id="rutaWaze" href="#" target="_blank" rel="noopener">Waze</a>
+      <a class="btn btn--linea" id="rutaApple" href="#" target="_blank" rel="noopener">Apple Maps</a>
+    </div>
+
+    <!-- 3. Al final el detalle: dirección escrita y horarios -->
+    <div class="ubicacion__datos reveal">
+      <div class="direccion">
         <p class="eyebrow" style="margin-bottom:.8rem">Dirección</p>
         <p class="direccion__dom" data-cfg="calle">Mauricio Garcés 808</p>
         <p class="direccion__ciudad">
@@ -406,39 +434,16 @@
           <span data-cfg="cp">76180</span>
         </p>
         <p class="direccion__ref" id="direccionRef" data-cfg="referencia" hidden></p>
+      </div>
 
-        <div class="direccion__rutas">
-          <a class="btn btn--sm btn--teal" id="rutaGoogle" href="#" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            Google Maps
-          </a>
-          <a class="btn btn--sm btn--linea" id="rutaWaze" href="#" target="_blank" rel="noopener">Waze</a>
-          <a class="btn btn--sm btn--linea" id="rutaApple" href="#" target="_blank" rel="noopener">Apple Maps</a>
-        </div>
-
+      <div class="direccion direccion--horas">
+        <p class="eyebrow" style="margin-bottom:.8rem">Horarios</p>
         <ul class="horarios" id="horarios">
           <!-- Se rellena desde config.js -->
         </ul>
       </div>
-
-      <div class="mapa-caja reveal" style="--d:120ms">
-        <p class="mapa-caja__etq">Consultorio</p>
-        <div id="mapa" role="application" aria-label="Mapa interactivo con la ubicación del consultorio"></div>
-
-        <!-- En celular el mapa arranca bloqueado para no secuestrar el scroll de la página -->
-        <button class="mapa-toque" id="mapaToque" type="button" hidden>
-          <span class="mapa-toque__txt">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 11a3 3 0 1 1 6 0c0 2-3 3-3 5"/><circle cx="12" cy="19" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="10"/></svg>
-            Toca para mover el mapa
-          </span>
-        </button>
-        <div class="mapa-fallback" id="mapaFallback">
-          <p><strong>No se pudo cargar el mapa.</strong><br>Abre la ubicación directamente:</p>
-          <p><a class="btn btn--sm btn--teal" id="rutaGoogle2" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
-        </div>
-      </div>
-
     </div>
+
   </div>
 </section>
 
