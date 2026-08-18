@@ -75,7 +75,6 @@
   /* ------------------------------------------------------------------ */
   /* 3. Enlaces de navegación (Google Maps / Waze / Apple Maps)          */
   /* ------------------------------------------------------------------ */
-  var direccionTxt = [C.calle, C.colonia, C.ciudad, C.cp].filter(Boolean).join(', ');
   var coords = LAT + ',' + LNG;
 
   var rutas = {
@@ -137,18 +136,12 @@
           className: '',
           html: '<div class="pin"><div class="pin__cuerpo"></div><div class="pin__pulso"></div></div>',
           iconSize: [40, 52],
-          iconAnchor: [20, 46],
-          popupAnchor: [0, -44]
+          iconAnchor: [20, 46]
         });
 
-        L.marker([LAT, LNG], { icon: pin, title: C.nombre || 'Consultorio', riseOnHover: true })
-          .addTo(mapa)
-          .bindPopup(
-            '<b>' + (C.nombre || 'Consultorio') + '</b>' +
-            direccionTxt +
-            '<br><a href="' + rutas.google + '" target="_blank" rel="noopener">Cómo llegar &rarr;</a>'
-          )
-          .openPopup();
+        // Sin globo emergente: tapaba el mapa y repetía lo que ya está
+        // justo debajo, en la tarjeta de dirección y el botón de cómo llegar.
+        L.marker([LAT, LNG], { icon: pin, title: C.nombre || 'Consultorio' }).addTo(mapa);
 
         // Recentrar bien cuando la sección entra en pantalla
         setTimeout(function () { mapa.invalidateSize(); }, 400);

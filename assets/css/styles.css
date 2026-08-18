@@ -814,16 +814,6 @@ p { text-wrap: pretty; }
 }
 
 /* Estilo del popup de Leaflet acorde a la paleta */
-.leaflet-popup-content-wrapper {
-  background: var(--papel);
-  border: 2px solid var(--espresso);
-  border-radius: 14px 14px 14px 3px;
-  box-shadow: 0 14px 30px -18px rgba(46, 38, 34, .9);
-}
-.leaflet-popup-content { margin: .95rem 1.1rem; font-family: var(--texto); font-size: .9rem; line-height: 1.5; }
-.leaflet-popup-content b { font-family: var(--display); font-size: 1.05rem; display: block; margin-bottom: .2rem; }
-.leaflet-popup-content a { color: var(--terracota); font-weight: 500; }
-.leaflet-popup-tip { background: var(--papel); border: 2px solid var(--espresso); }
 .leaflet-container { font-family: var(--texto); background: var(--crema-2); }
 .leaflet-control-zoom a {
   background: var(--papel) !important;
