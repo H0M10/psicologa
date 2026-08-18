@@ -38,22 +38,25 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:-.015em}
 .b svg{width:1.05em;height:1.05em}
 
 /* Portada a sangre: acuarela detrás, texto encima */
-.port{position:relative;min-height:min(88svh,760px);display:flex;flex-direction:column;
+.port{position:relative;display:flex;flex-direction:column;
+  min-height:min(86vh,720px);min-height:min(86svh,720px);
   color:var(--arena);overflow:hidden;padding-bottom:clamp(2.5rem,6vw,4rem)}
 .port__bg{position:absolute;inset:0;background:var(--agua);z-index:0}
 .port__bg svg{width:100%;height:100%}
 .port__v{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(27,42,48,.45) 0%,rgba(27,42,48,.1) 42%,rgba(27,42,48,.55) 100%)}
-.port>*{position:relative;z-index:2}
+  background:linear-gradient(180deg,rgba(27,42,48,.5) 0%,rgba(27,42,48,.12) 38%,rgba(27,42,48,.62) 100%)}
+/* Solo los contenedores de contenido suben de capa.
+   Con .port>* el fondo perdía su position:absolute y empujaba el texto fuera. */
+.port>.w{position:relative;z-index:2}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.2rem 0}
 .nav b{font-family:var(--disp);font-size:1.2rem;font-weight:400}
 .nav b span{display:block;font-family:var(--txt);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
-.port__t{margin-top:auto;max-width:20ch}
-.port__t .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;opacity:.85;margin-bottom:1rem}
+.port__t{margin-top:auto;max-width:20ch;text-shadow:0 2px 18px rgba(15,28,33,.45)}
+.port__t .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;opacity:.9;margin-bottom:1rem}
 .port__t h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:1}
-.port__t h1 em{font-style:italic;color:#F0BCC3}
-.port__t p{max-width:40ch;margin-top:1.2rem;color:rgba(242,239,232,.88);font-size:1.05rem}
-.port__a{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.port__t h1 em{font-style:italic;color:#F5C9CF}
+.port__t p{max-width:40ch;margin-top:1.2rem;color:rgba(242,239,232,.94);font-size:1.05rem}
+.port__a{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;text-shadow:none}
 
 /* Dos columnas desiguales, tipo revista */
 .doble{padding:clamp(2.5rem,6vw,4.5rem) 0}
