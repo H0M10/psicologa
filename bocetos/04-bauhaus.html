@@ -11,10 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: retícula modular con celdas de tamaños distintos.
    Ninguna fila repite proporción. El mapa es una celda más, grande. */
 :root{
+  --mv-bg:#F5F2EA; --mv-fg:#17161A; --mv-acc:#1B3A8C; --mv-line:rgba(23,22,26,.3);
   --azul:#1B3A8C; --teal:#0F6E6E; --ocre:#E0A32E; --tinta:#17161A;
   --papel:#F5F2EA; --hueso:#E8E3D6; --suave:#57565C;
   --disp:'Archivo Black',system-ui,sans-serif; --txt:'Public Sans',system-ui,sans-serif;
@@ -192,6 +194,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:-.035em;text-tra
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

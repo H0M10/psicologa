@@ -11,10 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: cascada en profundidad. Los paneles se montan unos sobre otros
    con desplazamientos negativos y una ligera rotación. Nada alineado. */
 :root{
+  --mv-bg:#141B1E; --mv-fg:#E9F0ED; --mv-acc:#35B98A; --mv-line:rgba(255,255,255,.12);
   --fondo:#0D1214; --p1:#141B1E; --p2:#1B2428; --borde:rgba(255,255,255,.09);
   --texto:#E9F0ED; --suave:#8FA09B;
   --jade:#35B98A; --ambar:#D9A441;
@@ -189,6 +191,7 @@ main,header{position:relative;z-index:1}
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

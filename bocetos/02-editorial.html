@@ -11,10 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..900;1,500..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: revista impresa. Sin tarjetas. Columnas de texto reales,
    numeración colgante, cita destacada y mancheta a sangre. */
 :root{
+  --mv-bg:#F6F3EC; --mv-fg:#12100E; --mv-acc:#1B5E63; --mv-line:rgba(18,16,14,.28);
   --tinta:#12100E; --suave:#54504A; --papel:#F6F3EC; --hueso:#EAE5DA;
   --acento:#1B5E63;                       /* teal: confianza + crecimiento */
   --disp:'Playfair Display',serif; --txt:'Source Serif 4',serif;
@@ -174,6 +176,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.025em}
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

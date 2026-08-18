@@ -11,10 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Public+Sans:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: portada a sangre con isla de contenido montada encima.
    Motivos en escalera desplazada, nunca en fila. Mapa recortado en orgánico. */
 :root{
+  --mv-bg:#F5F2E9; --mv-fg:#14372B; --mv-acc:#C4714E; --mv-line:rgba(20,55,43,.2);
   --bosque:#14372B; --musgo:#2F5B47; --salvia:#7E9B7A; --arcilla:#C4714E;
   --crema:#F5F2E9; --tinta:#12241D; --suave:#4E6259;
   --disp:'Calistoga',Georgia,serif; --txt:'Public Sans',system-ui,sans-serif;
@@ -175,6 +177,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:-.015em}
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

@@ -11,10 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Jost:wght@300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: bandas horizontales de ritmo vertical. Cada banda ocupa todo el
    ancho y se separa con filetes finos. Simetría deliberada, cero tarjetas. */
 :root{
+  --mv-bg:#141A20; --mv-fg:#ECEFF2; --mv-acc:#2E8B7A; --mv-line:rgba(199,204,212,.24);
   --fondo:#0F1419; --banda:#141A20; --texto:#ECEFF2; --suave:#93A0A8;
   --cromo:#C7CCD4; --jade:#2E8B7A; --vino:#8E3247;
   --disp:'Poiret One',system-ui,sans-serif; --txt:'Jost',system-ui,sans-serif;
@@ -169,6 +171,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:.015em}
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

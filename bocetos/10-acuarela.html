@@ -11,11 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Karla:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
 <style>
 /* LAYOUT: portada a sangre con la tipografía encima de la acuarela.
    Después, dos columnas desiguales tipo revista. Motivos como entradas
    de índice con filete, no como tarjetas. */
 :root{
+  --mv-bg:#F2EFE8; --mv-fg:#1B2A30; --mv-acc:#2E6E7E; --mv-line:rgba(27,42,48,.16);
   --agua:#2E6E7E; --agua-h:#1F5563; --rosa:#C4707F; --arena:#F2EFE8;
   --tinta:#1B2A30; --suave:#5A6E76;
   --disp:'Gloock',serif; --txt:'Karla',system-ui,sans-serif;
@@ -200,6 +202,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:-.015em}
 <a class="volver" href="./">← Ver los 10 bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_movil.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>
