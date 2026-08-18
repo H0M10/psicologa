@@ -4,127 +4,176 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#FAFAF8">
+<meta name="theme-color" content="#F6F3EC">
 <title>02 · Editorial — Boceto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..800;1,500..700&family=Karla:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..900;1,500..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..600;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <style>
+/* LAYOUT: revista impresa. Sin tarjetas. Columnas de texto reales,
+   numeración colgante, cita destacada y mancheta a sangre. */
 :root{
-  --tinta:#0D0D0C; --suave:#55534E; --papel:#FAFAF8; --hueso:#EFEDE7;
-  --acento:#B4234A;                      /* un solo acento, bloqueado en toda la página */
-  --disp:'Playfair Display',serif; --txt:'Karla',system-ui,sans-serif;
-  --r:0;                                 /* escala de radio: todo recto */
+  --tinta:#12100E; --suave:#54504A; --papel:#F6F3EC; --hueso:#EAE5DA;
+  --acento:#1B5E63;                       /* teal: confianza + crecimiento */
+  --disp:'Playfair Display',serif; --txt:'Source Serif 4',serif;
   --e:cubic-bezier(.32,.72,0,1);
 }
-body{font-family:var(--txt);background:var(--papel);color:var(--tinta);-webkit-tap-highlight-color:rgba(180,35,74,.14)}
-h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.02em}
-.wrap{width:min(100% - 2.5rem,1180px);margin-inline:auto}
-.volver{background:var(--tinta);color:var(--papel);border-radius:var(--r)}
+body{font-family:var(--txt);background:var(--papel);color:var(--tinta);font-size:1.02rem;
+  -webkit-tap-highlight-color:rgba(27,94,99,.14)}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.025em}
+.w{width:min(100% - 2.5rem,1200px);margin-inline:auto}
+.volver{background:var(--tinta);color:var(--papel);border-radius:0}
 
-.top{border-bottom:1px solid var(--tinta);padding:1.1rem 0}
-.top__in{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
-.marca{font-family:var(--disp);font-size:1.35rem;letter-spacing:-.01em;text-decoration:none}
-.marca i{font-style:normal;color:var(--acento)}
-.top nav{display:flex;gap:1.6rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
-.top nav a{text-decoration:none;color:var(--suave)}
-.top nav a:hover{color:var(--acento)}
+/* Mancheta */
+.mast{border-bottom:3px double var(--tinta);padding:1rem 0 .8rem}
+.mast__in{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.mast h1{font-size:clamp(1.4rem,3.4vw,2.1rem);letter-spacing:-.02em;line-height:1}
+.mast .sub{font-family:var(--txt);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--suave);margin-top:.3rem}
+.mast .fecha{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
 
-/* Portada editorial: rejilla asimétrica, sin centrar */
-.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,5.5rem);border-bottom:1px solid var(--tinta)}
-.hero__g{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:end}
-.folio{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acento);margin-bottom:1.6rem}
-.hero h1{font-size:clamp(2.4rem,7.4vw,5.6rem);line-height:.94;letter-spacing:-.035em}
-.hero h1 em{font-style:italic;color:var(--acento)}
-.hero__col p{font-size:1.02rem;color:var(--suave);border-top:1px solid var(--tinta);padding-top:1rem}
-.acts{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.7rem;background:var(--tinta);color:var(--papel);
-  text-decoration:none;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;border:1px solid var(--tinta);
-  border-radius:var(--r);transition:background .45s var(--e),color .45s var(--e),transform .45s var(--e)}
-.btn:hover{background:var(--acento);border-color:var(--acento);transform:translateY(-2px)}
-.btn:active{transform:translateY(0) scale(.985)}
-.btn--g{background:transparent;color:var(--tinta)}
-.btn--g:hover{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
-.btn svg{width:1.05em;height:1.05em}
+/* Titular a sangre, rompiendo la retícula */
+.apertura{padding:clamp(2rem,5vw,3.5rem) 0 0}
+.apertura .kicker{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--acento);margin-bottom:1.2rem}
+.apertura h2{font-size:clamp(2.6rem,9.5vw,7.5rem);line-height:.86;letter-spacing:-.045em;max-width:14ch}
+.apertura h2 em{font-style:italic;color:var(--acento)}
+.bajada{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);margin-top:2.2rem;
+  border-top:1px solid var(--tinta);padding-top:1.2rem}
+.bajada p{font-size:1.12rem;max-width:44ch}
+.bajada .firma{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);align-self:end}
 
-.figura{margin-top:clamp(2rem,5vw,3.5rem)}
-.figura img{width:100%;aspect-ratio:21/9;object-fit:cover;filter:grayscale(1) contrast(1.05);border-radius:var(--r)}
-.figura figcaption{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suave);margin-top:.7rem}
+.tira{margin-top:2.4rem}
+.tira img{width:100%;aspect-ratio:24/9;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.tira figcaption{font-size:.74rem;color:var(--suave);margin-top:.6rem;border-bottom:1px solid var(--tinta);padding-bottom:1.2rem}
 
-/* Servicios como columnas de periódico */
-.sec{padding:clamp(3rem,7vw,5.5rem) 0}
-.sec h2{font-size:clamp(1.7rem,4.5vw,2.9rem);max-width:16ch;margin-bottom:2.4rem}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid var(--tinta)}
-.col{padding:1.8rem 1.6rem 1.8rem 0;border-right:1px solid var(--tinta)}
-.col:last-child{border-right:0;padding-right:0}
-.col .n{font-family:var(--disp);font-size:.9rem;color:var(--acento);display:block;margin-bottom:.9rem}
-.col h3{font-size:1.45rem;margin-bottom:.55rem}
-.col p{font-size:.94rem;color:var(--suave);max-width:34ch}
+.acc{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.b{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.6rem;background:var(--tinta);color:var(--papel);
+  text-decoration:none;font-family:var(--txt);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--tinta);transition:background .4s var(--e),color .4s var(--e)}
+.b:hover{background:var(--acento);border-color:var(--acento)}
+.b--l{background:transparent;color:var(--tinta)}
+.b--l:hover{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
+.b svg{width:1em;height:1em}
 
-.cta{background:var(--tinta);color:var(--papel);padding:clamp(3rem,7vw,5.5rem) 0}
-.cta__g{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(1.5rem,4vw,3rem);align-items:end}
-.cta h2{font-size:clamp(1.9rem,5.4vw,3.6rem);color:var(--papel);line-height:.98}
-.cta h2 em{font-style:italic;color:#E88DA4}
-.cta p{color:rgba(250,250,248,.66);border-top:1px solid rgba(250,250,248,.3);padding-top:1rem}
-.cta .btn{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
-.cta .btn:hover{background:var(--acento);color:var(--papel);border-color:var(--acento)}
+/* Cuerpo en columnas reales, con capitular */
+.cuerpo{padding:clamp(2.5rem,6vw,4rem) 0}
+.cuerpo .texto{columns:2;column-gap:clamp(1.5rem,4vw,3.2rem);column-rule:1px solid var(--hueso);max-width:none}
+.cuerpo .texto p{margin-bottom:1rem;text-align:justify;hyphens:auto}
+.cuerpo .texto p:first-of-type::first-letter{font-family:var(--disp);font-size:3.6em;line-height:.82;float:left;
+  padding:.06em .1em 0 0;color:var(--acento);font-weight:700}
+
+/* Motivos: lista numerada con número colgante, nunca tarjetas */
+.motivos{border-top:3px double var(--tinta);padding-top:1.6rem}
+.motivos h3.t{font-size:.72rem;font-family:var(--txt);letter-spacing:.3em;text-transform:uppercase;color:var(--acento);margin-bottom:1.6rem}
+.mot{display:grid;grid-template-columns:4.5rem 1fr;gap:1.2rem;padding:1.5rem 0;border-bottom:1px solid var(--hueso)}
+.mot .n{font-family:var(--disp);font-size:2.6rem;line-height:.8;color:var(--hueso);font-weight:700}
+.mot h4{font-family:var(--disp);font-size:1.55rem;font-weight:700;margin-bottom:.35rem;letter-spacing:-.02em}
+.mot p{color:var(--suave);max-width:62ch}
+
+/* Mapa como pieza a sangre con pie de foto */
+.donde{border-top:3px double var(--tinta);padding:clamp(2.5rem,6vw,4rem) 0 0}
+.donde__cab{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;margin-bottom:1.3rem}
+.donde h3{font-size:clamp(1.6rem,4vw,2.5rem)}
+.mapa-caja{position:relative;border:1px solid var(--tinta)}
+#mapa{height:clamp(300px,42vh,440px);width:100%;background:var(--hueso)}
+.leaflet-tile-pane{filter:grayscale(1) contrast(1.05) brightness(1.04)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:block;width:30px;height:30px;border-radius:50%;background:var(--acento);border:2px solid var(--papel);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);display:grid;place-items:center}
+.pin__c{width:9px;height:9px;border-radius:50%;background:var(--papel)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(18,16,14,.34);color:var(--papel);
+  display:grid;place-items:center;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;border:0}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
+.pie-mapa{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;
+  border-bottom:1px solid var(--tinta);padding:.9rem 0 1.4rem;font-size:.9rem}
+.pie-mapa address{font-style:normal;color:var(--suave)}
+
+.cierre{padding:clamp(2.5rem,6vw,4.5rem) 0;text-align:center}
+.cierre blockquote{font-family:var(--disp);font-size:clamp(1.7rem,5vw,3.2rem);line-height:1.06;letter-spacing:-.03em;
+  max-width:18ch;margin:0 auto 1.6rem}
+.cierre blockquote em{font-style:italic;color:var(--acento)}
+.cierre .acc{justify-content:center}
 
 @media(max-width:820px){
-  .hero__g,.cta__g{grid-template-columns:1fr;gap:1.4rem;align-items:start}
-  .top nav{display:none}
-  .col{border-right:0;border-bottom:1px solid var(--tinta);padding-right:0}
-  .col:last-child{border-bottom:0}
-  .acts .btn{flex:1 1 100%;justify-content:center}
-  .figura img{aspect-ratio:4/3}
+  .bajada,.donde__cab,.pie-mapa{grid-template-columns:1fr}
+  .cuerpo .texto{columns:1}
+  .cuerpo .texto p{text-align:left}
+  .mot{grid-template-columns:2.8rem 1fr;gap:.9rem}
+  .mot .n{font-size:1.8rem}
+  .acc .b{flex:1 1 100%;justify-content:center}
+  .tira img{aspect-ratio:4/3}
 }
 </style>
 </head>
 <body>
 
-<header class="top"><div class="wrap top__in">
-  <a class="marca" href="#">Valeria Fuentes<i>.</i></a>
-  <nav aria-label="Secciones"><a href="#s">Terapia</a><a href="#s">Sobre mí</a><a href="#s">Consultorio</a></nav>
+<header class="mast"><div class="w mast__in">
+  <div><h1>Valeria Fuentes</h1><p class="sub">Psicología clínica</p></div>
+  <p class="fecha">Querétaro · Presencial y en línea</p>
 </div></header>
 
-<section class="hero"><div class="wrap">
-  <div class="hero__g">
-    <div class="rv">
-      <p class="folio">Psicología clínica · Querétaro</p>
-      <h1>Un espacio para dejar de <em>cargar con todo</em> en silencio.</h1>
-    </div>
-    <div class="hero__col rv" style="--d:120ms">
+<main class="w">
+
+  <section class="apertura">
+    <p class="kicker rv">Consulta abierta</p>
+    <h2 class="rv" style="--d:80ms">Dejar de <em>cargar con todo</em> en silencio.</h2>
+    <div class="bajada rv" style="--d:160ms">
       <p>Psicoterapia para adultos con ansiedad, tristeza persistente o la sensación de estar al límite. En Querétaro y en línea.</p>
+      <p class="firma">Cédula 00000000 · Ocho años de práctica</p>
     </div>
-  </div>
-  <div class="acts rv" style="--d:200ms">
-    <a class="btn" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
-    <a class="btn btn--g" href="#s">Ver el consultorio</a>
-  </div>
-  <figure class="figura rv" style="--d:280ms">
-    <img src="../assets/img/retrato.svg" alt="Retrato de la psicóloga" width="1600" height="686">
-    <figcaption>Consultorio · Mauricio Garcés 808, La Joya</figcaption>
-  </figure>
-</div></section>
+    <div class="acc rv" style="--d:220ms">
+      <a class="b" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
+      <a class="b b--l" href="#donde">Ver el consultorio</a>
+    </div>
+    <figure class="tira rv" style="--d:280ms">
+      <img src="../assets/img/retrato.svg" alt="Retrato de la psicóloga" width="1600" height="600">
+      <figcaption>Consultorio · Mauricio Garcés 808, La Joya</figcaption>
+    </figure>
+  </section>
 
-<section class="sec" id="s"><div class="wrap">
-  <h2 class="rv">Motivos frecuentes de consulta</h2>
-  <div class="cols">
-    <article class="col rv"><span class="n">I</span><h3>Ansiedad y estrés</h3><p>Pensamientos que no paran, tensión en el cuerpo, la sensación de estar siempre alerta.</p></article>
-    <article class="col rv" style="--d:90ms"><span class="n">II</span><h3>Tristeza y duelo</h3><p>Cuando algo perdió sentido, o una pérdida sigue doliendo más de lo que crees que debería.</p></article>
-    <article class="col rv" style="--d:180ms"><span class="n">III</span><h3>Autoestima y vínculos</h3><p>Relaciones que se repiten, dificultad para poner límites, esa voz que nunca está conforme.</p></article>
-  </div>
-</div></section>
+  <section class="cuerpo">
+    <div class="texto rv">
+      <p>No hace falta tocar fondo para pedir una cita. La mayoría de quienes llegan a consulta no están en crisis: están cansados de sostenerlo todo, de dormir mal, de responder «bien» cuando no lo están.</p>
+      <p>En consulta no vas a encontrar un diagnóstico apresurado ni consejos de manual. Vas a encontrar a alguien que escucha en serio, que pregunta lo que hay que preguntar y que trabaja contigo a tu ritmo.</p>
+      <p>La terapia tiene un principio y también un final. Acordamos objetivos claros y revisamos avances cada cierto tiempo, para que sepas siempre dónde estamos parados.</p>
+    </div>
+  </section>
 
-<section class="cta"><div class="wrap cta__g">
-  <h2 class="rv">¿Lo pensamos <em>juntos</em>?</h2>
-  <div class="rv" style="--d:120ms">
-    <p>Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso de agendar.</p>
-    <div class="acts"><a class="btn" href="#">Escribir por WhatsApp</a></div>
-  </div>
-</div></section>
+  <section class="motivos">
+    <h3 class="t rv">Motivos frecuentes de consulta</h3>
+    <article class="mot rv"><span class="n">01</span><div><h4>Ansiedad y estrés</h4><p>Pensamientos que no paran, tensión en el cuerpo, dificultad para dormir o la sensación de estar siempre alerta.</p></div></article>
+    <article class="mot rv" style="--d:70ms"><span class="n">02</span><div><h4>Tristeza y duelo</h4><p>Cuando algo perdió sentido, cuesta levantarse o una pérdida sigue doliendo más de lo que crees que debería.</p></div></article>
+    <article class="mot rv" style="--d:140ms"><span class="n">03</span><div><h4>Autoestima y vínculos</h4><p>Relaciones que se repiten, dificultad para poner límites, esa voz interna que nunca está conforme.</p></div></article>
+  </section>
+
+  <section class="donde" id="donde">
+    <div class="donde__cab rv">
+      <h3>Dónde nos vemos</h3>
+      <p class="fecha">Estacionamiento en la calle</p>
+    </div>
+    <div class="mapa-caja rv">
+      <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="16" role="application" aria-label="Mapa del consultorio"></div>
+      <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+      <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+    </div>
+    <div class="pie-mapa">
+      <address>Mauricio Garcés 808, La Joya · 76180 Santiago de Querétaro, Qro.</address>
+      <a class="b b--l" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+  </section>
+
+  <section class="cierre">
+    <blockquote class="rv">¿Lo pensamos <em>juntos</em>?</blockquote>
+    <div class="acc rv" style="--d:100ms"><a class="b" href="#">Escribir por WhatsApp</a></div>
+  </section>
+
+</main>
 
 <a class="volver" href="./">← Ver los 10 bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>

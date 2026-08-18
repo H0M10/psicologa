@@ -4,149 +4,177 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F4F6F1">
+<meta name="theme-color" content="#14372B">
 <title>03 · Botánico — Boceto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Mulish:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Public+Sans:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <style>
+/* LAYOUT: portada a sangre con isla de contenido montada encima.
+   Motivos en escalera desplazada, nunca en fila. Mapa recortado en orgánico. */
 :root{
-  --bosque:#1E3A2F; --hoja:#3D6B54; --tinta:#16211C; --suave:#54665D;
-  --papel:#F4F6F1; --nube:#E6EDE4;
-  --acento:#E4705E;                      /* coral: único acento, bloqueado */
-  --disp:'Cormorant Garamond',serif; --txt:'Mulish',system-ui,sans-serif;
-  --r:18px;                              /* escala de radio: todo suave */
+  --bosque:#14372B; --musgo:#2F5B47; --salvia:#7E9B7A; --arcilla:#C4714E;
+  --crema:#F5F2E9; --tinta:#12241D; --suave:#4E6259;
+  --disp:'Calistoga',Georgia,serif; --txt:'Public Sans',system-ui,sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
 }
-body{font-family:var(--txt);background:var(--papel);color:var(--tinta);-webkit-tap-highlight-color:rgba(228,112,94,.16)}
-h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.01em}
-.wrap{width:min(100% - 2.5rem,1140px);margin-inline:auto}
-.volver{background:var(--bosque);color:var(--papel);border-radius:999px}
+body{font-family:var(--txt);background:var(--crema);color:var(--tinta);-webkit-tap-highlight-color:rgba(196,113,78,.18)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:-.015em}
+.w{width:min(100% - 2.5rem,1180px);margin-inline:auto}
+.volver{background:var(--bosque);color:var(--crema);border-radius:999px}
 
-.top{padding:1.3rem 0}
-.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.marca{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.marca svg{width:2.3rem;height:2.3rem;color:var(--hoja)}
-.marca b{font-family:var(--disp);font-size:1.3rem;font-weight:600;display:block;line-height:1.05}
-.marca span{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
+.b{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.7rem;border-radius:999px;background:var(--arcilla);
+  color:var(--crema);text-decoration:none;font-size:.9rem;font-weight:600;border:2px solid transparent;
+  transition:transform .4s var(--e),background .4s var(--e)}
+.b:hover{transform:translateY(-3px);background:#B0623F}
+.b:active{transform:none}
+.b--l{background:transparent;color:var(--crema);border-color:rgba(245,242,233,.45)}
+.b--l:hover{background:rgba(245,242,233,.14)}
+.b--o{background:transparent;color:var(--bosque);border-color:var(--bosque)}
+.b--o:hover{background:var(--bosque);color:var(--crema)}
+.b svg{width:1.05em;height:1.05em}
 
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:999px;
-  background:var(--bosque);color:var(--papel);text-decoration:none;font-size:.88rem;font-weight:600;
-  border:1.5px solid var(--bosque);transition:background .4s var(--e),transform .4s var(--e),box-shadow .4s var(--e);
-  box-shadow:0 6px 18px -10px rgba(30,58,47,.7)}
-.btn:hover{background:var(--hoja);transform:translateY(-3px);box-shadow:0 14px 26px -14px rgba(30,58,47,.75)}
-.btn:active{transform:translateY(0) scale(.98)}
-.btn--g{background:transparent;color:var(--bosque);box-shadow:none}
-.btn--g:hover{background:var(--nube);color:var(--bosque)}
-.btn svg{width:1.1em;height:1.1em}
-.btn--sm{padding:.6rem 1.2rem;font-size:.78rem}
+/* Portada a sangre: el verde ocupa toda la parte alta */
+.port{background:var(--bosque);color:var(--crema);padding:1.2rem 0 clamp(5rem,12vw,9rem);position:relative;overflow:hidden}
+.port::after{content:'';position:absolute;width:60vw;max-width:700px;aspect-ratio:1;border-radius:48% 52% 44% 56%/54% 46% 54% 46%;
+  background:rgba(126,155,122,.22);top:-24%;right:-14%;pointer-events:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;z-index:2}
+.nav b{font-family:var(--disp);font-size:1.2rem;font-weight:400}
+.nav b span{display:block;font-family:var(--txt);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+.port__t{position:relative;z-index:2;max-width:19ch;margin-top:clamp(2.5rem,6vw,4rem)}
+.port__t .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--salvia);margin-bottom:1.1rem}
+.port__t h1{font-size:clamp(2.4rem,7.6vw,5rem);line-height:1.02}
+.port__t h1 em{font-style:normal;color:var(--arcilla)}
+.port__t p{max-width:40ch;margin-top:1.2rem;color:rgba(245,242,233,.8);font-size:1.05rem}
+.port__a{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;position:relative;z-index:2}
 
-/* Portada: formas orgánicas superpuestas, nada de rectángulos duros */
-.hero{position:relative;padding:clamp(2rem,5vw,4rem) 0 clamp(3rem,7vw,5.5rem);overflow:hidden}
-.blob{position:absolute;border-radius:60% 40% 55% 45%/50% 55% 45% 50%;pointer-events:none}
-.blob--1{width:38vw;max-width:520px;aspect-ratio:1;background:var(--nube);top:-14%;right:-8%}
-.blob--2{width:20vw;max-width:250px;aspect-ratio:1;background:rgba(228,112,94,.16);bottom:2%;left:-6%}
-.hero__g{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-.pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
-  background:var(--nube);color:var(--bosque);padding:.45rem 1rem;border-radius:999px;margin-bottom:1.3rem}
-.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;color:var(--bosque)}
-.hero h1 em{font-style:italic;color:var(--acento)}
-.hero>.wrap>.hero__g p.sub{font-size:1.06rem;color:var(--suave);max-width:42ch;margin-top:1.2rem}
-.acts{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+/* Isla montada sobre el corte de color */
+.isla{margin-top:clamp(-4rem,-7vw,-6rem);position:relative;z-index:3}
+.isla__g{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;background:var(--crema);
+  border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(18,36,29,.7)}
+.isla img{width:100%;height:100%;object-fit:cover;min-height:17rem}
+.isla__t{padding:clamp(1.8rem,4vw,2.8rem)}
+.isla__t h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin-bottom:.8rem}
+.isla__t p{color:var(--suave);max-width:52ch}
+.isla__t p+p{margin-top:.8rem}
 
-.foto{position:relative;justify-self:center;width:min(100%,400px)}
-.foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px var(--r) var(--r);border:1.5px solid rgba(30,58,47,.2)}
-.hojas{position:absolute;bottom:-1.5rem;left:-1.5rem;width:6.5rem;color:var(--hoja);opacity:.85}
+/* Motivos en escalera: cada uno desplazado, nunca alineados en fila */
+.mot{padding:clamp(3rem,7vw,5rem) 0}
+.mot>h2{font-size:clamp(1.7rem,4.2vw,2.6rem);max-width:16ch;margin-bottom:2.2rem}
+.esc{display:grid;gap:1.1rem}
+.esc article{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start;
+  background:#fff;border-radius:20px;padding:1.6rem 1.7rem;max-width:46rem;
+  transition:transform .5s var(--e),box-shadow .5s var(--e)}
+.esc article:nth-child(2){margin-left:auto;margin-right:0}
+.esc article:nth-child(3){margin-left:clamp(0rem,8vw,7rem)}
+.esc article:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(18,36,29,.55)}
+.esc .h{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;flex:none}
+.esc .h svg{width:1.3rem;height:1.3rem}
+.esc h3{font-size:1.35rem;margin-bottom:.3rem}
+.esc p{color:var(--suave);font-size:.96rem;max-width:50ch}
 
-.sec{padding:clamp(3rem,7vw,5.5rem) 0;background:var(--nube)}
-.sec h2{font-size:clamp(1.8rem,4.6vw,2.9rem);color:var(--bosque);max-width:17ch;margin-bottom:2.2rem}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1.2rem}
-.card{background:var(--papel);border-radius:var(--r);padding:1.9rem 1.6rem;
-  transition:transform .5s var(--e),box-shadow .5s var(--e);box-shadow:0 2px 10px -6px rgba(30,58,47,.3)}
-.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -26px rgba(30,58,47,.6)}
-.card .ic{width:2.8rem;height:2.8rem;border-radius:50%;display:grid;place-items:center;
-  background:rgba(61,107,84,.13);color:var(--hoja);margin-bottom:1.1rem}
-.card .ic svg{width:1.4rem;height:1.4rem}
-.card h3{font-size:1.5rem;color:var(--bosque);margin-bottom:.45rem}
-.card p{font-size:.95rem;color:var(--suave)}
+/* Mapa recortado en forma orgánica */
+.donde{padding:0 0 clamp(3rem,7vw,5rem)}
+.donde__g{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.donde h2{font-size:clamp(1.7rem,4.2vw,2.4rem);margin-bottom:.8rem}
+.donde address{font-style:normal;color:var(--suave);line-height:1.7}
+.donde .b{margin-top:1.4rem}
+.mapa-caja{position:relative;border-radius:200px 26px 200px 26px;overflow:hidden;border:3px solid var(--bosque)}
+#mapa{height:clamp(300px,44vh,430px);width:100%;background:#E6EDE4}
+.leaflet-tile-pane{filter:sepia(.22) saturate(.9) hue-rotate(50deg) brightness(1.03)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:block;width:30px;height:30px;border-radius:50%;background:var(--arcilla);border:3px solid var(--crema);
+  box-shadow:0 5px 14px rgba(18,36,29,.5);display:grid;place-items:center}
+.pin__c{width:8px;height:8px;border-radius:50%;background:var(--crema)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(20,55,43,.35);color:var(--crema);
+  display:grid;place-items:center;font-size:.8rem;font-weight:600;border:0}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
 
-.cta{padding:clamp(3rem,7vw,5.5rem) 0;background:var(--bosque);color:var(--papel);position:relative;overflow:hidden}
-.cta .blob--3{position:absolute;width:34vw;max-width:420px;aspect-ratio:1;border-radius:55% 45% 50% 50%/48% 52% 48% 52%;
-  background:rgba(228,112,94,.18);top:-18%;right:-6%;pointer-events:none}
-.cta__in{position:relative;z-index:2;text-align:center}
-.cta h2{font-size:clamp(1.9rem,5vw,3.2rem);color:var(--papel);max-width:19ch;margin-inline:auto}
-.cta h2 em{font-style:italic;color:#F0A093}
-.cta p{color:rgba(244,246,241,.72);max-width:44ch;margin:1.1rem auto 0}
-.cta .btn{background:var(--papel);color:var(--bosque);border-color:var(--papel)}
-.cta .btn:hover{background:var(--acento);color:var(--papel);border-color:var(--acento)}
-.acts--c{justify-content:center;margin-top:2rem}
+.cierre{background:var(--musgo);color:var(--crema);padding:clamp(3rem,7vw,5rem) 0;text-align:center}
+.cierre h2{font-size:clamp(1.8rem,4.8vw,3rem);max-width:18ch;margin-inline:auto}
+.cierre h2 em{font-style:normal;color:var(--salvia)}
+.cierre p{color:rgba(245,242,233,.75);max-width:44ch;margin:1rem auto 0}
+.cierre .a{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
 
-@media(max-width:820px){
-  .hero__g{grid-template-columns:1fr;gap:2rem}
-  .foto{order:-1;width:min(66%,240px)}
-  .acts .btn{flex:1 1 100%;justify-content:center}
-  .top .btn{display:none}
+@media(max-width:860px){
+  .isla__g,.donde__g{grid-template-columns:1fr}
+  .isla{margin-top:-3rem}
+  .esc article,.esc article:nth-child(2),.esc article:nth-child(3){margin:0;max-width:none}
+  .port__a .b,.cierre .a .b{flex:1 1 100%;justify-content:center}
+  .nav .b{display:none}
+  .mapa-caja{border-radius:120px 20px 120px 20px}
 }
 </style>
 </head>
 <body>
 
-<header class="top"><div class="wrap top__in">
-  <a class="marca" href="#">
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V13"/><path d="M16 17c0-5 4-9 9-9 0 5-4 9-9 9Z" fill="currentColor" fill-opacity=".18"/><path d="M16 21c0-4-3-7-7-7 0 4 3 7 7 7Z" fill="currentColor" fill-opacity=".12"/></svg>
-    <span><b>Valeria Fuentes</b><span>Psicología clínica</span></span>
-  </a>
-  <a class="btn btn--sm" href="#">Agendar</a>
-</div></header>
-
-<section class="hero">
-  <div class="blob blob--1"></div><div class="blob blob--2"></div>
-  <div class="wrap"><div class="hero__g">
-    <div class="rv">
-      <p class="pill">Presencial y en línea</p>
-      <h1>Un espacio para dejar de <em>cargar con todo</em> en silencio.</h1>
-      <p class="sub">Psicoterapia para adultos con ansiedad, tristeza persistente o la sensación de estar al límite. En Querétaro y en línea.</p>
-      <div class="acts">
-        <a class="btn" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
-        <a class="btn btn--g" href="#s">Ver el consultorio</a>
-      </div>
+<section class="port">
+  <div class="w">
+    <nav class="nav"><b>Valeria Fuentes<span>Psicología clínica</span></b><a class="b b--l" href="#">Agendar</a></nav>
+    <div class="port__t">
+      <p class="k rv">Presencial y en línea</p>
+      <h1 class="rv" style="--d:80ms">Un espacio para dejar de <em>cargar con todo</em> en silencio.</h1>
+      <p class="rv" style="--d:160ms">Psicoterapia para adultos con ansiedad, tristeza persistente o la sensación de estar al límite. En Querétaro y en línea.</p>
     </div>
-    <figure class="foto rv" style="--d:140ms">
-      <img src="../assets/img/retrato.svg" alt="Retrato de la psicóloga" width="800" height="1000">
-      <svg class="hojas" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M50 95V35"/><path d="M50 55c0-16 13-29 29-29 0 16-13 29-29 29Z"/><path d="M50 72c0-13-11-24-24-24 0 13 11 24 24 24Z"/></svg>
-    </figure>
-  </div></div>
+    <div class="port__a rv" style="--d:220ms">
+      <a class="b" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
+      <a class="b b--l" href="#donde">Ver el consultorio</a>
+    </div>
+  </div>
 </section>
 
-<section class="sec" id="s"><div class="wrap">
+<section class="isla"><div class="w"><div class="isla__g rv">
+  <img src="../assets/img/retrato.svg" alt="Retrato de la psicóloga" width="800" height="1000">
+  <div class="isla__t">
+    <h2>Mucho gusto, soy Valeria</h2>
+    <p>Llevo más de ocho años acompañando a adultos que llegan agotados de sostenerlo todo. Me formé en terapia cognitivo-conductual con perspectiva humanista.</p>
+    <p>Elegí esta profesión porque crecí viendo lo caro que sale callar lo que duele. Aquí no hay diagnósticos apresurados ni consejos de manual.</p>
+  </div>
+</div></div></section>
+
+<section class="mot"><div class="w">
   <h2 class="rv">Motivos frecuentes de consulta</h2>
-  <div class="cards">
-    <article class="card rv">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 2h4"/></svg></div>
-      <h3>Ansiedad y estrés</h3><p>Pensamientos que no paran, tensión en el cuerpo, la sensación de estar siempre alerta.</p>
+  <div class="esc">
+    <article class="rv" style="--c:#C4714E">
+      <span class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 2h4"/></svg></span>
+      <div><h3>Ansiedad y estrés</h3><p>Pensamientos que no paran, tensión en el cuerpo, dificultad para dormir o la sensación de estar siempre alerta.</p></div>
     </article>
-    <article class="card rv" style="--d:90ms">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg></div>
-      <h3>Tristeza y duelo</h3><p>Cuando algo perdió sentido, o una pérdida sigue doliendo más de lo que crees que debería.</p>
+    <article class="rv" style="--c:#2F5B47;--d:80ms">
+      <span class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg></span>
+      <div><h3>Tristeza y duelo</h3><p>Cuando algo perdió sentido, cuesta levantarse o una pérdida sigue doliendo más de lo que crees que debería.</p></div>
     </article>
-    <article class="card rv" style="--d:180ms">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg></div>
-      <h3>Autoestima y vínculos</h3><p>Relaciones que se repiten, dificultad para poner límites, esa voz que nunca está conforme.</p>
+    <article class="rv" style="--c:#7E9B7A;--d:160ms">
+      <span class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg></span>
+      <div><h3>Autoestima y vínculos</h3><p>Relaciones que se repiten, dificultad para poner límites, esa voz interna que nunca está conforme.</p></div>
     </article>
   </div>
 </div></section>
 
-<section class="cta">
-  <div class="blob--3"></div>
-  <div class="wrap cta__in">
-    <h2 class="rv">¿Lo pensamos <em>juntos</em>?</h2>
-    <p class="rv" style="--d:100ms">Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso de agendar.</p>
-    <div class="acts acts--c rv" style="--d:180ms"><a class="btn" href="#">Escribir por WhatsApp</a></div>
+<section class="donde" id="donde"><div class="w donde__g">
+  <div class="rv">
+    <h2>Dónde nos vemos</h2>
+    <address>Mauricio Garcés 808, interior<br>La Joya, 76180<br>Santiago de Querétaro, Qro.</address>
+    <a class="b b--o" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Cómo llegar</a>
   </div>
-</section>
+  <div class="mapa-caja rv" style="--d:120ms">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="16" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
+</div></section>
+
+<section class="cierre"><div class="w">
+  <h2 class="rv">¿Lo pensamos <em>juntos</em>?</h2>
+  <p class="rv" style="--d:90ms">Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso de agendar.</p>
+  <div class="a rv" style="--d:160ms"><a class="b" href="#">Escribir por WhatsApp</a></div>
+</div></section>
 
 <a class="volver" href="./">← Ver los 10 bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>
