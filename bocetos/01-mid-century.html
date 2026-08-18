@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,0..100,0..1;1,9..144,400..700,0..100,0..1&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <style>
 :root{
@@ -91,6 +92,25 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing
   .acts .btn{flex:1 1 100%;justify-content:center}
   .top .btn{display:none}
 }
+
+/* --- Mapa (unica adicion; el resto del diseno queda intacto) --- */
+.donde{padding:clamp(3rem,7vw,6rem) 0;background:var(--fondo)}
+.donde h2{font-size:clamp(1.7rem,4.4vw,2.7rem);margin-bottom:1.4rem}
+.mapa-caja{position:relative;border:3px solid var(--tinta);border-radius:20px;overflow:hidden;
+  box-shadow:10px 10px 0 -2px var(--a1)}
+#mapa{height:clamp(300px,42vh,430px);width:100%;background:#EADCC6}
+.leaflet-tile-pane{filter:sepia(.28) saturate(.86) hue-rotate(-8deg) brightness(1.04) contrast(.95)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:block;width:28px;height:28px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);
+  background:var(--a2);border:2.5px solid var(--tinta);display:grid;place-items:center}
+.pin__c{width:9px;height:9px;border-radius:50%;background:var(--fondo)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(46,38,34,.36);color:var(--fondo);border:0;
+  display:grid;place-items:center;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
+.dd{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:1.3rem}
+.dd address{font-style:normal;color:var(--suave)}
+@media(max-width:860px){.mapa-caja{box-shadow:6px 6px 0 -1px var(--a1)}.dd .btn{flex:1 1 100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -151,6 +171,22 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing
   </div>
 </section>
 
+
+<section class="donde" id="donde"><div class="wrap">
+  <h2>Dónde nos vemos</h2>
+  <div class="mapa-caja">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="16" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
+  <div class="dd">
+    <address>Mauricio Garcés 808, La Joya · 76180 Santiago de Querétaro, Qro.</address>
+    <a class="btn btn--l" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Cómo llegar</a>
+  </div>
+</div></section>
+
 <a class="volver" href="./">← Ver los 10 bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
 </body>
 </html>

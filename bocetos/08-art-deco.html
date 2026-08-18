@@ -4,139 +4,171 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0A0A0C">
+<meta name="theme-color" content="#0F1419">
 <title>08 · Art Déco — Boceto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Jost:wght@300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <style>
+/* LAYOUT: bandas horizontales de ritmo vertical. Cada banda ocupa todo el
+   ancho y se separa con filetes finos. Simetría deliberada, cero tarjetas. */
 :root{
-  --fondo:#0A0A0C; --sup:#121216; --texto:#EDEEF0; --suave:#9A9EA6;
-  --cromo:#C9CDD4; --linea:rgba(201,205,212,.22);
-  --acento:#8E3247;                      /* vino: único acento — déco sin latón */
+  --fondo:#0F1419; --banda:#141A20; --texto:#ECEFF2; --suave:#93A0A8;
+  --cromo:#C7CCD4; --jade:#2E8B7A; --vino:#8E3247;
   --disp:'Poiret One',system-ui,sans-serif; --txt:'Jost',system-ui,sans-serif;
-  --r:0;                                 /* déco: aristas rectas */
   --e:cubic-bezier(.32,.72,0,1);
 }
-body{font-family:var(--txt);background:var(--fondo);color:var(--texto);-webkit-tap-highlight-color:rgba(142,50,71,.28)}
-h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:.01em}
-.wrap{width:min(100% - 2.5rem,1120px);margin-inline:auto}
-.volver{background:var(--acento);color:var(--texto);border-radius:var(--r)}
+body{font-family:var(--txt);background:var(--fondo);color:var(--texto);font-weight:300;
+  -webkit-tap-highlight-color:rgba(46,139,122,.24)}
+h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:.015em}
+.w{width:min(100% - 2.5rem,1020px);margin-inline:auto}
+.volver{background:var(--jade);color:var(--fondo);border-radius:0}
 
-.top{padding:1.3rem 0;border-bottom:1px solid var(--linea)}
-.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.marca{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.marca svg{width:2.4rem;height:2.4rem;color:var(--cromo)}
-.marca b{font-family:var(--disp);font-size:1.25rem;letter-spacing:.06em;display:block;line-height:1.1}
-.marca span{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--suave)}
+/* Filete déco: tres rayas decrecientes, se repite como separador */
+.filete{display:flex;align-items:center;justify-content:center;gap:.3rem;padding:1.4rem 0}
+.filete i{display:block;height:1px;background:var(--cromo);opacity:.55}
+.filete i:nth-child(1),.filete i:nth-child(5){width:2.6rem}
+.filete i:nth-child(2),.filete i:nth-child(4){width:1.3rem}
+.filete i:nth-child(3){width:.5rem;height:.5rem;background:var(--jade);transform:rotate(45deg);opacity:1}
 
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.9rem;background:transparent;color:var(--texto);
-  text-decoration:none;font-size:.74rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
-  border:1px solid var(--cromo);border-radius:var(--r);position:relative;
-  transition:color .45s var(--e),border-color .45s var(--e),background .45s var(--e)}
-.btn:hover{background:var(--cromo);color:var(--fondo)}
-.btn:active{transform:scale(.985)}
-.btn--v{border-color:var(--acento);background:var(--acento)}
-.btn--v:hover{background:#A03B53;border-color:#A03B53;color:var(--texto)}
-.btn svg{width:1.05em;height:1.05em}
-.btn--sm{padding:.55rem 1.2rem;font-size:.64rem}
+.b{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.9rem;background:transparent;color:var(--texto);
+  text-decoration:none;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  border:1px solid var(--cromo);transition:background .45s var(--e),color .45s var(--e)}
+.b:hover{background:var(--cromo);color:var(--fondo)}
+.b:active{transform:scale(.99)}
+.b--j{border-color:var(--jade);background:var(--jade);color:var(--fondo)}
+.b--j:hover{background:#37A38E;border-color:#37A38E;color:var(--fondo)}
+.b svg{width:1.05em;height:1.05em}
 
-/* Composición simétrica: el déco es orden y espejo */
-.hero{padding:clamp(3rem,7vw,5.5rem) 0;text-align:center;position:relative;overflow:hidden}
-.abanico{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(92vw,780px);opacity:.2;color:var(--cromo);pointer-events:none}
-.hero__in{position:relative;z-index:2}
-.rayas{display:flex;align-items:center;justify-content:center;gap:.35rem;margin-bottom:1.6rem}
-.rayas i{display:block;height:1px;background:var(--cromo);opacity:.6}
-.rayas i:nth-child(1){width:3rem}.rayas i:nth-child(2){width:1.6rem}.rayas i:nth-child(3){width:.7rem}
-.eyeb{font-size:.64rem;letter-spacing:.4em;text-transform:uppercase;color:var(--acento);margin-bottom:1.2rem}
-.hero h1{font-size:clamp(2.2rem,7vw,4.8rem);line-height:1.02;letter-spacing:.005em}
-.hero h1 em{font-style:italic;color:var(--cromo)}
-.hero .sub{font-size:1.02rem;color:var(--suave);max-width:46ch;margin:1.5rem auto 0;font-weight:300}
-.acts{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2.3rem}
+.top{padding:1.2rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  border-bottom:1px solid rgba(199,204,212,.18)}
+.top b{font-family:var(--disp);font-size:1.2rem;letter-spacing:.05em;font-weight:400}
+.top b span{display:block;font-family:var(--txt);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--suave)}
 
-.sec{padding:clamp(3rem,7vw,5.5rem) 0;border-top:1px solid var(--linea)}
-.sec h2{font-size:clamp(1.8rem,4.6vw,3rem);text-align:center;margin-bottom:.6rem}
-.sec .lead{text-align:center;color:var(--suave);font-weight:300;max-width:44ch;margin:0 auto 2.6rem}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
-.card{background:var(--sup);border:1px solid var(--linea);padding:2.2rem 1.7rem;text-align:center;position:relative;
-  transition:border-color .5s var(--e),transform .5s var(--e)}
-.card::before,.card::after{content:'';position:absolute;width:14px;height:14px;border:1px solid var(--acento);opacity:0;
-  transition:opacity .5s var(--e)}
-.card::before{top:8px;left:8px;border-right:0;border-bottom:0}
-.card::after{bottom:8px;right:8px;border-left:0;border-top:0}
-.card:hover{border-color:var(--cromo);transform:translateY(-5px)}
-.card:hover::before,.card:hover::after{opacity:1}
-.card .sun{width:3rem;height:3rem;margin:0 auto 1.2rem;color:var(--acento)}
-.card h3{font-size:1.4rem;margin-bottom:.5rem}
-.card p{font-size:.93rem;color:var(--suave);font-weight:300}
+/* Banda 1: apertura simétrica con abanico */
+.banda{padding:clamp(2.5rem,6vw,4.5rem) 0;text-align:center;position:relative}
+.banda--alt{background:var(--banda)}
+.abanico{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(90vw,660px);opacity:.16;color:var(--cromo);pointer-events:none}
+.banda__in{position:relative;z-index:2}
+.eyeb{font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);margin-bottom:1.1rem}
+.banda h1{font-size:clamp(2.1rem,6.6vw,4.4rem);line-height:1.04}
+.banda h1 em{font-style:italic;color:var(--cromo)}
+.banda .sub{color:var(--suave);max-width:46ch;margin:1.4rem auto 0;font-size:1.02rem}
+.acc{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2rem}
 
-.cta{padding:clamp(3rem,7vw,5.5rem) 0;text-align:center;border-top:1px solid var(--linea);background:var(--sup)}
-.cta h2{font-size:clamp(1.9rem,5vw,3.4rem);max-width:20ch;margin-inline:auto}
-.cta h2 em{font-style:italic;color:var(--acento)}
-.cta p{color:var(--suave);max-width:44ch;margin:1.2rem auto 0;font-weight:300}
+/* Banda 2: retrato en marco de arco, centrado */
+.retrato{width:min(100%,17rem);margin:0 auto 1.6rem}
+.retrato img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 0 0;
+  border:1px solid rgba(199,204,212,.4)}
+.banda h2{font-size:clamp(1.6rem,4.2vw,2.6rem);margin-bottom:.7rem}
+.banda p.cuerpo{color:var(--suave);max-width:56ch;margin-inline:auto}
+.banda p.cuerpo+p.cuerpo{margin-top:.8rem}
 
-@media(max-width:820px){
-  .acts .btn{flex:1 1 100%;justify-content:center}
-  .top .btn{display:none}
+/* Motivos: bandas verticales con numeral romano, sin tarjetas */
+.mot{border-top:1px solid rgba(199,204,212,.18)}
+.mot__f{display:grid;grid-template-columns:5rem 1fr;gap:1.6rem;align-items:baseline;text-align:left;
+  padding:1.7rem 0;border-bottom:1px solid rgba(199,204,212,.12);
+  transition:background .45s var(--e),padding-left .45s var(--e)}
+.mot__f:hover{background:rgba(46,139,122,.07);padding-left:.8rem}
+.mot__f .r{font-family:var(--disp);font-size:1.7rem;color:var(--jade);text-align:right}
+.mot__f h3{font-size:1.45rem;margin-bottom:.3rem}
+.mot__f p{color:var(--suave);font-size:.96rem;max-width:60ch}
+
+/* Banda del mapa: a todo el ancho, con marco de filete */
+.mapa-marco{border:1px solid rgba(199,204,212,.4);padding:.5rem;position:relative}
+.mapa-caja{position:relative;overflow:hidden}
+#mapa{height:clamp(300px,44vh,430px);width:100%;background:var(--banda)}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(185deg) brightness(.8) contrast(1.15) saturate(.35)}
+.leaflet-container{background:var(--banda);font-family:var(--txt)}
+.leaflet-control-attribution{background:rgba(15,20,25,.85)!important;color:var(--suave)!important}
+.leaflet-control-attribution a{color:var(--jade)!important}
+.pin{display:block;width:26px;height:26px;background:var(--jade);transform:rotate(45deg);
+  border:2px solid var(--fondo);display:grid;place-items:center}
+.pin__c{width:7px;height:7px;background:var(--fondo)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(15,20,25,.5);color:var(--texto);border:0;
+  display:grid;place-items:center;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
+.dd{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;margin-top:1.3rem}
+.dd address{font-style:normal;color:var(--suave);font-size:.95rem}
+
+@media(max-width:760px){
+  .mot__f{grid-template-columns:2.6rem 1fr;gap:1rem}
+  .mot__f .r{font-size:1.2rem}
+  .acc .b{flex:1 1 100%;justify-content:center}
+  .top .b{display:none}
 }
 </style>
 </head>
 <body>
 
-<header class="top"><div class="wrap top__in">
-  <a class="marca" href="#">
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z"/><path d="M16 8 24 16l-8 8-8-8Z"/><circle cx="16" cy="16" r="2.5" fill="currentColor"/></svg>
-    <span><b>Valeria Fuentes</b><span>Psicología clínica</span></span>
-  </a>
-  <a class="btn btn--sm" href="#">Agendar</a>
-</div></header>
+<header class="top w">
+  <b>Valeria Fuentes<span>Psicología clínica</span></b>
+  <a class="b" href="#">Agendar</a>
+</header>
 
-<section class="hero">
-  <svg class="abanico" viewBox="0 0 400 200" fill="none" stroke="currentColor" stroke-width=".8" aria-hidden="true">
-    <path d="M200 200A130 130 0 0 1 70 70"/><path d="M200 200A130 130 0 0 0 330 70"/>
-    <path d="M200 200A100 100 0 0 1 100 100"/><path d="M200 200A100 100 0 0 0 300 100"/>
-    <path d="M200 200A70 70 0 0 1 130 130"/><path d="M200 200A70 70 0 0 0 270 130"/>
-    <path d="M200 200V40M200 40l-14 22h28Z"/>
+<section class="banda">
+  <svg class="abanico" viewBox="0 0 400 190" fill="none" stroke="currentColor" stroke-width=".7" aria-hidden="true">
+    <path d="M200 190A140 140 0 0 1 60 50"/><path d="M200 190A140 140 0 0 0 340 50"/>
+    <path d="M200 190A105 105 0 0 1 95 85"/><path d="M200 190A105 105 0 0 0 305 85"/>
+    <path d="M200 190A70 70 0 0 1 130 120"/><path d="M200 190A70 70 0 0 0 270 120"/>
+    <path d="M200 190V20M200 20l-13 20h26Z"/>
   </svg>
-  <div class="wrap hero__in">
-    <div class="rayas rv"><i></i><i></i><i></i></div>
+  <div class="w banda__in">
+    <div class="filete rv"><i></i><i></i><i></i><i></i><i></i></div>
     <p class="eyeb rv" style="--d:60ms">Presencial y en línea</p>
-    <h1 class="rv" style="--d:120ms">Un espacio para dejar de <em>cargar con todo</em> en silencio.</h1>
-    <p class="sub rv" style="--d:200ms">Psicoterapia para adultos con ansiedad, tristeza persistente o la sensación de estar al límite. En Querétaro y en línea.</p>
-    <div class="acts rv" style="--d:280ms">
-      <a class="btn btn--v" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
-      <a class="btn" href="#s">Ver el consultorio</a>
+    <h1 class="rv" style="--d:110ms">Un espacio para dejar de <em>cargar con todo</em> en silencio.</h1>
+    <p class="sub rv" style="--d:180ms">Psicoterapia para adultos con ansiedad, tristeza persistente o la sensación de estar al límite. En Querétaro y en línea.</p>
+    <div class="acc rv" style="--d:250ms">
+      <a class="b b--j" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
+      <a class="b" href="#donde">Ver el consultorio</a>
     </div>
   </div>
 </section>
 
-<section class="sec" id="s"><div class="wrap">
+<section class="banda banda--alt"><div class="w banda__in">
+  <figure class="retrato rv"><img src="../assets/img/retrato.svg" alt="Retrato de la psicóloga" width="600" height="750"></figure>
+  <h2 class="rv" style="--d:80ms">Mucho gusto, soy Valeria</h2>
+  <p class="cuerpo rv" style="--d:140ms">Llevo más de ocho años acompañando a adultos que llegan agotados de sostenerlo todo. Me formé en terapia cognitivo-conductual con perspectiva humanista.</p>
+  <p class="cuerpo rv" style="--d:200ms">En consulta no hay diagnósticos apresurados ni consejos de manual: hay alguien que escucha en serio y trabaja contigo a tu ritmo.</p>
+</div></section>
+
+<section class="banda"><div class="w banda__in">
+  <div class="filete rv"><i></i><i></i><i></i><i></i><i></i></div>
   <h2 class="rv">Motivos frecuentes de consulta</h2>
-  <p class="lead rv" style="--d:80ms">No necesitas estar en crisis para empezar.</p>
-  <div class="cards">
-    <article class="card rv">
-      <svg class="sun" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M24 46V24"/><path d="M24 24 8 40M24 24l16 16M24 24 12 24M24 24h12M24 24 14 14M24 24l10-10"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
-      <h3>Ansiedad y estrés</h3><p>Pensamientos que no paran, tensión en el cuerpo, la sensación de estar siempre alerta.</p>
-    </article>
-    <article class="card rv" style="--d:90ms">
-      <svg class="sun" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="9"/><path d="M24 8v32M8 24h32"/></svg>
-      <h3>Tristeza y duelo</h3><p>Cuando algo perdió sentido, o una pérdida sigue doliendo más de lo que crees que debería.</p>
-    </article>
-    <article class="card rv" style="--d:180ms">
-      <svg class="sun" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M24 4 44 24 24 44 4 24Z"/><path d="M24 14 34 24 24 34 14 24Z"/></svg>
-      <h3>Autoestima y vínculos</h3><p>Relaciones que se repiten, dificultad para poner límites, esa voz que nunca está conforme.</p>
-    </article>
+  <div class="mot" style="margin-top:1.8rem">
+    <article class="mot__f rv"><span class="r">I</span><div><h3>Ansiedad y estrés</h3><p>Pensamientos que no paran, tensión en el cuerpo, dificultad para dormir o la sensación de estar siempre alerta.</p></div></article>
+    <article class="mot__f rv" style="--d:80ms"><span class="r">II</span><div><h3>Tristeza y duelo</h3><p>Cuando algo perdió sentido, cuesta levantarse o una pérdida sigue doliendo más de lo que crees que debería.</p></div></article>
+    <article class="mot__f rv" style="--d:160ms"><span class="r">III</span><div><h3>Autoestima y vínculos</h3><p>Relaciones que se repiten, dificultad para poner límites, esa voz interna que nunca está conforme.</p></div></article>
   </div>
 </div></section>
 
-<section class="cta"><div class="wrap">
-  <h2 class="rv">¿Lo pensamos <em>juntos</em>?</h2>
-  <p class="rv" style="--d:100ms">Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso de agendar.</p>
-  <div class="acts rv" style="--d:180ms"><a class="btn btn--v" href="#">Escribir por WhatsApp</a></div>
+<section class="banda banda--alt" id="donde"><div class="w banda__in">
+  <h2 class="rv">Dónde nos vemos</h2>
+  <div class="filete rv"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="mapa-marco rv"><div class="mapa-caja">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="16" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div></div>
+  <div class="dd rv" style="--d:100ms">
+    <address>Mauricio Garcés 808, La Joya · 76180 Santiago de Querétaro, Qro.</address>
+    <a class="b" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Cómo llegar</a>
+  </div>
+</div></section>
+
+<section class="banda"><div class="w banda__in">
+  <h2 class="rv" style="font-size:clamp(1.8rem,5vw,3.2rem)">¿Lo pensamos <em>juntos</em>?</h2>
+  <p class="sub rv" style="--d:90ms">Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso de agendar.</p>
+  <div class="acc rv" style="--d:160ms"><a class="b b--j" href="#">Escribir por WhatsApp</a></div>
+  <div class="filete rv" style="--d:220ms"><i></i><i></i><i></i><i></i><i></i></div>
 </div></section>
 
 <a class="volver" href="./">← Ver los 10 bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
 <script src="_rv.js"></script>
 </body>
 </html>
