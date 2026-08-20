@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2C3E4C">
+<title>14 · Coral solar — Boceto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300..800;1,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
+<style>
+/* ============================================================================
+   14 · CORAL SOLAR
+   Paleta "Solar Warmth" (tendencias 2026): corales tostados sobre azul
+   profundo, con salvia de neutro. El coral cálido es justo el acento que
+   la investigación recomienda para público adolescente: da personalidad
+   sin caer en lo infantil ni en lo corporativo.
+
+   LAYOUT: bandas a sangre que alternan claro y oscuro, cada una con su
+   número grande. Se lee como capítulos, no como tarjetas. Una sola
+   secuencia, sin bifurcar.
+   ========================================================================== */
+:root{
+  --mv-bg:#FAF6F0; --mv-fg:#1B242C; --mv-acc:#D98E73; --mv-line:rgba(27,36,44,.16);
+  --crema:#FAF6F0; --salvia:#A5A78F; --coral:#D98E73; --coral-h:#C87A5F;
+  --azul:#2C3E4C; --noche:#1B242C; --suave:#5C6670;
+  --txt:'Epilogue',system-ui,sans-serif;
+  --e:cubic-bezier(.32,.72,0,1);
+}
+body{font-family:var(--txt);background:var(--crema);color:var(--noche);
+  -webkit-tap-highlight-color:rgba(217,142,115,.22)}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.05}
+.w{width:min(100% - 2.5rem,1080px);margin-inline:auto}
+.volver{background:var(--azul);color:var(--crema);border-radius:999px}
+
+.b{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.7rem;
+  border-radius:8px;background:var(--coral);color:var(--noche);text-decoration:none;
+  font-size:.9rem;font-weight:600;border:2px solid var(--coral);
+  transition:transform .35s var(--e),background .35s var(--e),border-color .35s var(--e)}
+.b:hover{transform:translateY(-2px);background:var(--coral-h);border-color:var(--coral-h)}
+.b:active{transform:none}
+.b--o{background:transparent;border-color:currentColor}
+.b--o:hover{background:rgba(217,142,115,.16);border-color:var(--coral)}
+.b svg{width:1.05em;height:1.05em;flex:none}
+
+/* --- Bandas -------------------------------------------------------------- */
+.banda{padding:clamp(2.6rem,6vw,4.5rem) 0}
+.banda--claro{background:var(--crema);color:var(--noche)}
+.banda--oscuro{background:var(--azul);color:var(--crema)}
+.banda--noche{background:var(--noche);color:var(--crema)}
+.banda--salvia{background:var(--salvia);color:var(--noche)}
+.banda--oscuro .suave,.banda--noche .suave{color:rgba(250,246,240,.72)}
+.banda .suave{color:var(--suave)}
+
+.cab{display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2.2rem);align-items:start;margin-bottom:1.6rem}
+.cab .n{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:.8;
+  color:transparent;-webkit-text-stroke:2px var(--coral)}
+.banda--claro .cab .n{-webkit-text-stroke-color:var(--coral)}
+.cab h2{font-size:clamp(1.5rem,3.6vw,2.4rem);max-width:20ch;margin-bottom:.6rem}
+.cab p{max-width:58ch;line-height:1.7}
+
+/* Portada */
+.port{background:var(--azul);color:var(--crema);padding:clamp(2rem,5vw,3rem) 0 clamp(3rem,7vw,5rem);
+  position:relative;overflow:hidden}
+.port::after{content:'';position:absolute;width:38rem;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,142,115,.28),transparent 68%);
+  top:-34%;right:-16%;pointer-events:none}
+.port__nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-bottom:clamp(2rem,5vw,3.5rem);position:relative;z-index:2}
+.port__nav b{font-size:1.05rem;font-weight:700;line-height:1.2}
+.port__nav b span{display:block;font-size:.6rem;font-weight:400;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(250,246,240,.7);margin-top:.15rem}
+.port__t{position:relative;z-index:2;max-width:22ch}
+.port__t .k{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--coral);margin-bottom:1.1rem}
+.port h1{font-size:clamp(2.2rem,6.6vw,4.4rem)}
+.port h1 em{font-style:normal;color:var(--coral)}
+.port__s{position:relative;z-index:2;max-width:46ch;margin-top:1.2rem;color:rgba(250,246,240,.82);font-size:1.06rem;line-height:1.65}
+.port__a{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.port__c{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;margin-top:2.4rem;
+  padding-top:1.5rem;border-top:1px solid rgba(250,246,240,.2)}
+.port__c div dt{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,246,240,.65);margin-bottom:.15rem}
+.port__c div dd{margin:0;font-size:1rem;font-weight:700}
+
+/* Sobre mí */
+.bio p{max-width:62ch;line-height:1.75}
+.bio p+p{margin-top:.85rem}
+.cita{margin:1.4rem 0;padding:1.2rem 1.4rem;background:rgba(217,142,115,.14);border-radius:10px;
+  border-left:3px solid var(--coral);font-size:1.1rem;font-style:italic;max-width:54ch}
+
+/* Servicios forenses */
+.serv{display:grid;gap:1rem;margin-top:1.4rem}
+.serv article{background:rgba(250,246,240,.07);border:1px solid rgba(250,246,240,.16);
+  border-radius:12px;padding:1.4rem 1.5rem}
+.serv h3{font-size:1.15rem;margin-bottom:.6rem}
+.serv p{max-width:60ch;line-height:1.68}
+.serv ul{list-style:none;padding:0;margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.serv li{font-size:.85rem;padding:.35rem .8rem;border-radius:999px;
+  border:1px solid rgba(250,246,240,.25);color:rgba(250,246,240,.85)}
+.cotiza{margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;
+  justify-content:space-between;background:var(--coral);color:var(--noche);
+  border-radius:12px;padding:1.4rem 1.6rem}
+.cotiza p{max-width:48ch;font-size:.95rem;line-height:1.6}
+.cotiza .b{background:var(--noche);color:var(--crema);border-color:var(--noche)}
+.cotiza .b:hover{background:#0F171D;border-color:#0F171D}
+
+/* Temas clínicos */
+.temas{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
+.temas li{background:var(--crema);border-radius:999px;padding:.55rem 1.1rem;font-size:.92rem;
+  border:1.5px solid rgba(27,36,44,.14);transition:transform .3s var(--e),border-color .3s var(--e)}
+.temas li:hover{transform:translateY(-2px);border-color:var(--coral)}
+
+/* Formación */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.4rem);margin-top:1.2rem}
+.form h3{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);
+  padding-bottom:.45rem;border-bottom:1px solid rgba(250,246,240,.2);margin-bottom:.7rem}
+.form ol{list-style:none;padding:0;margin:0}
+.form li{padding:.6rem 0;border-bottom:1px solid rgba(250,246,240,.1)}
+.form .f{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,246,240,.6)}
+.form b{display:block;font-size:.97rem;font-weight:600;line-height:1.3;margin:.12rem 0}
+.form .e{display:block;font-size:.83rem;color:rgba(250,246,240,.65)}
+
+/* Consultorio */
+.mapa-caja{position:relative;border-radius:14px;overflow:hidden;border:2px solid var(--noche);margin-top:1.3rem}
+#mapa{height:clamp(290px,40vh,400px);width:100%;background:var(--salvia)}
+.leaflet-tile-pane{filter:saturate(.72) brightness(1.03) sepia(.1)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:block;width:28px;height:28px;border-radius:8px;background:var(--coral);
+  border:2.5px solid var(--noche);display:grid;place-items:center}
+.pin__c{width:7px;height:7px;border-radius:50%;background:var(--noche)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(27,36,44,.4);color:var(--crema);
+  border:0;display:grid;place-items:center;font-size:.88rem;font-weight:600}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center}
+.rutas{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.5rem}
+.datos h3{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.45rem;opacity:.75}
+.datos address{font-style:normal;line-height:1.7;font-size:.95rem}
+.datos ul{list-style:none;padding:0;font-size:.95rem}
+.datos li{display:flex;justify-content:space-between;gap:1rem;padding:.2rem 0}
+
+.fin{text-align:center}
+.fin h2{font-size:clamp(1.7rem,4.4vw,2.8rem);max-width:18ch;margin:0 auto .8rem}
+.fin h2 em{font-style:normal;color:var(--coral)}
+.fin p{max-width:46ch;margin:0 auto 1.6rem}
+.fin__a{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.pie{padding:1.5rem 0 2.5rem;font-size:.84rem;text-align:center;background:var(--noche);color:rgba(250,246,240,.6)}
+
+@media(max-width:820px){
+  .cab{grid-template-columns:1fr;gap:.5rem}
+  .cab .n{font-size:2.2rem}
+  .form,.datos{grid-template-columns:1fr;gap:1.5rem}
+  .port__a .b,.fin__a .b,.cotiza .b{flex:1 1 100%}
+  .port__nav .b{display:none}
+  .cotiza{flex-direction:column;align-items:stretch}
+}
+</style>
+</head>
+<body>
+
+<section class="port"><div class="w">
+  <nav class="port__nav">
+    <b>Thania Huerta Pacheco<span>Psicóloga clínica y forense</span></b>
+    <a class="b" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+  <div class="port__t rv">
+    <p class="k">Santiago de Querétaro</p>
+    <h1>Peritajes en materia familiar y <em>terapia adolescente</em></h1>
+  </div>
+  <p class="port__s rv" style="--d:120ms">Psicología clínica y forense. Cada asunto se atiende según sus propias necesidades.</p>
+  <div class="port__a rv" style="--d:200ms">
+    <a class="b" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>
+      Escribir por WhatsApp</a>
+    <a class="b b--o" href="#donde">Ver el consultorio</a>
+  </div>
+  <dl class="port__c rv" style="--d:280ms">
+    <div><dt>Cédula profesional</dt><dd>14661976</dd></div>
+    <div><dt>Consejo forense</dt><dd>25-08-63</dd></div>
+    <div><dt>Enfoque</dt><dd>Cognitivo-conductual</dd></div>
+    <div><dt>Celular</dt><dd>442 830 6799</dd></div>
+  </dl>
+</div></section>
+
+<section class="banda banda--claro" id="sobre-mi"><div class="w">
+  <div class="cab rv">
+    <span class="n">01</span>
+    <div>
+      <h2>Hola, soy Thania</h2>
+      <p class="suave">Psicóloga con formación y experiencia profesional en los ámbitos clínico y forense.</p>
+    </div>
+  </div>
+  <div class="bio rv">
+    <p class="suave">Dentro del área forense trabajo principalmente en materia familiar, lo que me ha permitido comprender las distintas situaciones y necesidades que pueden presentarse en las familias. En el área clínica, mi práctica está dedicada exclusivamente al acompañamiento de adolescentes y juventudes.</p>
+    <p class="suave">Elegí trabajar con esta población porque considero que la adolescencia es un momento decisivo en la construcción de las personas adultas del futuro. Acompañarlos oportunamente puede generar cambios importantes en el presente, mientras desarrollan su identidad y su propia manera de relacionarse con el mundo.</p>
+    <blockquote class="cita">Aunque ambos ámbitos tienen objetivos y límites éticos diferentes, juntos enriquecen mi manera de comprender el comportamiento humano.</blockquote>
+    <p class="suave">Disfruto estudiar y mantenerme en constante actualización. Procuro que mi trabajo se sustente en evidencia científica, pero también creo que la terapia puede ser cercana y creativa: disfruto crear materiales y adaptar actividades y herramientas a la personalidad, los intereses y las necesidades de cada adolescente.</p>
+  </div>
+</div></section>
+
+<section class="banda banda--oscuro" id="forense"><div class="w">
+  <div class="cab rv">
+    <span class="n">02</span>
+    <div>
+      <h2>Psicología forense en materia familiar</h2>
+      <p class="suave">El peritaje aporta elementos técnicos al proceso, para que quien juzga decida con información.</p>
+    </div>
+  </div>
+  <div class="serv">
+    <article class="rv">
+      <h3>Periciales psicológicas en materia familiar</h3>
+      <ul>
+        <li>Guarda y custodia</li>
+        <li>Regímenes de convivencia</li>
+        <li>Competencias y habilidades parentales</li>
+        <li>Separación o divorcio</li>
+        <li>Interferencias parentales</li>
+        <li>Factores de riesgo y protección</li>
+        <li>Afectaciones psicológicas</li>
+      </ul>
+    </article>
+    <article class="rv" style="--d:100ms">
+      <h3>Metapericiales y análisis técnicos de dictámenes</h3>
+      <p class="suave">Revisión de peritajes realizados por otros profesionales para valorar la metodología empleada, el cumplimiento de criterios científicos, técnicos y éticos, la pertinencia de los instrumentos y su relación con los resultados y conclusiones.</p>
+    </article>
+  </div>
+  <div class="cotiza rv">
+    <p>Cada asunto es diferente y requiere un servicio pensado según sus propias necesidades, por eso el costo varía. La cotización es <strong>sin costo y sin compromiso</strong>.</p>
+    <a class="b" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n.%0A%0A%E2%80%A2%20Tipo%20de%20servicio%3A%20%0A%E2%80%A2%20Materia%20o%20juzgado%3A%20%0A%E2%80%A2%20Breve%20descripci%C3%B3n%3A%20%0A%E2%80%A2%20%C2%BFFecha%20l%C3%ADmite%3F%3A%20" target="_blank" rel="noopener">Solicitar cotización</a>
+  </div>
+</div></section>
+
+<section class="banda banda--salvia" id="terapia"><div class="w">
+  <div class="cab rv">
+    <span class="n">03</span>
+    <div>
+      <h2>Psicoterapia para adolescentes y juventudes</h2>
+      <p>Mi práctica clínica está dedicada exclusivamente a esta etapa, con enfoque cognitivo-conductual y materiales adaptados a cada persona.</p>
+    </div>
+  </div>
+  <ul class="temas rv">
+    <li>Ansiedad</li><li>Depresión</li><li>Regulación emocional</li>
+    <li>Autoestima, inseguridad, identidad y autoconocimiento</li>
+    <li>Habilidades sociales</li><li>Problemas de conducta en adolescentes</li>
+    <li>Cambios en la dinámica familiar derivados de procesos judiciales</li>
+    <li>Desarrollo de habilidades parentales y vínculo con hijas e hijos</li>
+    <li>Educación sexual</li><li>Presión académica</li>
+  </ul>
+</div></section>
+
+<section class="banda banda--noche" id="formacion"><div class="w">
+  <div class="cab rv">
+    <span class="n">04</span>
+    <div><h2>Formación</h2><p class="suave">De lo más reciente a lo más antiguo.</p></div>
+  </div>
+  <div class="form">
+    <div class="rv">
+      <h3>Vía forense</h3>
+      <ol>
+        <li><span class="f">May 2024 – may 2026</span><b>Maestría en Investigación y Evaluación Criminal y Forense</b><span class="e">Instituto de Ciencia Aplicada</span></li>
+        <li><span class="f">Mayo 2025</span><b>Elaboración de peritajes judiciales</b><span class="e">Poder Judicial del Estado de Querétaro</span></li>
+        <li><span class="f">Mar – may 2025</span><b>Certificación en Análisis de Contexto en la Investigación Criminal</b><span class="e">Consejo Certificador en Psicología Forense</span></li>
+        <li><span class="f">Feb – may 2025</span><b>Peritajes en guarda y custodia con perspectiva de infancia</b><span class="e">FORENPSIC</span></li>
+        <li><span class="f">Sep – dic 2024</span><b>Disociación y trauma en víctimas de violencia</b><span class="e">Instituto de Ciencia Aplicada</span></li>
+        <li><span class="f">Julio 2024</span><b>Elaboración de peritaje psicológico</b><span class="e">Centro de SubjetividadEs Identidad Clínica y Forense</span></li>
+      </ol>
+    </div>
+    <div class="rv" style="--d:100ms">
+      <h3>Vía clínica</h3>
+      <ol>
+        <li><span class="f">Ago 2026 – en curso</span><b>Diplomado en Psicoterapia Infantojuvenil</b><span class="e">CAPCIA</span></li>
+        <li><span class="f">May 2026 – en curso</span><b>Maestría en Psicoterapia Cognitivo Conductual</b><span class="e">Centro de Psicoterapia Cognitiva</span></li>
+        <li><span class="f">Ene – nov 2025</span><b>Diplomado en Psicoterapia Cognitivo Conductual</b><span class="e">UAQ · IMFAPSI</span></li>
+        <li><span class="f">Ago 2020 – may 2024</span><b>Licenciatura en Psicología</b><span class="e">Universidad Mondragón México</span></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda banda--claro" id="donde"><div class="w">
+  <div class="cab rv">
+    <span class="n">05</span>
+    <div><h2>Dónde nos vemos</h2><p class="suave">Calle Mauricio Garcés 102, Col. La Joya.</p></div>
+  </div>
+  <div class="mapa-caja rv">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="17" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
+  <div class="rutas rv">
+    <a class="b" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Google Maps</a>
+    <a class="b b--o" href="https://waze.com/ul?ll=20.572439,-100.4184025&navigate=yes" target="_blank" rel="noopener">Waze</a>
+  </div>
+  <div class="datos rv">
+    <div>
+      <h3>Dirección</h3>
+      <address class="suave">Calle Mauricio Garcés 102<br>Col. La Joya<br>Santiago de Querétaro, Qro.</address>
+    </div>
+    <div>
+      <h3>Horarios</h3>
+      <ul class="suave">
+        <li><span>Lunes a viernes</span><span>9:00 – 14:00</span></li>
+        <li><span></span><span>16:00 – 21:00</span></li>
+        <li><span>Sábado</span><span>9:00 – 13:00</span></li>
+        <li><span>Domingo</span><span>Cerrado</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda banda--oscuro fin"><div class="w">
+  <h2 class="rv">¿Empezamos por una <em>pregunta</em>?</h2>
+  <p class="suave rv" style="--d:90ms">Escríbeme por WhatsApp o llámame al 442 830 6799. Te respondo personalmente.</p>
+  <div class="fin__a rv" style="--d:160ms">
+    <a class="b" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <a class="b b--o" href="tel:+524428306799">Llamar</a>
+  </div>
+</div></section>
+
+<footer class="pie"><div class="w">
+  <p>© 2026 Thania Huerta Pacheco · Cédula 14661976 · Línea de la Vida 800 911 2000</p>
+</div></footer>
+
+<a class="volver" href="./">← Ver los bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
+<script src="_movil.js"></script>
+<script src="_rv.js"></script>
+</body>
+</html>
