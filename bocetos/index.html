@@ -66,13 +66,34 @@ h1,h2,h3{font-weight:700;letter-spacing:-.03em}
 .bo--nuevo .thumb__n{background:var(--acento);color:#0B1512;font-weight:700}
 .bo--pro{border-color:rgba(255,255,255,.28)}
 .bo--pro .thumb__n{background:#fff;color:#12141A;font-weight:700}
+
+.destacada{padding:clamp(1.6rem,3vw,2.4rem) 0 0}
+.dst{display:grid;grid-template-columns:1.1fr .9fr;gap:0;overflow:hidden;
+  background:var(--sup);border:1.5px solid var(--acento);border-radius:20px;
+  text-decoration:none;color:inherit;
+  transition:transform .5s var(--e),box-shadow .5s var(--e)}
+.dst:hover{transform:translateY(-4px);box-shadow:0 34px 70px -40px rgba(0,0,0,.95)}
+.dst__prev{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
+  border-right:1.5px solid var(--borde)}
+.dst__prev iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
+  transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
+.dst__txt{padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
+.dst__e{font-family:var(--m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acento)}
+.dst h2{font-size:clamp(1.4rem,3vw,2rem)}
+.dst__d{font-size:.92rem;color:var(--suave);line-height:1.6}
+.dst__l{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.dst__l li{font-family:var(--m);font-size:.66rem;border:1px solid var(--borde);
+  border-radius:999px;padding:.28rem .7rem;color:var(--suave)}
+.dst__b{font-size:.88rem;font-weight:700;color:var(--acento);margin-top:.3rem}
+@media(max-width:760px){.dst{grid-template-columns:1fr}
+  .dst__prev{border-right:0;border-bottom:1.5px solid var(--borde);aspect-ratio:16/10}}
 </style>
 </head>
 <body>
 
 <header class="head"><div class="wrap">
   <p class="m">Thania Huerta Pacheco · Propuestas de dirección visual</p>
-  <h1 style="margin-top:.8rem">Veinte caminos posibles.<br><em>El mismo contenido</em> en diez lenguajes.</h1>
+  <h1 style="margin-top:.8rem">El sitio, y <em>veinte direcciones</em> para elegir.</h1>
   <p class="lead">
     Todos usan ya los datos reales de Thania: sus dos áreas de práctica, su
     dirección, su WhatsApp y su cédula. Lo único que cambia entre ellos es la
@@ -89,6 +110,30 @@ h1,h2,h3{font-weight:700;letter-spacing:-.03em}
   </div>
 </div></header>
 
+<div class="wrap">
+<section class="destacada">
+  <a class="dst" href="../">
+    <div class="dst__prev"><iframe data-src="../" title="Vista previa del sitio" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="dst__txt">
+      <p class="dst__e">La propuesta principal · en marcha</p>
+      <h2>El sitio de Thania</h2>
+      <p class="dst__d">
+        Es el único terminado y el que marca el nivel: siete secciones, barra
+        inferior con scrollspy, formulario de cotización, biografía plegable,
+        mapa con Waze y Google Maps, y llamada directa. Los veinte bocetos de
+        abajo se están llevando a este mismo nivel, uno por uno.
+      </p>
+      <ul class="dst__l">
+        <li>Mid-century · Fraunces y Jost</li>
+        <li>7 secciones completas</li>
+        <li>Formulario sin servidor</li>
+        <li>Arquitectura móvil completa</li>
+      </ul>
+      <span class="dst__b">Abrir el sitio →</span>
+    </div>
+  </a>
+</section>
+</div>
 <main class="wrap"><div class="rejilla">
 
   <a class="bo bo--pro" href="17-despacho.html">
@@ -140,6 +185,16 @@ h1,h2,h3{font-weight:700;letter-spacing:-.03em}
       <div class="meta"><span class="m">Familjen Grotesk · IBM Plex Mono</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
     </div>
   </a>
+  <a class="bo" href="01-mid-century.html">
+    <div class="thumb"><span class="thumb__n">01</span><iframe data-src="01-mid-century.html" title="Vista previa: Mid-century" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__b">
+      <h2>Mid-century</h2>
+      <p class="desc">La misma dirección del sitio en marcha: arcos, formas atómicas y papel con grano. Cálido y con carácter de época.</p>
+      <div class="pal"><i style="background:#2F6F73"></i><i style="background:#B9532F"></i><i style="background:#D9A63C"></i><i style="background:#F4EADB"></i><i style="background:#2E2622"></i></div>
+      <div class="meta"><span class="m">Fraunces · Jost</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+    </div>
+  </a>
+
 
   <a class="bo bo--nuevo" href="12-salvia.html">
     <div class="thumb"><span class="thumb__n">12 · nuevo</span><iframe data-src="12-salvia.html" title="Vista previa: Salvia" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
@@ -192,15 +247,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.03em}
   </a>
 
 
-  <a class="bo" href="../">
-    <div class="thumb"><span class="thumb__n">01</span><iframe data-src="../" title="Vista previa: Mid-century" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Mid-century <small>· el sitio real</small></h2>
-      <p class="desc">La dirección actual, y el único <strong>sitio completo</strong>: siete secciones, barra inferior con scrollspy, carrusel de servicios, biografía plegable y preguntas frecuentes. Los otros nueve son propuestas visuales, más cortas.</p>
-      <div class="pal"><i style="background:#2F6F73"></i><i style="background:#B9532F"></i><i style="background:#D9A63C"></i><i style="background:#F4EADB"></i><i style="background:#2E2622"></i></div>
-      <div class="meta"><span class="m">Fraunces · Jost</span><span class="ver">Abrir el sitio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
+  
 
   <a class="bo" href="02-editorial.html">
     <div class="thumb"><span class="thumb__n">02</span><iframe data-src="02-editorial.html" title="Vista previa: Editorial" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
