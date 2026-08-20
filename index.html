@@ -5,15 +5,13 @@
 <!-- viewport-fit=cover activa env(safe-area-inset-*) para el notch del iPhone -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<!-- ⚠️ EDITAR: título y descripción (esto es lo que sale en Google) -->
-<title>Mtra. Valeria Fuentes · Psicóloga clínica en Querétaro</title>
-<meta name="description" content="Psicóloga clínica en Querétaro. Terapia para ansiedad, depresión, duelo y autoestima. Consulta presencial y en línea. Agenda tu primera sesión por WhatsApp.">
+<title>Thania Huerta Pacheco · Psicóloga forense y psicoterapeuta en Querétaro</title>
+<meta name="description" content="Psicóloga clínica y forense en Querétaro. Peritajes psicológicos en materia familiar, metapericiales y psicoterapia para adolescentes. Cédula 14661976.">
 <meta name="theme-color" content="#F4EADB">
 
 <!-- ⚠️⚠️ BORRAR ESTA LÍNEA EL DÍA DEL LANZAMIENTO ⚠️⚠️
-     Mientras el sitio tenga datos de ejemplo (cédula 00000000, nombre falso),
-     esto evita que Google lo indexe. Bórrala cuando el contenido sea real,
-     y cambia también robots.txt. -->
+     Mientras falten la foto real y la coordenada exacta del consultorio,
+     esto evita que Google lo indexe. Cambia también robots.txt. -->
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="canonical" href="https://h0m10.github.io/psicologa/">
@@ -21,46 +19,45 @@
 <!-- Redes sociales -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
-<meta property="og:title" content="Mtra. Valeria Fuentes · Psicóloga clínica">
-<meta property="og:description" content="Terapia para ansiedad, depresión, duelo y autoestima. Presencial en Querétaro y en línea.">
-<!-- ⚠️ og:image debe ser URL absoluta y en .jpg o .png — WhatsApp y Facebook
-     NO leen SVG, así que la vista previa del link no saldrá hasta cambiarla. -->
+<meta property="og:title" content="Thania Huerta Pacheco · Psicóloga forense y psicoterapeuta">
+<meta property="og:description" content="Peritajes psicológicos en materia familiar y psicoterapia para adolescentes. Querétaro.">
+<!-- ⚠️ og:image debe ser .jpg o .png — WhatsApp y Facebook NO leen SVG -->
 <meta property="og:image" content="https://h0m10.github.io/psicologa/assets/img/portada.svg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Tipografía: Fraunces (display retro) + Jost (geométrica, tipo Futura) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,0..100,0..1;1,9..144,400..700,0..100,0..1&family=Jost:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
 
-<!-- Mapa (Leaflet + OpenStreetMap: gratis, sin API key) -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
 <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/areas.css">
 
-<!-- Datos para Google (ficha de negocio local) — ⚠️ EDITAR junto con config.js -->
+<!-- Ficha de negocio local para Google -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": ["Psychologist", "LocalBusiness"],
-  "name": "Mtra. Valeria Fuentes · Psicología clínica",
-  "description": "Consulta de psicología clínica para adultos: ansiedad, depresión, duelo y autoestima.",
-  "priceRange": "$$",
+  "name": "Thania Huerta Pacheco · Psicología clínica y forense",
+  "description": "Peritajes psicológicos en materia familiar, metapericiales y psicoterapia para adolescentes y juventudes.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Mauricio Garcés 808, La Joya",
+    "streetAddress": "Calle Mauricio Garcés 102, Col. La Joya",
     "addressLocality": "Santiago de Querétaro",
     "addressRegion": "Qro.",
     "postalCode": "76180",
     "addressCountry": "MX"
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 20.572439, "longitude": -100.4184025 },
-  "telephone": "+52 442 000 0000",
+  "telephone": "+524421375118",
+  "areaServed": "Querétaro",
+  "knowsAbout": ["Psicología forense", "Peritaje psicológico", "Psicoterapia cognitivo-conductual", "Adolescencia"],
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
   ]
 }
 </script>
@@ -81,28 +78,24 @@
         <circle cx="24" cy="24" r="2.6" fill="#B9532F"/>
       </svg>
       <span class="marca__txt">
-        <b class="marca__nom" data-cfg="nombreCorto">Valeria Fuentes</b>
-        <span class="marca__rol" data-cfg="profesion">Psicología clínica</span>
+        <b class="marca__nom" data-cfg="nombreCorto">Thania Huerta</b>
+        <span class="marca__rol" data-cfg="profesion">Psicóloga clínica y forense</span>
       </span>
     </a>
 
-    <!-- Navegación de escritorio. En celular se oculta: allí manda la barra inferior. -->
     <nav class="nav" aria-label="Principal">
-      <!-- Etiquetas cortas y con la palabra informativa al principio:
-           en el escaneo en F solo se leen las primeras palabras -->
       <ul class="nav__lista">
-        <li><a class="nav__link" href="#servicios">Terapia</a></li>
+        <li><a class="nav__link" href="#forense">Forense</a></li>
+        <li><a class="nav__link" href="#terapia">Psicoterapia</a></li>
         <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
-        <li><a class="nav__link" href="#proceso">Primera sesión</a></li>
-        <li><a class="nav__link" href="#preguntas">Preguntas</a></li>
+        <li><a class="nav__link" href="#formacion">Formación</a></li>
         <li><a class="nav__link" href="#ubicacion">Consultorio</a></li>
       </ul>
       <span class="header__acciones">
-        <a class="btn btn--sm" data-wa href="#" rel="noopener">Agendar por WhatsApp</a>
+        <a class="btn btn--sm" data-wa href="#" rel="noopener">Escribir por WhatsApp</a>
       </span>
     </nav>
 
-    <!-- Llamada directa, solo en celular: una sola pulsación, siempre visible -->
     <a class="llamar-movil" id="llamarMovil" href="#" aria-label="Llamar por teléfono">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6.5 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2 4.5 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg>
     </a>
@@ -123,18 +116,15 @@
 
   <div class="wrap hero__grid">
     <div class="hero__texto">
-      <!-- ⚠️ EDITAR: evita frases que caduquen ("cupo esta semana"). Mejor un hecho estable. -->
-      <p class="hero__kicker reveal">Consulta presencial y en línea</p>
+      <p class="hero__kicker reveal">Querétaro · Cédula 14661976</p>
 
-      <!-- ⚠️ EDITAR: este titular debe decir A QUIÉN ayudas, no "bienvenido a mi sitio" -->
       <h1 class="reveal" style="--d:80ms">
-        Un espacio para dejar de <em>cargar con todo</em> en silencio.
+        Psicología <em>forense</em> y psicoterapia para <em>adolescentes</em>.
       </h1>
 
       <p class="hero__sub reveal" style="--d:180ms">
-        Psicoterapia para adultos que viven con ansiedad, tristeza persistente
-        o una sensación constante de estar al límite. Presencial en Querétaro
-        y en línea desde donde estés.
+        Peritajes psicológicos en materia familiar y acompañamiento clínico a
+        adolescentes y juventudes. Dos áreas, un mismo rigor.
       </p>
 
       <div class="hero__acciones reveal" style="--d:260ms">
@@ -150,7 +140,7 @@
 
       <p class="hero__nota reveal" style="--d:340ms">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-        Respondo personalmente, normalmente el mismo día.
+        Respondo personalmente al <span data-cfg="telefonoVisible">442 137 5118</span>.
       </p>
     </div>
 
@@ -163,75 +153,154 @@
         <circle cx="50" cy="50" r="7" fill="currentColor"/>
       </svg>
       <div class="retrato__marco">
-        <!-- ⚠️ EDITAR: sustituye por una FOTO REAL de la psicóloga (retrato vertical 4:5).
-             Las guías de sitios de terapeutas coinciden: la foto real es el factor
-             número uno de confianza. Nada de fotos de stock ni de sillones vacíos. -->
-        <img src="assets/img/retrato.svg" alt="Retrato de la Mtra. Valeria Fuentes, psicóloga clínica" width="800" height="1000">
+        <!-- ⚠️ SUSTITUIR por la foto real de Thania (retrato vertical 4:5) -->
+        <img src="assets/img/retrato.svg" alt="Retrato de Thania Huerta Pacheco, psicóloga clínica y forense" width="800" height="1000">
       </div>
       <div class="retrato__anillo" aria-hidden="true"></div>
     </figure>
   </div>
+
+  <!-- Dos caminos: cada visitante llega buscando una cosa distinta -->
+  <div class="wrap">
+    <div class="caminos reveal" style="--d:400ms">
+      <a class="camino camino--f" href="#forense">
+        <span class="camino__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 6h6Zm10 0-3 6h6Z"/><path d="M4 13a3 3 0 0 0 6 0M14 13a3 3 0 0 0 6 0"/></svg>
+        </span>
+        <span class="camino__t">
+          <b>Psicología forense</b>
+          <span>Peritajes en materia familiar y metapericiales, para abogados, juzgados y particulares.</span>
+        </span>
+        <span class="camino__f" aria-hidden="true">→</span>
+      </a>
+      <a class="camino camino--t" href="#terapia">
+        <span class="camino__ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg>
+        </span>
+        <span class="camino__t">
+          <b>Psicoterapia</b>
+          <span>Acompañamiento clínico dedicado exclusivamente a adolescentes y juventudes.</span>
+        </span>
+        <span class="camino__f" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
 </section>
 
-<!-- ══════════ SERVICIOS ══════════ -->
-<section class="seccion servicios" id="servicios">
+<!-- ══════════ FRANJA DE CREDENCIALES ══════════ -->
+<section class="franja" aria-label="Credenciales">
+  <div class="wrap franja__grid">
+    <div class="franja__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m22 9-10-5L2 9l10 5 10-5Z"/><path d="M6 11.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg>
+      <span><strong data-cfg="cedula">14661976</strong><span>Cédula profesional</span></span>
+    </div>
+    <div class="franja__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+      <span><strong data-cfg="registroForense">25-08-63</strong><span>Consejo Certificador en Psicología Forense</span></span>
+    </div>
+    <div class="franja__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 6h6Zm10 0-3 6h6Z"/></svg>
+      <span><strong>Materia familiar</strong><span>Periciales y metapericiales</span></span>
+    </div>
+    <div class="franja__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <span><strong>Confidencialidad</strong><span>Código ético profesional</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PSICOLOGÍA FORENSE ══════════ -->
+<section class="seccion area area--forense" id="forense">
   <div class="wrap">
-    <div class="servicios__cabeza">
-      <div class="reveal">
-        <p class="eyebrow">Cómo te acompaño</p>
-        <h2 class="titulo-seccion">Motivos frecuentes de consulta</h2>
-      </div>
-      <p class="plomo reveal" style="--d:100ms">
-        No necesitas estar en crisis para empezar. Estas son las razones
-        por las que más gente llega a consulta.
+    <div class="area__cab reveal">
+      <p class="eyebrow">Área forense</p>
+      <h2 class="titulo-seccion">Peritajes psicológicos en materia familiar</h2>
+      <p class="plomo">
+        Trabajo principalmente en materia familiar, donde el peritaje aporta
+        elementos técnicos para que quien juzga tome decisiones informadas.
       </p>
     </div>
 
-    <!-- En celular estas tarjetas se deslizan de lado en vez de apilarse:
-         ahorra unas tres pantallas de scroll. La cuarta asoma por el borde
-         para que se vea que hay más. -->
-    <p class="desliza" aria-hidden="true">
-      <span>Desliza para ver las 4</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
-    </p>
-
-    <!-- ⚠️ EDITAR: cambia estas cuatro tarjetas por tus especialidades reales -->
-    <div class="tarjetas">
-      <article class="tarjeta reveal" style="--c:var(--terracota)">
-        <div class="tarjeta__icono">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 2h4"/></svg>
-        </div>
-        <h3>Ansiedad y estrés</h3>
-        <p>Pensamientos que no paran, tensión en el cuerpo, dificultad para dormir o la sensación de estar siempre alerta. Trabajamos para bajar el volumen y recuperar el descanso.</p>
-        <ul><li>Ataques de pánico</li><li>Estrés laboral</li><li>Preocupación constante</li></ul>
+    <div class="serv">
+      <article class="serv__bloque reveal">
+        <h3>Periciales psicológicas en materia familiar</h3>
+        <ul class="serv__lista">
+          <li>Guarda y custodia</li>
+          <li>Establecimiento o modificación de regímenes de convivencia</li>
+          <li>Valoración de competencias y habilidades parentales</li>
+          <li>Conflictos derivados de una separación o divorcio</li>
+          <li>Interferencias parentales</li>
+          <li>Identificación de factores de riesgo y protección</li>
+          <li>Afectaciones psicológicas</li>
+        </ul>
       </article>
 
-      <article class="tarjeta reveal" style="--c:var(--teal); --d:90ms">
-        <div class="tarjeta__icono">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg>
-        </div>
-        <h3>Tristeza y duelo</h3>
-        <p>Cuando algo perdió sentido, cuesta levantarse o una pérdida sigue doliendo más de lo que crees que "debería". Le damos lugar a eso, sin prisa.</p>
-        <ul><li>Depresión</li><li>Pérdidas</li><li>Cambios de vida</li></ul>
+      <article class="serv__bloque reveal" style="--d:120ms">
+        <h3>Metapericiales y análisis técnicos de dictámenes</h3>
+        <p>
+          Revisión de peritajes realizados por otros profesionales para valorar
+          la metodología empleada, el cumplimiento de criterios científicos,
+          técnicos y éticos, la pertinencia de los instrumentos y su relación
+          con los resultados y conclusiones.
+        </p>
       </article>
+    </div>
 
-      <article class="tarjeta reveal" style="--c:var(--oliva); --d:180ms">
-        <div class="tarjeta__icono">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg>
-        </div>
-        <h3>Autoestima y vínculos</h3>
-        <p>Relaciones que se repiten, dificultad para poner límites o esa voz interna que nunca está conforme. Revisamos de dónde viene y cómo cambiarla.</p>
-        <ul><li>Límites</li><li>Relaciones de pareja</li><li>Autoexigencia</li></ul>
-      </article>
+    <!-- Cotización: en vez de un formulario, que necesitaría servidor,
+         abre WhatsApp con las preguntas ya escritas -->
+    <div class="cotiza reveal">
+      <div class="cotiza__t">
+        <h3>Cada asunto es distinto</h3>
+        <p>
+          El costo varía según las características y el alcance del caso. Puedes
+          solicitar una cotización personalizada, <strong>sin costo y sin
+          compromiso</strong>, para conocer qué servicio se adapta mejor a tu
+          situación.
+        </p>
+      </div>
+      <div class="cotiza__a">
+        <a class="btn btn--teal" id="btnCotiza" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 4h9l3 3v13H8z"/><path d="M8 4H5v13h3M11 11h6M11 15h4"/></svg>
+          Solicitar cotización
+        </a>
+        <p class="cotiza__nota">Se abre WhatsApp con las preguntas ya escritas. Solo hay que responderlas.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <article class="tarjeta reveal" style="--c:var(--mostaza); --d:270ms">
-        <div class="tarjeta__icono">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5" width="19" height="13" rx="2.5"/><path d="M8 21h8"/></svg>
-        </div>
-        <h3>Terapia en línea</h3>
-        <p>La misma terapia, por videollamada. Útil si vives fuera de Querétaro, viajas seguido o simplemente prefieres tu propio espacio.</p>
-        <ul><li>Videollamada</li><li>Horarios flexibles</li><li>Desde cualquier ciudad</li></ul>
-      </article>
+<!-- ══════════ PSICOTERAPIA ══════════ -->
+<section class="seccion area area--terapia" id="terapia">
+  <div class="wrap">
+    <div class="area__cab reveal">
+      <p class="eyebrow">Área clínica</p>
+      <h2 class="titulo-seccion">Psicoterapia para adolescentes y juventudes</h2>
+      <p class="plomo">
+        Mi práctica clínica está dedicada <strong>exclusivamente</strong> a esta
+        etapa. Enfoque cognitivo-conductual, con materiales y actividades
+        adaptados a la personalidad y los intereses de cada persona.
+      </p>
+    </div>
+
+    <h3 class="sub-t reveal">Motivos frecuentes de consulta</h3>
+    <ul class="motivos-lista reveal">
+      <li>Ansiedad</li>
+      <li>Depresión</li>
+      <li>Regulación emocional</li>
+      <li>Autoestima, inseguridad, identidad y autoconocimiento</li>
+      <li>Habilidades sociales</li>
+      <li>Problemas de conducta en adolescentes</li>
+      <li>Cambios en la dinámica familiar derivados de procesos judiciales</li>
+      <li>Desarrollo de habilidades parentales y fortalecimiento del vínculo entre madres, padres e hijos</li>
+      <li>Educación sexual</li>
+      <li>Presión académica</li>
+    </ul>
+
+    <div class="acciones-area reveal">
+      <a class="btn" id="btnTerapia" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+        Preguntar por una consulta
+      </a>
     </div>
   </div>
 </section>
@@ -240,35 +309,46 @@
 <section class="seccion sobre" id="sobre-mi">
   <div class="wrap sobre__grid">
     <figure class="sobre__foto reveal">
-      <!-- ⚠️ EDITAR: segunda foto real, más informal que la de portada -->
-      <img src="assets/img/consultorio.svg" alt="La Mtra. Valeria Fuentes en su consultorio" width="600" height="800">
+      <!-- ⚠️ SUSTITUIR por una foto real, más informal que la de portada -->
+      <img src="assets/img/consultorio.svg" alt="Thania Huerta Pacheco en su consultorio" width="600" height="800">
     </figure>
 
     <div class="sobre__texto reveal" style="--d:120ms">
       <p class="eyebrow">Sobre mí</p>
-      <h2 class="titulo-seccion">Mucho gusto, soy Valeria</h2>
+      <h2 class="titulo-seccion">Hola, soy Thania</h2>
 
-      <!-- ⚠️ EDITAR: 3 o 4 frases. Cuenta POR QUÉ eres psicóloga y con quién
-           te gusta trabajar. Es la sección que más se lee después del titular. -->
       <p style="margin-top:1.6rem">
-        Soy psicóloga clínica y llevo más de ocho años acompañando a adultos
-        que llegan agotados de sostenerlo todo. Estudié en la Universidad
-        Autónoma de Querétaro y me formé en terapia cognitivo-conductual y
-        enfoque humanista.
+        Soy psicóloga con formación y experiencia profesional en los ámbitos
+        clínico y forense. Dentro del área forense trabajo principalmente en
+        materia familiar, lo que me ha permitido comprender las distintas
+        situaciones y necesidades que pueden presentarse en las familias. En el
+        área clínica, mi práctica está dedicada exclusivamente al acompañamiento
+        de adolescentes y juventudes.
       </p>
-      <!-- En celular esto viene plegado: evita un muro de texto de tres pantallas -->
+
       <div class="mas" id="bioMas">
         <div class="mas__in">
           <p>
-            Elegí esta profesión porque crecí viendo lo caro que sale callar lo que
-            duele. En consulta no vas a encontrar un diagnóstico apresurado ni
-            consejos de manual: vas a encontrar a alguien que escucha en serio,
-            que pregunta lo que hay que preguntar y que trabaja contigo a tu ritmo.
+            Elegí trabajar con esta población porque considero que la
+            adolescencia es un momento decisivo en la construcción de las
+            personas adultas del futuro. Acompañarlos oportunamente puede
+            generar cambios importantes en el presente, mientras desarrollan su
+            identidad y su propia manera de relacionarse con el mundo.
           </p>
           <p>
-            Trabajo sobre todo con personas de entre 20 y 45 años, y me interesa
-            especialmente el momento en que alguien decide dejar de vivir en
-            automático.
+            Mi experiencia clínica me permite crear espacios de crecimiento,
+            cuestionamiento y desarrollo personal. Por su parte, mi formación
+            forense me ha enseñado a comprender a cada persona dentro de un
+            contexto más amplio. Aunque ambos ámbitos tienen objetivos y límites
+            éticos diferentes, juntos enriquecen mi manera de comprender el
+            comportamiento humano.
+          </p>
+          <p>
+            Disfruto estudiar y mantenerme en constante actualización. Procuro
+            que mi trabajo se sustente en evidencia científica, pero también creo
+            que la terapia puede ser cercana y creativa: disfruto crear
+            materiales y adaptar actividades y herramientas a la personalidad,
+            los intereses y las necesidades de cada adolescente.
           </p>
         </div>
       </div>
@@ -278,107 +358,85 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
       </button>
 
-      <p class="sobre__firma">Valeria</p>
-
-      <!-- ⚠️ EDITAR: formación real -->
-      <ul class="credenciales">
-        <li><b>Cédula</b><span>00000000 — Licenciatura en Psicología, SEP</span></li>
-        <li><b>Formación</b><span>Maestría en Psicoterapia Cognitivo-Conductual</span></li>
-        <li><b>Enfoque</b><span>Cognitivo-conductual con perspectiva humanista</span></li>
-        <li><b>Idiomas</b><span>Español e inglés</span></li>
-      </ul>
+      <p class="sobre__firma">Thania</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════ PROCESO ══════════ -->
-<section class="seccion proceso" id="proceso">
+<!-- ══════════ FORMACIÓN ══════════ -->
+<section class="seccion formacion" id="formacion">
   <div class="wrap">
     <div class="reveal">
-      <p class="eyebrow">La primera sesión</p>
-      <h2 class="titulo-seccion">Qué pasa exactamente el primer día</h2>
+      <p class="eyebrow">Formación</p>
+      <h2 class="titulo-seccion">Dónde me formé</h2>
       <p class="plomo">
-        Saber qué esperar quita la mitad del nervio. Esto es todo lo que ocurre.
+        Dos trayectorias que se alimentan entre sí, de lo más reciente a lo más
+        antiguo.
       </p>
     </div>
 
-    <!-- ⚠️ EDITAR: ajusta duración y forma de trabajar -->
-    <div class="pasos">
-      <article class="paso reveal">
-        <span class="paso__num" aria-hidden="true">01</span>
-        <h3>Nos conocemos</h3>
-        <p>Cincuenta minutos. Me cuentas qué te trae, con el detalle que quieras y hasta donde quieras. No hay cuestionarios, ni pruebas, ni un formato rígido.</p>
-      </article>
-      <article class="paso reveal" style="--d:120ms">
-        <span class="paso__num" aria-hidden="true">02</span>
-        <h3>Resuelves tus dudas</h3>
-        <p>Cómo trabajo, cada cuánto nos veríamos, cuánto suele durar un proceso. Pregunta lo que necesites: es tu tiempo y tu decisión.</p>
-      </article>
-      <article class="paso reveal" style="--d:240ms">
-        <span class="paso__num" aria-hidden="true">03</span>
-        <h3>Decidimos juntos</h3>
-        <p>Si sientes que encajamos, definimos objetivos y frecuencia. Y si no, te recomiendo a alguien que se ajuste mejor a lo que buscas.</p>
-      </article>
-    </div>
-  </div>
+    <div class="form__grid">
+      <div class="form__col reveal">
+        <h3 class="form__t form__t--f">Psicología forense</h3>
+        <ol class="form__lista">
+          <li>
+            <span class="form__f">May 2024 – may 2026</span>
+            <b>Maestría en Investigación y Evaluación Criminal y Forense</b>
+            <span class="form__e">Instituto de Ciencia Aplicada</span>
+          </li>
+          <li>
+            <span class="form__f">Mayo 2025</span>
+            <b>Curso de elaboración de peritajes judiciales</b>
+            <span class="form__e">Poder Judicial del Estado de Querétaro</span>
+          </li>
+          <li>
+            <span class="form__f">Mar – may 2025</span>
+            <b>Certificación en Análisis de Contexto en la Investigación Criminal</b>
+            <span class="form__e">Consejo Certificador en Psicología Forense · Ciencia Aplicada</span>
+          </li>
+          <li>
+            <span class="form__f">Feb – may 2025</span>
+            <b>Curso-taller de peritajes psicológicos en casos de guarda y custodia con perspectiva de infancia</b>
+            <span class="form__e">FORENPSIC</span>
+          </li>
+          <li>
+            <span class="form__f">Sep – dic 2024</span>
+            <b>Seminario especializado en disociación y trauma en víctimas de violencia</b>
+            <span class="form__e">Instituto de Ciencia Aplicada</span>
+          </li>
+          <li>
+            <span class="form__f">Julio 2024</span>
+            <b>Curso de elaboración de peritaje psicológico</b>
+            <span class="form__e">Centro de SubjetividadEs Identidad Clínica y Forense</span>
+          </li>
+        </ol>
+      </div>
 
-  <svg class="proceso__onda" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 60V28c120 0 120 18 240 18s120-30 240-30 120 26 240 26 120-24 240-24 120 20 240 20 120-14 240-14v36Z" fill="currentColor"/>
-  </svg>
-</section>
-
-<!-- ══════════ PREGUNTAS FRECUENTES ══════════ -->
-<section class="seccion faq" id="preguntas">
-  <div class="wrap faq__grid">
-    <div class="reveal">
-      <p class="eyebrow">Preguntas frecuentes</p>
-      <h2 class="titulo-seccion">Lo que casi siempre me preguntan</h2>
-      <p class="plomo">
-        Si tienes una duda que no está aquí, escríbeme. Preguntar no compromete a nada.
-      </p>
-      <p style="margin-top:2rem">
-        <a class="btn btn--teal" data-wa href="#" rel="noopener">Hacer una pregunta</a>
-      </p>
-    </div>
-
-    <!-- ⚠️ EDITAR: precios, duración y política de cancelación reales -->
-    <div class="faq__lista reveal" style="--d:120ms">
-      <details class="faq__item" open>
-        <summary>¿Cuánto dura y cuánto cuesta una sesión?</summary>
-        <div class="faq__respuesta">
-          <p>Cada sesión dura 50 minutos y tiene un costo de $000 MXN, igual en consultorio que en línea. Acepto transferencia y efectivo. Si el costo es un obstáculo, dímelo: manejo algunos espacios a cuota reducida.</p>
-        </div>
-      </details>
-      <details class="faq__item">
-        <summary>¿Cada cuánto tendría que ir?</summary>
-        <div class="faq__respuesta">
-          <p>Al inicio suele ser una vez por semana, porque ayuda a tomar impulso. Conforme avanzamos, muchas personas pasan a sesiones cada quince días. Lo definimos juntos y se puede ajustar.</p>
-        </div>
-      </details>
-      <details class="faq__item">
-        <summary>¿Lo que hablemos es confidencial?</summary>
-        <div class="faq__respuesta">
-          <p>Sí. Todo lo que ocurre en sesión está protegido por el secreto profesional y el código ético de la psicología. Las únicas excepciones son las que marca la ley: riesgo grave para tu vida o la de otra persona.</p>
-        </div>
-      </details>
-      <details class="faq__item">
-        <summary>¿La terapia en línea funciona igual?</summary>
-        <div class="faq__respuesta">
-          <p>Para la mayoría de los motivos de consulta, sí. La evidencia muestra resultados equivalentes a los presenciales. Sólo necesitas conexión estable y un lugar donde puedas hablar sin interrupciones.</p>
-        </div>
-      </details>
-      <details class="faq__item">
-        <summary>¿Cómo sé si de verdad necesito terapia?</summary>
-        <div class="faq__respuesta">
-          <p>No hace falta tocar fondo. Si algo te pesa desde hace semanas, si estás repitiendo un patrón que no te gusta o si simplemente quieres entenderte mejor, es motivo suficiente. La primera sesión también sirve para resolver esta pregunta.</p>
-        </div>
-      </details>
-      <details class="faq__item">
-        <summary>¿Qué pasa si necesito cancelar?</summary>
-        <div class="faq__respuesta">
-          <p>Puedes reprogramar sin costo avisando con al menos 24 horas de anticipación. Con menos tiempo, la sesión se cobra, porque ese espacio quedó reservado para ti.</p>
-        </div>
-      </details>
+      <div class="form__col reveal" style="--d:120ms">
+        <h3 class="form__t form__t--t">Psicoterapia</h3>
+        <ol class="form__lista">
+          <li>
+            <span class="form__f">Ago 2026 – en curso</span>
+            <b>Diplomado en Psicoterapia Infantojuvenil</b>
+            <span class="form__e">CAPCIA · Centro de Atención Psicológica y Capacitación Integral</span>
+          </li>
+          <li>
+            <span class="form__f">May 2026 – en curso</span>
+            <b>Maestría en Psicoterapia Cognitivo Conductual</b>
+            <span class="form__e">Centro de Psicoterapia Cognitiva</span>
+          </li>
+          <li>
+            <span class="form__f">Ene – nov 2025</span>
+            <b>Diplomado en Psicoterapia Cognitivo Conductual</b>
+            <span class="form__e">Universidad Autónoma de Querétaro · IMFAPSI</span>
+          </li>
+          <li>
+            <span class="form__f">Ago 2020 – may 2024</span>
+            <b>Licenciatura en Psicología</b>
+            <span class="form__e">Universidad Mondragón México</span>
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -390,17 +448,14 @@
       <p class="eyebrow">El consultorio</p>
       <h2 class="titulo-seccion">Dónde nos vemos</h2>
       <p class="plomo">
-        Un espacio tranquilo, privado y con estacionamiento. Abre la ruta
-        directo en tu app favorita, o mueve el mapa para reconocer la zona.
+        Abre la ruta directo en tu app favorita, o mueve el mapa para reconocer
+        la zona.
       </p>
     </div>
 
-    <!-- 1. El mapa primero: lo que de verdad ubica el consultorio -->
     <div class="mapa-caja reveal">
       <p class="mapa-caja__etq">Consultorio</p>
       <div id="mapa" role="application" aria-label="Mapa interactivo con la ubicación del consultorio"></div>
-
-      <!-- En celular el mapa arranca bloqueado para no secuestrar el scroll de la página -->
       <button class="mapa-toque" id="mapaToque" type="button" hidden>
         <span class="mapa-toque__txt">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 11a3 3 0 1 1 6 0c0 2-3 3-3 5"/><circle cx="12" cy="19" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="10"/></svg>
@@ -413,7 +468,6 @@
       </div>
     </div>
 
-    <!-- 2. Las rutas, pegadas al mapa: un toque y ya vas en camino -->
     <div class="rutas reveal">
       <a class="btn btn--teal rutas__ppal" id="rutaGoogle" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -423,15 +477,13 @@
       <a class="btn btn--linea" id="rutaApple" href="#" target="_blank" rel="noopener">Apple Maps</a>
     </div>
 
-    <!-- 3. Al final el detalle: dirección escrita y horarios -->
     <div class="ubicacion__datos reveal">
       <div class="direccion">
         <p class="eyebrow" style="margin-bottom:.8rem">Dirección</p>
-        <p class="direccion__dom" data-cfg="calle">Mauricio Garcés 808</p>
+        <p class="direccion__dom" data-cfg="calle">Calle Mauricio Garcés 102</p>
         <p class="direccion__ciudad">
-          <span data-cfg="colonia">La Joya</span><br>
+          <span data-cfg="colonia">Col. La Joya</span><br>
           <span data-cfg="ciudad">Santiago de Querétaro, Qro.</span>
-          <span data-cfg="cp">76180</span>
         </p>
         <p class="direccion__ref" id="direccionRef" data-cfg="referencia" hidden></p>
       </div>
@@ -443,7 +495,6 @@
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -460,17 +511,17 @@
   </svg>
 
   <div class="wrap cta__in">
-    <h2 class="reveal">¿Lo pensamos juntos?</h2>
+    <h2 class="reveal">¿Empezamos por una pregunta?</h2>
     <p class="reveal" style="--d:100ms">
-      Escríbeme por WhatsApp y te respondo personalmente. Sin formularios,
-      sin listas de espera y sin compromiso de agendar.
+      Escríbeme por WhatsApp y te respondo personalmente. Sin formularios
+      y sin compromiso.
     </p>
     <div class="cta__acciones reveal" style="--d:200ms">
       <a class="btn" data-wa href="#" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
         Escribir por WhatsApp
       </a>
-      <a class="btn btn--linea" id="btnTel" href="#">Llamar por teléfono</a>
+      <a class="btn btn--linea" id="btnTel" href="#">Llamar al 442 137 5118</a>
     </div>
   </div>
 </section>
@@ -490,8 +541,8 @@
             <circle cx="24" cy="24" r="2.6" fill="#B9532F"/>
           </svg>
           <span class="marca__txt">
-            <b class="marca__nom" data-cfg="nombreCorto">Valeria Fuentes</b>
-            <span class="marca__rol" data-cfg="profesion">Psicología clínica</span>
+            <b class="marca__nom" data-cfg="nombreCorto">Thania Huerta</b>
+            <span class="marca__rol" data-cfg="profesion">Psicóloga clínica y forense</span>
           </span>
         </a>
         <p class="pie__aviso">
@@ -505,10 +556,10 @@
       <div>
         <h4>Secciones</h4>
         <ul>
-          <li><a href="#servicios">Cómo te acompaño</a></li>
+          <li><a href="#forense">Psicología forense</a></li>
+          <li><a href="#terapia">Psicoterapia</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#proceso">Primera sesión</a></li>
-          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          <li><a href="#formacion">Formación</a></li>
           <li><a href="#ubicacion">Consultorio</a></li>
         </ul>
       </div>
@@ -517,57 +568,47 @@
         <h4>Contacto</h4>
         <ul>
           <li><a data-wa href="#" rel="noopener">WhatsApp</a></li>
-          <li><a id="pieTel" href="#">Teléfono</a></li>
-          <li><a id="pieMail" href="#">Correo</a></li>
+          <li><a id="pieTel" href="#">442 137 5118</a></li>
           <li><a id="pieMapa" href="#" target="_blank" rel="noopener">Cómo llegar</a></li>
         </ul>
       </div>
     </div>
 
     <div class="pie__legal">
-      <span>© <span id="anio">2026</span> <span data-cfg="nombre">Valeria Fuentes</span>. Todos los derechos reservados.</span>
-      <span>Cédula profesional <span data-cfg="cedula">00000000</span></span>
+      <span>© <span id="anio">2026</span> <span data-cfg="nombre">Thania Huerta Pacheco</span>. Todos los derechos reservados.</span>
+      <span>Cédula profesional <span data-cfg="cedula">14661976</span></span>
     </div>
   </div>
 </footer>
 
-<!-- Botón flotante de WhatsApp -->
+<!-- Botón flotante de WhatsApp (escritorio) -->
 <a class="wa-flotante" id="waFlotante" data-wa href="#" rel="noopener" aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
   <span>WhatsApp</span>
 </a>
 
-<!-- ══════════ BARRA DE PESTAÑAS (SOLO CELULAR) ══════════
-     Sustituye al menú hamburguesa. Navegación siempre visible, en la zona
-     que alcanza el pulgar, con WhatsApp al centro (la posición más cómoda).
-     Se ilumina sola según la sección en la que estás. -->
+<!-- ══════════ BARRA DE PESTAÑAS (SOLO CELULAR) ══════════ -->
 <nav class="tabbar" id="tabbar" aria-label="Secciones">
-
   <a class="tabbar__item" href="#inicio" data-spy="inicio">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 10.5 9-7 9 7"/><path d="M5.5 9v11h13V9"/></svg>
     <span>Inicio</span>
   </a>
-
-  <a class="tabbar__item" href="#servicios" data-spy="servicios">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
-    <span>Terapia</span>
+  <a class="tabbar__item" href="#forense" data-spy="forense">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 6h6Zm10 0-3 6h6Z"/></svg>
+    <span>Forense</span>
   </a>
-
   <a class="tabbar__wa" data-wa href="#" rel="noopener" aria-label="Escribir por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
     <span class="tabbar__wa-txt">Escribir</span>
   </a>
-
-  <a class="tabbar__item" href="#sobre-mi" data-spy="sobre-mi">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c0-4.1 3.4-6.5 7.5-6.5s7.5 2.4 7.5 6.5"/></svg>
-    <span>Sobre mí</span>
+  <a class="tabbar__item" href="#terapia" data-spy="terapia">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg>
+    <span>Terapia</span>
   </a>
-
   <a class="tabbar__item" href="#ubicacion" data-spy="ubicacion">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
     <span>Consultorio</span>
   </a>
-
 </nav>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

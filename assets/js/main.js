@@ -13,11 +13,12 @@
   /* ------------------------------------------------------------------ */
   /* 1. Enlaces de WhatsApp                                             */
   /* ------------------------------------------------------------------ */
-  function enlaceWhatsApp() {
+  function enlaceWhatsApp(mensaje) {
     var wa = CFG.whatsapp || {};
     var num = String(wa.numero || '').replace(/\D/g, '');
+    var txt = mensaje || wa.mensaje;
     var url = 'https://wa.me/' + num;
-    if (wa.mensaje) url += '?text=' + encodeURIComponent(wa.mensaje);
+    if (txt) url += '?text=' + encodeURIComponent(txt);
     return url;
   }
 
@@ -27,6 +28,15 @@
     a.target = '_blank';
   });
 
+  // Cada área abre WhatsApp con su propio mensaje, para que Thania sepa de
+  // entrada por qué le escriben. El de cotización además lleva las preguntas.
+  var WA = CFG.whatsapp || {};
+  [['btnCotiza', WA.mensajeCotizacion], ['btnTerapia', WA.mensajeTerapia]]
+    .forEach(function (par) {
+      var el = document.getElementById(par[0]);
+      if (el) { el.href = enlaceWhatsApp(par[1]); el.target = '_blank'; }
+    });
+
   /* ------------------------------------------------------------------ */
   /* 2. Datos de config.js → DOM                                        */
   /* ------------------------------------------------------------------ */
@@ -35,6 +45,8 @@
     nombreCorto: CFG.nombreCorto || CFG.nombre,
     profesion: CFG.profesion,
     cedula: CFG.cedula,
+    registroForense: CFG.registroForense,
+    telefonoVisible: CFG.telefonoVisible || CFG.telefono,
     calle: C.calle,
     colonia: C.colonia,
     ciudad: C.ciudad,
@@ -57,9 +69,6 @@
     var el = document.getElementById(id);
     if (el && tel) el.href = 'tel:' + tel;
   });
-  var mail = document.getElementById('pieMail');
-  if (mail && CFG.email) mail.href = 'mailto:' + CFG.email;
-
   // Año actual en el pie
   var anio = document.getElementById('anio');
   if (anio) anio.textContent = new Date().getFullYear();
@@ -68,7 +77,11 @@
   var ulHorarios = document.getElementById('horarios');
   if (ulHorarios && Array.isArray(CFG.horarios)) {
     ulHorarios.innerHTML = CFG.horarios.map(function (h) {
-      return '<li><span>' + h.dias + '</span><span>' + h.horas + '</span></li>';
+      // Un día con dos turnos deja el nombre vacío en la segunda línea:
+      // se marca como continuación para que no parezca un renglón suelto
+      var sigue = !h.dias ? ' class="horarios__sigue"' : '';
+      return '<li' + sigue + '><span>' + (h.dias || '') + '</span>' +
+             '<span>' + h.horas + '</span></li>';
     }).join('');
   }
 

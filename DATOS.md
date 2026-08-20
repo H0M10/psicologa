@@ -1,106 +1,100 @@
-# ✅ Lista de datos por rellenar
+# ✅ Lista de lo que falta
 
-Todo lo que trae el sitio ahora es **contenido de ejemplo**. Ve tachando esta lista.
-
----
-
-## 1. `assets/js/config.js` — lo más importante
-
-Es el único archivo que controla contacto y mapa. Cámbialo y todo el sitio se actualiza solo.
-
-| Campo | Qué poner | Ejemplo |
-|---|---|---|
-| `nombre` | Nombre completo con título | `Mtra. Ana López` |
-| `profesion` | Cómo se presenta | `Psicóloga clínica` |
-| `cedula` | Cédula profesional SEP | `12345678` |
-| `whatsapp.numero` | **52 + 10 dígitos, solo números** | `524421234567` |
-| `whatsapp.mensaje` | Texto que se autoescribe al abrir el chat | — |
-| `telefono` | Teléfono para llamar | `+52 442 123 4567` |
-| `email` | Correo de contacto | — |
-| `consultorio.lat` / `.lng` | **Coordenadas exactas** (ver abajo) | `20.572439` |
-| `consultorio.*` | Calle, colonia, ciudad, CP, referencia | ya cargados |
-| `horarios` | Días y horas de atención | — |
-
-### 📍 Cómo sacar las coordenadas exactas
-
-1. Abre [Google Maps](https://maps.google.com).
-2. Busca la dirección del consultorio.
-3. **Clic derecho** justo sobre la puerta del consultorio.
-4. Arriba del menú aparecen dos números, por ejemplo `20.588793, -100.389888`.
-5. Cópialos: el **primero es `lat`**, el **segundo es `lng`**.
-
-> Ponlos sin comillas, tal cual. El `lng` en México siempre lleva signo negativo.
+Los datos de contacto, formación y servicios de Thania **ya están cargados**.
+Esto es lo que queda pendiente antes de publicar.
 
 ---
 
-## 2. `index.html` — los textos
+## 1. 📍 Afinar la coordenada del mapa — lo más importante
 
-Abre el archivo y busca `⚠️ EDITAR`. Cada aparición marca algo por cambiar:
+El pin cae sobre **Calle Mauricio Garcés**, pero **no sobre el número 102**.
+El callejero abierto de OpenStreetMap no tiene números en esa calle, así que
+solo conoce la calle entera (unos 157 metros).
 
-- [ ] **`<title>` y `<meta description>`** — es lo que sale en Google. Incluye ciudad y especialidad.
-- [ ] **Nombre en el encabezado** (aparece 2 veces: arriba y en el pie).
-- [ ] **Titular principal (`<h1>`)** — debe decir **a quién ayuda**, no "bienvenido a mi sitio".
-- [ ] **Las 4 tarjetas de servicios** — cámbialas por sus especialidades reales.
-- [ ] **Biografía "Sobre mí"** — 3 o 4 frases contando *por qué* es psicóloga.
-- [ ] **Lista de credenciales** — cédula, maestría, enfoque, idiomas.
-- [ ] **Preguntas frecuentes** — sobre todo el **precio** y la política de cancelación.
-- [ ] **`whatsapp.mensaje` en `config.js`** — es el texto que se escribe solo
-      cuando abren el chat, así que revísalo bien.
-- [ ] **Datos del bloque `application/ld+json`** (arriba del todo) — es la ficha que lee Google.
+**Cómo arreglarlo:**
+
+1. Abre [Google Maps](https://maps.google.com) y busca la dirección.
+2. **Clic derecho** justo sobre la puerta del consultorio.
+3. Arriba del menú aparecen dos números, por ejemplo `20.572439, -100.418402`.
+4. Cópialos en `assets/js/config.js` → `consultorio.lat` y `consultorio.lng`.
+
+> Para un consultorio, que el pin caiga en la puerta correcta importa mucho.
 
 ---
 
-## 3. Fotografías — el punto más importante de todos
+## 2. 📷 Las fotos
 
-Ahora hay dos ilustraciones de relleno. **Hay que sustituirlas por fotos reales.**
-
-Todas las guías de diseño para consultas de psicología coinciden en lo mismo: la foto
-real de la profesional es el factor número uno de confianza, y las fotos de banco
-(sillones vacíos, manos entrelazadas, gente sonriendo genéricamente) **restan**
-credibilidad en lugar de sumarla.
+Hay dos ilustraciones de relleno. Las guías de sitios de terapeutas coinciden:
+la foto real es el factor número uno de confianza, y las fotos de banco restan.
 
 | Archivo | Qué debe ser | Proporción |
 |---|---|---|
-| `assets/img/retrato.svg` | Retrato profesional, mirando a cámara | vertical 4:5 |
-| `assets/img/consultorio.svg` | Foto del consultorio o una más informal de ella | vertical 3:4 |
-| `assets/img/portada.jpg` | Imagen para cuando compartan el link en WhatsApp/redes | 1200 × 630 px |
+| `assets/img/retrato.svg` | Retrato profesional de Thania | vertical 4:5 |
+| `assets/img/consultorio.svg` | Foto del consultorio, o una más informal | vertical 3:4 |
+| `assets/img/portada.svg` | Para cuando compartan el link | 1200 × 630 px |
 
-> ⚠️ La portada **tiene que ser `.jpg` o `.png`**. WhatsApp y Facebook no leen SVG,
-> así que hasta que la cambies el link se compartirá sin vista previa.
+**Cómo sustituirlas:** guarda tus fotos como `.jpg` en `assets/img/` y cambia
+la ruta en `index.html`. Comprímelas antes en [squoosh.app](https://squoosh.app);
+que ninguna pase de 300 KB.
 
-**Cómo sustituirlas:** guarda tus fotos como `.jpg` en `assets/img/` y cambia la ruta
-en `index.html`. Por ejemplo, cambia esto:
-
-```html
-<img src="assets/img/retrato.svg" alt="Retrato de la Mtra. Valeria Fuentes...">
-```
-
-por esto:
-
-```html
-<img src="assets/img/retrato.jpg" alt="Retrato de la Mtra. Ana López, psicóloga clínica">
-```
-
-> Comprime las fotos antes de subirlas (en [squoosh.app](https://squoosh.app), gratis).
-> Que ninguna pase de 300 KB o la página tardará en abrir en celular.
+> ⚠️ La de portada **tiene que ser `.jpg` o `.png`**. WhatsApp y Facebook no
+> leen SVG, así que hasta cambiarla el link se comparte sin miniatura.
 
 ---
 
-## 4. El día del lanzamiento — quitar el modo borrador
+## 3. 🔍 Dudas sobre los datos que mandaron
 
-El sitio vive en **https://h0m10.github.io/psicologa/** y ahora mismo está en
-modo borrador: **Google no lo indexa**, a propósito, porque anuncia una cédula
-inventada. Cuando el contenido ya sea real:
-
-- [ ] Borra la etiqueta `<meta name="robots" content="noindex, nofollow">` de `index.html`
-- [ ] Sustituye `robots.txt` por la versión que viene comentada dentro del archivo
-- [ ] Cambia `og:image` a un `.jpg` o `.png` real
+- [ ] **Código postal.** No venía en la información. Puse **76180**, que es el
+      que OpenStreetMap asigna a Calle Mauricio Garcés. ¿Es correcto?
+- [ ] **Fecha de la licenciatura.** En la sección de psicología forense decía
+      *"Agosto 2024 – mayo 2024"*, que va al revés. En la de psicoterapia decía
+      *"Agosto 2020 – mayo 2024"*. Usé esta segunda, que es la que cuadra.
+- [ ] **Correo electrónico.** No venía ninguno, así que el pie solo muestra
+      WhatsApp y teléfono. Si quiere añadirlo, va en `config.js` → `email`.
 
 ---
 
-## 5. Prueba antes de dar el link
+## 4. 📝 Sobre el formulario de cotización
 
-- [ ] Toca el botón de WhatsApp **desde un celular** y confirma que abre el chat correcto.
-- [ ] Toca "Google Maps", "Waze" y "Apple Maps" y confirma que la ruta cae en la puerta correcta.
-- [ ] Ábrelo en un celular chico y revisa que nada se salga de la pantalla.
-- [ ] Revisa que el número de la Línea de la Vida en el pie siga vigente.
+Preguntaban si añadir un botón a un formulario. **Sí, y ya está puesto**, pero
+resuelto sin formulario: el botón **"Solicitar cotización"** abre WhatsApp con
+las preguntas ya escritas.
+
+```
+• Tipo de servicio: (pericial en materia familiar / metapericial / no estoy seguro)
+• Materia o juzgado:
+• Breve descripción del asunto:
+• ¿Hay una fecha límite?:
+```
+
+**Por qué así y no un formulario de verdad:** el sitio es estático en GitHub
+Pages, no tiene servidor, así que un formulario necesitaría contratar un
+servicio aparte. Además, por WhatsApp la conversación empieza de inmediato y
+ella ya recibe ahí todo lo demás.
+
+**Si prefiere un formulario real** hay dos caminos, ambos gratis:
+
+| Opción | Ventaja | Desventaja |
+|---|---|---|
+| **Google Forms** | Respuestas ordenadas en una hoja de cálculo | Saca al visitante del sitio |
+| **Formspree** | Se ve integrado, llega por correo | Límite de 50 envíos al mes gratis |
+
+Para cambiarlo, edita el texto en `config.js` → `whatsapp.mensajeCotizacion`.
+
+---
+
+## 5. 🚀 El día del lanzamiento
+
+- [ ] Borrar `<meta name="robots" content="noindex, nofollow">` de `index.html`
+- [ ] Sustituir `robots.txt` por la versión que viene comentada dentro
+- [ ] Cambiar `og:image` a un `.jpg` o `.png` real
+
+---
+
+## 6. ✔️ Probar antes de dar el link
+
+- [ ] Tocar el botón de WhatsApp **desde un celular** y ver que abre el chat de Thania
+- [ ] Tocar **"Solicitar cotización"** y comprobar que el mensaje llega con las preguntas
+- [ ] Tocar Google Maps, Waze y Apple Maps y ver que la ruta cae en la puerta
+- [ ] Abrirlo en un celular chico y revisar que nada se salga de la pantalla
+- [ ] Confirmar que el número de la Línea de la Vida del pie siga vigente
