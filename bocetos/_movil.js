@@ -6,9 +6,9 @@
 (function () {
   if (document.querySelector('.mv')) return;
 
-  var WA = 'https://wa.me/524420000000?text=' +
-           encodeURIComponent('Hola, vi tu página web y me gustaría agendar una primera sesión.');
-  var TEL = 'tel:+524420000000';
+  var WA = 'https://wa.me/524421375118?text=' +
+           encodeURIComponent('Hola Thania, vi tu página web y me gustaría agendar una cita.');
+  var TEL = 'tel:+524421375118';
 
   var svg = {
     pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
