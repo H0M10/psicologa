@@ -46,7 +46,7 @@ window.SITE_CONFIG = {
   /* --- Consultorio ----------------------------------------------------- */
   consultorio: {
     nombre: 'Consultorio',
-    calle: 'Calle Mauricio Garcés 102',
+    calle: 'Calle Mauricio Garcés 808',
     colonia: 'Col. La Joya',
     ciudad: 'Santiago de Querétaro, Qro.',
     cp: '76180',

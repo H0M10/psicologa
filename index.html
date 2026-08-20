@@ -44,7 +44,7 @@
   "description": "Peritajes psicológicos en materia familiar, metapericiales y psicoterapia para adolescentes y juventudes.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Calle Mauricio Garcés 102, Col. La Joya",
+    "streetAddress": "Calle Mauricio Garcés 808, Col. La Joya",
     "addressLocality": "Santiago de Querétaro",
     "addressRegion": "Qro.",
     "postalCode": "76180",
@@ -246,8 +246,7 @@
       </article>
     </div>
 
-    <!-- Cotización: en vez de un formulario, que necesitaría servidor,
-         abre WhatsApp con las preguntas ya escritas -->
+    <!-- Cotización -->
     <div class="cotiza reveal">
       <div class="cotiza__t">
         <h3>Cada asunto es distinto</h3>
@@ -260,12 +259,69 @@
       </div>
       <div class="cotiza__a">
         <a class="btn btn--teal" id="btnCotiza" href="#" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 4h9l3 3v13H8z"/><path d="M8 4H5v13h3M11 11h6M11 15h4"/></svg>
-          Solicitar cotización
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+          Escribir directo por WhatsApp
         </a>
-        <p class="cotiza__nota">Se abre WhatsApp con las preguntas ya escritas. Solo hay que responderlas.</p>
+        <p class="cotiza__nota">O llena el formulario de abajo si prefieres ordenarlo antes.</p>
       </div>
     </div>
+
+    <!-- FORMULARIO DE COTIZACIÓN
+         Responde a la pregunta de Thania sobre añadir un formulario.
+         Es un formulario real, pero al enviarlo abre WhatsApp con las
+         respuestas ya ordenadas: no hace falta servidor ni otro servicio. -->
+    <h3 class="sub-t reveal" style="margin-top:2.5rem" id="cotizacion">Formulario de cotización</h3>
+    <form class="form-cot reveal" id="formCotiza" novalidate>
+      <fieldset>
+        <legend class="vh">Datos para la cotización</legend>
+
+        <div class="campo">
+          <label for="fServicio">Tipo de servicio <span class="req" aria-hidden="true">*</span></label>
+          <select id="fServicio" name="servicio" required>
+            <option value="">Elige una opción…</option>
+            <option>Pericial psicológica en materia familiar</option>
+            <option>Metapericial o análisis técnico de un dictamen</option>
+            <option>No estoy seguro, necesito orientación</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="fNombre">Tu nombre <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="fNombre" name="nombre" required autocomplete="name"
+                 placeholder="Cómo te llamas…">
+        </div>
+
+        <div class="campo">
+          <label for="fMateria">Materia o juzgado</label>
+          <input type="text" id="fMateria" name="materia" autocomplete="off"
+                 placeholder="Por ejemplo: Juzgado Cuarto Familiar…">
+          <span class="ayuda">Si aún no hay juzgado asignado, déjalo vacío.</span>
+        </div>
+
+        <div class="campo">
+          <label for="fDesc">Breve descripción del asunto <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="fDesc" name="descripcion" required
+                    placeholder="Cuéntame en pocas líneas de qué se trata…"></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="fPlazo">¿Hay una fecha límite?</label>
+          <input type="text" id="fPlazo" name="plazo" autocomplete="off"
+                 placeholder="Por ejemplo: audiencia el 12 de octubre…">
+        </div>
+
+        <button class="btn btn--teal" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.02 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <p class="form-aviso" id="formAviso" role="status" aria-live="polite" hidden></p>
+      </fieldset>
+
+      <aside class="form-vista">
+        <h4>Esto es lo que se enviará</h4>
+        <pre id="formSalida"></pre>
+      </aside>
+    </form>
   </div>
 </section>
 
@@ -480,7 +536,7 @@
     <div class="ubicacion__datos reveal">
       <div class="direccion">
         <p class="eyebrow" style="margin-bottom:.8rem">Dirección</p>
-        <p class="direccion__dom" data-cfg="calle">Calle Mauricio Garcés 102</p>
+        <p class="direccion__dom" data-cfg="calle">Calle Mauricio Garcés 808</p>
         <p class="direccion__ciudad">
           <span data-cfg="colonia">Col. La Joya</span><br>
           <span data-cfg="ciudad">Santiago de Querétaro, Qro.</span>
@@ -614,5 +670,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/formulario.js"></script>
 </body>
 </html>

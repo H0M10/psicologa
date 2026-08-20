@@ -263,3 +263,93 @@
 /* Segunda línea de un día con dos turnos: sin borde arriba, sangrada */
 .horarios__sigue { border-top: 0; opacity: .9; }
 .horarios__sigue span:first-child::before { content: "y"; color: var(--espresso-sv); }
+
+/* --- Formulario de cotización ---------------------------------------------
+   Responde a la pregunta de Thania sobre añadir un formulario.
+   Es un formulario real; al enviarlo abre WhatsApp con las respuestas
+   ya ordenadas, sin necesidad de servidor.
+   -------------------------------------------------------------------------- */
+.form-cot {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(1.4rem, 3vw, 2.5rem);
+  align-items: start;
+  margin-top: clamp(1.5rem, 3vw, 2.2rem);
+}
+.form-cot fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .9rem; }
+.form-cot legend { padding: 0; margin-bottom: .3rem; }
+.campo { display: grid; gap: .3rem; }
+.campo label {
+  font-size: var(--t-xs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--espresso-sv);
+  font-weight: 500;
+}
+.campo label .req { color: var(--terracota); }
+.campo input,
+.campo select,
+.campo textarea {
+  font: inherit;
+  font-size: var(--t-base);
+  color: var(--espresso);
+  background: var(--papel);
+  border: 2px solid var(--linea);
+  border-radius: 10px;
+  padding: .7rem .85rem;
+  min-height: 48px;              /* objetivo táctil */
+  width: 100%;
+  transition: border-color .25s var(--ease);
+}
+.campo textarea { min-height: 6.5rem; resize: vertical; line-height: 1.6; }
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus { border-color: var(--teal); outline: none; }
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible { outline: 3px solid var(--terracota); outline-offset: 2px; }
+.campo .ayuda { font-size: var(--t-xs); color: var(--espresso-sv); }
+
+/* Vista previa: se ve exactamente qué se va a enviar */
+.form-vista {
+  background: var(--crema-2);
+  border: 2px solid var(--linea);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  position: sticky;
+  top: 6rem;
+}
+.form-vista h4 {
+  font-family: var(--texto);
+  font-size: var(--t-xs);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: .6rem;
+}
+.form-vista pre {
+  font-family: var(--texto);
+  font-size: var(--t-sm);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--espresso-sv);
+  margin: 0;
+}
+.form-aviso {
+  margin-top: .8rem;
+  font-size: var(--t-sm);
+  color: var(--teal);
+  background: color-mix(in srgb, var(--teal) 10%, transparent);
+  border-radius: 8px;
+  padding: .7rem .85rem;
+}
+.form-aviso[hidden] { display: none; }
+.form-cot .btn { justify-content: center; }
+
+@media (max-width: 900px) {
+  .form-cot { grid-template-columns: 1fr; }
+  .form-vista { position: static; }
+  .form-cot .btn { width: 100%; }
+}

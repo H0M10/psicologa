@@ -264,7 +264,7 @@ de una instrucción explícita suya o de su información.
 | 1 | Nombre completo: Thania Huerta Pacheco | Información |
 | 2 | Cédula profesional 14661976 | Información |
 | 3 | Registro consejo forense 25-08-63 | Información |
-| 4 | Dirección Mauricio Garcés 102, Col. La Joya | Información |
+| 4 | Dirección Mauricio Garcés 808, Col. La Joya | Información |
 | 5 | **Mapa del consultorio** | **Instrucción A** |
 | 6 | **Botón de Google Maps** | **Instrucción A** |
 | 7 | **Botón de Waze** | **Instrucción A** |

@@ -130,7 +130,7 @@
       '<div class="ic-datos">' +
         '<div>' +
           '<h3>Dirección</h3>' +
-          '<address>Calle Mauricio Garcés 102<br>Col. La Joya<br>Santiago de Querétaro, Qro.</address>' +
+          '<address>Calle Mauricio Garcés 808<br>Col. La Joya<br>Santiago de Querétaro, Qro.</address>' +
           '<div class="ic-a">' +
             '<a class="ic-b" href="https://www.google.com/maps/dir/?api=1&destination=' + LAT + ',' + LNG + '" target="_blank" rel="noopener">Google Maps</a>' +
             '<a class="ic-b ic-b--o" href="https://waze.com/ul?ll=' + LAT + ',' + LNG + '&navigate=yes" target="_blank" rel="noopener">Waze</a>' +
