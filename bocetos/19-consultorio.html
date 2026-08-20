@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FAF8F5">
+<title>19 · Consultorio — Boceto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_movil.css">
+<style>
+/* 19 · CONSULTORIO — registro profesional cálido, de consulta privada.
+   Lora para títulos y Source Sans para texto: dos tipografías de trabajo,
+   sin gestos de moda. Papel cálido y verde apagado. */
+:root{
+  --mv-bg:#FAF8F5; --mv-fg:#33302B; --mv-acc:#5B6E5A; --mv-line:#DFD9D0;
+  --acc:#5B6E5A; --texto:#33302B; --suave:#6B665E; --linea:#DFD9D0;
+  --fondo:#FAF8F5; --gris:#F1EDE6; --pie-bg:#33302B; --pie-fg:#DFD9D0;
+  --serif:'Lora',Georgia,serif; --sans:'Source Sans 3',Arial,sans-serif;
+  --ancho:1000px; --r:4px; --pin-r:50%;
+}
+body{font-family:var(--sans);background:var(--fondo);color:var(--texto)}
+
+body{font-size:16px;line-height:1.62}
+.w{width:min(100% - 2.5rem,var(--ancho,1080px));margin-inline:auto}
+h1,h2,h3{line-height:1.25}
+a{color:var(--acc)}
+.btn{display:inline-block;padding:.7rem 1.4rem;background:var(--acc);color:var(--btn-fg,#fff);
+  text-decoration:none;font-size:.94rem;font-weight:700;border:1px solid var(--acc);border-radius:var(--r,2px)}
+.btn:hover{opacity:.9}
+.btn--sec{background:transparent;color:var(--acc)}
+.btn--sec:hover{background:var(--gris);opacity:1}
+.cab{border-bottom:1px solid var(--linea);background:var(--fondo)}
+.cab__in{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:1rem 0}
+.cab__n{font-family:var(--serif,inherit);font-size:1.3rem;font-weight:700;line-height:1.2}
+.cab__n span{display:block;font-family:var(--sans);font-size:.8rem;font-weight:400;color:var(--suave);margin-top:.15rem}
+.cab nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:1.2rem;font-size:.92rem}
+.cab nav a{color:var(--texto);text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+.cab nav a:hover{border-bottom-color:var(--acc)}
+.port{padding:2.4rem 0;border-bottom:1px solid var(--linea)}
+.port__g{display:grid;grid-template-columns:1.4fr 1fr;gap:2.4rem;align-items:center}
+.port__k{font-size:.8rem;color:var(--suave);margin-bottom:.7rem;letter-spacing:.04em}
+.port h1{font-family:var(--serif,inherit);font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:.85rem}
+.port__s{color:var(--suave);max-width:58ch;font-size:1.04rem}
+.port .a{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+.port img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--linea);border-radius:var(--r,2px)}
+.cred{background:var(--gris);border-bottom:1px solid var(--linea)}
+.cred dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem 2rem;padding:1rem 0;margin:0}
+.cred dt{font-size:.76rem;color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
+.cred dd{margin:0;font-weight:700;font-size:1rem}
+.sec{padding:2.3rem 0;border-bottom:1px solid var(--linea)}
+.sec h2{font-family:var(--serif,inherit);font-size:clamp(1.3rem,2.6vw,1.7rem);
+  padding-bottom:.5rem;border-bottom:2px solid var(--acc);margin-bottom:1.1rem}
+.sec h3{font-size:1.06rem;margin:1.2rem 0 .5rem}
+.sec p{color:var(--suave);max-width:70ch}
+.sec p+p{margin-top:.7rem}
+.cita{margin:1.1rem 0;padding:.9rem 1.1rem;background:var(--gris);border-left:3px solid var(--acc);
+  font-style:italic;color:var(--texto);max-width:62ch}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+ul.lista{margin:0;padding-left:1.15rem;color:var(--suave)}
+ul.lista li{margin-bottom:.35rem}
+address{font-style:normal;color:var(--suave);line-height:1.8}
+table{width:100%;border-collapse:collapse;font-size:.93rem;margin-top:.4rem}
+caption{text-align:left;font-weight:700;font-family:var(--serif,inherit);font-size:1.04rem;padding-bottom:.5rem}
+th,td{text-align:left;padding:.52rem .6rem;border-bottom:1px solid var(--linea);vertical-align:top}
+thead th{font-family:var(--sans);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--suave);border-bottom:2px solid var(--acc);font-weight:700}
+td:first-child{white-space:nowrap;color:var(--suave);width:10.5rem}
+.horas td:first-child{width:auto}
+.tabla-wrap{overflow-x:auto}
+.aviso{border:1px solid var(--linea);border-left:4px solid var(--acc);padding:1.1rem 1.2rem;
+  margin-top:1.2rem;background:var(--gris)}
+.aviso p{margin-bottom:.9rem;color:var(--texto)}
+.aviso small{display:block;color:var(--suave);margin-top:.6rem;font-size:.85rem}
+.mapa-caja{position:relative;border:1px solid var(--linea);margin-top:1.2rem;border-radius:var(--r,2px);overflow:hidden}
+#mapa{height:330px;width:100%;background:var(--gris)}
+.leaflet-container{font-family:var(--sans)}
+.pin{display:block;width:22px;height:22px;background:var(--acc);border:2px solid #fff;
+  box-shadow:0 1px 4px rgba(0,0,0,.4);display:grid;place-items:center;border-radius:var(--pin-r,0)}
+.pin__c{width:6px;height:6px;background:#fff;border-radius:var(--pin-r,0)}
+.mapa-toque{position:absolute;inset:0;z-index:500;background:rgba(0,0,0,.42);color:#fff;border:0;
+  display:grid;place-items:center;font-size:.9rem;font-weight:700}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
+.rutas{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
+.pie{background:var(--pie-bg);color:var(--pie-fg);padding:1.6rem 0;font-size:.88rem}
+.pie p+p{margin-top:.5rem;opacity:.8}
+.volver{background:var(--acc);color:#fff;border-radius:var(--r,2px)}
+@media(max-width:820px){
+  .port__g,.dos{grid-template-columns:1fr}
+  .cab__in{display:block}
+  .cab nav ul{margin:.8rem 0;gap:1rem}
+  .cab__b{width:100%;text-align:center}
+  .port img{max-width:250px}
+  .port .a .btn,.rutas .btn{display:block;text-align:center;width:100%}
+  td:first-child{width:auto;white-space:normal}
+}
+/* Portada centrada: es una consulta, no una empresa */
+.port__g{grid-template-columns:1fr;text-align:center;max-width:64ch;margin-inline:auto}
+.port__g figure{order:-1;max-width:190px;margin-inline:auto}
+.port__s{margin-inline:auto}
+.port .a{justify-content:center}
+.sec h2{text-align:center;border-bottom:1px solid var(--linea);border-top:1px solid var(--linea);
+  padding:.6rem 0;margin-bottom:1.3rem}
+@media(max-width:820px){.port__g figure{max-width:170px}}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="w cab__in">
+    <p class="cab__n">Thania Huerta Pacheco<span>Psicóloga clínica y forense</span></p>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#forense">Forense</a></li>
+      <li><a href="#terapia">Psicoterapia</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#donde">Consultorio</a></li>
+    </ul></nav>
+    <a class="btn cab__b" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<section class="port"><div class="w port__g">
+  <div class="rv">
+    <p class="port__k">Santiago de Querétaro · Cédula 14661976</p>
+    <h1>Peritajes psicológicos en materia familiar y acompañamiento a adolescentes</h1>
+    <p class="port__s">Elaboro dictámenes periciales que aportan elementos técnicos al proceso judicial, y acompaño clínicamente a adolescentes y juventudes con enfoque cognitivo-conductual.</p>
+    <div class="a">
+      <a class="btn" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a class="btn btn--sec" href="#forense">Ver servicios</a>
+    </div>
+  </div>
+  <figure class="rv"><img src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta Pacheco" width="600" height="750"></figure>
+</div></section>
+
+<section class="cred"><div class="w"><dl>
+  <div><dt>Cédula profesional</dt><dd>14661976</dd></div>
+  <div><dt>Consejo forense</dt><dd>25-08-63</dd></div>
+  <div><dt>Enfoque clínico</dt><dd>Cognitivo-conductual</dd></div>
+  <div><dt>Celular</dt><dd>442 830 6799</dd></div>
+</dl></div></section>
+
+<main>
+<section class="sec rv" id="sobre-mi"><div class="w">
+  <h2>Sobre mí</h2>
+  <p>Soy psicóloga con formación y experiencia profesional en los ámbitos clínico y forense. Dentro del área forense trabajo principalmente en materia familiar, lo que me ha permitido comprender las distintas situaciones y necesidades que pueden presentarse en las familias. En el área clínica, mi práctica está dedicada exclusivamente al acompañamiento de adolescentes y juventudes.</p>
+  <p>Elegí trabajar con esta población porque considero que la adolescencia es un momento decisivo en la construcción de las personas adultas del futuro. Acompañarlos oportunamente puede generar cambios importantes en el presente, mientras desarrollan su identidad y su propia manera de relacionarse con el mundo.</p>
+  <blockquote class="cita">Aunque ambos ámbitos tienen objetivos y límites éticos diferentes, juntos enriquecen mi manera de comprender el comportamiento humano.</blockquote>
+  <p>Disfruto estudiar y mantenerme en constante actualización. Procuro que mi trabajo se sustente en evidencia científica, pero también creo que la terapia puede ser cercana y creativa: disfruto crear materiales y adaptar actividades y herramientas a la personalidad, los intereses y las necesidades de cada adolescente.</p>
+</div></section>
+
+<section class="sec rv" id="forense"><div class="w">
+  <h2>Servicios de psicología forense</h2>
+  <div class="dos">
+    <div>
+      <h3>Periciales psicológicas en materia familiar</h3>
+      <ul class="lista"><li>Guarda y custodia</li><li>Establecimiento o modificación de regímenes de convivencia</li><li>Valoración de competencias y habilidades parentales</li><li>Conflictos derivados de una separación o divorcio</li><li>Interferencias parentales</li><li>Identificación de factores de riesgo y protección</li><li>Afectaciones psicológicas</li></ul>
+    </div>
+    <div>
+      <h3>Metapericiales y análisis técnicos de dictámenes</h3>
+      <p>Revisión de peritajes realizados por otros profesionales para valorar la metodología empleada, el cumplimiento de criterios científicos, técnicos y éticos, la pertinencia de los instrumentos y su relación con los resultados y conclusiones.</p>
+    </div>
+  </div>
+  <div class="aviso">
+    <p>Cada asunto es diferente y requiere un servicio pensado de acuerdo con sus propias necesidades. Por eso el costo puede variar según sus características y su alcance. Puedes solicitar una cotización personalizada, <strong>sin costo y sin compromiso</strong>.</p>
+    <a class="btn" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n.%0A%0A%E2%80%A2%20Tipo%20de%20servicio%3A%20%0A%E2%80%A2%20Materia%20o%20juzgado%3A%20%0A%E2%80%A2%20Breve%20descripci%C3%B3n%3A%20%0A%E2%80%A2%20%C2%BFFecha%20l%C3%ADmite%3F%3A%20" target="_blank" rel="noopener">Solicitar cotización</a>
+    <small>Se abre WhatsApp con las preguntas ya escritas.</small>
+  </div>
+</div></section>
+
+<section class="sec rv" id="terapia"><div class="w">
+  <h2>Psicoterapia para adolescentes y juventudes</h2>
+  <p>Mi práctica clínica está dedicada <strong>exclusivamente</strong> a esta etapa. Enfoque cognitivo-conductual, con materiales y actividades adaptados a la personalidad, los intereses y las necesidades de cada persona.</p>
+  <h3>Motivos frecuentes de consulta</h3>
+  <div class="dos">
+    <ul class="lista"><li>Ansiedad</li><li>Depresión</li><li>Regulación emocional</li><li>Autoestima, inseguridad, identidad y autoconocimiento</li><li>Habilidades sociales</li></ul>
+    <ul class="lista"><li>Problemas de conducta en adolescentes</li><li>Cambios en la dinámica familiar derivados de procesos judiciales</li><li>Desarrollo de habilidades parentales y fortalecimiento del vínculo entre madres, padres e hijos</li><li>Educación sexual</li><li>Presión académica</li></ul>
+  </div>
+</div></section>
+
+<section class="sec rv" id="formacion"><div class="w">
+  <h2>Formación</h2>
+  <div class="tabla-wrap"><table>
+    <caption>Vía forense</caption>
+    <thead><tr><th scope="col">Periodo</th><th scope="col">Estudio</th><th scope="col">Institución</th></tr></thead>
+    <tbody><tr><td>May 2024 – may 2026</td><td>Maestría en Investigación y Evaluación Criminal y Forense</td><td>Instituto de Ciencia Aplicada</td></tr><tr><td>Mayo 2025</td><td>Curso de elaboración de peritajes judiciales</td><td>Poder Judicial del Estado de Querétaro</td></tr><tr><td>Mar – may 2025</td><td>Certificación en Análisis de Contexto en la Investigación Criminal</td><td>Consejo Certificador en Psicología Forense</td></tr><tr><td>Feb – may 2025</td><td>Curso-taller de peritajes en guarda y custodia con perspectiva de infancia</td><td>FORENPSIC</td></tr><tr><td>Sep – dic 2024</td><td>Seminario en disociación y trauma en víctimas de violencia</td><td>Instituto de Ciencia Aplicada</td></tr><tr><td>Julio 2024</td><td>Curso de elaboración de peritaje psicológico</td><td>Centro de SubjetividadEs Identidad Clínica y Forense</td></tr></tbody>
+  </table></div>
+  <div class="tabla-wrap" style="margin-top:1.6rem"><table>
+    <caption>Vía clínica</caption>
+    <thead><tr><th scope="col">Periodo</th><th scope="col">Estudio</th><th scope="col">Institución</th></tr></thead>
+    <tbody><tr><td>Ago 2026 – en curso</td><td>Diplomado en Psicoterapia Infantojuvenil</td><td>CAPCIA</td></tr><tr><td>May 2026 – en curso</td><td>Maestría en Psicoterapia Cognitivo Conductual</td><td>Centro de Psicoterapia Cognitiva</td></tr><tr><td>Ene – nov 2025</td><td>Diplomado en Psicoterapia Cognitivo Conductual</td><td>UAQ · IMFAPSI</td></tr><tr><td>Ago 2020 – may 2024</td><td>Licenciatura en Psicología</td><td>Universidad Mondragón México</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<section class="sec rv" id="donde"><div class="w">
+  <h2>Consultorio</h2>
+  <div class="dos">
+    <div>
+      <h3>Dirección</h3>
+      <address>Calle Mauricio Garcés 808<br>Col. La Joya, 76180<br>Santiago de Querétaro, Qro.</address>
+      <div class="rutas">
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Google Maps</a>
+        <a class="btn btn--sec" href="https://waze.com/ul?ll=20.572439,-100.4184025&navigate=yes" target="_blank" rel="noopener">Waze</a>
+      </div>
+    </div>
+    <div>
+      <h3>Horarios de atención</h3>
+      <table class="horas"><tbody><tr><td>Lunes a viernes</td><td>9:00 – 14:00</td></tr><tr><td></td><td>16:00 – 21:00</td></tr><tr><td>Sábado</td><td>9:00 – 13:00</td></tr><tr><td>Domingo</td><td>Cerrado</td></tr></tbody></table>
+      <h3 style="margin-top:1.2rem">Contacto</h3>
+      <p><a href="tel:+524428306799">442 830 6799</a> · <a href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+  </div>
+  <div class="mapa-caja">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="17" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
+</div></section></main>
+
+<footer class="pie"><div class="w">
+  <p>© 2026 Thania Huerta Pacheco · Cédula profesional 14661976 · Consejo Certificador en Psicología Forense 25-08-63</p>
+  <p>Este sitio tiene fines informativos y no sustituye una valoración profesional. Línea de la Vida: 800 911 2000.</p>
+</div></footer>
+
+<a class="volver" href="./">← Ver los bocetos</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="_mapa.js"></script>
+<script src="_movil.js"></script>
+<script src="_rv.js"></script>
+</body>
+</html>

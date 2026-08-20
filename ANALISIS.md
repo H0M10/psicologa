@@ -303,3 +303,47 @@ de una instrucción explícita suya o de su información.
 Los bocetos usan **442 830 6799** (número de pruebas) en lugar del de Thania.
 Antes de entregar hay que cambiarlo a **442 137 5118** en `assets/js/config.js`
 y en los bocetos.
+
+---
+
+## 9. Registro profesional, sin recursos de diseño generativo
+
+Los bocetos **17 al 20** se hicieron con una restricción explícita: que no se
+note diseño hecho por IA. Lo que eso significa en concreto:
+
+### Lo que NO llevan
+
+| Recurso | Por qué se evita |
+|---|---|
+| Tipografías variables de moda | Fraunces, Bricolage, Gloock y similares delatan la plantilla |
+| Formas decorativas | Blobs, estrellas atómicas, manchas, abanicos |
+| Degradados y halos | El recurso más repetido en interfaces generadas |
+| Botones cápsula por todas partes | La forma por defecto del diseño generativo |
+| Rotaciones y solapes | Ningún despacho profesional los usa |
+| Titulares desproporcionados | El texto de 6rem no informa, ocupa |
+| Etiquetas en versalitas en cada sección | El «eyebrow» sobre cada encabezado |
+
+### Lo que SÍ llevan
+
+- **Tipografías de trabajo**: PT Serif y PT Sans, IBM Plex, Lora con Source Sans,
+  Libre Franklin con Source Serif. Todas diseñadas para texto largo o
+  documentación, no para llamar la atención.
+- **Retículas convencionales**: cabecera con navegación, portada de dos columnas,
+  secciones apiladas, pie con columnas.
+- **Tablas de verdad** para la formación y los horarios, con `<thead>`, `<caption>`
+  y `scope`. Es el elemento correcto para datos tabulares y además el más legible.
+- **Filetes de 1px** en lugar de sombras y bordes gruesos.
+- **Un solo color de acento** por boceto, sin saturar.
+
+### Los cuatro
+
+| # | Registro | Tipografía | Acento |
+|---|---|---|---|
+| 17 · Despacho | Despacho jurídico | PT Serif · PT Sans | Azul marino `#1B365D` |
+| 18 · Clínica | Servicio de salud | IBM Plex Sans · Serif | Azul `#2C5F7C` |
+| 19 · Consultorio | Consulta privada cálida | Lora · Source Sans 3 | Verde apagado `#5B6E5A` |
+| 20 · Ficha | Directorio profesional | Libre Franklin · Source Serif 4 | Azul `#2B5CA8` |
+
+Si se cuentan también el **05 Suizo**, el **13 Taupe y jade** y el **15 Vino y
+niebla**, que son sobrios aunque con más carácter, el conjunto sin recursos de
+diseño generativo llega a **siete de veinte**.
