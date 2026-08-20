@@ -12,25 +12,47 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <link rel="stylesheet" href="_detalle.css">
-<link rel="stylesheet" href="_completo.css">
 <style>
+/* ============================================================================
+   01 · MID-CENTURY — la misma dirección del sitio en marcha.
+   Arcos Palm Springs, estrellas atómicas, sombras sólidas desplazadas y
+   papel con grano. Paleta Teak & Teal.
+   CONTENIDO NATIVO: toda la información de Thania en esta maquetación,
+   sin depender del bloque provisional.
+   ========================================================================== */
 :root{
   --mv-bg:#FBF6ED; --mv-fg:#2E2622; --mv-acc:#B9532F; --mv-line:rgba(46,38,34,.18);
-  --tinta:#2E2622; --suave:#5C4E44; --fondo:#F4EADB; --papel:#FBF6ED;
+  --tinta:#2E2622; --suave:#5C4E44; --fondo:#F4EADB; --papel:#FBF6ED; --arena:#EADCC6;
   --a1:#2F6F73; --a2:#B9532F; --a3:#D9A63C; --a4:#6E7F52;
   --disp:'Fraunces',Georgia,serif; --txt:'Jost',sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
 }
 *,*::before,*::after{box-sizing:border-box}*{margin:0}
-body{font-family:var(--txt);background:var(--fondo);color:var(--tinta);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{font-family:var(--txt);background:var(--fondo);color:var(--tinta);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:clip}
 body::after{content:'';position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
 img,svg{display:block;max-width:100%}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:-.02em;text-wrap:balance;font-variation-settings:'SOFT' 30,'WONK' 1}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:-.02em;
+  text-wrap:balance;font-variation-settings:'SOFT' 30,'WONK' 1}
 .wrap{width:min(100% - 2.5rem,1120px);margin-inline:auto}
-
 .volver{position:fixed;left:1rem;bottom:1rem;z-index:100;background:var(--tinta);color:var(--fondo);
   text-decoration:none;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.7rem 1.1rem;border-radius:99px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem 1.6rem;
+  background:var(--a2);color:#FDF7EF;text-decoration:none;font-size:.85rem;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:500;border:2px solid var(--a2);border-radius:99px;
+  box-shadow:0 2px 0 rgba(46,38,34,.2);transition:transform .35s var(--e),box-shadow .35s var(--e)}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(0) scale(.985)}
+.btn--l{background:transparent;color:var(--tinta);border-color:var(--tinta);box-shadow:none}
+.btn--t{background:var(--a1);border-color:var(--a1)}
+.btn svg{width:1.1em;height:1.1em;flex:none}
+.btn--sm{padding:.55rem 1.1rem;font-size:.72rem}
+
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a2);
+  display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.eyebrow::before{content:'';width:2rem;height:2px;background:currentColor}
 
 .top{padding:1.4rem 0;border-bottom:1px solid rgba(46,38,34,.16)}
 .top__in{display:flex;align-items:center;gap:1rem;justify-content:space-between}
@@ -39,69 +61,91 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing
 .marca b{font-family:var(--disp);font-size:1.1rem;display:block;line-height:1.1}
 .marca span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
 
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;background:var(--a2);color:#FDF7EF;
-  text-decoration:none;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
-  border:2px solid var(--a2);border-radius:99px;box-shadow:0 2px 0 rgba(46,38,34,.2);
-  transition:transform .35s var(--e),box-shadow .35s var(--e)}
-.btn:hover{transform:translateY(-3px)}
-.btn:active{transform:translateY(0) scale(.985)}
-.btn--l{background:transparent;color:var(--tinta);border-color:var(--tinta);box-shadow:none}
-.btn svg{width:1.1em;height:1.1em}
-.btn--sm{padding:.55rem 1.1rem;font-size:.72rem}
-
-.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,6rem);position:relative;overflow:hidden}
+/* Portada */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(2.5rem,6vw,4rem);position:relative;overflow:hidden}
 .hero__g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .kick{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-  color:#1F4C50;background:rgba(127,176,175,.3);border:1px solid rgba(47,111,115,.35);padding:.35rem .9rem;border-radius:99px;margin-bottom:1.4rem}
+  color:#1F4C50;background:rgba(127,176,175,.3);border:1px solid rgba(47,111,115,.35);
+  padding:.35rem .9rem;border-radius:99px;margin-bottom:1.4rem}
 .hero h1{font-size:clamp(2.1rem,6.2vw,4.3rem);font-variation-settings:'SOFT' 45,'WONK' 1}
 .hero h1 em{font-style:italic;color:var(--a2)}
-.hero p{font-size:clamp(1rem,2.4vw,1.28rem);color:var(--suave);max-width:44ch;margin-top:1.4rem}
+.hero p.sub{font-size:clamp(1rem,2.4vw,1.24rem);color:var(--suave);max-width:44ch;margin-top:1.4rem}
 .acts{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
-
 .retrato{position:relative;justify-self:center;width:min(100%,380px)}
 .retrato__m{position:relative;z-index:2;border-radius:99px 99px 10px 10px;overflow:hidden;aspect-ratio:4/5;
-  border:3px solid var(--tinta);background:#EADCC6;box-shadow:13px 13px 0 -3px var(--a3),13px 13px 0 0 var(--tinta)}
+  border:3px solid var(--tinta);background:var(--arena);box-shadow:13px 13px 0 -3px var(--a3),13px 13px 0 0 var(--tinta)}
 .retrato__m img{width:100%;height:100%;object-fit:cover}
 .disco{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:var(--a1);top:-6%;left:-13%;z-index:1;opacity:.9}
 .estrella{position:absolute;width:4.2rem;top:14%;right:-7%;z-index:3;color:var(--a3);animation:gira 34s linear infinite}
 @keyframes gira{to{transform:rotate(360deg)}}
 .deco{position:absolute;right:-8vw;top:-5vw;width:32vw;max-width:420px;color:var(--a1);opacity:.1}
 
-.sec{padding:clamp(3rem,7vw,6rem) 0;background:#EADCC6}
-.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a2);display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-.eyebrow::before{content:'';width:2rem;height:2px;background:currentColor}
-.sec h2{font-size:clamp(1.7rem,4.4vw,2.7rem);margin-bottom:2.2rem}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
-.card{background:var(--papel);border:2px solid var(--tinta);border-radius:20px 20px 20px 4px;padding:1.9rem 1.6rem;position:relative;overflow:hidden;transition:transform .45s var(--e),box-shadow .45s var(--e)}
+/* Franja de credenciales */
+.franja{background:var(--tinta);color:var(--fondo);padding:1.3rem 0}
+.franja dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem 2rem;margin:0}
+.franja dt{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,234,219,.66);margin-bottom:.15rem}
+.franja dd{margin:0;font-family:var(--disp);font-size:1.05rem;font-weight:600;color:#FDF7EF}
+
+/* Secciones */
+.sec{padding:clamp(2.8rem,6vw,5rem) 0}
+.sec--arena{background:var(--arena)}
+.sec h2{font-size:clamp(1.7rem,4.4vw,2.7rem);margin-bottom:.9rem;max-width:20ch}
+.sec p.plomo{color:var(--suave);max-width:60ch;font-size:1.06rem}
+
+/* Sobre mí */
+.sobre__g{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.sobre__f img{width:100%;aspect-ratio:3/4;object-fit:cover;border:3px solid var(--tinta);
+  border-radius:10px 10px 999px 999px;background:var(--arena)}
+.sobre p{color:var(--suave);max-width:58ch;line-height:1.72}
+.sobre p+p{margin-top:.8rem}
+.cita{margin:1.3rem 0;padding-left:1.2rem;border-left:3px solid var(--a3);
+  font-family:var(--disp);font-style:italic;font-size:1.14rem;color:var(--tinta);max-width:52ch}
+.firma{font-family:var(--disp);font-style:italic;font-size:1.6rem;color:var(--a1);margin-top:1.4rem;
+  font-variation-settings:'SOFT' 80,'WONK' 1}
+
+/* Servicios forenses */
+.cards{display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem;margin-top:1.8rem;align-items:start}
+.card{background:var(--papel);border:2px solid var(--tinta);border-radius:20px 20px 20px 4px;
+  padding:1.8rem 1.6rem;position:relative;overflow:hidden;height:100%}
 .card::before{content:'';position:absolute;inset:0 0 auto 0;height:6px;background:var(--c)}
-.card:hover{transform:translate(-4px,-6px);box-shadow:8px 12px 0 -2px var(--c)}
 .ic{width:2.9rem;height:2.9rem;display:grid;place-items:center;border-radius:50%;margin-bottom:1.1rem;
   background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--c)}
 .ic svg{width:1.45rem;height:1.45rem}
-.card h3{font-size:1.35rem;margin-bottom:.5rem}
-.card p{font-size:.95rem;color:var(--suave)}
+.card h3{font-size:1.35rem;margin-bottom:.7rem}
+.card p{font-size:.96rem;color:var(--suave)}
+.card ul{list-style:none;padding:0;margin-top:.9rem;display:grid;gap:.1rem}
+.card li{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:baseline;
+  padding:.45rem 0;font-size:.95rem;color:var(--suave);border-bottom:1px solid rgba(46,38,34,.1)}
+.card li:last-child{border-bottom:0}
+.card li::before{content:'';width:.38rem;height:.38rem;border-radius:50%;background:var(--c);transform:translateY(-.18em)}
 
-.cta{padding:clamp(3rem,7vw,6rem) 0;background:var(--tinta);color:var(--fondo);text-align:center;position:relative;overflow:hidden}
-.cta h2{font-size:clamp(1.8rem,4.6vw,3rem);color:#FDF7EF;max-width:20ch;margin-inline:auto;font-variation-settings:'SOFT' 55,'WONK' 1}
-.cta p{color:rgba(244,234,219,.75);max-width:46ch;margin:1.2rem auto 0}
-.cta .btn--l{color:var(--fondo);border-color:rgba(244,234,219,.5)}
-.cta__arcos{position:absolute;inset:auto 0 0 0;height:100%;opacity:.12;color:var(--a3)}
-.cta__in{position:relative;z-index:2}
-.acts--c{justify-content:center;margin-top:2.2rem}
+.nota{margin-top:1.4rem;background:var(--papel);border:2px dashed var(--a1);border-radius:18px;padding:1.4rem 1.5rem}
+.nota p{color:var(--suave);max-width:58ch;margin-bottom:1rem}
 
-@media(max-width:860px){
-  .hero__g{grid-template-columns:1fr;gap:2rem}
-  .retrato{order:-1;width:min(64%,230px)}
-  .acts .btn{flex:1 1 100%;justify-content:center}
-  .top .btn{display:none}
-}
+/* Motivos como etiquetas */
+.temas{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem}
+.temas li{background:var(--papel);border:2px solid var(--tinta);border-radius:99px;
+  padding:.5rem 1.1rem;font-size:.93rem;transition:transform .3s var(--e),background .3s var(--e)}
+.temas li:hover{transform:translateY(-2px);background:var(--a3)}
 
-/* --- Mapa (unica adicion; el resto del diseno queda intacto) --- */
-.donde{padding:clamp(3rem,7vw,6rem) 0;background:var(--fondo)}
-.donde h2{font-size:clamp(1.7rem,4.4vw,2.7rem);margin-bottom:1.4rem}
+/* Formación */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.6rem);margin-top:1.8rem}
+.form h3{font-family:var(--txt);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  padding-bottom:.5rem;margin-bottom:.8rem;border-bottom:2px solid currentColor}
+.form--f h3{color:var(--a1)} .form--c h3{color:var(--a2)}
+.form ol{list-style:none;padding:0;margin:0}
+.form li{padding:.75rem 0;border-bottom:1px solid rgba(46,38,34,.12);position:relative;padding-left:1.2rem}
+.form li::before{content:'';position:absolute;left:0;top:1.25rem;width:.45rem;height:.45rem;
+  border-radius:50%;border:1.5px solid var(--suave)}
+.form li:first-child::before{background:var(--a3);border-color:var(--a3)}
+.form .f{display:block;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-bottom:.15rem}
+.form b{display:block;font-family:var(--disp);font-size:1rem;font-weight:600;line-height:1.28}
+.form .e{display:block;font-size:.85rem;color:var(--suave);margin-top:.1rem}
+
+/* Consultorio */
 .mapa-caja{position:relative;border:3px solid var(--tinta);border-radius:20px;overflow:hidden;
-  box-shadow:10px 10px 0 -2px var(--a1)}
-#mapa{height:clamp(300px,42vh,430px);width:100%;background:#EADCC6}
+  box-shadow:10px 10px 0 -2px var(--a1);margin-top:1.6rem}
+#mapa{height:clamp(300px,42vh,430px);width:100%;background:var(--arena)}
 .leaflet-tile-pane{filter:sepia(.28) saturate(.86) hue-rotate(-8deg) brightness(1.04) contrast(.95)}
 .leaflet-container{font-family:var(--txt)}
 .pin{display:block;width:28px;height:28px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);
@@ -111,9 +155,37 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing
   display:grid;place-items:center;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
 .mapa-toque[hidden]{display:none}
 .mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
-.dd{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:1.3rem}
-.dd address{font-style:normal;color:var(--suave)}
-@media(max-width:860px){.mapa-caja{box-shadow:6px 6px 0 -1px var(--a1)}.dd .btn{flex:1 1 100%;justify-content:center}}
+.rutas{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.6rem}
+.datos .caja{background:var(--papel);border:2px solid var(--tinta);border-radius:20px 20px 20px 4px;padding:1.5rem 1.4rem}
+.datos .caja--h{box-shadow:8px 8px 0 -2px var(--a3)}
+.datos .caja--d{box-shadow:8px 8px 0 -2px var(--a1)}
+.datos address{font-style:normal;color:var(--suave);line-height:1.8}
+.datos ul{list-style:none;padding:0}
+.datos li{display:flex;justify-content:space-between;gap:1rem;padding:.28rem 0;color:var(--suave);font-size:.95rem}
+
+/* Cierre */
+.cta{padding:clamp(3rem,7vw,5rem) 0;background:var(--tinta);color:var(--fondo);text-align:center;
+  position:relative;overflow:hidden}
+.cta h2{font-size:clamp(1.8rem,4.6vw,3rem);color:#FDF7EF;max-width:20ch;margin-inline:auto;
+  font-variation-settings:'SOFT' 55,'WONK' 1}
+.cta p{color:rgba(244,234,219,.75);max-width:46ch;margin:1.2rem auto 0}
+.cta .btn--l{color:var(--fondo);border-color:rgba(244,234,219,.5)}
+.cta__arcos{position:absolute;inset:auto 0 0 0;height:100%;opacity:.12;color:var(--a3)}
+.cta__in{position:relative;z-index:2}
+.acts--c{justify-content:center;margin-top:2.2rem}
+.pie{padding:1.6rem 0 2.5rem;font-size:.84rem;color:var(--suave);text-align:center}
+
+@media(max-width:900px){
+  .hero__g,.sobre__g,.cards,.form,.datos{grid-template-columns:1fr}
+  .hero__g{gap:2rem}
+  .retrato{order:-1;width:min(64%,230px)}
+  .sobre__f{max-width:230px;margin-inline:auto}
+  .acts .btn,.rutas .btn{flex:1 1 100%}
+  .top .btn{display:none}
+  .mapa-caja{box-shadow:6px 6px 0 -1px var(--a1)}
+  .datos .caja--h,.datos .caja--d{box-shadow:5px 5px 0 -1px var(--a3)}
+}
 </style>
 </head>
 <body>
@@ -123,75 +195,179 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing
     <svg class="sello" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2F6F73"/><path d="M24 10a14 14 0 0 1 0 28" fill="#D9A63C"/><circle cx="24" cy="24" r="6.5" fill="#FBF6ED"/><circle cx="24" cy="24" r="2.6" fill="#B9532F"/></svg>
     <span><b>Thania Huerta</b><span>Clínica y forense</span></span>
   </div>
-  <a class="btn btn--sm" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Agendar por WhatsApp</a>
+  <a class="btn btn--sm" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Escribir por WhatsApp</a>
 </div></header>
 
-<section class="hero">
+<section class="hero" id="inicio">
   <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="100" cy="100" r="72" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="100" cy="100" r="46" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M100 2v196M2 100h196M30 30l140 140M170 30L30 170" stroke="currentColor" stroke-width=".7"/></svg>
   <div class="wrap hero__g">
-    <div>
+    <div class="rv">
       <p class="kick">Cédula profesional 14661976</p>
       <h1>Psicología <em>forense</em> y terapia para <em>adolescentes</em>.</h1>
-      <p>Peritajes psicológicos en materia familiar y acompañamiento clínico a adolescentes y juventudes. En Querétaro.</p>
+      <p class="sub">Peritajes psicológicos en materia familiar y acompañamiento clínico a adolescentes y juventudes. En Santiago de Querétaro.</p>
       <div class="acts">
-        <a class="btn" href="https://wa.me/524428306799" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
-        <a class="btn btn--l" href="#">Ver el consultorio</a>
+        <a class="btn" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.1-1.7 1.2-.4 0-1 .1-1.6-.1-.4-.1-.8-.3-1.4-.5-2.5-1.1-4.1-3.6-4.2-3.7-.1-.2-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.4l.7 1.8c.1.1.1.3 0 .4l-.2.4-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.4 1.7.9.8 1.7 1.1 1.9 1.2s.4.1.5-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.2.1.4.2.4.3 0 .1 0 .5-.2 1Z"/></svg>Escribir por WhatsApp</a>
+        <a class="btn btn--l" href="#donde">Ver el consultorio</a>
       </div>
     </div>
-    <figure class="retrato">
-      <div class="disco"></div>
+    <figure class="retrato rv" style="--d:140ms">
+      <div class="disco" aria-hidden="true"></div>
       <svg class="estrella" viewBox="0 0 100 100" aria-hidden="true"><g stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M50 4v92M4 50h92M17 17l66 66M83 17L17 83"/></g><circle cx="50" cy="50" r="7" fill="currentColor"/></svg>
       <div class="retrato__m"><img src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta Pacheco" width="800" height="1000"></div>
     </figure>
   </div>
 </section>
 
-<section class="sec"><div class="wrap">
-  <p class="eyebrow">Cómo te acompaño</p>
-  <h2>Áreas de práctica</h2>
+<section class="franja"><div class="wrap"><dl>
+  <div><dt>Cédula profesional</dt><dd>14661976</dd></div>
+  <div><dt>Consejo forense</dt><dd>25-08-63</dd></div>
+  <div><dt>Enfoque clínico</dt><dd>Cognitivo-conductual</dd></div>
+  <div><dt>Celular</dt><dd>442 830 6799</dd></div>
+</dl></div></section>
+
+<section class="sec sobre" id="sobre-mi"><div class="wrap sobre__g">
+  <figure class="sobre__f rv"><img src="../assets/img/consultorio.svg" alt="Thania Huerta Pacheco en su consultorio" width="600" height="800"></figure>
+  <div class="rv" style="--d:120ms">
+    <p class="eyebrow">Sobre mí</p>
+    <h2>Hola, soy Thania</h2>
+    <p style="margin-top:1.2rem">Soy psicóloga con formación y experiencia profesional en los ámbitos clínico y forense. Dentro del área forense trabajo principalmente en materia familiar, lo que me ha permitido comprender las distintas situaciones y necesidades que pueden presentarse en las familias. En el área clínica, mi práctica está dedicada exclusivamente al acompañamiento de adolescentes y juventudes.</p>
+    <p>Elegí trabajar con esta población porque considero que la adolescencia es un momento decisivo en la construcción de las personas adultas del futuro. Acompañarlos oportunamente puede generar cambios importantes en el presente, mientras desarrollan su identidad y su propia manera de relacionarse con el mundo.</p>
+    <blockquote class="cita">Aunque ambos ámbitos tienen objetivos y límites éticos diferentes, juntos enriquecen mi manera de comprender el comportamiento humano.</blockquote>
+    <p>Disfruto estudiar y mantenerme en constante actualización. Procuro que mi trabajo se sustente en evidencia científica, pero también creo que la terapia puede ser cercana y creativa: disfruto crear materiales y adaptar actividades y herramientas a la personalidad, los intereses y las necesidades de cada adolescente.</p>
+    <p class="firma">Thania</p>
+  </div>
+</div></section>
+
+<section class="sec sec--arena" id="forense"><div class="wrap">
+  <div class="rv">
+    <p class="eyebrow">Psicología forense</p>
+    <h2>Peritajes en materia familiar</h2>
+    <p class="plomo">El peritaje aporta elementos técnicos al proceso, para que quien juzga decida con información.</p>
+  </div>
   <div class="cards">
-    <article class="card" style="--c:#B9532F">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 2h4"/></svg></div>
-      <h3>Periciales en materia familiar</h3><p>Guarda y custodia, regímenes de convivencia, competencias y habilidades parentales.</p>
+    <article class="card rv" style="--c:var(--a1)">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 6h6Zm10 0-3 6h6Z"/></svg></div>
+      <h3>Periciales psicológicas en materia familiar</h3>
+      <ul>
+        <li>Guarda y custodia</li>
+        <li>Establecimiento o modificación de regímenes de convivencia</li>
+        <li>Valoración de competencias y habilidades parentales</li>
+        <li>Conflictos derivados de una separación o divorcio</li>
+        <li>Interferencias parentales</li>
+        <li>Identificación de factores de riesgo y protección</li>
+        <li>Afectaciones psicológicas</li>
+      </ul>
     </article>
-    <article class="card" style="--c:#2F6F73">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1 2 1.5 3.5 1.5s2.5-.5 3.5-1.5M9 9.5h.01M15 9.5h.01"/></svg></div>
-      <h3>Metapericiales</h3><p>Revisión técnica de dictámenes de otros profesionales: metodología, criterios y pertinencia de los instrumentos.</p>
+    <article class="card rv" style="--c:var(--a2);--d:110ms">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 4h9l3 3v13H8z"/><path d="M8 4H5v13h3M11 11h6M11 15h4"/></svg></div>
+      <h3>Metapericiales y análisis técnicos de dictámenes</h3>
+      <p>Revisión de peritajes realizados por otros profesionales para valorar la metodología empleada, el cumplimiento de criterios científicos, técnicos y éticos, la pertinencia de los instrumentos y su relación con los resultados y conclusiones.</p>
     </article>
-    <article class="card" style="--c:#6E7F52">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z"/></svg></div>
-      <h3>Psicoterapia adolescente</h3><p>Ansiedad, depresión, regulación emocional, autoestima e identidad. Dedicado exclusivamente a adolescentes y juventudes.</p>
-    </article>
+  </div>
+  <div class="nota rv">
+    <p>Cada asunto es diferente y requiere un servicio pensado de acuerdo con sus propias necesidades. Por eso el costo puede variar según sus características y su alcance. La cotización personalizada es <strong>sin costo y sin compromiso</strong>.</p>
+    <a class="btn btn--t" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n.%0A%0A%E2%80%A2%20Tipo%20de%20servicio%3A%20%0A%E2%80%A2%20Materia%20o%20juzgado%3A%20%0A%E2%80%A2%20Breve%20descripci%C3%B3n%3A%20%0A%E2%80%A2%20%C2%BFFecha%20l%C3%ADmite%3F%3A%20" target="_blank" rel="noopener">Solicitar cotización</a>
+  </div>
+</div></section>
+
+<section class="sec" id="terapia"><div class="wrap">
+  <div class="rv">
+    <p class="eyebrow">Psicoterapia</p>
+    <h2>Adolescentes y juventudes</h2>
+    <p class="plomo">Mi práctica clínica está dedicada <strong>exclusivamente</strong> a esta etapa. Enfoque cognitivo-conductual, con materiales y actividades adaptados a la personalidad, los intereses y las necesidades de cada persona.</p>
+  </div>
+  <ul class="temas rv">
+    <li>Ansiedad</li><li>Depresión</li><li>Regulación emocional</li>
+    <li>Autoestima, inseguridad, identidad y autoconocimiento</li>
+    <li>Habilidades sociales</li><li>Problemas de conducta en adolescentes</li>
+    <li>Cambios en la dinámica familiar derivados de procesos judiciales</li>
+    <li>Desarrollo de habilidades parentales y vínculo con hijas e hijos</li>
+    <li>Educación sexual</li><li>Presión académica</li>
+  </ul>
+</div></section>
+
+<section class="sec sec--arena" id="formacion"><div class="wrap">
+  <div class="rv">
+    <p class="eyebrow">Formación</p>
+    <h2>Dónde me formé</h2>
+    <p class="plomo">Dos trayectorias en paralelo, de lo más reciente a lo más antiguo.</p>
+  </div>
+  <div class="form">
+    <div class="form--f rv">
+      <h3>Vía forense</h3>
+      <ol>
+        <li><span class="f">May 2024 – may 2026</span><b>Maestría en Investigación y Evaluación Criminal y Forense</b><span class="e">Instituto de Ciencia Aplicada</span></li>
+        <li><span class="f">Mayo 2025</span><b>Curso de elaboración de peritajes judiciales</b><span class="e">Poder Judicial del Estado de Querétaro</span></li>
+        <li><span class="f">Mar – may 2025</span><b>Certificación en Análisis de Contexto en la Investigación Criminal</b><span class="e">Consejo Certificador en Psicología Forense</span></li>
+        <li><span class="f">Feb – may 2025</span><b>Curso-taller de peritajes en guarda y custodia con perspectiva de infancia</b><span class="e">FORENPSIC</span></li>
+        <li><span class="f">Sep – dic 2024</span><b>Seminario en disociación y trauma en víctimas de violencia</b><span class="e">Instituto de Ciencia Aplicada</span></li>
+        <li><span class="f">Julio 2024</span><b>Curso de elaboración de peritaje psicológico</b><span class="e">Centro de SubjetividadEs Identidad Clínica y Forense</span></li>
+      </ol>
+    </div>
+    <div class="form--c rv" style="--d:110ms">
+      <h3>Vía clínica</h3>
+      <ol>
+        <li><span class="f">Ago 2026 – en curso</span><b>Diplomado en Psicoterapia Infantojuvenil</b><span class="e">CAPCIA</span></li>
+        <li><span class="f">May 2026 – en curso</span><b>Maestría en Psicoterapia Cognitivo Conductual</b><span class="e">Centro de Psicoterapia Cognitiva</span></li>
+        <li><span class="f">Ene – nov 2025</span><b>Diplomado en Psicoterapia Cognitivo Conductual</b><span class="e">Universidad Autónoma de Querétaro · IMFAPSI</span></li>
+        <li><span class="f">Ago 2020 – may 2024</span><b>Licenciatura en Psicología</b><span class="e">Universidad Mondragón México</span></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="donde"><div class="wrap">
+  <div class="rv">
+    <p class="eyebrow">El consultorio</p>
+    <h2>Dónde nos vemos</h2>
+    <p class="plomo">Abre la ruta directo en tu app favorita, o mueve el mapa para reconocer la zona.</p>
+  </div>
+  <div class="mapa-caja rv">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="17" role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
+  <div class="rutas rv">
+    <a class="btn btn--t" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Cómo llegar con Google Maps</a>
+    <a class="btn btn--l" href="https://waze.com/ul?ll=20.572439,-100.4184025&navigate=yes" target="_blank" rel="noopener">Waze</a>
+  </div>
+  <div class="datos rv">
+    <div class="caja caja--d">
+      <p class="eyebrow" style="margin-bottom:.7rem">Dirección</p>
+      <address>Calle Mauricio Garcés 808<br>Col. La Joya, 76180<br>Santiago de Querétaro, Qro.</address>
+    </div>
+    <div class="caja caja--h">
+      <p class="eyebrow" style="margin-bottom:.7rem">Horarios</p>
+      <ul>
+        <li><span>Lunes a viernes</span><span>9:00 – 14:00</span></li>
+        <li><span></span><span>16:00 – 21:00</span></li>
+        <li><span>Sábado</span><span>9:00 – 13:00</span></li>
+        <li><span>Domingo</span><span>Cerrado</span></li>
+      </ul>
+    </div>
   </div>
 </div></section>
 
 <section class="cta">
   <svg class="cta__arcos" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M100 300V150a100 100 0 0 1 200 0v150"/><path d="M900 300V120a150 150 0 0 1 300 0v180"/><circle cx="600" cy="80" r="46"/><circle cx="600" cy="80" r="24"/></g></svg>
   <div class="wrap cta__in">
-    <h2>¿Lo pensamos juntos?</h2>
-    <p>Escríbeme por WhatsApp y te respondo personalmente. Sin formularios y sin compromiso.</p>
-    <div class="acts acts--c"><a class="btn" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Escribir por WhatsApp</a><a class="btn btn--l" href="tel:+524428306799">Llamar al 442 830 6799</a></div>
+    <h2 class="rv">¿Empezamos por una pregunta?</h2>
+    <p class="rv" style="--d:90ms">Escríbeme por WhatsApp o llámame al 442 830 6799. Te respondo personalmente.</p>
+    <div class="acts acts--c rv" style="--d:160ms">
+      <a class="btn" href="https://wa.me/524428306799?text=Hola%20Thania%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a class="btn btn--l" href="tel:+524428306799">Llamar</a>
+    </div>
   </div>
 </section>
 
+<footer class="pie"><div class="wrap">
+  <p>© 2026 Thania Huerta Pacheco · Cédula 14661976 · Consejo forense 25-08-63 · Línea de la Vida 800 911 2000</p>
+</div></footer>
 
-<section class="donde" id="donde"><div class="wrap">
-  <h2>Dónde nos vemos</h2>
-  <div class="mapa-caja">
-    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="16" role="application" aria-label="Mapa del consultorio"></div>
-    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
-    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
-  </div>
-  <div class="dd">
-    <address>Mauricio Garcés 808, Col. La Joya · 76180 Santiago de Querétaro, Qro.</address>
-    <a class="btn btn--l" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Cómo llegar</a>
-  </div>
-</div></section>
-
-<a class="volver" href="./">← Ver los 10 bocetos</a>
+<a class="volver" href="./">← Ver los bocetos</a>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
-<script src="_completo.js"></script>
 <script src="_detalle.js"></script>
+<script src="_rv.js"></script>
 </body>
 </html>

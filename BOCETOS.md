@@ -59,7 +59,7 @@ maquetación y puedan soltar `_completo.js`.
 
 | # | Boceto | Contenido nativo | Barra + spy | Formulario | Bio plegable |
 |---|---|---|---|---|---|
-| 01 | Mid-century | ⏳ pendiente | ✅ | ✅ | ✅ |
+| 01 | Mid-century | ✅ **nativo** | ✅ | ✅ | ✅ |
 | 02 | Editorial | ⏳ pendiente | ✅ | ✅ | ✅ |
 | 03 | Botánico | ⏳ pendiente | ✅ | ✅ | ✅ |
 | 04 | Modular | ⏳ pendiente | ✅ | ✅ | ✅ |
@@ -112,3 +112,43 @@ Vienen de la investigación acumulada. Nada de esto se negocia por estética.
 5. **Fotografías.** Siguen las ilustraciones de relleno.
 6. **El número de WhatsApp** es el de pruebas (442 830 6799). Antes de entregar
    hay que poner el de Thania (442 137 5118).
+
+---
+
+## 5. Corrección sobre el morado
+
+Una observación de campo obligó a matizar lo que había escrito en ANALISIS.md.
+Se visitaron varias páginas reales de psicólogos y **varias usan morado**, con
+letras en negro y cafés tenues. Tenían razón: mi conclusión anterior era
+demasiado tajante.
+
+### Lo que dice la investigación
+
+- Los tonos **lavanda y violeta puntúan más alto en «confianza emocional
+  percibida»** que cualquier otra familia, según investigación de psicología
+  del diseño.
+- El **malva** —morado con subtono gris o rosa— equilibra tranquilidad y
+  profundidad. Estudios de yoga, apps de salud mental y marcas de cuidado lo
+  usan justamente por eso.
+- **Morado con teal** favorece la conciencia y la calma; se recomienda
+  específicamente para terapeutas de trauma.
+
+### Dónde estaba el error
+
+La distinción no es *morado sí o morado no*, sino **cuál**:
+
+| Registro | Ejemplo | Veredicto |
+|---|---|---|
+| Morado saturado sobre blanco | `#8B5CF6` (violeta de Tailwind) | Es el tell de diseño generado por IA |
+| Malva apagado con neutros | `#9B8AA6`, `#B5A0AE` | Legítimo y bien respaldado |
+| Amatista sobria | `#9966CC` bien dosificado | Espiritualidad y sofisticación |
+
+Y el **café tenue** que observaron encaja: el malva comparte subtono cálido
+con los cafés apagados, así que la combinación tiene fundamento, no es casual.
+
+### Qué hacer con esto
+
+Ninguno de los veinte usa hoy la familia malva. Es un hueco real de la
+propuesta y conviene cubrirlo con un boceto propio: **malva apagado + café
+tenue + negro para el texto**, exactamente lo que vieron funcionando.
+Queda propuesto, pendiente de luz verde.
