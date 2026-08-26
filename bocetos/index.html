@@ -4,19 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#EFE7D9">
+<meta name="theme-color" content="#F0E9DB">
 <title>Propuesta visual · Thania Huerta Pacheco</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400..700;1,400..600&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400..700;1,400..500&family=Hanken+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="_base.css">
 <style>
 :root{
-  --crema:#EFE7D9; --lino:#E3D8C4; --papel:#F6F0E5;
-  --bosque:#2C3A2B; --salvia:#6B7C4A; --madera:#7A5C42;
-  --terracota:#A2472A; --vino:#5E3A44;
-  --tinta:#2A211B; --suave:#6A5B4E; --linea:rgba(122,92,66,.28);
-  --disp:'Bitter',Georgia,serif; --txt:'Jost',system-ui,sans-serif;
+  --papel:#F7F2E9; --crema:#F0E9DB; --lino:#E5DCC9;
+  --t-salvia:#E8ECE0; --t-arcilla:#F4E7DD;
+  --bosque:#2E3B2C; --salvia:#7C8C63; --salvia-hondo:#57663F;
+  --madera:#8A6A4E; --madera-honda:#6B5138;
+  --terracota:#BC6642; --terracota-honda:#9C5133; --vino:#6B4451;
+  --tinta:#352E27; --suave:#6E6156; --linea:rgba(138,106,78,.22);
+  --so-1:0 14px 32px -22px rgba(53,46,39,.34);
+  --so-2:0 24px 56px -30px rgba(53,46,39,.30);
+  --disp:'Petrona',Georgia,serif; --txt:'Hanken Grotesk',system-ui,sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
 }
 body{font-family:var(--txt);background:var(--crema);color:var(--tinta);line-height:1.65}
@@ -26,10 +30,10 @@ body::after{content:'';position:fixed;inset:0;z-index:99;pointer-events:none;opa
 h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing:-.015em;text-wrap:balance}
 .w{width:min(100% - 2.5rem,1080px);margin-inline:auto}
 
-.cab{padding:clamp(2.5rem,6vw,4rem) 0 clamp(1.5rem,3vw,2.2rem);border-bottom:2px solid var(--madera)}
+.cab{padding:clamp(2.5rem,6vw,4rem) 0 clamp(1.5rem,3vw,2.2rem);border-bottom:1px solid var(--linea)}
 .k{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--madera);margin-bottom:1rem}
 .cab h1{font-size:clamp(1.9rem,5vw,3.1rem);max-width:20ch}
-.cab h1 em{font-style:italic;color:var(--terracota)}
+.cab h1 em{font-style:italic;color:var(--terracota-honda)}
 .cab .lead{color:var(--suave);max-width:62ch;margin-top:1.1rem;font-size:1.05rem}
 
 .cita{margin:1.6rem 0 0;padding:1.1rem 1.3rem;background:var(--lino);
@@ -48,22 +52,22 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 
 .dest{padding:clamp(2rem,4vw,3rem) 0}
 .tarjeta{display:grid;grid-template-columns:1.05fr .95fr;background:var(--papel);
-  border:2px solid var(--madera);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;
-  box-shadow:12px 12px 0 -2px var(--salvia);
+  border:1px solid var(--linea);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;
+  box-shadow:var(--so-1);
   transition:transform .5s var(--e),box-shadow .5s var(--e)}
-.tarjeta:hover{transform:translate(-3px,-4px);box-shadow:16px 16px 0 -2px var(--salvia)}
+.tarjeta:hover{transform:translateY(-4px);box-shadow:var(--so-2)}
 .tarjeta__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
-  border-right:2px solid var(--madera)}
+  border-right:1px solid var(--linea)}
 .tarjeta__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
   transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
 .tarjeta__t{padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
-.tarjeta__e{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terracota)}
+.tarjeta__e{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terracota-honda)}
 .tarjeta h2{font-size:clamp(1.4rem,3vw,2rem)}
 .tarjeta__d{font-size:.94rem;color:var(--suave);line-height:1.65}
 .tarjeta__l{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
 .tarjeta__l li{font-size:.72rem;border:1.5px solid var(--linea);border-radius:999px;
   padding:.3rem .75rem;color:var(--suave)}
-.tarjeta__b{font-size:.9rem;font-weight:600;color:var(--terracota);margin-top:.3rem}
+.tarjeta__b{font-size:.9rem;font-weight:600;color:var(--terracota-honda);margin-top:.3rem}
 
 .notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;
   padding-bottom:clamp(2.5rem,5vw,4rem)}
@@ -72,11 +76,11 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 .nota p{font-size:.86rem;color:var(--suave);line-height:1.55}
 
 .pie{border-top:1px solid var(--linea);padding:1.6rem 0 3rem;color:var(--suave);font-size:.88rem}
-.pie a{color:var(--terracota)}
+.pie a{color:var(--terracota-honda)}
 
 @media(max-width:760px){
-  .tarjeta{grid-template-columns:1fr;box-shadow:7px 7px 0 -1px var(--salvia)}
-  .tarjeta__p{border-right:0;border-bottom:2px solid var(--madera);aspect-ratio:16/10}
+  .tarjeta{grid-template-columns:1fr}
+  .tarjeta__p{border-right:0;border-bottom:1px solid var(--linea);aspect-ratio:16/10}
 }
 </style>
 </head>
@@ -97,13 +101,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
   </blockquote>
 
   <div class="pal">
-    <div><i style="background:#EFE7D9"></i><b>Crema</b><code>#EFE7D9</code></div>
-    <div><i style="background:#E3D8C4"></i><b>Lino</b><code>#E3D8C4</code></div>
-    <div><i style="background:#2C3A2B"></i><b>Bosque</b><code>#2C3A2B</code></div>
-    <div><i style="background:#6B7C4A"></i><b>Salvia</b><code>#6B7C4A</code></div>
-    <div><i style="background:#7A5C42"></i><b>Madera</b><code>#7A5C42</code></div>
-    <div><i style="background:#A2472A"></i><b>Terracota</b><code>#A2472A</code></div>
-    <div><i style="background:#5E3A44"></i><b>Vino</b><code>#5E3A44</code></div>
+    <div><i style="background:#F0E9DB"></i><b>Crema</b><code>#F0E9DB</code></div>
+    <div><i style="background:#E8ECE0"></i><b>Tinte salvia</b><code>#E8ECE0</code></div>
+    <div><i style="background:#F4E7DD"></i><b>Tinte arcilla</b><code>#F4E7DD</code></div>
+    <div><i style="background:#2E3B2C"></i><b>Bosque</b><code>#2E3B2C</code></div>
+    <div><i style="background:#7C8C63"></i><b>Salvia</b><code>#7C8C63</code></div>
+    <div><i style="background:#8A6A4E"></i><b>Madera</b><code>#8A6A4E</code></div>
+    <div><i style="background:#BC6642"></i><b>Terracota</b><code>#BC6642</code></div>
+    <div><i style="background:#6B4451"></i><b>Vino</b><code>#6B4451</code></div>
   </div>
 </div></header>
 
@@ -112,16 +117,17 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
     <div class="tarjeta__p"><iframe data-src="propuesta.html" title="Vista previa de la propuesta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
     <div class="tarjeta__t">
       <p class="tarjeta__e">La propuesta</p>
-      <h2>Mid-century, con su paleta</h2>
+      <h2>Mid-century, sin adornos</h2>
       <p class="tarjeta__d">
-        Verdes en tres tonos, madera como hilo conductor, terracota y vino de
-        acento, cremas de fondo. Arcos, formas cónicas, azulejo vidriado y grano
-        de papel. Ningún color pasa de saturación media, porque los pidió
-        «no muy vivos».
+        Segunda versión. Se estudió el código real de la página que compartió y
+        se tomaron de ahí tres cosas: sombras difusas y teñidas en vez de bloques
+        de color desplazados, tinta gris cálida en vez de casi negro, y titulares
+        que hablan en segunda persona. Los adornos dibujados —arcos, conos,
+        azulejo— se retiraron: el carácter lo lleva el color, no la decoración.
       </p>
       <ul class="tarjeta__l">
-        <li>Bitter · Jost</li>
-        <li>7 secciones</li>
+        <li>Petrona · Hanken Grotesk</li>
+        <li>6 secciones</li>
         <li>Mapa, Waze y Google Maps</li>
         <li>Formulario de cotización</li>
         <li>Barra móvil con scrollspy</li>
@@ -132,15 +138,15 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 </main>
 
 <section class="w notas">
-  <div class="nota"><b>Lo que se retiró</b><p>El teal y la mostaza de la versión anterior. Thania no nombró ninguno de los dos: pidió madera, verdes, marrón y vino.</p></div>
-  <div class="nota"><b>Por qué madera y no negro</b><p>En su tablero de ambiente la madera es lo que une todo, así que los filetes y marcos van en marrón, no en negro.</p></div>
-  <div class="nota"><b>Su consultorio, en la página</b><p>Está decorando el consultorio en mid-century, así que el sitio y el espacio real tienen que sentirse lo mismo.</p></div>
-  <div class="nota"><b>El perfil completo</b><p>El análisis de sus palabras, sus imágenes y la página que compartió está en PERFIL.md.</p></div>
+  <div class="nota"><b>Qué se tomó de su referencia</b><p>Sus sombras son difusas y teñidas de la misma tinta del texto, nunca duras. Su tinta es gris cálida, no negra. Y en todo el archivo usa versalitas una sola vez.</p></div>
+  <div class="nota"><b>Qué se quitó de la versión anterior</b><p>El arco del retrato, el cono, el azulejo vidriado y las etiquetas en versalitas de cada sección. Eran decoración añadida, y se notaba.</p></div>
+  <div class="nota"><b>Cómo mejoró la paleta</b><p>Cada color con su tinte lavado para superficies y su versión honda para el texto, así el contraste cumple sin subir la saturación que ella pidió baja.</p></div>
+  <div class="nota"><b>Lo que no se copió</b><p>Su referencia usa lavanda, menta y tipografías redondeadas. Thania pidió madera, verdes, marrón y vino: se tomó su manera de construir, no sus colores.</p></div>
 </section>
 
 <footer class="pie"><div class="w">
   <p>Documento de trabajo · <a href="../">Ver el sitio en marcha</a></p>
-  <p style="margin-top:.4rem">El WhatsApp de la propuesta es el número de pruebas. Antes de entregar hay que cambiarlo al de Thania.</p>
+  <p style="margin-top:.4rem">El WhatsApp y el teléfono ya son los de Thania: 442 137 5118.</p>
 </div></footer>
 
 <script>

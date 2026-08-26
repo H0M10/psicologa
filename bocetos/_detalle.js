@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  var NUM = '524428306799';
+  var NUM = '524421375118';
   var WA = 'https://wa.me/' + NUM + '?text=';
   var MSG = encodeURIComponent('Hola Thania, vi tu página web y me gustaría agendar una cita.');
 

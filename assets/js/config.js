@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
   /* --- WhatsApp -------------------------------------------------------- */
   whatsapp: {
     // 52 + 10 dígitos, solo números
-    numero: '524428306799',
+    numero: '524421375118',
 
     // Mensaje general (botones de "Escribir por WhatsApp")
     mensaje: 'Hola Thania, vi tu página web y me gustaría agendar una cita.',
@@ -39,8 +39,8 @@ window.SITE_CONFIG = {
   },
 
   /* --- Contacto -------------------------------------------------------- */
-  telefono: '+52 442 830 6799',
-  telefonoVisible: '442 830 6799',
+  telefono: '+52 442 137 5118',
+  telefonoVisible: '442 137 5118',
   email: '',
 
   /* --- Consultorio ----------------------------------------------------- */

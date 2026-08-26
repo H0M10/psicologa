@@ -128,77 +128,119 @@ marrón y vino**.
 
 ## 4. Paleta de trabajo
 
-Derivada de sus dos imágenes, respetando el «no muy vivos».
-Estructura de 2 neutros claros, 2 colores y 2 oscuros.
+Derivada de sus dos imágenes, respetando el «no muy vivos», y estructurada en
+pares como hace su página de referencia: un tinte lavado para superficies y una
+versión honda para el texto.
 
-| Token | Hex | De dónde sale | Uso |
-|---|---|---|---|
-| `--crema` | `#EFE7D9` | Crema de la retícula | Fondo principal |
-| `--lino` | `#E3D8C4` | Beige cálido | Fondo alterno, tarjetas |
-| `--bosque` | `#2C3A2B` | Círculo verde oscuro | Color principal, bandas |
-| `--salvia` | `#6B7C4A` | Verde oliva medio | Secundario, detalles |
-| `--madera` | `#7A5C42` | Marrón madera | Estructura, filetes |
-| `--terracota` | `#A2472A` | Terracota óxido, bajada | Acento de acción |
-| `--vino` | `#5E3A44` | Círculo ciruela | Segundo acento, escaso |
-| `--tinta` | `#2A211B` | Chocolate oscuro | Texto |
-| `--suave` | `#6A5B4E` | Derivado | Texto secundario |
+| Token | Hex | Uso |
+|---|---|---|
+| `--papel` | `#F7F2E9` | Superficie elevada |
+| `--crema` | `#F0E9DB` | Fondo principal |
+| `--lino` | `#E5DCC9` | Fondo alterno |
+| `--t-salvia` | `#E8ECE0` | Tinte verde para bloques |
+| `--t-arcilla` | `#F4E7DD` | Tinte terracota para bloques |
+| `--bosque` | `#2E3B2C` | Bloque de cierre, títulos de vía |
+| `--salvia` / `--salvia-hondo` | `#7C8C63` / `#57663F` | Filete decorativo / texto |
+| `--madera` / `--madera-honda` | `#8A6A4E` / `#6B5138` | Borde / etiqueta de dato |
+| `--terracota` / `--terracota-honda` | `#BC6642` / `#9C5133` | Numeral / botón y enlace |
+| `--vino` | `#6B4451` | Acento escaso |
+| `--tinta` | `#352E27` | Texto. Gris cálido, no negro |
+| `--suave` | `#6E6156` | Texto secundario |
 
-### Contraste verificado
+### Contraste verificado sobre crema `#F0E9DB`
 
 | Combinación | Ratio | Veredicto |
 |---|---|---|
-| Tinta sobre crema | 12.4 : 1 | ✅ Excelente |
-| Blanco sobre bosque | 12.8 : 1 | ✅ Excelente |
-| Blanco sobre terracota | 5.7 : 1 | ✅ Cumple AA |
-| Blanco sobre vino | 9.7 : 1 | ✅ Excelente |
-| Salvia sobre crema | 3.7 : 1 | ⚠️ Solo texto grande y elementos, **nunca texto corrido** |
+| Tinta `#352E27` | 10.4 : 1 | ✅ |
+| Suave `#6E6156` | 4.96 : 1 | ✅ AA |
+| Madera honda `#6B5138` | 6.0 : 1 | ✅ |
+| Salvia honda `#57663F` | 5.14 : 1 | ✅ AA |
+| Vino `#6B4451` | 6.72 : 1 | ✅ |
+| Blanco sobre terracota honda `#9C5133` | 5.74 : 1 | ✅ AA |
+| Blanco sobre bosque `#2E3B2C` | 11.7 : 1 | ✅ |
+| Salvia `#7C8C63` | 3.03 : 1 | ⚠️ Solo filetes y elementos, **nunca texto** |
+| Terracota `#BC6642` | 4.10 : 1 | ⚠️ Solo numerales grandes, **no texto corrido** |
 
----
 
 ## 5. La página de referencia que compartió
 
 `remarkable-lamington-38f6fd.netlify.app`
 
-Es una plantilla de sitio para psicóloga en español. Lo relevante:
+La primera vez la describí de vista. Esta vez se descargó el archivo y se leyó
+su hoja de estilo. Lo que trae de verdad:
 
-**Su estructura**, que confirma la que ya teníamos:
+### Su paleta declarada
 
-1. Encabezado con nombre y menú
-2. Portada con lema
-3. Sobre mí, con el enfoque terapéutico
-4. Experiencia y credenciales
-5. Servicios desglosados
-6. Contacto con llamada a la acción
-7. Ubicación
-8. Pie
+| Variable | Hex | Familia |
+|---|---|---|
+| `--lavender` | `#ECE7F8` | Tinte |
+| `--mint` | `#E3F4EC` | Tinte |
+| `--cloud` | `#F5F3F0` | Neutro |
+| `--ink` | `#33363B` | Texto |
+| `--ink-soft` | `#5B5F66` | Texto secundario |
+| `--sage` / `--sage-deep` | `#7E9B79` / `#64815F` | Verde |
+| `--steel` / `--steel-deep` | `#5F84A6` / `#486A8A` | Azul |
+| `--terracotta` / `--terracotta-deep` | `#D99879` / `#C77E5D` | Terracota |
 
-**Su tono:** profesional pero cercano, con énfasis en la seguridad
-(«Un espacio seguro para ti») por encima de la formalidad clínica.
+### Sus tipografías
 
-**Lo que hace bien y conviene tomar:**
-- Frases cortas en cursiva para lo importante
-- Botón de agendar repetido, siempre visible
-- Fotos reales del consultorio, no solo de la persona
+`Fredoka`, `Plus Jakarta Sans` y `Quicksand`. Las tres redondeadas y blandas.
+**No son mid-century**, así que no se copian: Thania pidió otra cosa.
 
-**Lo que hace mal y conviene evitar:**
+### Las cuatro lecciones que sí valen
+
+1. **Pares de color.** Cada familia tiene su versión clara y su versión honda.
+   La clara pinta superficies, la honda carga el texto. Así se consigue
+   contraste sin subir la saturación.
+2. **Sombras difusas y teñidas.** `0 16px 40px -20px rgba(51,54,59,.18)`.
+   Están teñidas de la misma tinta del texto y tienen desenfoque grande con
+   propagación negativa. Nunca un bloque de color desplazado.
+3. **Tinta gris cálida, no negra.** `#33363B`. Un negro puro endurece la página.
+4. **Una sola versalita en todo el archivo.** Un `text-transform: uppercase`
+   y dos `letter-spacing`. Nada de etiquetas en mayúsculas por sección.
+
+### Y la más importante: cómo titula
+
+Sus encabezados hablan en segunda persona, no etiquetan:
+
+> «No estás buscando un diagnóstico frío, sino a alguien que te escuche»
+> «Temas donde podemos trabajar juntos»
+> «Escríbeme, sin compromiso»
+
+Un titular que dice «Peritajes en materia familiar» informa.
+Uno que dice «Cuando un proceso familiar necesita una valoración psicológica»
+acompaña. La diferencia es de calidez, y no cuesta nada.
+
+### Lo que hace mal y conviene evitar
+
 - Usa emoji (🌿) como elemento gráfico. En un sitio con cédula profesional
-  visible eso resta seriedad; se sustituye por un elemento dibujado.
+  visible eso resta seriedad.
 
----
 
 ## 6. Traducción a decisiones de diseño
 
 | De su perfil | Se traduce en |
 |---|---|
-| Mid-century del consultorio | Arcos, patas cónicas, geometría de los sesenta |
-| Madera como hilo conductor | Filetes y marcos en marrón madera, no en negro |
-| Verde protagonista | Bandas de sección en verde bosque, detalles en salvia |
-| Terciopelo y cerámica | Texturas sutiles: grano de papel, sin superficies planas |
-| «No muy vivos» | Saturación baja en todo; el acento aparece contado |
-| Su consultorio es el sitio | Foto real del consultorio, no solo su retrato |
-| Cédula y consejo forense | Credenciales visibles, sin emoji ni adornos frívolos |
+| Mid-century del consultorio | Un plano de color desplazado detrás del retrato, y nada más |
+| Madera como hilo conductor | Filetes y etiquetas de dato en marrón, nunca en negro |
+| Verde protagonista | Bloques de sección en tinte salvia, filete de los temas en salvia |
+| Terciopelo y cerámica | Sombras difusas y esquinas generosas; ninguna arista dura |
+| «No muy vivos» | Saturación media como techo; el color hondo aparece solo donde carga texto |
+| Su consultorio es el sitio | Falta la foto real del consultorio |
+| Cédula y consejo forense | Credenciales en texto corrido bajo un filete, sin cápsulas de adorno |
 
----
+### Lo que se retiró en esta segunda vuelta
+
+Todo esto estaba en la primera propuesta y se quitó, porque era decoración
+puesta encima y no lenguaje del proyecto:
+
+- El arco del retrato (`border-radius:999px 999px 14px 14px`)
+- El cono dibujado en SVG
+- El azulejo vidriado
+- El grano de papel con `feTurbulence` sobre toda la página
+- Las etiquetas en versalitas al inicio de cada sección
+- Las sombras sólidas desplazadas
+
 
 ## 7. Lo que sigue sin resolver
 
@@ -209,3 +251,4 @@ Es una plantilla de sitio para psicóloga en español. Lo relevante:
 3. **Fotos reales.** Sobre todo del consultorio, que ahora es parte del argumento.
 4. **Coordenada exacta** del consultorio.
 5. **El número de la calle:** su documento dice #102, la última indicación 808.
+6. **Su teléfono ya está puesto:** 442 137 5118, en WhatsApp y en llamada directa.

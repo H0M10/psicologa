@@ -110,8 +110,7 @@ Vienen de la investigación acumulada. Nada de esto se negocia por estética.
 3. **Fecha de la licenciatura.** El documento la trae invertida.
 4. **Código postal.** Se usa 76180.
 5. **Fotografías.** Siguen las ilustraciones de relleno.
-6. **El número de WhatsApp** es el de pruebas (442 830 6799). Antes de entregar
-   hay que poner el de Thania (442 137 5118).
+6. ~~El número de WhatsApp de pruebas.~~ Resuelto: ya está el de Thania, 442 137 5118.
 
 ---
 
