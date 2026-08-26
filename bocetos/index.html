@@ -2,98 +2,86 @@
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F0E9DB">
-<title>Propuesta visual · Thania Huerta Pacheco</title>
+<title>Bocetos · Thania Huerta Pacheco</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400..700;1,400..500&family=Hanken+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300..600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="_base.css">
+<link rel="stylesheet" href="_mc.css">
 <style>
-:root{
-  --papel:#F7F2E9; --crema:#F0E9DB; --lino:#E5DCC9;
-  --t-salvia:#E8ECE0; --t-arcilla:#F4E7DD;
-  --bosque:#2E3B2C; --salvia:#7C8C63; --salvia-hondo:#57663F;
-  --madera:#8A6A4E; --madera-honda:#6B5138;
-  --terracota:#BC6642; --terracota-honda:#9C5133; --vino:#6B4451;
-  --tinta:#352E27; --suave:#6E6156; --linea:rgba(138,106,78,.22);
-  --so-1:0 14px 32px -22px rgba(53,46,39,.34);
-  --so-2:0 24px 56px -30px rgba(53,46,39,.30);
-  --disp:'Petrona',Georgia,serif; --txt:'Hanken Grotesk',system-ui,sans-serif;
-  --e:cubic-bezier(.32,.72,0,1);
-}
-body{font-family:var(--txt);background:var(--crema);color:var(--tinta);line-height:1.65}
-body::after{content:'';position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.28;
-  mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E")}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing:-.015em;text-wrap:balance}
-.w{width:min(100% - 2.5rem,1080px);margin-inline:auto}
+body{font-family:'Archivo',system-ui,sans-serif;padding-bottom:0}
+h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:-.015em}
+.w{width:min(100% - 2.4rem,1180px);margin-inline:auto}
 
-.cab{padding:clamp(2.5rem,6vw,4rem) 0 clamp(1.5rem,3vw,2.2rem);border-bottom:1px solid var(--linea)}
-.k{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--madera);margin-bottom:1rem}
-.cab h1{font-size:clamp(1.9rem,5vw,3.1rem);max-width:20ch}
-.cab h1 em{font-style:italic;color:var(--terracota-honda)}
-.cab .lead{color:var(--suave);max-width:62ch;margin-top:1.1rem;font-size:1.05rem}
+.cab{padding:clamp(2.6rem,6vw,4.2rem) 0 clamp(1.6rem,3vw,2.4rem)}
+.cab .k{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--barro-hondo);margin-bottom:1rem}
+.cab h1{font-size:clamp(1.9rem,4.8vw,3rem);max-width:19ch;line-height:1.1}
+.cab h1 em{font-style:normal;color:var(--barro-hondo)}
+.cab .lead{color:var(--suave);max-width:64ch;margin-top:1.1rem;font-size:1.04rem}
+.cita{margin-top:1.6rem;padding-left:1.2rem;border-left:4px solid var(--cilantro);max-width:58ch}
+.cita p{font-family:'Jost',sans-serif;font-size:1.06rem;color:var(--bronce)}
+.cita p+p{margin-top:.4rem}
+.cita cite{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.78rem;
+  color:var(--suave);margin-top:.7rem}
 
-.cita{margin:1.6rem 0 0;padding:1.1rem 1.3rem;background:var(--lino);
-  border-left:3px solid var(--salvia);border-radius:0 10px 10px 0;max-width:60ch}
-.cita p{font-family:var(--disp);font-style:italic;font-size:1.06rem;color:var(--tinta)}
-.cita p+p{margin-top:.5rem}
-.cita cite{display:block;font-family:var(--txt);font-style:normal;font-size:.78rem;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--madera);margin-top:.7rem}
+/* La paleta documentada, con su referencia a la vista */
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:.5rem;margin-top:1.8rem}
+.pal div{background:var(--papel);border-bottom:3px solid var(--urbano)}
+.pal i{display:block;height:3.2rem}
+.pal b{display:block;font-size:.8rem;padding:.5rem .65rem .05rem;font-weight:600}
+.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .65rem .5rem}
+.doc{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;font-size:.9rem;font-weight:600}
 
-/* Muestras de la paleta que salió de sus imágenes */
-.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin-top:1.6rem}
-.pal div{border-radius:10px;overflow:hidden;border:1.5px solid var(--linea);background:var(--papel)}
-.pal i{display:block;height:3.4rem}
-.pal b{display:block;font-size:.78rem;padding:.5rem .6rem .1rem;font-weight:600}
-.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .6rem .55rem;letter-spacing:.03em}
+.gr{padding:clamp(2rem,4vw,3rem) 0 0}
+.gr__t{display:flex;align-items:baseline;gap:1rem;padding-bottom:1rem;
+  border-bottom:3px solid var(--urbano);margin-bottom:1.4rem}
+.gr__t h2{font-size:clamp(1.25rem,2.6vw,1.7rem)}
+.gr__t span{font-size:.86rem;color:var(--suave)}
 
-.dest{padding:clamp(2rem,4vw,3rem) 0;display:grid;gap:clamp(1.2rem,3vw,2rem)}
-.tarjeta{display:grid;grid-template-columns:1.05fr .95fr;background:var(--papel);
-  border:1px solid var(--linea);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;
-  box-shadow:var(--so-1);
-  transition:transform .5s var(--e),box-shadow .5s var(--e)}
-.tarjeta:hover{transform:translateY(-4px);box-shadow:var(--so-2)}
-.tarjeta__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
-  border-right:1px solid var(--linea)}
-.tarjeta__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
+.rej{display:grid;gap:1rem}
+.rej--2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.bo{display:block;background:var(--papel);text-decoration:none;color:inherit;
+  border-bottom:6px solid var(--urbano);
+  transition:transform .4s var(--e),border-color .4s var(--e)}
+.bo:hover{transform:translateY(-4px);border-bottom-color:var(--barro-hondo)}
+.bo__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
+  border-bottom:1px solid var(--linea)}
+.bo__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
   transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
-.tarjeta__t{padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
-.tarjeta__e{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terracota-honda)}
-.tarjeta h2{font-size:clamp(1.4rem,3vw,2rem)}
-.tarjeta__d{font-size:.94rem;color:var(--suave);line-height:1.65}
-.tarjeta__l{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
-.tarjeta__l li{font-size:.72rem;border:1.5px solid var(--linea);border-radius:999px;
-  padding:.3rem .75rem;color:var(--suave)}
-.tarjeta__b{font-size:.9rem;font-weight:600;color:var(--terracota-honda);margin-top:.3rem}
+.bo__t{padding:1.3rem 1.4rem 1.5rem}
+.bo__e{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--barro-hondo);margin-bottom:.5rem}
+.bo h3{font-size:1.3rem;margin-bottom:.55rem}
+.bo__d{font-size:.92rem;color:var(--suave);line-height:1.6}
+.bo__l{list-style:none;padding:0;margin:.9rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
+.bo__l li{font-size:.7rem;border:1px solid var(--linea);padding:.26rem .65rem;color:var(--suave)}
+.bo__b{display:block;font-size:.88rem;font-weight:700;color:var(--barro-hondo);margin-top:.9rem}
+.rej--vieja .bo__p{aspect-ratio:16/10}
+.rej--vieja h3{font-size:1.05rem}
+.rej--vieja .bo__d{font-size:.86rem}
 
-.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;
-  padding-bottom:clamp(2.5rem,5vw,4rem)}
-.nota{background:var(--lino);border-radius:12px;padding:1.1rem 1.2rem}
-.nota b{display:block;font-family:var(--disp);font-size:.95rem;margin-bottom:.3rem;color:var(--bosque)}
+.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:.8rem;
+  margin-top:clamp(2.4rem,5vw,3.6rem)}
+.nota{background:var(--lana);padding:1.1rem 1.2rem;border-bottom:4px solid var(--cilantro)}
+.nota b{display:block;font-family:'Jost',sans-serif;font-size:.96rem;margin-bottom:.3rem;color:var(--bronce)}
 .nota p{font-size:.86rem;color:var(--suave);line-height:1.55}
-
-.pie{border-top:1px solid var(--linea);padding:1.6rem 0 3rem;color:var(--suave);font-size:.88rem}
-.pie a{color:var(--terracota-honda)}
-
-@media(max-width:760px){
-  .tarjeta{grid-template-columns:1fr}
-  .tarjeta__p{border-right:0;border-bottom:1px solid var(--linea);aspect-ratio:16/10}
-}
+.pie{margin-top:clamp(2.4rem,5vw,3.4rem)}
 </style>
 </head>
 <body>
 
 <header class="cab"><div class="w">
-  <p class="k">Propuesta visual · Agosto 2026</p>
-  <h1>Cinco caminos, hechos con <em>tus colores</em>.</h1>
+  <p class="k">Documento de trabajo · Agosto 2026</p>
+  <h1>Ocho bocetos, todos con <em>sus colores</em>.</h1>
   <p class="lead">
-    Ninguna parte de una tendencia: todas parten de lo que Thania dijo y de las
-    dos imágenes que mandó. Las cinco llevan su información completa —los siete
-    supuestos, los nueve motivos, los nueve registros de formación, credenciales,
-    horarios, mapa y formulario—. Lo único que cambia entre ellas es el diseño.
+    Los cuatro de arriba se dibujaron después de investigar el estilo a fondo:
+    cada uno pone por delante un principio distinto del mid-century, para que
+    puedas elegir por carácter y no solo por color. Los cuatro llevan tu
+    información completa.
   </p>
 
   <blockquote class="cita">
@@ -104,130 +92,158 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 
   <div class="pal">
     <div><i style="background:#F0E9DB"></i><b>Crema</b><code>#F0E9DB</code></div>
-    <div><i style="background:#E8ECE0"></i><b>Tinte salvia</b><code>#E8ECE0</code></div>
-    <div><i style="background:#F4E7DD"></i><b>Tinte arcilla</b><code>#F4E7DD</code></div>
-    <div><i style="background:#2E3B2C"></i><b>Bosque</b><code>#2E3B2C</code></div>
-    <div><i style="background:#7C8C63"></i><b>Salvia</b><code>#7C8C63</code></div>
-    <div><i style="background:#8A6A4E"></i><b>Madera</b><code>#8A6A4E</code></div>
-    <div><i style="background:#BC6642"></i><b>Terracota</b><code>#BC6642</code></div>
-    <div><i style="background:#6B4451"></i><b>Vino</b><code>#6B4451</code></div>
+    <div><i style="background:#D9CFBA"></i><b>Wool Skein</b><code>SW 6148</code></div>
+    <div><i style="background:#575449"></i><b>Bronze Green</b><code>SW 2846</code></div>
+    <div><i style="background:#537150"></i><b>Cilantro</b><code>SW 6453</code></div>
+    <div><i style="background:#54504A"></i><b>Urbane Bronze</b><code>SW 7048</code></div>
+    <div><i style="background:#533640"></i><b>Blackberry</b><code>SW 7577</code></div>
+    <div><i style="background:#CB7841"></i><b>Rhumba Orange</b><code>SW 6642</code></div>
   </div>
+  <p class="doc"><a href="../MIDCENTURY.md">Leer la investigación completa (MIDCENTURY.md) →</a></p>
 </div></header>
 
-<main class="w dest">
-  <a class="tarjeta" href="propuesta.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta.html" title="Vista previa de la propuesta 1" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="tarjeta__t">
-      <p class="tarjeta__e">Propuesta 1</p>
-      <h2>Mid-century, sin adornos</h2>
-      <p class="tarjeta__d">
-        Se estudió el código real de la página que compartió y se tomaron tres
-        cosas: sombras difusas y teñidas en vez de bloques de color desplazados,
-        tinta gris cálida en vez de casi negro, y titulares que hablan en segunda
-        persona. Los adornos dibujados se retiraron: el carácter lo lleva el
-        color, no la decoración.
-      </p>
-      <ul class="tarjeta__l">
-        <li>Petrona · Hanken Grotesk</li>
-        <li>Superficies lisas</li>
-        <li>Sombras difusas</li>
-        <li>Titulares en segunda persona</li>
-      </ul>
-      <span class="tarjeta__b">Abrir la propuesta 1 →</span>
-    </div>
-  </a>
+<main class="w">
 
-  <a class="tarjeta" href="propuesta-2.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta-2.html" title="Vista previa de la propuesta 2" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="tarjeta__t">
-      <p class="tarjeta__e">Propuesta 2</p>
-      <h2>Mid-century, con textura</h2>
-      <p class="tarjeta__d">
-        La primera versión, que se conserva por si prefiere este camino. Lleva
-        los elementos dibujados: arco en el retrato, forma cónica, azulejo
-        vidriado y grano de papel sobre toda la página. Colores más contrastados
-        y sombras sólidas desplazadas.
-      </p>
-      <ul class="tarjeta__l">
-        <li>Bitter · Jost</li>
-        <li>Arco, cono y azulejo</li>
-        <li>Grano de papel</li>
-        <li>Sombras sólidas</li>
-      </ul>
-      <span class="tarjeta__b">Abrir la propuesta 2 →</span>
-    </div>
-  </a>
-  <a class="tarjeta" href="propuesta-3.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta-3.html" title="Vista previa de la propuesta 3" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="tarjeta__t">
-      <p class="tarjeta__e">Propuesta 3</p>
-      <h2>Cartel</h2>
-      <p class="tarjeta__d">Sale de su primera imagen: bandas verticales de color y tipografía de cartel cruzándolas. Los colores del cartel bajados a las familias que ella nombró, salvo el ocre, que viene de su propia imagen. Secciones numeradas y filetes gruesos.</p>
-      <ul class="tarjeta__l">
-        <li>Anton · Archivo</li>
-        <li>Bandas verticales</li>
-        <li>Verde, barro, ocre y vino</li>
-        <li>Secciones numeradas</li>
-      </ul>
-      <span class="tarjeta__b">Abrir la propuesta 3 →</span>
-    </div>
-  </a>
+<section class="gr">
+  <div class="gr__t">
+    <h2>Los cuatro mid-century</h2>
+    <span>Cada uno explora un principio distinto del estilo</span>
+  </div>
+  <div class="rej rej--2">
 
-  <a class="tarjeta" href="propuesta-4.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta-4.html" title="Vista previa de la propuesta 4" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="tarjeta__t">
-      <p class="tarjeta__e">Propuesta 4</p>
-      <h2>Mosaico</h2>
-      <p class="tarjeta__d">Sale de su segunda imagen: los motivos de azulejo mid-century —pétalos, círculos concéntricos, estrellas de cuatro puntas y abanicos— dibujados y reutilizados por toda la página. Su paleta de verde profundo, salvia, barro y rosa palo.</p>
-      <ul class="tarjeta__l">
-        <li>Outfit · Karla</li>
-        <li>Azulejos dibujados</li>
-        <li>Verde, salvia, barro y rosa</li>
-        <li>Retícula de mosaico</li>
-      </ul>
-      <span class="tarjeta__b">Abrir la propuesta 4 →</span>
-    </div>
-  </a>
+    <a class="bo" href="mc-credenza.html">
+      <div class="bo__p"><iframe data-src="mc-credenza.html" title="Vista previa de Credenza" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Materiales y horizontalidad</p>
+        <h3>Credenza</h3>
+        <p class="bo__d">
+          Todo se lee en franjas anchas y bajas, como un mueble de los sesenta:
+          la madera abajo sosteniendo cada franja, el contenido apaisado en
+          filas y no en tarjetas. Los estratos de color son el canto del mueble.
+        </p>
+        <ul class="bo__l"><li>Jost · Archivo</li><li>Franjas horizontales</li><li>Madera como base</li></ul>
+        <span class="bo__b">Abrir Credenza →</span>
+      </div>
+    </a>
 
-  <a class="tarjeta" href="propuesta-5.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta-5.html" title="Vista previa de la propuesta 5" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="tarjeta__t">
-      <p class="tarjeta__e">Propuesta 5</p>
-      <h2>Atómico</h2>
-      <p class="tarjeta__d">La misma paleta, invertida: fondo verde bosque y tipografía crema, con ocre y barro de acento. Sirve para ver cómo se comportan sus colores en oscuro, que es como se ve un consultorio con madera y luz cálida de noche.</p>
-      <ul class="tarjeta__l">
-        <li>Josefin Sans · Lora</li>
-        <li>Fondo oscuro</li>
-        <li>Estrella atómica</li>
-        <li>Mapa oscurecido</li>
-      </ul>
-      <span class="tarjeta__b">Abrir la propuesta 5 →</span>
-    </div>
-  </a>
-</main>
+    <a class="bo" href="mc-reticula.html">
+      <div class="bo__p"><iframe data-src="mc-reticula.html" title="Vista previa de Retícula" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Estructura suiza</p>
+        <h3>Retícula</h3>
+        <p class="bo__d">
+          La retícula no se insinúa: se dibuja, con sus doce filetes a la vista.
+          Asimetría con pesos compensados, bandera a la izquierda y casi nada
+          de color. El único acento es el vino, y aparece contado.
+        </p>
+        <ul class="bo__l"><li>Archivo</li><li>Retícula visible</li><li>Casi sin color</li></ul>
+        <span class="bo__b">Abrir Retícula →</span>
+      </div>
+    </a>
 
-<section class="w notas">
-  <div class="nota"><b>Qué se tomó de su referencia</b><p>Sus sombras son difusas y teñidas de la misma tinta del texto, nunca duras. Su tinta es gris cálida, no negra. Y en todo el archivo usa versalitas una sola vez.</p></div>
-  <div class="nota"><b>Qué se quitó de la versión anterior</b><p>El arco del retrato, el cono, el azulejo vidriado y las etiquetas en versalitas de cada sección. Eran decoración añadida, y se notaba.</p></div>
-  <div class="nota"><b>Cómo mejoró la paleta</b><p>Cada color con su tinte lavado para superficies y su versión honda para el texto, así el contraste cumple sin subir la saturación que ella pidió baja.</p></div>
-  <div class="nota"><b>Lo que no se copió</b><p>Su referencia usa lavanda, menta y tipografías redondeadas. Thania pidió madera, verdes, marrón y vino: se tomó su manera de construir, no sus colores.</p></div>
+    <a class="bo" href="mc-silueta.html">
+      <div class="bo__p"><iframe data-src="mc-silueta.html" title="Vista previa de Silueta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Formas recortadas</p>
+        <h3>Silueta</h3>
+        <p class="bo__d">
+          Los planos de color macizo de Saul Bass, sin contorno y en composición
+          asimétrica. Las formas no van encima como adorno: son el fondo de cada
+          sección y lo que separa una de otra.
+        </p>
+        <ul class="bo__l"><li>Jost · Archivo</li><li>Planos recortados</li><li>Asimetría</li></ul>
+        <span class="bo__b">Abrir Silueta →</span>
+      </div>
+    </a>
+
+    <a class="bo" href="mc-ventanal.html">
+      <div class="bo__p"><iframe data-src="mc-ventanal.html" title="Vista previa de Ventanal" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Dentro y fuera se funden</p>
+        <h3>Ventanal</h3>
+        <p class="bo__d">
+          El rasgo que definió la arquitectura del estilo. Bloques a sangre,
+          verde profundo y, sobre todo, aire: los ventanales de la época
+          existían para dejar entrar el vacío y la luz.
+        </p>
+        <ul class="bo__l"><li>Outfit · Hanken Grotesk</li><li>Bloques a sangre</li><li>Mucho aire</li></ul>
+        <span class="bo__b">Abrir Ventanal →</span>
+      </div>
+    </a>
+
+  </div>
 </section>
 
-<footer class="pie"><div class="w">
-  <p>Documento de trabajo · <a href="../">Ver el sitio en marcha</a></p>
-  <p style="margin-top:.4rem">El WhatsApp y el teléfono ya son los de Thania: 442 137 5118.</p>
+<section class="gr">
+  <div class="gr__t">
+    <h2>Exploraciones anteriores</h2>
+    <span>Se conservan por si alguna te sirve</span>
+  </div>
+  <div class="rej rej--2 rej--vieja">
+
+    <a class="bo" href="propuesta.html">
+      <div class="bo__p"><iframe data-src="propuesta.html" title="Vista previa de Sin adornos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Propuesta 1</p><h3>Sin adornos</h3>
+        <p class="bo__d">Sombras difusas, tinta gris cálida y titulares en segunda persona. Sale de leer el código de la página que compartiste.</p>
+        <span class="bo__b">Abrir →</span>
+      </div>
+    </a>
+
+    <a class="bo" href="propuesta-2.html">
+      <div class="bo__p"><iframe data-src="propuesta-2.html" title="Vista previa de Con textura" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Propuesta 2</p><h3>Con textura</h3>
+        <p class="bo__d">Arco en el retrato, forma cónica, azulejo vidriado y grano de papel. La versión más decorada de todas.</p>
+        <span class="bo__b">Abrir →</span>
+      </div>
+    </a>
+
+    <a class="bo" href="propuesta-4.html">
+      <div class="bo__p"><iframe data-src="propuesta-4.html" title="Vista previa de Mosaico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Propuesta 4</p><h3>Mosaico</h3>
+        <p class="bo__d">Los motivos de azulejo de tu segunda imagen, dibujados y repetidos por toda la página.</p>
+        <span class="bo__b">Abrir →</span>
+      </div>
+    </a>
+
+    <a class="bo" href="propuesta-5.html">
+      <div class="bo__p"><iframe data-src="propuesta-5.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+      <div class="bo__t">
+        <p class="bo__e">Propuesta 5</p><h3>Atómico</h3>
+        <p class="bo__d">La paleta invertida sobre verde bosque, para ver cómo se comportan los colores en oscuro.</p>
+        <span class="bo__b">Abrir →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="notas">
+  <div class="nota"><b>De dónde salen los colores</b><p>De la guía de preservación histórica de Scottsdale, Arizona, que documenta los tonos usados de verdad en los barrios mid-century. Sus cuatro familias están todas ahí.</p></div>
+  <div class="nota"><b>El vino ya lo tenías</b><p>El Blackberry documentado de la época es #533640. El que veníamos usando estaba a un pelo. Conoces el estilo.</p></div>
+  <div class="nota"><b>Lo que quedó fuera</b><p>Turquesa, cereza, menta y rosa. Es la paleta de cafetería de los cincuenta, la que más circula como mid-century. No es la suya.</p></div>
+  <div class="nota"><b>Lo que falta</b><p>La foto real del consultorio. Como el sitio es la puerta a un espacio que ya existe, sin esa foto el argumento se queda a medias.</p></div>
+</section>
+
+</main>
+
+<footer class="fin pie"><div class="w">
+  <p>Documento de trabajo · <a href="../">Ver el sitio en marcha</a> · <a href="../MIDCENTURY.md">MIDCENTURY.md</a></p>
+  <p>El WhatsApp y el teléfono de los ocho son los de Thania: 442 137 5118.</p>
 </div></footer>
 
 <script>
 function ajustar(){
-  document.querySelectorAll('.tarjeta__p').forEach(function(t){
+  document.querySelectorAll('.bo__p').forEach(function(t){
     t.style.setProperty('--s', t.clientWidth / 1280);
   });
 }
 ajustar();
 window.addEventListener('resize', ajustar, { passive:true });
 window.addEventListener('load', ajustar);
-// Las vistas previas cargan solo cuando su tarjeta se acerca a pantalla
+// Cada vista previa carga solo cuando su tarjeta se acerca a pantalla
 (function(){
   var fs = document.querySelectorAll('iframe[data-src]');
   if (!fs.length) return;
@@ -235,13 +251,13 @@ window.addEventListener('load', ajustar);
     Array.prototype.forEach.call(fs, function(f){ f.src = f.dataset.src; });
     return;
   }
-  var ob = new IntersectionObserver(function(entradas){
-    entradas.forEach(function(e){
+  var ob = new IntersectionObserver(function(es){
+    es.forEach(function(e){
       if (!e.isIntersecting) return;
       e.target.src = e.target.dataset.src;
       ob.unobserve(e.target);
     });
-  }, { rootMargin:'300px' });
+  }, { rootMargin:'320px' });
   Array.prototype.forEach.call(fs, function(f){ ob.observe(f); });
 })();
 </script>

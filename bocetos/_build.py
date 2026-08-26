@@ -97,106 +97,6 @@ def datos_practicos():
 def formacion_ol(lista):
     return u''.join([u'\n      <li><strong>%s</strong><em>%s</em></li>' % (a, b) for a, b in lista])
 
-# ── 03 · Cartel ──────────────────────────────────────────────────────────
-# De su primera imagen: bandas verticales de color y tipografia de cartel
-# que las cruza. La paleta baja a las familias que ella nombro.
-def render03():
-    bandas = u''.join([u'<i style="background:var(--%s)"></i>' % c for c in
-                       ['verde', 'terra', 'ocre', 'vino', 'salvia', 'madera']])
-    sup = u''.join([u'\n    <li><span>%02d</span>%s</li>' % (i + 1, s)
-                    for i, s in enumerate(SUPUESTOS)])
-    mot = u''.join([u'\n    <li>%s</li>' % m for m in MOTIVOS])
-    bio = u''.join([u'\n    <p>%s</p>' % p for p in BIO])
-    h = cabeza(u'Boceto 3 \u00b7 Cartel \u00b7 Thania Huerta Pacheco', '_c03.css',
-               'family=Anton&family=Archivo:wght@400;500;600;700', '#F2EDE1')
-    h += u'''
-<header class="ct" id="inicio">
-  <div class="ct__bandas" aria-hidden="true">%s</div>
-  <p class="ct__num" aria-hidden="true">01</p>
-  <h1 class="ct__nom" data-t="THANIA">THANIA</h1>
-  <p class="ct__sub">Psicolog\u00eda cl\u00ednica y forense \u00b7 Santiago de Quer\u00e9taro</p>
-  <div class="ct__pie">
-    <p><b>Consulta</b>lunes a viernes 9:00\u201314:00 y 16:00\u201321:00<br>s\u00e1bados 9:00\u201313:00</p>
-    <p><b>Credenciales</b>c\u00e9dula profesional 14661976<br>consejo de psicolog\u00eda forense 25-08-63</p>
-    <p><b>Contacto</b><a href="%s" target="_blank" rel="noopener">escr\u00edbeme por WhatsApp</a><br><a href="#cotizacion">pedir una cotizaci\u00f3n</a></p>
-  </div>
-</header>
-
-<main>
-<section class="s" id="sobre-mi">
-  <div class="w">
-    <p class="s__n">02</p>
-    <h2>Hola, soy Thania</h2>
-    <div class="s__cuerpo">%s</div>
-  </div>
-</section>
-
-<section class="s s--verde" id="forense">
-  <div class="w">
-    <p class="s__n">03</p>
-    <h2>Cuando un proceso familiar necesita una valoraci\u00f3n psicol\u00f3gica</h2>
-    <p class="s__d">Trabajo con abogados, juzgados y particulares. Estos son los supuestos en los que puedo intervenir.</p>
-    <ol class="sup">%s</ol>
-    <div class="par">
-      <div class="par__c"><h3>Metapericiales y an\u00e1lisis t\u00e9cnicos</h3><p>Revisi\u00f3n t\u00e9cnica de un dictamen ya emitido, para valorar su m\u00e9todo y sus conclusiones.</p></div>
-      <div class="par__c"><h3>C\u00f3mo empieza</h3><p>Cu\u00e9ntame el asunto y la fecha l\u00edmite, y te devuelvo el alcance y el costo.</p><p class="par__l"><a href="#cotizacion">Pedir una cotizaci\u00f3n</a></p></div>
-    </div>
-  </div>
-</section>
-
-<section class="s" id="terapia">
-  <div class="w">
-    <p class="s__n">04</p>
-    <h2>Temas en los que podemos trabajar</h2>
-    <p class="s__d">Consulta para adolescentes y juventudes. Si lo que te pasa no est\u00e1 en la lista, escr\u00edbeme igual.</p>
-    <ul class="mot">%s</ul>
-  </div>
-</section>
-''' % (bandas, WA, bio, sup, mot)
-    h += u'''
-<section class="s s--terra" id="formacion">
-  <div class="w">
-    <p class="s__n">05</p>
-    <h2>En qu\u00e9 me he formado</h2>
-    <p class="s__d">Dos recorridos en paralelo, uno por cada \u00e1rea en la que trabajo.</p>
-    <div class="vias">
-      <div class="via"><h3>V\u00eda cl\u00ednica</h3><ol>%s
-      </ol></div>
-      <div class="via"><h3>V\u00eda forense</h3><ol>%s
-      </ol></div>
-    </div>
-  </div>
-</section>
-
-<section class="s" id="donde">
-  <div class="w">
-    <p class="s__n">06</p>
-    <h2>D\u00f3nde nos vemos</h2>
-    <p class="s__d">Abre la ruta directo en tu aplicaci\u00f3n, o mueve el mapa para reconocer la zona.</p>
-    %s
-    %s
-  </div>
-</section>
-
-<section class="cierre">
-  <div class="w">
-    <h2>Escr\u00edbeme, sin compromiso</h2>
-    <p>Cu\u00e9ntame qu\u00e9 necesitas y te digo si puedo ayudarte. Si es un asunto legal, p\u00eddeme una cotizaci\u00f3n; si es para consulta, agendamos.</p>
-    <div class="rutas">
-      <a class="b b--p" href="%s" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      <a class="b b--s" href="%s">Llamar ahora</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="fin"><div class="w">
-  <p>Thania Huerta Pacheco \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
-  <p>Santiago de Quer\u00e9taro, Qro.</p>
-</div></footer>''' % (formacion_ol(CLINICA), formacion_ol(FORENSE),
-                      mapa(), datos_practicos(), WA, TEL)
-    return h + pie()
-
 # ── 04 · Mosaico ─────────────────────────────────────────────────────────
 # De su segunda imagen: los motivos geometricos de azulejo mid-century.
 # Cuatro simbolos dibujados una vez y reutilizados con <use>.
@@ -428,7 +328,7 @@ def render05():
     return h + pie()
 
 if __name__ == '__main__':
-    for n, fn in [('3', render03), ('4', render04), ('5', render05)]:
+    for n, fn in [('4', render04), ('5', render05)]:
         ruta = D + 'propuesta-%s.html' % n
         io.open(ruta, 'w', encoding='utf-8').write(fn())
         print('propuesta-%s.html  %d bytes' % (n, os.path.getsize(ruta)))
