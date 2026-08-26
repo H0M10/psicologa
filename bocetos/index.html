@@ -50,7 +50,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 .pal b{display:block;font-size:.78rem;padding:.5rem .6rem .1rem;font-weight:600}
 .pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .6rem .55rem;letter-spacing:.03em}
 
-.dest{padding:clamp(2rem,4vw,3rem) 0}
+.dest{padding:clamp(2rem,4vw,3rem) 0;display:grid;gap:clamp(1.2rem,3vw,2rem)}
 .tarjeta{display:grid;grid-template-columns:1.05fr .95fr;background:var(--papel);
   border:1px solid var(--linea);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;
   box-shadow:var(--so-1);
@@ -88,10 +88,11 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 
 <header class="cab"><div class="w">
   <p class="k">Propuesta visual · Agosto 2026</p>
-  <h1>Una sola propuesta, hecha con <em>tus colores</em>.</h1>
+  <h1>Dos caminos, hechos con <em>tus colores</em>.</h1>
   <p class="lead">
-    Los veinte bocetos anteriores se retiraron. Esta propuesta no parte de una
-    tendencia: parte de lo que Thania dijo y de las dos imágenes que mandó.
+    Los veinte bocetos anteriores se retiraron. Ninguna de estas dos parte de una
+    tendencia: parten de lo que Thania dijo y de las dos imágenes que mandó. La
+    diferencia entre ellas es cuánta textura dibujada llevan encima.
   </p>
 
   <blockquote class="cita">
@@ -114,25 +115,45 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing
 
 <main class="w dest">
   <a class="tarjeta" href="propuesta.html">
-    <div class="tarjeta__p"><iframe data-src="propuesta.html" title="Vista previa de la propuesta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="tarjeta__p"><iframe data-src="propuesta.html" title="Vista previa de la propuesta 1" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
     <div class="tarjeta__t">
-      <p class="tarjeta__e">La propuesta</p>
+      <p class="tarjeta__e">Propuesta 1</p>
       <h2>Mid-century, sin adornos</h2>
       <p class="tarjeta__d">
-        Segunda versión. Se estudió el código real de la página que compartió y
-        se tomaron de ahí tres cosas: sombras difusas y teñidas en vez de bloques
-        de color desplazados, tinta gris cálida en vez de casi negro, y titulares
-        que hablan en segunda persona. Los adornos dibujados —arcos, conos,
-        azulejo— se retiraron: el carácter lo lleva el color, no la decoración.
+        Se estudió el código real de la página que compartió y se tomaron tres
+        cosas: sombras difusas y teñidas en vez de bloques de color desplazados,
+        tinta gris cálida en vez de casi negro, y titulares que hablan en segunda
+        persona. Los adornos dibujados se retiraron: el carácter lo lleva el
+        color, no la decoración.
       </p>
       <ul class="tarjeta__l">
         <li>Petrona · Hanken Grotesk</li>
-        <li>6 secciones</li>
-        <li>Mapa, Waze y Google Maps</li>
-        <li>Formulario de cotización</li>
-        <li>Barra móvil con scrollspy</li>
+        <li>Superficies lisas</li>
+        <li>Sombras difusas</li>
+        <li>Titulares en segunda persona</li>
       </ul>
-      <span class="tarjeta__b">Abrir la propuesta →</span>
+      <span class="tarjeta__b">Abrir la propuesta 1 →</span>
+    </div>
+  </a>
+
+  <a class="tarjeta" href="propuesta-2.html">
+    <div class="tarjeta__p"><iframe data-src="propuesta-2.html" title="Vista previa de la propuesta 2" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="tarjeta__t">
+      <p class="tarjeta__e">Propuesta 2</p>
+      <h2>Mid-century, con textura</h2>
+      <p class="tarjeta__d">
+        La primera versión, que se conserva por si prefiere este camino. Lleva
+        los elementos dibujados: arco en el retrato, forma cónica, azulejo
+        vidriado y grano de papel sobre toda la página. Colores más contrastados
+        y sombras sólidas desplazadas.
+      </p>
+      <ul class="tarjeta__l">
+        <li>Bitter · Jost</li>
+        <li>Arco, cono y azulejo</li>
+        <li>Grano de papel</li>
+        <li>Sombras sólidas</li>
+      </ul>
+      <span class="tarjeta__b">Abrir la propuesta 2 →</span>
     </div>
   </a>
 </main>
@@ -158,14 +179,22 @@ function ajustar(){
 ajustar();
 window.addEventListener('resize', ajustar, { passive:true });
 window.addEventListener('load', ajustar);
-// La vista previa carga solo cuando la tarjeta se acerca a pantalla
+// Las vistas previas cargan solo cuando su tarjeta se acerca a pantalla
 (function(){
-  var f = document.querySelector('iframe[data-src]');
-  if (!f) return;
-  if (!('IntersectionObserver' in window)) { f.src = f.dataset.src; return; }
-  new IntersectionObserver(function(e, o){
-    if (e[0].isIntersecting) { f.src = f.dataset.src; o.disconnect(); }
-  }, { rootMargin:'300px' }).observe(f);
+  var fs = document.querySelectorAll('iframe[data-src]');
+  if (!fs.length) return;
+  if (!('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(fs, function(f){ f.src = f.dataset.src; });
+    return;
+  }
+  var ob = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.src = e.target.dataset.src;
+      ob.unobserve(e.target);
+    });
+  }, { rootMargin:'300px' });
+  Array.prototype.forEach.call(fs, function(f){ ob.observe(f); });
 })();
 </script>
 </body>
