@@ -4,380 +4,163 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#12141A">
-<title>10 bocetos · Thania Huerta Pacheco</title>
+<meta name="theme-color" content="#EFE7D9">
+<title>Propuesta visual · Thania Huerta Pacheco</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400..700;1,400..600&family=Jost:wght@300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="_base.css">
 <style>
 :root{
-  --bg:#12141A; --sup:#191C24; --sup2:#20242E; --borde:rgba(255,255,255,.1);
-  --txt:#E8EAEF; --suave:#949AA8; --acento:#7FD1AE;
-  --f:'Plus Jakarta Sans',system-ui,sans-serif; --m:'JetBrains Mono',monospace;
+  --crema:#EFE7D9; --lino:#E3D8C4; --papel:#F6F0E5;
+  --bosque:#2C3A2B; --salvia:#6B7C4A; --madera:#7A5C42;
+  --terracota:#A2472A; --vino:#5E3A44;
+  --tinta:#2A211B; --suave:#6A5B4E; --linea:rgba(122,92,66,.28);
+  --disp:'Bitter',Georgia,serif; --txt:'Jost',system-ui,sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
 }
-html{color-scheme:dark}
-body{font-family:var(--f);background:var(--bg);color:var(--txt);-webkit-tap-highlight-color:rgba(127,209,174,.16)}
-h1,h2,h3{font-weight:700;letter-spacing:-.03em}
-.wrap{width:min(100% - 2.5rem,1320px);margin-inline:auto}
-.m{font-family:var(--m);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--suave)}
+body{font-family:var(--txt);background:var(--crema);color:var(--tinta);line-height:1.65}
+body::after{content:'';position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.28;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E")}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.16;letter-spacing:-.015em;text-wrap:balance}
+.w{width:min(100% - 2.5rem,1080px);margin-inline:auto}
 
-.head{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(1.5rem,3vw,2.5rem);border-bottom:1px solid var(--borde)}
-.head h1{font-size:clamp(1.9rem,5vw,3.2rem);max-width:20ch}
-.head h1 em{font-style:normal;color:var(--acento)}
-.head .lead{color:var(--suave);max-width:62ch;margin-top:1.1rem;font-size:1.02rem}
-.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:2rem}
-.nota{background:var(--sup);border:1px solid var(--borde);border-radius:14px;padding:1.1rem 1.2rem}
-.nota b{display:block;font-size:.84rem;margin-bottom:.3rem;color:var(--acento)}
+.cab{padding:clamp(2.5rem,6vw,4rem) 0 clamp(1.5rem,3vw,2.2rem);border-bottom:2px solid var(--madera)}
+.k{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--madera);margin-bottom:1rem}
+.cab h1{font-size:clamp(1.9rem,5vw,3.1rem);max-width:20ch}
+.cab h1 em{font-style:italic;color:var(--terracota)}
+.cab .lead{color:var(--suave);max-width:62ch;margin-top:1.1rem;font-size:1.05rem}
+
+.cita{margin:1.6rem 0 0;padding:1.1rem 1.3rem;background:var(--lino);
+  border-left:3px solid var(--salvia);border-radius:0 10px 10px 0;max-width:60ch}
+.cita p{font-family:var(--disp);font-style:italic;font-size:1.06rem;color:var(--tinta)}
+.cita p+p{margin-top:.5rem}
+.cita cite{display:block;font-family:var(--txt);font-style:normal;font-size:.78rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--madera);margin-top:.7rem}
+
+/* Muestras de la paleta que salió de sus imágenes */
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.6rem;margin-top:1.6rem}
+.pal div{border-radius:10px;overflow:hidden;border:1.5px solid var(--linea);background:var(--papel)}
+.pal i{display:block;height:3.4rem}
+.pal b{display:block;font-size:.78rem;padding:.5rem .6rem .1rem;font-weight:600}
+.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .6rem .55rem;letter-spacing:.03em}
+
+.dest{padding:clamp(2rem,4vw,3rem) 0}
+.tarjeta{display:grid;grid-template-columns:1.05fr .95fr;background:var(--papel);
+  border:2px solid var(--madera);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;
+  box-shadow:12px 12px 0 -2px var(--salvia);
+  transition:transform .5s var(--e),box-shadow .5s var(--e)}
+.tarjeta:hover{transform:translate(-3px,-4px);box-shadow:16px 16px 0 -2px var(--salvia)}
+.tarjeta__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
+  border-right:2px solid var(--madera)}
+.tarjeta__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
+  transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
+.tarjeta__t{padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
+.tarjeta__e{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terracota)}
+.tarjeta h2{font-size:clamp(1.4rem,3vw,2rem)}
+.tarjeta__d{font-size:.94rem;color:var(--suave);line-height:1.65}
+.tarjeta__l{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.tarjeta__l li{font-size:.72rem;border:1.5px solid var(--linea);border-radius:999px;
+  padding:.3rem .75rem;color:var(--suave)}
+.tarjeta__b{font-size:.9rem;font-weight:600;color:var(--terracota);margin-top:.3rem}
+
+.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;
+  padding-bottom:clamp(2.5rem,5vw,4rem)}
+.nota{background:var(--lino);border-radius:12px;padding:1.1rem 1.2rem}
+.nota b{display:block;font-family:var(--disp);font-size:.95rem;margin-bottom:.3rem;color:var(--bosque)}
 .nota p{font-size:.86rem;color:var(--suave);line-height:1.55}
 
-.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.4rem;
-  padding:clamp(2rem,4vw,3rem) 0 clamp(3rem,6vw,5rem)}
+.pie{border-top:1px solid var(--linea);padding:1.6rem 0 3rem;color:var(--suave);font-size:.88rem}
+.pie a{color:var(--terracota)}
 
-.bo{background:var(--sup);border:1px solid var(--borde);border-radius:18px;overflow:hidden;
-  display:flex;flex-direction:column;text-decoration:none;color:inherit;
-  transition:transform .5s var(--e),border-color .5s var(--e),box-shadow .5s var(--e)}
-.bo:hover{transform:translateY(-6px);border-color:rgba(127,209,174,.5);box-shadow:0 30px 60px -34px rgba(0,0,0,.9)}
-
-.thumb{position:relative;aspect-ratio:1280/860;overflow:hidden;background:#fff;border-bottom:1px solid var(--borde)}
-.thumb iframe{position:absolute;top:0;left:0;width:1280px;height:860px;border:0;
-  transform:scale(var(--s,.28));transform-origin:0 0;pointer-events:none}
-.thumb__n{position:absolute;top:.7rem;left:.7rem;z-index:2;font-family:var(--m);font-size:.68rem;font-weight:500;
-  background:rgba(18,20,26,.86);color:var(--txt);padding:.3rem .6rem;border-radius:99px;backdrop-filter:blur(6px)}
-
-.bo__b{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
-.bo h2{font-size:1.22rem}
-.bo .desc{font-size:.9rem;color:var(--suave);line-height:1.55;flex:1}
-.pal{display:flex;gap:.3rem}
-.pal i{width:1.55rem;height:1.55rem;border-radius:6px;border:1px solid rgba(255,255,255,.14)}
-.meta{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:space-between;
-  border-top:1px solid var(--borde);padding-top:.8rem}
-.ver{font-size:.82rem;font-weight:600;color:var(--acento);display:inline-flex;align-items:center;gap:.35rem}
-.bo:hover .ver svg{transform:translate(2px,-2px)}
-.ver svg{width:.85rem;height:.85rem;transition:transform .4s var(--e)}
-
-.pie{border-top:1px solid var(--borde);padding:2rem 0 3rem;color:var(--suave);font-size:.88rem}
-.pie a{color:var(--acento)}
-
-@media(max-width:520px){ .rejilla{grid-template-columns:1fr} }
-.bo h2 small{font-weight:400;font-size:.78rem;color:var(--acento);letter-spacing:0}
-.bo--nuevo{border-color:rgba(127,209,174,.55);box-shadow:0 0 0 1px rgba(127,209,174,.2)}
-.bo--nuevo .thumb__n{background:var(--acento);color:#0B1512;font-weight:700}
-.bo--pro{border-color:rgba(255,255,255,.28)}
-.bo--pro .thumb__n{background:#fff;color:#12141A;font-weight:700}
-
-.destacada{padding:clamp(1.6rem,3vw,2.4rem) 0 0}
-.dst{display:grid;grid-template-columns:1.1fr .9fr;gap:0;overflow:hidden;
-  background:var(--sup);border:1.5px solid var(--acento);border-radius:20px;
-  text-decoration:none;color:inherit;
-  transition:transform .5s var(--e),box-shadow .5s var(--e)}
-.dst:hover{transform:translateY(-4px);box-shadow:0 34px 70px -40px rgba(0,0,0,.95)}
-.dst__prev{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
-  border-right:1.5px solid var(--borde)}
-.dst__prev iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
-  transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
-.dst__txt{padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
-.dst__e{font-family:var(--m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acento)}
-.dst h2{font-size:clamp(1.4rem,3vw,2rem)}
-.dst__d{font-size:.92rem;color:var(--suave);line-height:1.6}
-.dst__l{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
-.dst__l li{font-family:var(--m);font-size:.66rem;border:1px solid var(--borde);
-  border-radius:999px;padding:.28rem .7rem;color:var(--suave)}
-.dst__b{font-size:.88rem;font-weight:700;color:var(--acento);margin-top:.3rem}
-@media(max-width:760px){.dst{grid-template-columns:1fr}
-  .dst__prev{border-right:0;border-bottom:1.5px solid var(--borde);aspect-ratio:16/10}}
+@media(max-width:760px){
+  .tarjeta{grid-template-columns:1fr;box-shadow:7px 7px 0 -1px var(--salvia)}
+  .tarjeta__p{border-right:0;border-bottom:2px solid var(--madera);aspect-ratio:16/10}
+}
 </style>
 </head>
 <body>
 
-<header class="head"><div class="wrap">
-  <p class="m">Thania Huerta Pacheco · Propuestas de dirección visual</p>
-  <h1 style="margin-top:.8rem">El sitio, y <em>veinte direcciones</em> para elegir.</h1>
+<header class="cab"><div class="w">
+  <p class="k">Propuesta visual · Agosto 2026</p>
+  <h1>Una sola propuesta, hecha con <em>tus colores</em>.</h1>
   <p class="lead">
-    Todos usan ya los datos reales de Thania: sus dos áreas de práctica, su
-    dirección, su WhatsApp y su cédula. Lo único que cambia entre ellos es la
-    dirección visual: tipografía, color, composición y ritmo. Así la comparación
-    es justa y lo que se decide es el tono, no el contenido.
+    Los veinte bocetos anteriores se retiraron. Esta propuesta no parte de una
+    tendencia: parte de lo que Thania dijo y de las dos imágenes que mandó.
   </p>
 
-  <p style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem"><a href="analisis.html" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--acento);color:#0B1512;text-decoration:none;font-weight:700;font-size:.9rem;padding:.75rem 1.3rem;border-radius:999px">Leer el análisis de color y estructura →</a></p>
-  <div class="notas">
-    <div class="nota"><b>Del 17 al 20 · sin diseño de IA</b><p>Tipografías de trabajo, retículas convencionales, tablas y filetes. Cero formas decorativas, degradados ni botones cápsula. Se ven como un sitio profesional de verdad.</p></div><div class="nota"><b>Empieza por el 11</b><p>Es el único diseñado desde su información: dos áreas, dos lenguajes visuales. Los demás son direcciones estéticas.</p></div><div class="nota"><b>Cómo elegir</b><p>No busques «el más bonito». Busca cuál se parece más a cómo quieres que se sienta la primera sesión.</p></div>
-    <div class="nota"><b>Todo es real</b><p>No son imágenes: son páginas funcionando. Ábrelas y pruébalas en el celular.</p></div><div class="nota"><b>El 01 es el sitio</b><p>Esa tarjeta abre el sitio real y completo. Los otros nueve muestran el lenguaje visual con menos secciones, pero ya con barra inferior y mapa.</p></div>
-    <div class="nota"><b>Lo que se conserva</b><p>En los diez: las dos áreas, mapa del consultorio, WhatsApp real y barra inferior en celular.</p></div>
-    <div class="nota"><b>Cada uno lleva mapa</b><p>Los diez incluyen el mapa real del consultorio, estilizado en su propia paleta.</p></div><div class="nota"><b>Se puede mezclar</b><p>Podemos tomar la tipografía de uno y la paleta de otro. Dime qué te llama de cada cual.</p></div>
+  <blockquote class="cita">
+    <p>«No sé si conozcas el estilo Mid Century, es como lo que estoy intentando hacer en mi consultorio.»</p>
+    <p>«Algo así, con tonos madera, verdes, marrón o vino. Pero no muy vivos.»</p>
+    <cite>Thania Huerta Pacheco</cite>
+  </blockquote>
+
+  <div class="pal">
+    <div><i style="background:#EFE7D9"></i><b>Crema</b><code>#EFE7D9</code></div>
+    <div><i style="background:#E3D8C4"></i><b>Lino</b><code>#E3D8C4</code></div>
+    <div><i style="background:#2C3A2B"></i><b>Bosque</b><code>#2C3A2B</code></div>
+    <div><i style="background:#6B7C4A"></i><b>Salvia</b><code>#6B7C4A</code></div>
+    <div><i style="background:#7A5C42"></i><b>Madera</b><code>#7A5C42</code></div>
+    <div><i style="background:#A2472A"></i><b>Terracota</b><code>#A2472A</code></div>
+    <div><i style="background:#5E3A44"></i><b>Vino</b><code>#5E3A44</code></div>
   </div>
 </div></header>
 
-<div class="wrap">
-<section class="destacada">
-  <a class="dst" href="../">
-    <div class="dst__prev"><iframe data-src="../" title="Vista previa del sitio" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="dst__txt">
-      <p class="dst__e">La propuesta principal · en marcha</p>
-      <h2>El sitio de Thania</h2>
-      <p class="dst__d">
-        Es el único terminado y el que marca el nivel: siete secciones, barra
-        inferior con scrollspy, formulario de cotización, biografía plegable,
-        mapa con Waze y Google Maps, y llamada directa. Los veinte bocetos de
-        abajo se están llevando a este mismo nivel, uno por uno.
+<main class="w dest">
+  <a class="tarjeta" href="propuesta.html">
+    <div class="tarjeta__p"><iframe data-src="propuesta.html" title="Vista previa de la propuesta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="tarjeta__t">
+      <p class="tarjeta__e">La propuesta</p>
+      <h2>Mid-century, con su paleta</h2>
+      <p class="tarjeta__d">
+        Verdes en tres tonos, madera como hilo conductor, terracota y vino de
+        acento, cremas de fondo. Arcos, formas cónicas, azulejo vidriado y grano
+        de papel. Ningún color pasa de saturación media, porque los pidió
+        «no muy vivos».
       </p>
-      <ul class="dst__l">
-        <li>Mid-century · Fraunces y Jost</li>
-        <li>7 secciones completas</li>
-        <li>Formulario sin servidor</li>
-        <li>Arquitectura móvil completa</li>
+      <ul class="tarjeta__l">
+        <li>Bitter · Jost</li>
+        <li>7 secciones</li>
+        <li>Mapa, Waze y Google Maps</li>
+        <li>Formulario de cotización</li>
+        <li>Barra móvil con scrollspy</li>
       </ul>
-      <span class="dst__b">Abrir el sitio →</span>
+      <span class="tarjeta__b">Abrir la propuesta →</span>
     </div>
   </a>
+</main>
+
+<section class="w notas">
+  <div class="nota"><b>Lo que se retiró</b><p>El teal y la mostaza de la versión anterior. Thania no nombró ninguno de los dos: pidió madera, verdes, marrón y vino.</p></div>
+  <div class="nota"><b>Por qué madera y no negro</b><p>En su tablero de ambiente la madera es lo que une todo, así que los filetes y marcos van en marrón, no en negro.</p></div>
+  <div class="nota"><b>Su consultorio, en la página</b><p>Está decorando el consultorio en mid-century, así que el sitio y el espacio real tienen que sentirse lo mismo.</p></div>
+  <div class="nota"><b>El perfil completo</b><p>El análisis de sus palabras, sus imágenes y la página que compartió está en PERFIL.md.</p></div>
 </section>
-</div>
-<main class="wrap"><div class="rejilla">
 
-  <a class="bo bo--pro" href="17-despacho.html">
-    <div class="thumb"><span class="thumb__n">17 · profesional</span><iframe data-src="17-despacho.html" title="Vista previa: Despacho" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Despacho</h2>
-      <p class="desc">Registro de despacho profesional. PT Serif y PT Sans, tipografías de trabajo diseñadas para texto institucional. Azul marino, filetes de 1px y tablas. Lo que espera un abogado que busca perito.</p>
-      <div class="pal"><i style="background:#1B365D"></i><i style="background:#8A6D3B"></i><i style="background:#FFFFFF"></i><i style="background:#F4F6F8"></i><i style="background:#1F2933"></i></div>
-      <div class="meta"><span class="m">PT Serif · PT Sans</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--pro" href="18-clinica.html">
-    <div class="thumb"><span class="thumb__n">18 · profesional</span><iframe data-src="18-clinica.html" title="Vista previa: Clínica" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Clínica</h2>
-      <p class="desc">Registro institucional de servicio de salud. IBM Plex, diseñada para documentación técnica. Azul de confianza y cajas de 1px. Sobrio y verificable.</p>
-      <div class="pal"><i style="background:#2C5F7C"></i><i style="background:#FFFFFF"></i><i style="background:#F4F7F9"></i><i style="background:#1A2733"></i><i style="background:#5B6B78"></i></div>
-      <div class="meta"><span class="m">IBM Plex Sans · Serif</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--pro" href="19-consultorio.html">
-    <div class="thumb"><span class="thumb__n">19 · profesional</span><iframe data-src="19-consultorio.html" title="Vista previa: Consultorio" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Consultorio</h2>
-      <p class="desc">Profesional pero cálido, de consulta privada. Lora y Source Sans, dos tipografías de trabajo sin gestos de moda. Papel cálido, verde apagado y portada centrada.</p>
-      <div class="pal"><i style="background:#5B6E5A"></i><i style="background:#FAF8F5"></i><i style="background:#F1EDE6"></i><i style="background:#33302B"></i><i style="background:#6B665E"></i></div>
-      <div class="meta"><span class="m">Lora · Source Sans 3</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--pro" href="20-ficha.html">
-    <div class="thumb"><span class="thumb__n">20 · profesional</span><iframe data-src="20-ficha.html" title="Vista previa: Ficha profesional" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Ficha profesional</h2>
-      <p class="desc">Lo más sobrio de los veinte. Casi monocromo, densidad alta, la información por delante de todo. Se parece a una ficha de directorio o a un currículum bien compuesto.</p>
-      <div class="pal"><i style="background:#FFFFFF"></i><i style="background:#141414"></i><i style="background:#2B5CA8"></i><i style="background:#F5F5F5"></i><i style="background:#555555"></i></div>
-      <div class="meta"><span class="m">Libre Franklin · Source Serif 4</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--nuevo" href="11-expediente.html">
-    <div class="thumb"><span class="thumb__n">11 · nuevo</span><iframe data-src="11-expediente.html" title="Vista previa: Dos expedientes" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Dos expedientes <small>· hecho para ella</small></h2>
-      <p class="desc">El único diseñado desde su contenido, no adaptado. La página se parte en dos lenguajes: el forense habla como un documento (oscuro, monoespaciado, foliado) y el clínico como una conversación (claro, cálido, redondeado). Convergen en «Sobre mí».</p>
-      <div class="pal"><i style="background:#0E2A33"></i><i style="background:#4FA3AF"></i><i style="background:#E2725B"></i><i style="background:#E9A17C"></i><i style="background:#F6F3EC"></i></div>
-      <div class="meta"><span class="m">Familjen Grotesk · IBM Plex Mono</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-  <a class="bo" href="01-mid-century.html">
-    <div class="thumb"><span class="thumb__n">01</span><iframe data-src="01-mid-century.html" title="Vista previa: Mid-century" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Mid-century</h2>
-      <p class="desc">La misma dirección del sitio en marcha: arcos, formas atómicas y papel con grano. Cálido y con carácter de época.</p>
-      <div class="pal"><i style="background:#2F6F73"></i><i style="background:#B9532F"></i><i style="background:#D9A63C"></i><i style="background:#F4EADB"></i><i style="background:#2E2622"></i></div>
-      <div class="meta"><span class="m">Fraunces · Jost</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-
-  <a class="bo bo--nuevo" href="12-salvia.html">
-    <div class="thumb"><span class="thumb__n">12 · nuevo</span><iframe data-src="12-salvia.html" title="Vista previa: Salvia" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Salvia</h2>
-      <p class="desc">Progresión de verdes «New Botanicals». Pila vertical con riel de marcadores, medida corta y mucho aire: se lee como un libro, no como una landing.</p>
-      <div class="pal"><i style="background:#F9F8F3"></i><i style="background:#D7DDD3"></i><i style="background:#A3B899"></i><i style="background:#6F7B70"></i><i style="background:#2F3A33"></i></div>
-      <div class="meta"><span class="m">Petrona · Outfit</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--nuevo" href="13-taupe-jade.html">
-    <div class="thumb"><span class="thumb__n">13 · nuevo</span><iframe data-src="13-taupe-jade.html" title="Vista previa: Taupe y jade" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Taupe y jade</h2>
-      <p class="desc">«Quiet Luxury»: neutros caros con jade ahumado. Columna lateral fija con las credenciales siempre visibles, porque en forense la credencial es el argumento.</p>
-      <div class="pal"><i style="background:#F0EFED"></i><i style="background:#CAB9A9"></i><i style="background:#4A635D"></i><i style="background:#4E342E"></i><i style="background:#22201E"></i></div>
-      <div class="meta"><span class="m">EB Garamond · Archivo</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--nuevo" href="14-coral-solar.html">
-    <div class="thumb"><span class="thumb__n">14 · nuevo</span><iframe data-src="14-coral-solar.html" title="Vista previa: Coral solar" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Coral solar</h2>
-      <p class="desc">«Solar Warmth»: corales tostados sobre azul profundo. Bandas a sangre que alternan claro y oscuro, cada una con su número. Se lee como capítulos.</p>
-      <div class="pal"><i style="background:#FAF6F0"></i><i style="background:#A5A78F"></i><i style="background:#D98E73"></i><i style="background:#2C3E4C"></i><i style="background:#1B242C"></i></div>
-      <div class="meta"><span class="m">Epilogue</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--nuevo" href="15-vino-niebla.html">
-    <div class="thumb"><span class="thumb__n">15 · nuevo</span><iframe data-src="15-vino-niebla.html" title="Vista previa: Vino y niebla" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Vino y niebla</h2>
-      <p class="desc">El vino vuelve en 2026 como color de declaración, nunca de fondo. Composición centrada y simétrica, separada por filetes finos. El más sobrio.</p>
-      <div class="pal"><i style="background:#F2EFE9"></i><i style="background:#D5C5AC"></i><i style="background:#6B3540"></i><i style="background:#B9B1A6"></i><i style="background:#2A2429"></i></div>
-      <div class="meta"><span class="m">Prata · Karla</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo bo--nuevo" href="16-azul-polvo.html">
-    <div class="thumb"><span class="thumb__n">16 · nuevo</span><iframe data-src="16-azul-polvo.html" title="Vista previa: Azul polvo" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Azul polvo</h2>
-      <p class="desc">Los azules polvo son de los pocos que la investigación nombra para público adolescente. Retícula asimétrica: ninguna fila repite proporción.</p>
-      <div class="pal"><i style="background:#F4F6F7"></i><i style="background:#B7C4D0"></i><i style="background:#5D7A94"></i><i style="background:#E6C3C3"></i><i style="background:#26333F"></i></div>
-      <div class="meta"><span class="m">Schibsted Grotesk</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-
-  
-
-  <a class="bo" href="02-editorial.html">
-    <div class="thumb"><span class="thumb__n">02</span><iframe data-src="02-editorial.html" title="Vista previa: Editorial" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Editorial</h2>
-      <p class="desc">Maqueta de revista: columnas de texto con capitular, titular a sangre y motivos como lista numerada. Cero tarjetas.</p>
-      <div class="pal"><i style="background:#12100E"></i><i style="background:#1B5E63"></i><i style="background:#F6F3EC"></i><i style="background:#EAE5DA"></i><i style="background:#54504A"></i></div>
-      <div class="meta"><span class="m">Playfair · Source Serif</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="03-botanico.html">
-    <div class="thumb"><span class="thumb__n">03</span><iframe data-src="03-botanico.html" title="Vista previa: Botánico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Botánico</h2>
-      <p class="desc">Portada a sangre en verde con una isla de contenido montada encima. Motivos en escalera desplazada.</p>
-      <div class="pal"><i style="background:#14372B"></i><i style="background:#2F5B47"></i><i style="background:#7E9B7A"></i><i style="background:#C4714E"></i><i style="background:#F5F2E9"></i></div>
-      <div class="meta"><span class="m">Calistoga · Public Sans</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="04-bauhaus.html">
-    <div class="thumb"><span class="thumb__n">04</span><iframe data-src="04-bauhaus.html" title="Vista previa: Bauhaus" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Modular</h2>
-      <p class="desc">Retícula modular de celdas desiguales: ninguna fila repite proporción. El mapa es una celda más.</p>
-      <div class="pal"><i style="background:#1B3A8C"></i><i style="background:#0F6E6E"></i><i style="background:#E0A32E"></i><i style="background:#17161A"></i><i style="background:#F5F2EA"></i></div>
-      <div class="meta"><span class="m">Archivo Black · Public Sans</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="05-suizo.html">
-    <div class="thumb"><span class="thumb__n">05</span><iframe data-src="05-suizo.html" title="Vista previa: Suizo" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Suizo</h2>
-      <p class="desc">Rejilla estricta, blanco y negro, un solo rojo. Máxima claridad y cero adorno. Profesional y directo.</p>
-      <div class="pal"><i style="background:#0A0A0A"></i><i style="background:#FFFFFF"></i><i style="background:#E4002B"></i><i style="background:#DDDDDD"></i><i style="background:#6B6B6B"></i></div>
-      <div class="meta"><span class="m">Archivo · JetBrains</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="06-nocturno.html">
-    <div class="thumb"><span class="thumb__n">06</span><iframe data-src="06-nocturno.html" title="Vista previa: Nocturno" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Nocturno</h2>
-      <p class="desc">Cascada en profundidad: los paneles se montan unos sobre otros con ligera rotación. Modo oscuro.</p>
-      <div class="pal"><i style="background:#0D1214"></i><i style="background:#141B1E"></i><i style="background:#35B98A"></i><i style="background:#D9A441"></i><i style="background:#E9F0ED"></i></div>
-      <div class="meta"><span class="m">Bricolage · Manrope</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="07-risografia.html">
-    <div class="thumb"><span class="thumb__n">07</span><iframe data-src="07-risografia.html" title="Vista previa: Risografía" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Risografía</h2>
-      <p class="desc">Cartel de fanzine: manchas de tinta superpuestas y motivos como recortes pegados en diagonal.</p>
-      <div class="pal"><i style="background:#1B4FD1"></i><i style="background:#00857A"></i><i style="background:#F2695C"></i><i style="background:#F1EEE4"></i><i style="background:#191713"></i></div>
-      <div class="meta"><span class="m">Rubik Mono · Rubik</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="08-art-deco.html">
-    <div class="thumb"><span class="thumb__n">08</span><iframe data-src="08-art-deco.html" title="Vista previa: Art Déco" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Art Déco</h2>
-      <p class="desc">Bandas horizontales de ritmo vertical, separadas por filetes. Simetría deliberada, sin tarjetas.</p>
-      <div class="pal"><i style="background:#0F1419"></i><i style="background:#C7CCD4"></i><i style="background:#2E8B7A"></i><i style="background:#8E3247"></i><i style="background:#ECEFF2"></i></div>
-      <div class="meta"><span class="m">Poiret One · Jost</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="09-cobalto.html">
-    <div class="thumb"><span class="thumb__n">09</span><iframe data-src="09-cobalto.html" title="Vista previa: Cobalto" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Cobalto</h2>
-      <p class="desc">Limpio y contemporáneo, con esquinas muy redondeadas y un azul saturado. El que más se parece a una app actual.</p>
-      <div class="pal"><i style="background:#2350C8"></i><i style="background:#FBFAF8"></i><i style="background:#F1F0EC"></i><i style="background:#14161A"></i><i style="background:#5F646E"></i></div>
-      <div class="meta"><span class="m">Plus Jakarta Sans</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-  <a class="bo" href="10-acuarela.html">
-    <div class="thumb"><span class="thumb__n">10</span><iframe data-src="10-acuarela.html" title="Vista previa: Acuarela" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__b">
-      <h2>Acuarela</h2>
-      <p class="desc">Acuarela a sangre generada por filtro SVG, dos columnas desiguales y motivos como índice.</p>
-      <div class="pal"><i style="background:#2E6E7E"></i><i style="background:#C4707F"></i><i style="background:#F2EFE8"></i><i style="background:#1B2A30"></i><i style="background:#5A6E76"></i></div>
-      <div class="meta"><span class="m">Gloock · Karla</span><span class="ver">Ver completo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
-    </div>
-  </a>
-
-</div></main>
-
-<footer class="pie"><div class="wrap">
-  <p>Bocetos de trabajo. Contenido de ejemplo, pendiente de sustituir por los datos reales.<br>
-  El sitio en curso está en <a href="../">esta dirección</a>.</p>
+<footer class="pie"><div class="w">
+  <p>Documento de trabajo · <a href="../">Ver el sitio en marcha</a></p>
+  <p style="margin-top:.4rem">El WhatsApp de la propuesta es el número de pruebas. Antes de entregar hay que cambiarlo al de Thania.</p>
 </div></footer>
 
 <script>
-// Escala las vistas previas: cada iframe se renderiza a 1280px y se reduce al ancho de su tarjeta
-
-// 16 iframes cargando a la vez ahogan la página: se cargan por turnos,
-// solo cuando la tarjeta entra en pantalla
-function cargarPrevias(){
-  var pend = Array.prototype.slice.call(document.querySelectorAll('iframe[data-src]'));
-  if(!('IntersectionObserver' in window)){ pend.forEach(function(f){f.src=f.dataset.src;delete f.dataset.src;}); return; }
-  var enCurso = 0, cola = [];
-  function siguiente(){
-    if(enCurso >= 2 || !cola.length) return;
-    var f = cola.shift(); enCurso++;
-    f.addEventListener('load', function(){ enCurso--; siguiente(); }, { once:true });
-    f.src = f.dataset.src; delete f.dataset.src;
-  }
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting && e.target.dataset.src){ cola.push(e.target); io.unobserve(e.target); siguiente(); }
-    });
-  }, { rootMargin: '300px' });
-  pend.forEach(function(f){ io.observe(f); });
-}
-cargarPrevias();
-
 function ajustar(){
-  document.querySelectorAll('.thumb').forEach(function(t){
+  document.querySelectorAll('.tarjeta__p').forEach(function(t){
     t.style.setProperty('--s', t.clientWidth / 1280);
   });
 }
 ajustar();
-window.addEventListener('resize', ajustar, { passive: true });
+window.addEventListener('resize', ajustar, { passive:true });
 window.addEventListener('load', ajustar);
+// La vista previa carga solo cuando la tarjeta se acerca a pantalla
+(function(){
+  var f = document.querySelector('iframe[data-src]');
+  if (!f) return;
+  if (!('IntersectionObserver' in window)) { f.src = f.dataset.src; return; }
+  new IntersectionObserver(function(e, o){
+    if (e[0].isIntersecting) { f.src = f.dataset.src; o.disconnect(); }
+  }, { rootMargin:'300px' }).observe(f);
+})();
 </script>
 </body>
 </html>
