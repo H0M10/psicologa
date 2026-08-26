@@ -11,7 +11,7 @@
    ========================================================================== */
 
 :root{
-  --mv-bg:#FFFFFF; --mv-fg:#1A1A1A; --mv-acc:#2F6F73; --mv-line:rgba(0,0,0,.14);
+  --mv-bg:#FFFFFF; --mv-fg:#1A1A1A; --mv-acc:#2F6F73; --mv-line:rgba(0,0,0,.14); --mv-on-acc:#FFFFFF;
 }
 
 /* ---------------------------------------------------------------------------
@@ -50,7 +50,7 @@
   flex:0 0 auto;width:56px;height:56px;
   margin:-19px .15rem .28rem;
   display:grid;place-items:center;border-radius:50%;
-  background:var(--mv-acc);color:#fff;
+  background:var(--mv-acc);color:var(--mv-on-acc,#fff);
   border:2.5px solid var(--mv-bg);text-decoration:none;
   box-shadow:0 6px 20px -8px rgba(0,0,0,.6);
   transition:transform .25s cubic-bezier(.32,.72,0,1);
@@ -115,7 +115,7 @@
 .fc__ayuda{font-size:.76rem;opacity:.62}
 .fc__enviar{
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  background:var(--mv-acc);color:#fff;border:1.5px solid var(--mv-acc);border-radius:999px;
+  background:var(--mv-acc);color:var(--mv-on-acc,#fff);border:1.5px solid var(--mv-acc);border-radius:999px;
   font:inherit;font-size:.92rem;font-weight:700;padding:.8rem 1.5rem;min-height:48px;cursor:pointer;
   transition:transform .3s cubic-bezier(.32,.72,0,1);
 }

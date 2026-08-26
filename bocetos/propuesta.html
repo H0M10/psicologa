@@ -163,8 +163,20 @@ p{margin:0;max-width:66ch;text-wrap:pretty}
   line-height:1.45;color:var(--bosque);margin-inline:auto}
 
 /* ── Mapa ── */
-.mapa{border-radius:var(--r);overflow:hidden;box-shadow:var(--so-2);
-  height:clamp(280px,42vh,400px);background:var(--lino)}
+.mapa-caja{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--so-2)}
+#mapa{height:clamp(280px,42vh,400px);width:100%;background:var(--lino)}
+/* Teselas viradas a la paleta, para que el mapa no rompa el conjunto */
+.leaflet-tile-pane{filter:saturate(.62) sepia(.14) brightness(1.03)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:block;width:28px;height:28px;border-radius:50% 50% 50% 5px;
+  transform:rotate(-45deg);background:var(--terracota-honda);
+  display:grid;place-items:center;box-shadow:var(--so-1)}
+.pin__c{width:9px;height:9px;border-radius:50%;background:var(--papel)}
+.mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--bosque) 42%,transparent);color:var(--papel);
+  font:inherit;font-size:.95rem;font-weight:600;border:0;cursor:pointer}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
 .rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-top:.9rem}
 .dato{display:flex;gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--linea)}
 .dato:last-child{border-bottom:0}
@@ -351,7 +363,12 @@ p{margin:0;max-width:66ch;text-wrap:pretty}
     <h2>Dónde nos vemos</h2>
     <p>Toca el mapa para moverlo, o abre la ruta directo en tu aplicación.</p>
   </div>
-  <div class="mapa" id="mapa"></div>
+  <div class="mapa-caja">
+    <div id="mapa" data-lat="20.572439" data-lng="-100.4184025" data-zoom="17"
+         role="application" aria-label="Mapa del consultorio"></div>
+    <button class="mapa-toque" id="mapaToque" type="button" hidden><span>Toca para mover el mapa</span></button>
+    <p class="mapa-aviso" id="mapaAviso" hidden>No se pudo cargar el mapa.</p>
+  </div>
   <div class="rutas">
     <a class="b b--p" href="https://www.google.com/maps/dir/?api=1&destination=20.572439,-100.4184025" target="_blank" rel="noopener">Google Maps</a>
     <a class="b b--s" href="https://waze.com/ul?ll=20.572439,-100.4184025&navigate=yes" target="_blank" rel="noopener">Waze</a>
