@@ -164,6 +164,14 @@
   .bio-mas__btn{display:inline-flex}
 }
 
+/* ---------------------------------------------------------------------------
+   4. SECCIÓN DE COTIZACIÓN AUTO-GENERADA
+   Cuando el JS crea la sección #solicitar, necesita padding propio.
+   ------------------------------------------------------------------------- */
+#solicitar{padding:clamp(2.8rem,6vw,4.6rem) 0}
+#solicitar h2{margin:0}
+.fc-zona{margin-top:1rem}
+
 @media (prefers-reduced-motion: reduce){
   .tb__i,.tb__wa,.fc__cuerpo,.fc__enviar,.bio-mas,.fc__abre svg,.bio-mas__btn svg{
     transition-duration:.001ms !important}

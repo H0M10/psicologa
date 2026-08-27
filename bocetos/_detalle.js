@@ -112,13 +112,41 @@
   function montarFormulario() {
     if (document.querySelector('.fc')) return;
 
-    // El botón de cotización que cada boceto ya tiene
-    var btn = null;
-    Array.prototype.forEach.call(document.querySelectorAll('a[href*="cotizaci"]'), function (a) {
-      if (!btn) btn = a;
-    });
-    if (!btn) return;
+    // 1. Si hay una sección dedicada #solicitar con .fc-zona, usarla
+    var zona = document.querySelector('#solicitar .fc-zona');
+    if (zona) {
+      inyectarFormulario(zona);
+      return;
+    }
 
+    // 2. Si hay un contenedor .cotiza (propuesta-2), usarlo
+    var cotiza = document.querySelector('.cotiza');
+    if (cotiza) {
+      inyectarFormulario(cotiza);
+      return;
+    }
+
+    // 3. Verificar que existan enlaces de cotización en la página
+    var hay = document.querySelector('a[href*="cotizaci"]');
+    if (!hay) return;
+
+    // 4. Crear sección dedicada antes del cierre
+    var cierre = document.querySelector('.cierre') || document.querySelector('.fin');
+    if (!cierre) return;
+    var sec = document.createElement('section');
+    sec.className = 's';
+    sec.id = 'solicitar';
+    sec.innerHTML =
+      '<div class="w">' +
+        '<h2 style="font-family:inherit;font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:600;margin-bottom:.6rem">Solicita una cotización</h2>' +
+        '<p style="opacity:.72;max-width:52ch">Cuéntame el asunto y la fecha límite, y te devuelvo el alcance y el costo. Sin compromiso.</p>' +
+        '<div class="fc-zona"></div>' +
+      '</div>';
+    cierre.parentNode.insertBefore(sec, cierre);
+    inyectarFormulario(sec.querySelector('.fc-zona'));
+  }
+
+  function inyectarFormulario(contenedor) {
     var caja = document.createElement('div');
     caja.className = 'fc';
     caja.innerHTML =
@@ -151,7 +179,7 @@
         '</form>' +
       '</div></div>';
 
-    (btn.parentNode.closest('div') || btn.parentNode).appendChild(caja);
+    contenedor.appendChild(caja);
 
     var abre = caja.querySelector('.fc__abre');
     abre.addEventListener('click', function () {
