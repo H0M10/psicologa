@@ -167,3 +167,72 @@ p{margin:0;max-width:64ch}
   .ap__c{gap:.3rem 1rem;font-size:.76rem}
   .div{gap:1rem}
 }
+
+/* ── Estrella del header: moverla a la derecha para que no estorbe ── */
+.ap__est{
+  left:auto;right:-6%;top:50%;
+  transform:translateY(-50%);
+  opacity:.10;
+}
+
+/* ── Formulario de cotización: overrides para tema oscuro ── */
+.fc__abre{
+  color:var(--crema);
+  border-color:var(--borde);
+}
+.fc__abre:hover{border-color:var(--aguacate)}
+
+.fc form{border-top-color:var(--borde)}
+
+.fc__campo label{color:var(--crema-2)}
+.fc__campo .req{color:var(--aguacate)}
+
+.fc__campo input,
+.fc__campo select,
+.fc__campo textarea{
+  color:var(--crema);
+  background:rgba(240,232,214,.07);
+  border-color:var(--borde);
+}
+.fc__campo input::placeholder,
+.fc__campo select::placeholder,
+.fc__campo textarea::placeholder{
+  color:var(--crema-2);
+  opacity:.5;
+}
+/* El select "Elige una opción" vacío */
+.fc__campo select option{
+  background:var(--fondo-2);
+  color:var(--crema);
+}
+.fc__campo input:focus,
+.fc__campo select:focus,
+.fc__campo textarea:focus{
+  border-color:var(--aguacate);
+}
+.fc__campo input:focus-visible,
+.fc__campo select:focus-visible,
+.fc__campo textarea:focus-visible{
+  outline-color:var(--aguacate);
+}
+
+.fc__enviar{
+  background:var(--aguacate);
+  color:var(--fondo);
+  border-color:var(--aguacate);
+}
+
+.fc__vista{
+  background:rgba(240,232,214,.06);
+  border-color:var(--borde);
+  color:var(--crema);
+}
+.fc__vista h4{color:var(--aguacate)}
+.fc__vista pre{color:var(--crema-2)}
+
+.fc__aviso{
+  color:var(--aguacate);
+  background:rgba(196,180,125,.12);
+}
+.fc__ayuda{color:var(--crema-2)}
+
