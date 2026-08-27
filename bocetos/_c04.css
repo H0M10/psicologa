@@ -7,7 +7,8 @@
 :root{
   --fondo:#E4E2DA; --papel:#EFEDE6; --beige:#D3C2B2; --rosa:#F5DED6;
   --verde:#2B4A3D; --salvia:#A9C6B9;
-  --naranja:#DE8455; --naranja-hondo:#A85528;
+  --naranja:#DE8455; --naranja-hondo:#A85528; --naranja-enlace:#9C4E23;
+  --jade-hondo:#4E6B5B; --taupe:#8A7A66;
   --tinta:#2A2A26; --suave:#5F5D55; --linea:rgba(42,42,38,.16);
   --so:0 14px 34px -24px rgba(42,42,38,.42);
   --disp:'Outfit',system-ui,sans-serif; --txt:'Karla',system-ui,sans-serif;
@@ -34,7 +35,7 @@ p{margin:0;max-width:66ch}
 .tile{width:1em;height:1em;fill:currentColor;color:inherit;flex:none}
 .tile--t{width:1.5rem;height:1.5rem;color:var(--naranja)}
 .tile--m{width:1.9rem;height:1.9rem;color:var(--verde)}
-.tile--s{width:1.1rem;height:1.1rem;color:var(--naranja)}
+.tile--s{width:1.1rem;height:1.1rem;color:var(--naranja-hondo)}
 .tit{display:flex;align-items:center;gap:.85rem;font-size:clamp(1.55rem,3.7vw,2.35rem)}
 
 /* ── Encabezado ── */
@@ -92,8 +93,8 @@ p{margin:0;max-width:66ch}
 .sup li{display:flex;align-items:center;gap:.9rem;background:var(--papel);
   border-radius:14px;padding:1rem 1.15rem;font-size:.96rem;box-shadow:var(--so)}
 .sup li:nth-child(4n+2) .tile--s{color:var(--verde)}
-.sup li:nth-child(4n+3) .tile--s{color:var(--salvia)}
-.sup li:nth-child(4n+4) .tile--s{color:var(--beige)}
+.sup li:nth-child(4n+3) .tile--s{color:var(--jade-hondo)}
+.sup li:nth-child(4n+4) .tile--s{color:var(--taupe)}
 
 /* ── Motivos: fichas sobre el verde ── */
 .mot{list-style:none;margin:2rem 0 0;padding:0;display:grid;
@@ -109,6 +110,8 @@ p{margin:0;max-width:66ch}
 .par__c h3{font-size:1.06rem;margin-bottom:.55rem}
 .par__c p{font-size:.94rem;color:var(--suave)}
 .par__l{margin-top:.9rem;font-weight:600}
+/* Sobre el rosa el naranja normal no llega a 4.5:1 */
+.par__c--acc .par__l a{color:var(--naranja-enlace)}
 
 /* ── Formación ── */
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));gap:1rem;margin-top:1.8rem}

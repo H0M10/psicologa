@@ -45,7 +45,9 @@ p{margin:0;max-width:64ch}
   padding:clamp(3rem,8vw,5rem) 1.2rem;overflow:hidden}
 .ap__est{position:absolute;top:50%;left:50%;width:min(78vw,620px);aspect-ratio:1;
   transform:translate(-50%,-50%);opacity:.14;pointer-events:none}
-.ap>*{position:relative;z-index:1}
+/* El adorno queda excluido: si no, esta regla le gana por orden y le
+   quita el position:absolute, y pasa a empujar todo el contenido. */
+.ap>*:not(.ap__est){position:relative;z-index:1}
 .ap__k{font-family:var(--disp);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
   color:var(--crema-2);margin-bottom:1.4rem}
 .ap h1{font-size:clamp(2.2rem,7vw,4.6rem);font-weight:300;letter-spacing:.02em}

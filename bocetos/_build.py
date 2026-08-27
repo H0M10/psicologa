@@ -166,7 +166,7 @@ def render04():
   <div class="cuerpo">%s</div>
 </div></section>
 
-<section class="s s--verde" id="forense"><div class="w">
+<section class="s" id="forense"><div class="w">
   <h2 class="tit">%sCuando un proceso familiar necesita una valoraci\u00f3n psicol\u00f3gica</h2>
   <p class="lead">Trabajo con abogados, juzgados y particulares. Estos son los supuestos en los que puedo intervenir.</p>
   <ul class="sup">%s
