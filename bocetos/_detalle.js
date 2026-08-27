@@ -112,7 +112,7 @@
   function montarFormulario() {
     if (document.querySelector('.fc')) return;
 
-    // 1. Si hay una sección dedicada #solicitar con .fc-zona, usarla
+    // 1. Si ya existe una sección #solicitar con .fc-zona, usarla directamente
     var zona = document.querySelector('#solicitar .fc-zona');
     if (zona) {
       inyectarFormulario(zona);
@@ -126,9 +126,16 @@
       return;
     }
 
-    // 3. Verificar que existan enlaces de cotización en la página
-    var hay = document.querySelector('a[href*="cotizaci"]');
-    if (!hay) return;
+    // 3. Si ya existe #solicitar pero sin .fc-zona, añadir la zona dentro
+    var existente = document.getElementById('solicitar');
+    if (existente) {
+      var w = existente.querySelector('.w') || existente;
+      var fz = document.createElement('div');
+      fz.className = 'fc-zona';
+      w.appendChild(fz);
+      inyectarFormulario(fz);
+      return;
+    }
 
     // 4. Crear sección dedicada antes del cierre
     var cierre = document.querySelector('.cierre') || document.querySelector('.fin');
