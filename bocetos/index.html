@@ -16,34 +16,14 @@ body{font-family:'Archivo',system-ui,sans-serif;padding-bottom:0}
 h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:-.015em}
 .w{width:min(100% - 2.4rem,1180px);margin-inline:auto}
 
-.cab{padding:clamp(2.6rem,6vw,4.2rem) 0 clamp(1.6rem,3vw,2.4rem)}
-.cab .k{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--barro-hondo);margin-bottom:1rem}
-.cab h1{font-size:clamp(1.9rem,4.8vw,3rem);max-width:19ch;line-height:1.1}
-.cab h1 em{font-style:normal;color:var(--barro-hondo)}
-.cab .lead{color:var(--suave);max-width:64ch;margin-top:1.1rem;font-size:1.04rem}
-.cita{margin-top:1.6rem;padding-left:1.2rem;border-left:4px solid var(--cilantro);max-width:58ch}
-.cita p{font-family:'Jost',sans-serif;font-size:1.06rem;color:var(--bronce)}
-.cita p+p{margin-top:.4rem}
-.cita cite{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.78rem;
-  color:var(--suave);margin-top:.7rem}
-
-/* La paleta documentada, con su referencia a la vista */
-.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:.5rem;margin-top:1.8rem}
+.cab{padding:clamp(2rem,5vw,3.2rem) 0 clamp(1.6rem,3vw,2.4rem)}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:.5rem}
 .pal div{background:var(--papel);border-bottom:3px solid var(--urbano)}
-.pal i{display:block;height:3.2rem}
-.pal b{display:block;font-size:.8rem;padding:.5rem .65rem .05rem;font-weight:600}
-.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .65rem .5rem}
-.doc{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;font-size:.9rem;font-weight:600}
+.pal i{display:block;height:3.4rem}
+.pal b{display:block;font-size:.8rem;padding:.55rem .65rem .05rem;font-weight:600}
+.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .65rem .55rem}
 
-.gr{padding:clamp(2rem,4vw,3rem) 0 0}
-.gr__t{display:flex;align-items:baseline;gap:1rem;padding-bottom:1rem;
-  border-bottom:3px solid var(--urbano);margin-bottom:1.4rem}
-.gr__t h2{font-size:clamp(1.25rem,2.6vw,1.7rem)}
-.gr__t span{font-size:.86rem;color:var(--suave)}
-
-.rej{display:grid;gap:1rem}
-.rej--2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.rej{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
 .bo{display:block;background:var(--papel);text-decoration:none;color:inherit;
   border-bottom:6px solid var(--urbano);
   transition:transform .4s var(--e),border-color .4s var(--e)}
@@ -60,9 +40,6 @@ h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:
 .bo__l{list-style:none;padding:0;margin:.9rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
 .bo__l li{font-size:.7rem;border:1px solid var(--linea);padding:.26rem .65rem;color:var(--suave)}
 .bo__b{display:block;font-size:.88rem;font-weight:700;color:var(--barro-hondo);margin-top:.9rem}
-.rej--vieja .bo__p{aspect-ratio:16/10}
-.rej--vieja h3{font-size:1.05rem}
-.rej--vieja .bo__d{font-size:.86rem}
 
 .notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:.8rem;
   margin-top:clamp(2.4rem,5vw,3.6rem)}
@@ -75,21 +52,6 @@ h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:
 <body>
 
 <header class="cab"><div class="w">
-  <p class="k">Documento de trabajo · Agosto 2026</p>
-  <h1>Ocho bocetos, todos con <em>sus colores</em>.</h1>
-  <p class="lead">
-    Los cuatro de arriba se dibujaron después de investigar el estilo a fondo:
-    cada uno pone por delante un principio distinto del mid-century, para que
-    puedas elegir por carácter y no solo por color. Los cuatro llevan tu
-    información completa.
-  </p>
-
-  <blockquote class="cita">
-    <p>«No sé si conozcas el estilo Mid Century, es como lo que estoy intentando hacer en mi consultorio.»</p>
-    <p>«Algo así, con tonos madera, verdes, marrón o vino. Pero no muy vivos.»</p>
-    <cite>Thania Huerta Pacheco</cite>
-  </blockquote>
-
   <div class="pal">
     <div><i style="background:#F0E9DB"></i><b>Crema</b><code>#F0E9DB</code></div>
     <div><i style="background:#D9CFBA"></i><b>Wool Skein</b><code>SW 6148</code></div>
@@ -98,135 +60,140 @@ h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:
     <div><i style="background:#54504A"></i><b>Urbane Bronze</b><code>SW 7048</code></div>
     <div><i style="background:#533640"></i><b>Blackberry</b><code>SW 7577</code></div>
     <div><i style="background:#CB7841"></i><b>Rhumba Orange</b><code>SW 6642</code></div>
+    <div><i style="background:#C4B47D"></i><b>Cool Avocado</b><code>SW 9029</code></div>
   </div>
-  <p class="doc"><a href="../MIDCENTURY.md">Leer la investigación completa (MIDCENTURY.md) →</a></p>
 </div></header>
 
-<main class="w">
+<main class="w"><div class="rej">
 
-<section class="gr">
-  <div class="gr__t">
-    <h2>Los cuatro mid-century</h2>
-    <span>Cada uno explora un principio distinto del estilo</span>
-  </div>
-  <div class="rej rej--2">
+  <a class="bo" href="propuesta-2.html">
+    <div class="bo__p"><iframe data-src="propuesta-2.html" title="Vista previa de Con textura" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Materiales dibujados</p>
+      <h3>Con textura</h3>
+      <p class="bo__d">
+        Arco en el retrato, forma cónica, azulejo vidriado y grano de papel.
+        La versión más decorada de todas: el carácter lo llevan los elementos
+        dibujados y no solo el color.
+      </p>
+      <ul class="bo__l"><li>Bitter · Jost</li><li>Arco y azulejo</li><li>Grano de papel</li></ul>
+      <span class="bo__b">Abrir Con textura →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="mc-credenza.html">
-      <div class="bo__p"><iframe data-src="mc-credenza.html" title="Vista previa de Credenza" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Materiales y horizontalidad</p>
-        <h3>Credenza</h3>
-        <p class="bo__d">
-          Todo se lee en franjas anchas y bajas, como un mueble de los sesenta:
-          la madera abajo sosteniendo cada franja, el contenido apaisado en
-          filas y no en tarjetas. Los estratos de color son el canto del mueble.
-        </p>
-        <ul class="bo__l"><li>Jost · Archivo</li><li>Franjas horizontales</li><li>Madera como base</li></ul>
-        <span class="bo__b">Abrir Credenza →</span>
-      </div>
-    </a>
+  <a class="bo" href="propuesta-4.html">
+    <div class="bo__p"><iframe data-src="propuesta-4.html" title="Vista previa de Mosaico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Azulejo mid-century</p>
+      <h3>Mosaico</h3>
+      <p class="bo__d">
+        Los motivos de tu segunda imagen —pétalos, círculos concéntricos,
+        estrellas de cuatro puntas y abanicos— dibujados una vez y repetidos
+        por toda la página.
+      </p>
+      <ul class="bo__l"><li>Outfit · Karla</li><li>Azulejos dibujados</li><li>Retícula de mosaico</li></ul>
+      <span class="bo__b">Abrir Mosaico →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="mc-reticula.html">
-      <div class="bo__p"><iframe data-src="mc-reticula.html" title="Vista previa de Retícula" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Estructura suiza</p>
-        <h3>Retícula</h3>
-        <p class="bo__d">
-          La retícula no se insinúa: se dibuja, con sus doce filetes a la vista.
-          Asimetría con pesos compensados, bandera a la izquierda y casi nada
-          de color. El único acento es el vino, y aparece contado.
-        </p>
-        <ul class="bo__l"><li>Archivo</li><li>Retícula visible</li><li>Casi sin color</li></ul>
-        <span class="bo__b">Abrir Retícula →</span>
-      </div>
-    </a>
+  <a class="bo" href="mc-reticula.html">
+    <div class="bo__p"><iframe data-src="mc-reticula.html" title="Vista previa de Retícula" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Estructura suiza · con la paleta</p>
+      <h3>Retícula</h3>
+      <p class="bo__d">
+        La retícula se dibuja, con sus doce filetes a la vista. Ahora el color
+        entra a la manera suiza: campos medidos en columnas en la portada, y
+        cada sección con su fondo —lino, bronce, cilantro y vino.
+      </p>
+      <ul class="bo__l"><li>Archivo</li><li>Retícula visible</li><li>Campos de color</li><li>Cinco fondos</li></ul>
+      <span class="bo__b">Abrir Retícula →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="mc-silueta.html">
-      <div class="bo__p"><iframe data-src="mc-silueta.html" title="Vista previa de Silueta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Formas recortadas</p>
-        <h3>Silueta</h3>
-        <p class="bo__d">
-          Los planos de color macizo de Saul Bass, sin contorno y en composición
-          asimétrica. Las formas no van encima como adorno: son el fondo de cada
-          sección y lo que separa una de otra.
-        </p>
-        <ul class="bo__l"><li>Jost · Archivo</li><li>Planos recortados</li><li>Asimetría</li></ul>
-        <span class="bo__b">Abrir Silueta →</span>
-      </div>
-    </a>
+  <a class="bo" href="propuesta-5.html">
+    <div class="bo__p"><iframe data-src="propuesta-5.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Oscuro · con más madera</p>
+      <h3>Atómico</h3>
+      <p class="bo__d">
+        El fondo deja de ser verde y pasa a ser madera oscura. El verde ahora
+        es un panel entre varios, junto al vino, así que la página se lee
+        mid-century y no monocroma. Los acentos son aguacate y barro.
+      </p>
+      <ul class="bo__l"><li>Josefin Sans · Lora</li><li>Madera oscura</li><li>Paneles verde y vino</li><li>Estrella atómica</li></ul>
+      <span class="bo__b">Abrir Atómico →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="mc-ventanal.html">
-      <div class="bo__p"><iframe data-src="mc-ventanal.html" title="Vista previa de Ventanal" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Dentro y fuera se funden</p>
-        <h3>Ventanal</h3>
-        <p class="bo__d">
-          El rasgo que definió la arquitectura del estilo. Bloques a sangre,
-          verde profundo y, sobre todo, aire: los ventanales de la época
-          existían para dejar entrar el vacío y la luz.
-        </p>
-        <ul class="bo__l"><li>Outfit · Hanken Grotesk</li><li>Bloques a sangre</li><li>Mucho aire</li></ul>
-        <span class="bo__b">Abrir Ventanal →</span>
-      </div>
-    </a>
+  <a class="bo" href="mc-credenza.html">
+    <div class="bo__p"><iframe data-src="mc-credenza.html" title="Vista previa de Credenza" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Materiales y horizontalidad</p>
+      <h3>Credenza</h3>
+      <p class="bo__d">
+        Todo se lee en franjas anchas y bajas, como un mueble de los sesenta:
+        la madera abajo sosteniendo cada franja y el contenido apaisado en
+        filas. Los estratos de color son el canto del mueble.
+      </p>
+      <ul class="bo__l"><li>Jost · Archivo</li><li>Franjas horizontales</li><li>Madera como base</li></ul>
+      <span class="bo__b">Abrir Credenza →</span>
+    </div>
+  </a>
 
-  </div>
-</section>
+  <a class="bo" href="mc-silueta.html">
+    <div class="bo__p"><iframe data-src="mc-silueta.html" title="Vista previa de Silueta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Formas recortadas</p>
+      <h3>Silueta</h3>
+      <p class="bo__d">
+        Los planos de color macizo de Saul Bass, sin contorno y en composición
+        asimétrica. Las formas no van encima como adorno: son el fondo de cada
+        sección y lo que separa una de otra.
+      </p>
+      <ul class="bo__l"><li>Jost · Archivo</li><li>Planos recortados</li><li>Asimetría</li></ul>
+      <span class="bo__b">Abrir Silueta →</span>
+    </div>
+  </a>
 
-<section class="gr">
-  <div class="gr__t">
-    <h2>Exploraciones anteriores</h2>
-    <span>Se conservan por si alguna te sirve</span>
-  </div>
-  <div class="rej rej--2 rej--vieja">
+  <a class="bo" href="mc-ventanal.html">
+    <div class="bo__p"><iframe data-src="mc-ventanal.html" title="Vista previa de Ventanal" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Dentro y fuera se funden</p>
+      <h3>Ventanal</h3>
+      <p class="bo__d">
+        El rasgo que definió la arquitectura del estilo. Bloques a sangre,
+        verde profundo y, sobre todo, aire: los ventanales de la época
+        existían para dejar entrar el vacío y la luz.
+      </p>
+      <ul class="bo__l"><li>Outfit · Hanken Grotesk</li><li>Bloques a sangre</li><li>Mucho aire</li></ul>
+      <span class="bo__b">Abrir Ventanal →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="propuesta.html">
-      <div class="bo__p"><iframe data-src="propuesta.html" title="Vista previa de Sin adornos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Propuesta 1</p><h3>Sin adornos</h3>
-        <p class="bo__d">Sombras difusas, tinta gris cálida y titulares en segunda persona. Sale de leer el código de la página que compartiste.</p>
-        <span class="bo__b">Abrir →</span>
-      </div>
-    </a>
+  <a class="bo" href="propuesta.html">
+    <div class="bo__p"><iframe data-src="propuesta.html" title="Vista previa de Sin adornos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="bo__t">
+      <p class="bo__e">Sombras difusas</p>
+      <h3>Sin adornos</h3>
+      <p class="bo__d">
+        Sombras difusas y teñidas, tinta gris cálida en vez de negra y
+        titulares que hablan en segunda persona. Sale de leer el código de la
+        página que compartiste.
+      </p>
+      <ul class="bo__l"><li>Petrona · Hanken Grotesk</li><li>Superficies lisas</li><li>Sombras difusas</li></ul>
+      <span class="bo__b">Abrir Sin adornos →</span>
+    </div>
+  </a>
 
-    <a class="bo" href="propuesta-2.html">
-      <div class="bo__p"><iframe data-src="propuesta-2.html" title="Vista previa de Con textura" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Propuesta 2</p><h3>Con textura</h3>
-        <p class="bo__d">Arco en el retrato, forma cónica, azulejo vidriado y grano de papel. La versión más decorada de todas.</p>
-        <span class="bo__b">Abrir →</span>
-      </div>
-    </a>
-
-    <a class="bo" href="propuesta-4.html">
-      <div class="bo__p"><iframe data-src="propuesta-4.html" title="Vista previa de Mosaico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Propuesta 4</p><h3>Mosaico</h3>
-        <p class="bo__d">Los motivos de azulejo de tu segunda imagen, dibujados y repetidos por toda la página.</p>
-        <span class="bo__b">Abrir →</span>
-      </div>
-    </a>
-
-    <a class="bo" href="propuesta-5.html">
-      <div class="bo__p"><iframe data-src="propuesta-5.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-      <div class="bo__t">
-        <p class="bo__e">Propuesta 5</p><h3>Atómico</h3>
-        <p class="bo__d">La paleta invertida sobre verde bosque, para ver cómo se comportan los colores en oscuro.</p>
-        <span class="bo__b">Abrir →</span>
-      </div>
-    </a>
-
-  </div>
-</section>
+</div>
 
 <section class="notas">
-  <div class="nota"><b>De dónde salen los colores</b><p>De la guía de preservación histórica de Scottsdale, Arizona, que documenta los tonos usados de verdad en los barrios mid-century. Sus cuatro familias están todas ahí.</p></div>
+  <div class="nota"><b>De dónde salen los colores</b><p>De la guía de preservación histórica de Scottsdale, Arizona, que documenta los tonos usados de verdad en los barrios mid-century. Tus cuatro familias están todas ahí.</p></div>
   <div class="nota"><b>El vino ya lo tenías</b><p>El Blackberry documentado de la época es #533640. El que veníamos usando estaba a un pelo. Conoces el estilo.</p></div>
-  <div class="nota"><b>Lo que quedó fuera</b><p>Turquesa, cereza, menta y rosa. Es la paleta de cafetería de los cincuenta, la que más circula como mid-century. No es la suya.</p></div>
+  <div class="nota"><b>Lo que quedó fuera</b><p>Turquesa, cereza, menta y rosa. Es la paleta de cafetería de los cincuenta, la que más circula como mid-century. No es la tuya.</p></div>
   <div class="nota"><b>Lo que falta</b><p>La foto real del consultorio. Como el sitio es la puerta a un espacio que ya existe, sin esa foto el argumento se queda a medias.</p></div>
 </section>
-
 </main>
 
 <footer class="fin pie"><div class="w">

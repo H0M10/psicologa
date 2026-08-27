@@ -7,37 +7,35 @@
 
 ## 1. Qué hay ahora
 
-Ocho bocetos, en dos grupos.
+Ocho bocetos, en una sola lista. Todos con la misma paleta documentada y la
+misma información completa; lo que cambia es el diseño.
 
-### Los cuatro mid-century
-
-Dibujados **después** de investigar el estilo. Cada uno pone por delante un
-principio distinto, para que ella elija por carácter y no solo por color.
-
-| Archivo | Nombre | Principio | Tipografía |
+| Archivo | Nombre | Carácter | Tipografía |
 |---|---|---|---|
+| `propuesta-2.html` | Con textura | Arco, cono, azulejo y grano de papel | Bitter · Jost |
+| `propuesta-4.html` | Mosaico | Los azulejos de su segunda imagen | Outfit · Karla |
+| `mc-reticula.html` | Retícula | Estructura suiza con campos de color | Archivo |
+| `propuesta-5.html` | Atómico | Madera oscura, paneles verde y vino | Josefin Sans · Lora |
 | `mc-credenza.html` | Credenza | Materiales y horizontalidad | Jost · Archivo |
-| `mc-reticula.html` | Retícula | Estructura suiza y asimetría | Archivo |
 | `mc-silueta.html` | Silueta | Formas recortadas de Saul Bass | Jost · Archivo |
 | `mc-ventanal.html` | Ventanal | Dentro y fuera se funden | Outfit · Hanken Grotesk |
+| `propuesta.html` | Sin adornos | Sombras difusas, tinta gris cálida | Petrona · Hanken Grotesk |
 
-Comparten `_mc.css` —tokens y piezas idénticas— y cada uno tiene su propia
-hoja de personalidad, `_mcA` a `_mcD`.
-
-### Las cuatro anteriores
-
-Se conservan por si alguna sirve.
-
-| Archivo | Nombre | De dónde salió |
-|---|---|---|
-| `propuesta.html` | Sin adornos | De leer el código de la página que ella compartió |
-| `propuesta-2.html` | Con textura | La primera versión, la más decorada |
-| `propuesta-4.html` | Mosaico | De los azulejos de su segunda imagen |
-| `propuesta-5.html` | Atómico | Su paleta invertida, sobre fondo oscuro |
+Los cuatro `mc-` comparten `_mc.css` —tokens y piezas idénticas— y cada uno
+tiene su hoja de personalidad, `_mcA` a `_mcD`.
 
 **Retirados:** los veinte primeros, y después el boceto Cartel.
 
----
+### Lo que pidió Thania sobre estos
+
+- **Atómico le gusta**, pero era «muy verde». El fondo pasó de verde bosque a
+  madera oscura `#2A2420`, y el verde quedó como un panel entre varios, junto
+  al vino. Los acentos son aguacate y barro, ambos documentados.
+- **Retícula le encanta**, pero le faltaba paleta. El color entró a la manera
+  suiza: campos medidos en columnas en la portada, y cada sección con su
+  fondo —lino, bronce, cilantro y vino.
+- **Con textura y Mosaico** suben a la lista principal.
+
 
 ## 2. Cómo se generan
 

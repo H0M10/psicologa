@@ -52,9 +52,9 @@ def botones(clase=''):
       <a class="b b--s" href="#cotizacion">Pedir una cotizaci\u00f3n</a>
     </div>''' % (clase, WA)
 
-def cierre(env=u'<div class="w">', cierra=u'</div>'):
+def cierre(env=u'<div class="w">', cierra=u'</div>', clase=u''):
     return u'''
-<section class="cierre">%s
+<section class="cierre%s">%s
   <h2>%s</h2>
   <p>%s</p>
   <div class="rutas rutas--2">
@@ -67,7 +67,7 @@ def cierre(env=u'<div class="w">', cierra=u'</div>'):
 <footer class="fin"><div class="w">
   <p>Thania Huerta Pacheco \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
   <p>Santiago de Quer\u00e9taro, Qro.</p>
-</div></footer>''' % (env, H2C, SBC, WA, TEL, cierra)
+</div></footer>''' % (clase, env, H2C, SBC, WA, TEL, cierra)
 
 # ── A · Credenza ─────────────────────────────────────────────────────────
 def renderA():
@@ -148,16 +148,16 @@ def renderB():
     %s
     <p class="cred"><span>C\u00e9dula profesional <b>14661976</b></span><span>Consejo de Psicolog\u00eda Forense <b>25-08-63</b></span><span>Santiago de Quer\u00e9taro</span></p>
   </div>
-  <div class="pt__b" aria-hidden="true"></div>
+  <div class="pt__b" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 </div></header>
 
 <main>
-<section class="s rt" id="sobre-mi"><div class="w g">
+<section class="s s--lana rt" id="sobre-mi"><div class="w g">
   <p class="k c1-3">01 \u2014 Sobre m\u00ed</p>
   <div class="c4-11"><h2>Hola, soy Thania</h2><div class="cuerpo" style="margin-top:1.4rem">%s</div></div>
 </div></section>
 
-<section class="s s--mora rt" id="forense"><div class="w g">
+<section class="s s--bronce s--osc rt" id="forense"><div class="w g">
   <p class="k c1-3">02 \u2014 \u00c1rea forense</p>
   <div class="c4-12">
     <h2>%s</h2><p class="sub">%s</p>
@@ -169,12 +169,12 @@ def renderB():
   </div>
 </div></section>
 
-<section class="s rt" id="terapia"><div class="w g">
+<section class="s s--cil s--osc rt" id="terapia"><div class="w g">
   <p class="k c1-3">03 \u2014 Psicoterapia</p>
   <div class="c4-12"><h2>%s</h2><p class="sub">%s</p><ul class="rej" style="margin-top:1.8rem">%s</ul></div>
 </div></section>
 
-<section class="s rt" id="formacion"><div class="w g">
+<section class="s s--lana rt" id="formacion"><div class="w g">
   <p class="k c1-3">04 \u2014 Formaci\u00f3n</p>
   <div class="c4-12"><h2>%s</h2><p class="sub">%s</p>
     <div class="vias">
@@ -193,7 +193,7 @@ def renderB():
 ''' % (H1, SUB, botones(), parrafos(BIO), H2F, SBF, li_filas(SUPUESTOS), META, COTI,
        H2T, SBT, li_filas(MOTIVOS), H2M, SBM,
        formacion_ol(CLINICA), formacion_ol(FORENSE), H2D, SBD, mapa(), datos_practicos())
-    return h + cierre(u'<div class="w g"><div class="c4-12">', u'</div></div>') + pie()
+    return h + cierre(u'<div class="w g"><div class="c4-12">', u'</div></div>', u' s--mora s--osc') + pie()
 
 # ── C · Silueta ──────────────────────────────────────────────────────────
 def renderC():

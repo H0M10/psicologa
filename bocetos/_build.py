@@ -164,7 +164,7 @@ def render04():
   <div class="cuerpo">%s</div>
 </div></section>
 
-<section class="s" id="forense"><div class="w">
+<section class="s s--verde" id="forense"><div class="w">
   <h2 class="tit">%sCuando un proceso familiar necesita una valoraci\u00f3n psicol\u00f3gica</h2>
   <p class="lead">Trabajo con abogados, juzgados y particulares. Estos son los supuestos en los que puedo intervenir.</p>
   <ul class="sup">%s
@@ -265,7 +265,7 @@ def render05():
 
 <div class="div" aria-hidden="true">%s</div>
 
-<section class="s" id="forense"><div class="w">
+<section class="s s--verde" id="forense"><div class="w">
   <div class="s__c"><p class="k">\u00c1rea forense</p>
     <h2>Cuando un proceso familiar necesita una valoraci\u00f3n psicol\u00f3gica</h2>
     <p class="lead">Trabajo con abogados, juzgados y particulares. Estos son los supuestos en los que puedo intervenir.</p></div>
@@ -289,7 +289,7 @@ def render05():
     h += u'''
 <div class="div" aria-hidden="true">%s</div>
 
-<section class="s" id="formacion"><div class="w">
+<section class="s s--vino" id="formacion"><div class="w">
   <div class="s__c"><p class="k">Formaci\u00f3n</p><h2>En qu\u00e9 me he formado</h2>
     <p class="lead">Dos recorridos en paralelo, uno por cada \u00e1rea en la que trabajo.</p></div>
   <div class="vias">

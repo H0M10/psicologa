@@ -4,14 +4,20 @@
    barro de acento. Sirve para que vea cómo se comportan sus colores en
    oscuro, que es como se ve un consultorio con madera y luz cálida de noche.
    ========================================================================== */
+/* Madera oscura de base, no verde. El verde pasa a ser un panel entre
+   varios, junto al vino: asi la pagina es mid-century y no monocroma.
+   Colores documentados de la guia historica; contraste verificado. */
 :root{
-  --fondo:#22301F; --fondo-2:#2C3D28; --borde:rgba(240,232,214,.16);
-  --crema:#F0E8D6; --crema-2:#C9C2AE;
-  --ocre:#D6A44E; --barro:#DA8460; --salvia:#8FA377; --vino:#7D4A56;
+  --fondo:#2A2420; --fondo-2:#342C26;
+  --p-verde:#3A473A; --p-vino:#533640;
+  --borde:rgba(240,232,214,.15);
+  --crema:#F0E9DB; --crema-2:#D9CFBA;
+  --aguacate:#C4B47D; --barro:#CB7841; --jade:#61826D; --lana:#D9CFBA;
   --disp:'Josefin Sans',system-ui,sans-serif;
   --txt:'Lora',Georgia,serif;
   --e:cubic-bezier(.32,.72,0,1);
-  --mv-bg:#22301F; --mv-fg:#F0E8D6; --mv-acc:#D6A44E; --mv-line:rgba(240,232,214,.16); --mv-on-acc:#22301F;
+  --mv-bg:#2A2420; --mv-fg:#F0E9DB; --mv-acc:#C4B47D;
+  --mv-line:rgba(240,232,214,.15); --mv-on-acc:#2A2420;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
@@ -20,18 +26,18 @@ body{margin:0;font-family:var(--txt);background:var(--fondo);color:var(--crema);
   padding-bottom:calc(64px + env(safe-area-inset-bottom))}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-a{color:var(--ocre)}
-:focus-visible{outline:2.5px solid var(--ocre);outline-offset:3px;border-radius:3px}
+a{color:var(--aguacate)}
+:focus-visible{outline:2.5px solid var(--aguacate);outline-offset:3px;border-radius:3px}
 .w{width:min(100% - 2.4rem,1000px);margin-inline:auto}
 h1,h2,h3{margin:0;font-family:var(--disp);font-weight:400;line-height:1.14;
   letter-spacing:.01em;text-wrap:balance}
 p{margin:0;max-width:64ch}
 .k{font-family:var(--disp);font-size:.76rem;font-weight:500;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--ocre);margin-bottom:.8rem}
+  text-transform:uppercase;color:var(--aguacate);margin-bottom:.8rem}
 .lead{color:var(--crema-2);margin-top:1rem}
 
 /* La estrella atómica: solo líneas y puntos, dibujada una vez y repetida */
-.est{width:100%;height:100%;color:var(--ocre);opacity:.9}
+.est{width:100%;height:100%;color:var(--aguacate);opacity:.9}
 
 /* ── Portada centrada ── */
 .ap{position:relative;min-height:min(94vh,840px);display:flex;flex-direction:column;
@@ -41,7 +47,7 @@ p{margin:0;max-width:64ch}
   transform:translate(-50%,-50%);opacity:.14;pointer-events:none}
 .ap>*{position:relative;z-index:1}
 .ap__k{font-family:var(--disp);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--salvia);margin-bottom:1.4rem}
+  color:var(--crema-2);margin-bottom:1.4rem}
 .ap h1{font-size:clamp(2.2rem,7vw,4.6rem);font-weight:300;letter-spacing:.02em}
 .ap__d{margin:1.4rem auto 0;color:var(--crema-2);font-size:1.06rem;max-width:46ch}
 .ap__c{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.4rem;
@@ -57,6 +63,12 @@ p{margin:0;max-width:64ch}
 
 /* ── Secciones ── */
 .s{padding:clamp(3rem,7vw,4.8rem) 0}
+/* Cada panel es un material distinto, como en el mueble: madera, verde, vino */
+.s--verde{background:var(--p-verde)}
+.s--vino{background:var(--p-vino)}
+.s--verde .mot li,.s--vino .mot li,
+.s--verde .par__c,.s--vino .par__c,
+.s--verde .via,.s--vino .via{background:color-mix(in srgb,var(--fondo) 34%,transparent)}
 .s__c{max-width:44rem}
 .s h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:300}
 .cuerpo{margin-top:1.6rem;display:grid;gap:1.1rem;max-width:66ch}
@@ -68,21 +80,21 @@ p{margin:0;max-width:64ch}
 .sup li{display:flex;gap:1rem;align-items:baseline;padding:.95rem 0;
   border-bottom:1px solid var(--borde);font-size:.99rem}
 .sup li span{flex:none;font-family:var(--disp);font-size:.85rem;font-weight:600;
-  letter-spacing:.08em;color:var(--ocre);font-variant-numeric:tabular-nums}
+  letter-spacing:.08em;color:var(--aguacate);font-variant-numeric:tabular-nums}
 
 /* ── Motivos ── */
 .mot{list-style:none;margin:2rem 0 0;padding:0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:.6rem}
 .mot li{background:var(--fondo-2);border:1px solid var(--borde);border-radius:12px;
   padding:1rem 1.2rem;font-size:.95rem}
-.mot li:nth-child(3n+1){border-left:3px solid var(--salvia)}
-.mot li:nth-child(3n+2){border-left:3px solid var(--ocre)}
+.mot li:nth-child(3n+1){border-left:3px solid var(--jade)}
+.mot li:nth-child(3n+2){border-left:3px solid var(--aguacate)}
 .mot li:nth-child(3n+3){border-left:3px solid var(--barro)}
 
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:1rem;margin-top:2rem}
 .par__c{background:var(--fondo-2);border:1px solid var(--borde);border-radius:14px;padding:1.5rem}
-.par__c h3{font-size:1.05rem;font-weight:500;margin-bottom:.6rem;color:var(--ocre)}
+.par__c h3{font-size:1.05rem;font-weight:500;margin-bottom:.6rem;color:var(--aguacate)}
 .par__c p{font-size:.94rem;color:var(--crema-2)}
 .par__l{margin-top:.9rem;font-weight:600}
 
@@ -90,7 +102,7 @@ p{margin:0;max-width:64ch}
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:1rem;margin-top:2rem}
 .via{background:var(--fondo-2);border:1px solid var(--borde);border-radius:14px;padding:1.5rem}
 .via h3{font-family:var(--disp);font-size:.82rem;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--salvia);padding-bottom:.8rem;margin-bottom:.3rem;
+  text-transform:uppercase;color:var(--aguacate);padding-bottom:.8rem;margin-bottom:.3rem;
   border-bottom:1px solid var(--borde)}
 .via ol{list-style:none;margin:0;padding:0}
 .via li{padding:.8rem 0;border-bottom:1px solid var(--borde)}
@@ -104,7 +116,7 @@ p{margin:0;max-width:64ch}
   padding:.8rem 1.5rem;border-radius:999px;border:1.5px solid transparent;
   font-family:var(--disp);font-size:.95rem;font-weight:600;letter-spacing:.03em;
   text-decoration:none;cursor:pointer;transition:transform .35s var(--e),filter .35s var(--e)}
-.b--p{background:var(--ocre);color:var(--fondo)}
+.b--p{background:var(--aguacate);color:var(--fondo)}
 .b--s{background:transparent;color:var(--crema);border-color:var(--borde)}
 .b--s:hover{border-color:var(--crema-2)}
 .b:hover{transform:translateY(-2px)}
@@ -119,13 +131,13 @@ p{margin:0;max-width:64ch}
 /* Las teselas se oscurecen para no abrir un hueco blanco en la página */
 .leaflet-tile-pane{filter:invert(.92) hue-rotate(180deg) saturate(.42) brightness(.94)}
 .leaflet-container{font-family:var(--txt);background:var(--fondo-2)}
-.leaflet-control-attribution{background:rgba(34,48,31,.82)!important;color:var(--crema-2)!important}
-.leaflet-control-attribution a{color:var(--ocre)!important}
-.pin{display:grid;place-items:center;width:28px;height:28px;background:var(--ocre);
+.leaflet-control-attribution{background:rgba(42,36,32,.86)!important;color:var(--crema-2)!important}
+.leaflet-control-attribution a{color:var(--aguacate)!important}
+.pin{display:grid;place-items:center;width:28px;height:28px;background:var(--aguacate);
   border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
 .pin__c{width:8px;height:8px;border-radius:50%;background:var(--fondo)}
 .mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
-  background:rgba(34,48,31,.55);color:var(--crema);font-family:var(--disp);
+  background:rgba(42,36,32,.6);color:var(--crema);font-family:var(--disp);
   font-size:.95rem;font-weight:600;border:0;cursor:pointer}
 .mapa-toque[hidden]{display:none}
 .mapa-aviso{padding:1rem;text-align:center;color:var(--crema-2)}
@@ -134,7 +146,7 @@ p{margin:0;max-width:64ch}
 .datos{margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:0 2rem}
 .datos>div{padding:1rem 0;border-bottom:1px solid var(--borde)}
 .datos dt{font-family:var(--disp);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--salvia);font-weight:600;margin-bottom:.3rem}
+  color:var(--aguacate);font-weight:600;margin-bottom:.3rem}
 .datos dd{margin:0;font-size:.96rem}
 .datos dd span{display:block;color:var(--crema-2);font-size:.87rem}
 
