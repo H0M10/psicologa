@@ -23,6 +23,7 @@ def cabeza(titulo, css, fuentes, tema):
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <link rel="stylesheet" href="_detalle.css">
+<link rel="stylesheet" href="_nav.css">
 <link rel="stylesheet" href="_mc.css">
 <link rel="stylesheet" href="%s">
 </head>
@@ -65,13 +66,13 @@ def cierre(env=u'<div class="w">', cierra=u'</div>', clase=u''):
 </main>
 
 <footer class="fin"><div class="w">
-  <p>Thania Huerta Pacheco \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
+  <p>Thania Huerta \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
   <p>Santiago de Quer\u00e9taro, Qro.</p>
 </div></footer>''' % (clase, env, H2C, SBC, WA, TEL, cierra)
 
 # ── A · Credenza ─────────────────────────────────────────────────────────
 def renderA():
-    h = cabeza(u'Credenza \u00b7 Thania Huerta Pacheco', '_mcA.css',
+    h = cabeza(u'Credenza \u00b7 Thania Huerta', '_mcA.css',
                'family=Jost:wght@300..600&family=Archivo:wght@400;500;600;700', '#F0E9DB')
     h += u'''
 <header class="pt" id="inicio">
@@ -85,7 +86,7 @@ def renderA():
         <span>Consejo de Psicolog\u00eda Forense <b>25-08-63</b></span>
       </p>
     </div>
-    <img class="pt__r" src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta Pacheco">
+    <img class="pt__r" src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta">
   </div>
   <div class="est" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 </header>
@@ -137,7 +138,7 @@ def renderA():
 
 # ── B · Reticula ─────────────────────────────────────────────────────────
 def renderB():
-    h = cabeza(u'Ret\u00edcula \u00b7 Thania Huerta Pacheco', '_mcB.css',
+    h = cabeza(u'Ret\u00edcula \u00b7 Thania Huerta', '_mcB.css',
                'family=Archivo:wght@400;500;600;700', '#F8F4EA')
     h += u'''
 <header class="pt rt" id="inicio"><div class="w g">
@@ -197,7 +198,7 @@ def renderB():
 
 # ── C · Silueta ──────────────────────────────────────────────────────────
 def renderC():
-    h = cabeza(u'Silueta \u00b7 Thania Huerta Pacheco', '_mcC.css',
+    h = cabeza(u'Silueta \u00b7 Thania Huerta', '_mcC.css',
                'family=Jost:wght@400..700&family=Archivo:wght@400;500;600;700', '#F0E9DB')
     h += u'''
 <header class="pt" id="inicio"><div class="w pt__g">
@@ -209,7 +210,7 @@ def renderC():
   </div>
   <div class="sil">
     <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
-    <img src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta Pacheco">
+    <img src="../assets/img/retrato.svg" alt="Retrato de Thania Huerta">
   </div>
 </div></header>
 
@@ -253,7 +254,7 @@ def renderC():
 
 # ── D · Ventanal ─────────────────────────────────────────────────────────
 def renderD():
-    h = cabeza(u'Ventanal \u00b7 Thania Huerta Pacheco', '_mcD.css',
+    h = cabeza(u'Ventanal \u00b7 Thania Huerta', '_mcD.css',
                'family=Outfit:wght@200..600&family=Hanken+Grotesk:wght@300..600', '#F8F4EA')
     h += u'''
 <header class="pt" id="inicio">

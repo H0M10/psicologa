@@ -11,7 +11,7 @@
 window.SITE_CONFIG = {
 
   /* --- Identidad ------------------------------------------------------- */
-  nombre: 'Thania Huerta Pacheco',
+  nombre: 'Thania Huerta',
   nombreCorto: 'Thania Huerta',
   profesion: 'Psicóloga clínica y forense',
   cedula: '14661976',

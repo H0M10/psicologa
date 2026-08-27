@@ -1,4 +1,4 @@
-# Perfil visual de Thania Huerta Pacheco
+# Perfil visual de Thania Huerta
 
 > Lo que dijo, lo que mandó y lo que se deduce.
 > Sustituye a todo lo anterior: ya no hay que suponer, ella habló.

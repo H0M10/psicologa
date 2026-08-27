@@ -1126,8 +1126,20 @@ p { text-wrap: pretty; }
    inferior, que además funciona muy bien en tablet. */
 @media (max-width: 900px) {
 
-  /* ---- Navegación: fuera el cajón lateral, entra la barra inferior ------- */
-  .nav { display: none; }
+  /* ---- Navegación: arriba se queda, deslizándose en horizontal --------- */
+  /* Antes se escondía y solo quedaba la barra inferior. Ahora los enlaces
+     siguen arriba y se deslizan, porque la barra inferior solo cabe cuatro. */
+  .nav {
+    gap: .15rem;
+    margin-left: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 22px), transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 22px), transparent 100%);
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav > * { flex: none; white-space: nowrap; font-size: .85rem; }
   .llamar-movil { display: grid; }
   .wa-flotante { display: none; }
   .tabbar { display: flex; }

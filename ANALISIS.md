@@ -1,4 +1,4 @@
-# Análisis de la información entregada por Thania Huerta Pacheco
+# Análisis de la información entregada por Thania Huerta
 
 > Documento de trabajo · Agosto 2026
 > Inventario literal de lo que mandó, instrucciones detectadas, inconsistencias
@@ -261,7 +261,7 @@ de una instrucción explícita suya o de su información.
 
 | # | Elemento | Origen |
 |---|---|---|
-| 1 | Nombre completo: Thania Huerta Pacheco | Información |
+| 1 | Nombre completo: Thania Huerta | Información |
 | 2 | Cédula profesional 14661976 | Información |
 | 3 | Registro consejo forense 25-08-63 | Información |
 | 4 | Dirección Mauricio Garcés 808, Col. La Joya | Información |

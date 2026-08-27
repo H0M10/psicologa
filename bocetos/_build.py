@@ -58,6 +58,7 @@ def cabeza(titulo, css, fuentes, tema):
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="_base.css">
 <link rel="stylesheet" href="_detalle.css">
+<link rel="stylesheet" href="_nav.css">
 <link rel="stylesheet" href="%s">
 </head>
 <body>''' % (tema, titulo, fuentes, css)
@@ -66,6 +67,7 @@ def pie():
     return u'''
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="_mapa.js"></script>
+<script src="_nav.js"></script>
 <script src="_detalle.js"></script>
 <script src="_rv.js"></script>
 </body>
@@ -133,7 +135,7 @@ def render04():
                     for i, s in enumerate(SUPUESTOS)])
     mot = u''.join([u'\n      <li>%s</li>' % m for m in MOTIVOS])
     bio = u''.join([u'\n      <p>%s</p>' % p for p in BIO])
-    h = cabeza(u'Boceto 4 \u00b7 Mosaico \u00b7 Thania Huerta Pacheco', '_c04.css',
+    h = cabeza(u'Boceto 4 \u00b7 Mosaico \u00b7 Thania Huerta', '_c04.css',
                'family=Outfit:wght@300..700&family=Karla:wght@400;500;600;700', '#E4E2DA')
     h += SPRITE
     h += u'''
@@ -214,7 +216,7 @@ def render04():
 </main>
 
 <footer class="fin"><div class="w">
-  <p>Thania Huerta Pacheco \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
+  <p>Thania Huerta \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
   <p>Santiago de Quer\u00e9taro, Qro.</p>
 </div></footer>''' % (tile('abanico','tile--t'), formacion_ol(CLINICA), formacion_ol(FORENSE),
                       tile('circulos','tile--t'), mapa(), datos_practicos(),
@@ -241,14 +243,14 @@ def render05():
                     for i, s in enumerate(SUPUESTOS)])
     mot = u''.join([u'\n      <li>%s</li>' % m for m in MOTIVOS])
     bio = u''.join([u'\n      <p>%s</p>' % p for p in BIO])
-    h = cabeza(u'Boceto 5 \u00b7 At\u00f3mico \u00b7 Thania Huerta Pacheco', '_c05.css',
+    h = cabeza(u'Boceto 5 \u00b7 At\u00f3mico \u00b7 Thania Huerta', '_c05.css',
                'family=Josefin+Sans:wght@300..600&family=Lora:ital,wght@0,400..600;1,400',
                '#22301F')
     h += u'''
 <header class="ap" id="inicio">
   <div class="ap__est" aria-hidden="true">%s</div>
   <p class="ap__k">Psicolog\u00eda cl\u00ednica y forense</p>
-  <h1>Thania Huerta Pacheco</h1>
+  <h1>Thania Huerta</h1>
   <p class="ap__d">Acompa\u00f1o a adolescentes en consulta y a familias en procesos judiciales. Dos trabajos distintos, con l\u00edmites \u00e9ticos distintos.</p>
   <div class="rutas rutas--2">
     <a class="b b--p" href="%s" target="_blank" rel="noopener">Escr\u00edbeme por WhatsApp</a>
@@ -321,7 +323,7 @@ def render05():
 </main>
 
 <footer class="fin"><div class="w">
-  <p>Thania Huerta Pacheco \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
+  <p>Thania Huerta \u00b7 Psic\u00f3loga cl\u00ednica y forense \u00b7 C\u00e9dula 14661976</p>
   <p>Santiago de Quer\u00e9taro, Qro.</p>
 </div></footer>''' % (EST, formacion_ol(CLINICA), formacion_ol(FORENSE), EST,
                       mapa(), datos_practicos(), EST, WA, TEL)
