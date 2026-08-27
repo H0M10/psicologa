@@ -8,7 +8,8 @@
    ========================================================================== */
 (function () {
   if (document.querySelector('header.top nav') ||
-      document.querySelector('.tn')) return;
+      document.querySelector('.tn') ||
+      document.querySelector('header.cab nav')) return;
 
   // El orden manda: se muestran en el orden en que aparecen en la página
   var CANDIDATAS = [
