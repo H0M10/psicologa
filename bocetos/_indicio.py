@@ -6,7 +6,7 @@ Su contenido vive aqui una sola vez, asi que los dos lo llevan completo por
 construccion. Lo que cambia entre ellos es la estructura visual, no la
 informacion.
 """
-import io, os
+import io, os, hashlib
 D = 'c:/Users/hanni/Desktop/THPSICOLOGOA/bocetos/'
 
 WA  = 'https://wa.me/524421375118?text=Hola%20Thania%2C%20vi%20la%20p%C3%A1gina%20de%20Indicio%20y%20me%20gustar%C3%ADa%20preguntarte%20algo.'
@@ -65,7 +65,18 @@ def logo(clase='lg', etiqueta=u'Indicio · Psic. Thania Huerta'):
 def sello(clase='sl'):
     return u'<span class="%s" role="img" aria-label="Indicio"></span>' % clase
 
+def firma(*archivos):
+    u"""Firma corta del contenido de los archivos. Se cuelga de cada enlace
+    para que el navegador no pueda servir una version vieja en cache: si el
+    archivo cambia, cambia la direccion."""
+    h = hashlib.md5()
+    for f in archivos:
+        try: h.update(io.open(D + f, 'rb').read())
+        except IOError: pass
+    return h.hexdigest()[:8]
+
 def cabeza(titulo, css, tema, fondo_form):
+    v = firma('_base.css', '_detalle.css', '_nav.css', '_indicio.css', css)
     return u'''<!DOCTYPE html>
 <html lang="es-MX">
 <head>
@@ -79,23 +90,24 @@ def cabeza(titulo, css, tema, fondo_form):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="_base.css">
-<link rel="stylesheet" href="_detalle.css">
-<link rel="stylesheet" href="_nav.css">
-<link rel="stylesheet" href="_indicio.css">
-<link rel="stylesheet" href="%s">
+<link rel="stylesheet" href="_base.css?v=%s">
+<link rel="stylesheet" href="_detalle.css?v=%s">
+<link rel="stylesheet" href="_nav.css?v=%s">
+<link rel="stylesheet" href="_indicio.css?v=%s">
+<link rel="stylesheet" href="%s?v=%s">
 </head>
-<body data-fondo-form="%s">''' % (tema, titulo, css, fondo_form)
+<body data-fondo-form="%s">''' % (tema, titulo, v, v, v, v, css, v, fondo_form)
 
 def pie():
+    v = firma('_mapa.js', '_nav.js', '_detalle.js', '_rv.js')
     return u'''
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="_mapa.js"></script>
-<script src="_nav.js"></script>
-<script src="_detalle.js"></script>
-<script src="_rv.js"></script>
+<script src="_mapa.js?v=%s"></script>
+<script src="_nav.js?v=%s"></script>
+<script src="_detalle.js?v=%s"></script>
+<script src="_rv.js?v=%s"></script>
 </body>
-</html>'''
+</html>''' % (v, v, v, v)
 
 def cab(num, clave, titulo, entrada=u''):
     u"""Apertura de seccion. Es la pieza que arregla lo que ella noto: da un

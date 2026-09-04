@@ -3,7 +3,7 @@
    boceto define, así que hereda su paleta sin tener que declararla aquí.
    ========================================================================== */
 .tn{
-  position:sticky;top:0;z-index:60;
+  position:sticky;top:0;z-index:1200;   /* por encima de los 1000 de Leaflet */
   /* Opaca a proposito: al flotar sobre secciones de colores distintos, con
      transparencia el fondo efectivo cambiaba y el contraste con el. */
   background:var(--mv-bg,#fff);

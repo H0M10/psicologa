@@ -366,3 +366,15 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 #solicitar .fc__vista{background:var(--card);color:var(--oncard)}
 #solicitar .fc__vista h4{color:var(--cardacc)}
 #solicitar .fc__enviar{background:var(--card);color:var(--oncard);border-color:var(--card)}
+
+/* La lista desplegada de un select la pinta el sistema con sus colores, no
+   con los del select: sin esto las opciones salian ilegibles. */
+#solicitar .fc__campo select option,
+#solicitar .fc__campo select optgroup{
+  background:var(--card);color:var(--oncard);font-weight:500}
+#solicitar .fc__campo select{
+  -webkit-appearance:none;appearance:none;padding-right:2.4rem;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),
+    linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 1.15rem) 55%,calc(100% - .8rem) 55%;
+  background-size:.36rem .36rem,.36rem .36rem;background-repeat:no-repeat}

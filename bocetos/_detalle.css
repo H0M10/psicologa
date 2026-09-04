@@ -22,7 +22,7 @@
    ------------------------------------------------------------------------- */
 .tb{
   display:none;
-  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  position:fixed;left:0;right:0;bottom:0;z-index:1200;
   align-items:flex-end;justify-content:space-around;gap:.15rem;
   padding:.4rem .4rem;
   padding-bottom:calc(.4rem + env(safe-area-inset-bottom, 0px));
