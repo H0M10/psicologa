@@ -36,6 +36,18 @@ verdes, marrón y vino— están todas, más la mostaza, que no había mencionad
 | ● | **Olivo** | `#5C6046` | Color de sección y segundo acento |
 | ● | **Arena** | `#C7B296` | Superficie cálida, y texto sobre los oscuros |
 | ● | **Cacao** | `#513029` | Fondo oscuro y texto de peso |
+| ● | **Crema** | `#EAE2D7` | El claro. Fondo y texto sobre los oscuros |
+
+**El crema es el séptimo, y también es suyo.** No lo puso en la fila de
+círculos, pero está en su logotipo: es el trazo de dentro de las tres
+insignias. Se muestreó de las tres y coinciden —`#EAE3D8`, `#EDE1D6`,
+`#EAE2D8`—.
+
+Hacía falta, porque **el blanco no está en su paleta y no se usa en ningún
+sitio**, y sin un claro propio dos de sus colores no podrían llevar texto:
+medido, ni el olivo ni la terracota tienen encima ningún otro color suyo que
+llegue a 4.5:1. El crema resuelve los dos: 5.09 sobre olivo, 5.33 sobre
+terracota.
 
 Los valores no son estimaciones: salen de promediar el centro de cada círculo
 en su archivo original, saltándose el antialias del borde.

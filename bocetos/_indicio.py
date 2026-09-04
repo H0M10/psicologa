@@ -298,10 +298,10 @@ def portada(clase, fondo):
 
 if __name__ == '__main__':
     salidas = [
-      ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#E5DACA', 'rt',
-       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--blanco', 's--arena', 's--olivo', 's--arenacl']),
+      ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#C7B296', 'rt',
+       ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--terracota']),
       ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#5C6046', 'vn',
-       ['s--olivo', 's--blanco', 's--olivo', 's--blanco', 's--cacao', 's--arenacl', 's--cacao', 's--arenacl']),
+       ['s--olivo', 's--crema', 's--cacao', 's--arena', 's--terracota', 's--crema', 's--olivo', 's--arena']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()

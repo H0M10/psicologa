@@ -15,8 +15,10 @@ a{color:var(--terracota)}
   background:repeating-linear-gradient(90deg,transparent 0,transparent calc(16.6667% - 1px),
     rgba(0,0,0,.07) calc(16.6667% - 1px),rgba(0,0,0,.07) 16.6667%)}
 .s>.w,.pt>.w{position:relative}
-.s--olivo::before{background:repeating-linear-gradient(90deg,transparent 0,transparent calc(16.6667% - 1px),
-    rgba(255,255,255,.14) calc(16.6667% - 1px),rgba(255,255,255,.14) 16.6667%)}
+/* Sobre los fondos oscuros la retícula se dibuja con el filete del fondo */
+.s--olivo::before,.s--cacao::before,.s--terracota::before{
+  background:repeating-linear-gradient(90deg,transparent 0,transparent calc(16.6667% - 1px),
+    var(--rule) calc(16.6667% - 1px),var(--rule) 16.6667%)}
 
 /* ── Fondos de sección: la señal de corte ── */
 /* Filete grueso arriba de cada sección. Donde el salto de fondo es corto
@@ -48,16 +50,16 @@ a{color:var(--terracota)}
 /* ── Supuestos: fichas cuadradas numeradas ── */
 .sup{list-style:none;margin:0;padding:0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(min(100%, 268px),1fr));gap:1px;
-  background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.22)}
-.sup li{background:var(--olivo);color:#fff;padding:1.4rem 1.5rem;
+  background:var(--rule);border:1px solid var(--rule)}
+.sup li{background:var(--olivo);color:var(--crema);padding:1.4rem 1.5rem;
   display:flex;flex-direction:column;gap:.7rem}
 .sup__n{font-family:var(--disp);font-size:.8rem;font-weight:600;letter-spacing:.14em;
-  color:#fff;opacity:.82}
+  color:var(--crema);opacity:.82}
 .sup__t{font-size:1rem;line-height:1.45}
 
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 268px),1fr));gap:1rem;margin-top:1.6rem}
-.par__c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);padding:1.5rem}
+.par__c{padding:1.5rem}
 /* Sobre arena la terracota se queda en 3.3:1; el cacao llega a 5.7 */
 .par__c--acc a{color:var(--cacao);text-decoration:underline}
 .par__c h3{font-size:1.06rem;font-weight:500;margin-bottom:.6rem}

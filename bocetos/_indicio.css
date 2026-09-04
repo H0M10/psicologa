@@ -13,13 +13,13 @@
   --arena:#C7B296;
   --cacao:#513029;
 
+  /* Su crema. No es blanco: es el trazo claro de dentro de sus tres
+     insignias, muestreado de las tres (#EAE3D8, #EDE1D6, #EAE2D8). El blanco
+     no esta en su paleta, asi que no se usa en ningun sitio. */
+  --crema:#EAE2D7;
+
   /* Derivados. Su hoja está sobre blanco, así que el claro sale de ahí;
      los otros dos son la misma familia aclarada, para tener superficies. */
-  --blanco:#FFFFFF;
-  --hueso:#FAF7F2;
-  /* Fondo claro intermedio. El hueso quedaba a 1.07 del blanco y el ojo no
-     lo leia como corte de seccion; este da 1.38 y si se ve. */
-  --arena-cl:#E5DACA;
 
   /* Trend Sans One es de licencia comercial y no está en Google Fonts.
      Jost sustituye mientras llegan los archivos: mismo registro geométrico,
@@ -75,20 +75,20 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
   text-decoration:none;cursor:pointer;border:1.5px solid transparent;
   transition:transform .32s var(--e),background-color .32s var(--e)}
 .b:hover{transform:translateY(-2px)}
-.b--p{background:var(--terracota);color:#fff;border-color:var(--terracota)}
+.b--p{background:var(--terracota);color:var(--crema);border-color:var(--terracota)}
 .b--s{background:transparent;color:inherit;border-color:currentColor}
 .rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 158px),1fr));gap:.65rem;margin-top:1rem}
 .rutas--2{grid-template-columns:repeat(auto-fit,minmax(min(100%, 212px),1fr));margin-top:1.8rem}
 
 /* ── Mapa ── */
 .mapa-caja{position:relative;overflow:hidden;margin-top:.5rem}
-#mapa{height:clamp(280px,44vh,420px);width:100%;background:var(--arena-cl)}
+#mapa{height:clamp(280px,44vh,420px);width:100%;background:var(--arena)}
 .leaflet-container{font-family:var(--txt)}
 .pin{display:grid;place-items:center;width:28px;height:28px;background:var(--terracota);
   border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
-.pin__c{width:8px;height:8px;border-radius:50%;background:var(--arena)}
+.pin__c{width:8px;height:8px;border-radius:50%;background:var(--crema)}
 .mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
-  background:rgba(74,46,36,.5);color:#fff;font:inherit;font-weight:600;border:0;cursor:pointer}
+  background:rgba(81,48,41,.55);color:var(--crema);font:inherit;font-weight:600;border:0;cursor:pointer}
 .mapa-toque[hidden]{display:none}
 .mapa-aviso{padding:1rem;text-align:center}
 
@@ -175,21 +175,29 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 
    Los cinco pares texto/fondo están medidos y ninguno baja de 4.5:1. */
 .s,.pt,.cierre{color:var(--fg)}
-.s--blanco{background:var(--blanco);
-  --fg:var(--negro); --fg2:rgba(0,0,0,.72); --acc:var(--terracota);
-  --rule:rgba(0,0,0,.16); --card:var(--arena-cl); --oncard:var(--negro)}
-.s--arenacl{background:var(--arena-cl);
+.s--crema{background:var(--crema);
   --fg:var(--negro); --fg2:rgba(0,0,0,.7); --acc:var(--terracota);
-  --rule:rgba(0,0,0,.2); --card:var(--blanco); --oncard:var(--negro)}
+  --rule:rgba(0,0,0,.18); --card:var(--arena); --oncard:var(--negro)}
 .s--arena{background:var(--arena);
   --fg:var(--negro); --fg2:rgba(0,0,0,.72); --acc:var(--cacao);
-  --rule:rgba(0,0,0,.24); --card:var(--blanco); --oncard:var(--negro)}
+  --rule:rgba(0,0,0,.24); --card:var(--crema); --oncard:var(--negro)}
 .s--olivo{background:var(--olivo);
-  --fg:#fff; --fg2:rgba(255,255,255,.84); --acc:#fff;
-  --rule:rgba(255,255,255,.3); --card:var(--blanco); --oncard:var(--negro)}
+  --fg:var(--crema); --fg2:rgba(234,226,215,.84); --acc:var(--crema);
+  --rule:rgba(234,226,215,.3); --card:var(--crema); --oncard:var(--negro)}
+.s--terracota{background:var(--terracota);
+  --fg:var(--crema); --fg2:rgba(234,226,215,.86); --acc:var(--crema);
+  --rule:rgba(234,226,215,.32); --card:var(--crema); --oncard:var(--terracota)}
 .s--cacao{background:var(--cacao);
-  --fg:var(--arena); --fg2:rgba(199,178,150,.84); --acc:var(--arena);
-  --rule:rgba(199,178,150,.28); --card:var(--arena-cl); --oncard:var(--cacao)}
+  --fg:var(--crema); --fg2:rgba(234,226,215,.82); --acc:var(--arena);
+  --rule:rgba(234,226,215,.26); --card:var(--arena); --oncard:var(--cacao)}
+.s--negro{background:var(--negro);
+  --fg:var(--crema); --fg2:rgba(234,226,215,.8); --acc:var(--mostaza);
+  --rule:rgba(234,226,215,.22); --card:var(--arena); --oncard:var(--negro)}
+
+
+
+
+
 .s a{color:var(--acc)}
 .cab__k{color:var(--acc)}
 .cab__d{color:var(--fg2);opacity:1}
