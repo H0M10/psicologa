@@ -61,7 +61,7 @@ def logo(clase='lg', etiqueta=u'Indicio · Psic. Thania Huerta'):
 def sello(clase='sl'):
     return u'<span class="%s" role="img" aria-label="Indicio"></span>' % clase
 
-def cabeza(titulo, css, tema):
+def cabeza(titulo, css, tema, fondo_form):
     return u'''<!DOCTYPE html>
 <html lang="es-MX">
 <head>
@@ -81,7 +81,7 @@ def cabeza(titulo, css, tema):
 <link rel="stylesheet" href="_indicio.css">
 <link rel="stylesheet" href="%s">
 </head>
-<body>''' % (tema, titulo, css)
+<body data-fondo-form="%s">''' % (tema, titulo, css, fondo_form)
 
 def pie():
     return u'''
@@ -299,11 +299,11 @@ def portada(clase, fondo):
 if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#C7B296', 'rt',
-       ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--terracota']),
+       ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--arena', 's--terracota']),
       ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#EAE2D7', 'vn',
-       ['s--crema', 's--olivo', 's--arena', 's--cacao', 's--crema', 's--olivo', 's--arena', 's--terracota']),
+       ['s--crema', 's--olivo', 's--arena', 's--cacao', 's--crema', 's--olivo', 's--arena', 's--crema', 's--terracota']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
-        h = cabeza(tit, css, tema) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()
+        h = cabeza(tit, css, tema, fondos[8]) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()
         io.open(D + arch, 'w', encoding='utf-8').write(h)
         print('%-16s %6d bytes' % (arch, os.path.getsize(D + arch)))

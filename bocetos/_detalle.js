@@ -141,7 +141,8 @@
     var cierre = document.querySelector('.cierre') || document.querySelector('.fin');
     if (!cierre) return;
     var sec = document.createElement('section');
-    sec.className = 's';
+    // El boceto declara con que fondo va, si no se queda sin tokens de color
+    sec.className = 's ' + (document.body.getAttribute('data-fondo-form') || '');
     sec.id = 'solicitar';
     sec.innerHTML =
       '<div class="w">' +
