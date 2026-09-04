@@ -26,9 +26,15 @@ a{color:var(--terracota)}
   -webkit-mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat;
   mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat}
 .pt>.w{position:relative;z-index:1}
-.pt__g{display:grid;grid-template-columns:auto 1fr;gap:clamp(2.2rem,6vw,4.6rem);align-items:center}
-.lock{text-align:center}
-.lock .lg{color:var(--cacao);margin-inline:auto}
+/* El logotipo manda la portada: va a la derecha y en grande, y el texto
+   ocupa la columna ancha de la izquierda. */
+.pt__g{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,4.4rem);
+  align-items:center}
+.lock{grid-column:2;grid-row:1;text-align:center}
+.pt__t{grid-column:1;grid-row:1}
+.lock .lg{width:clamp(180px,24vw,320px);margin-inline:auto}
+.lock__b{margin-top:1.2rem;max-width:16ch;margin-inline:auto}
+.lock .lg{color:var(--cacao)}
 .lock__b{color:var(--olivo)}
 .pt h1{font-size:var(--t-3xl);font-weight:300;letter-spacing:var(--ls-tight);max-width:17ch}
 .pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
@@ -82,9 +88,11 @@ a{color:var(--terracota)}
 .fin__m b{color:var(--crema)}
 
 @media(max-width:860px){
-  .pt__g{grid-template-columns:1fr;gap:2.2rem}
-  .lock{text-align:left}
-  .lock .lg{margin-inline:0}
+  /* En vertical el logotipo pasa arriba, que es donde manda en el telefono */
+  .pt__g{grid-template-columns:1fr;gap:2rem}
+  .lock{grid-column:1;grid-row:1;text-align:center}
+  .pt__t{grid-column:1;grid-row:2}
+  .lock .lg{width:clamp(150px,42vw,230px)}
   .cab h2{max-width:none}
 }
 

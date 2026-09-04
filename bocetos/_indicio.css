@@ -185,16 +185,15 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .idx__d{font-size:var(--t-base);opacity:.82;max-width:34ch}
 .idx__b{font-weight:700;font-size:var(--t-sm);margin-top:.45rem}
 
-/* ── Psicoterapia: lista corrida ─────────────────────────────────────────
-   Antes era otra retícula de fichas, igual que las de al lado. Ahora fluye
-   como una frase, con un punto de color entre tema y tema: son temas para
-   hablar, no supuestos legales, y piden ligereza. */
-.mot{list-style:none;margin:0;padding:0;font-family:var(--disp);font-weight:300;
-  font-size:var(--t-lg);line-height:var(--lh-body);max-width:34ch}
-.mot li{display:inline}
-.mot li::after{content:'';display:inline-block;width:.42rem;height:.42rem;border-radius:50%;
-  margin:0 .72rem;vertical-align:.22em;background:var(--terracota)}
-.mot li:last-child::after{display:none}
+/* ── Psicoterapia: columna centrada ──────────────────────────────────────
+   Antes iba corrida, con un punto entre tema y tema, y se leia como un muro
+   de palabras seguidas. Ahora cada tema en su linea, centrado y con aire:
+   nueve renglones que se recorren de un vistazo. */
+.mot{list-style:none;margin:0 auto;padding:0;max-width:32ch;text-align:center;
+  font-family:var(--disp);font-weight:300;font-size:var(--t-lg);
+  line-height:var(--lh-head)}
+.mot li{padding:.72rem 0}
+.mot li+li{border-top:1px solid var(--rule)}
 
 /* ── Formación: línea de tiempo ──────────────────────────────────────────
    La formación es un recorrido, así que pide secuencia. Y con esto las tres
@@ -220,6 +219,12 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 
    Los cinco pares texto/fondo están medidos y ninguno baja de 4.5:1. */
 .s,.pt,.cierre{color:var(--fg)}
+/* El formulario y la biografia plegable los inyecta _detalle.js dentro de una
+   seccion, pero venian con los tokens de la barra -crema sobre cacao-, asi
+   que sobre un fondo claro salian crema sobre claro. Aqui heredan los de la
+   seccion que los contiene. */
+.s,.cierre{--mv-fg:var(--fg); --mv-acc:var(--acc); --mv-on-acc:var(--onacc);
+  --mv-line:var(--rule); --mv-bg:transparent}
 
 /* Sobre fondo oscuro, el trazo fino se deshace: la letra clara sangra sobre
    el fondo -halacion- y el suavizado de WebKit la adelgaza todavia mas. Por
@@ -236,22 +241,22 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .s--olivo li,.s--terracota li,.s--cacao li,.s--negro li{font-weight:500}
 .s--crema{background:var(--crema);
   --fg:var(--negro); --fg2:rgba(0,0,0,.7); --acc:var(--terracota);
-  --rule:rgba(0,0,0,.18); --card:var(--arena); --oncard:var(--negro)}
+  --rule:rgba(0,0,0,.18); --onacc:var(--crema); --card:var(--arena); --oncard:var(--negro)}
 .s--arena{background:var(--arena);
   --fg:var(--negro); --fg2:rgba(0,0,0,.72); --acc:var(--cacao);
-  --rule:rgba(0,0,0,.24); --card:var(--crema); --oncard:var(--negro)}
+  --rule:rgba(0,0,0,.24); --onacc:var(--crema); --card:var(--crema); --oncard:var(--negro)}
 .s--olivo{background:var(--olivo);
   --fg:var(--crema); --fg2:rgba(234,226,215,.84); --acc:var(--crema);
-  --rule:rgba(234,226,215,.3); --card:var(--crema); --oncard:var(--negro)}
+  --rule:rgba(234,226,215,.3); --onacc:var(--olivo); --card:var(--crema); --oncard:var(--negro)}
 .s--terracota{background:var(--terracota);
   --fg:var(--crema); --fg2:rgba(234,226,215,.86); --acc:var(--crema);
-  --rule:rgba(234,226,215,.32); --card:var(--crema); --oncard:var(--terracota)}
+  --rule:rgba(234,226,215,.32); --onacc:var(--terracota); --card:var(--crema); --oncard:var(--terracota)}
 .s--cacao{background:var(--cacao);
   --fg:var(--crema); --fg2:rgba(234,226,215,.82); --acc:var(--arena);
-  --rule:rgba(234,226,215,.26); --card:var(--arena); --oncard:var(--cacao)}
+  --rule:rgba(234,226,215,.26); --onacc:var(--cacao); --card:var(--arena); --oncard:var(--cacao)}
 .s--negro{background:var(--negro);
   --fg:var(--crema); --fg2:rgba(234,226,215,.8); --acc:var(--mostaza);
-  --rule:rgba(234,226,215,.22); --card:var(--arena); --oncard:var(--negro)}
+  --rule:rgba(234,226,215,.22); --onacc:var(--negro); --card:var(--arena); --oncard:var(--negro)}
 
 
 
