@@ -1,0 +1,77 @@
+/* ── B · Retícula ────────────────────────────────────────────────────────
+   Explora la estructura suiza: retícula visible de verdad, asimetría con
+   pesos compensados, bandera a la izquierda y casi nada de color. El único
+   acento es el vino, y aparece contado.                                  */
+body{font-family:'Archivo',system-ui,sans-serif;background:var(--papel)}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:600;
+  line-height:1.08;letter-spacing:-.022em}
+.w{width:min(100% - 2.4rem,1160px);margin-inline:auto}
+
+/* La retícula no se insinúa: se dibuja, con sus doce filetes a la vista */
+.rt{position:relative}
+.rt::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55;
+  background:repeating-linear-gradient(90deg,var(--linea) 0 1px,
+    transparent 1px calc((100% - 11px) / 12 + 1px))}
+.rt>*{position:relative;z-index:1}
+.g{display:grid;grid-template-columns:repeat(12,1fr);gap:0 1rem}
+.c1-3{grid-column:1/4} .c4-12{grid-column:4/13} .c1-7{grid-column:1/8}
+.c4-9{grid-column:4/10} .c8-12{grid-column:8/13} .c1-12{grid-column:1/13}
+.c4-11{grid-column:4/12}
+
+.s{padding:clamp(2.8rem,6vw,4.6rem) 0;border-top:1px solid var(--tinta)}
+.s--lana{background:var(--lana)}
+.s--bronce{background:var(--bronce)}
+.s--cil{background:var(--cilantro)}
+.s--mora{background:var(--mora)}
+/* Sobre cualquiera de los fondos oscuros el texto se invierte de una vez */
+.s--osc{color:var(--papel);border-top-color:transparent}
+.s--osc .sub,.s--osc .via em,.s--osc .c p{color:color-mix(in srgb,var(--papel) 78%,transparent)}
+.k{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
+.s--osc .k{color:color-mix(in srgb,var(--papel) 66%,transparent)}
+h1{font-size:clamp(1.9rem,4.4vw,3.4rem)}
+.s h2{font-size:clamp(1.45rem,3vw,2.15rem)}
+.sub{margin-top:1rem;color:var(--suave)}
+.cuerpo{display:grid;gap:1.05rem}
+
+.pt{padding:clamp(2.6rem,6vw,4.6rem) 0 0}
+.pt__b{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);gap:0 1rem;
+  height:clamp(64px,10vw,132px);margin-top:clamp(2rem,4vw,3.2rem)}
+.pt__b i:nth-child(1){grid-column:1/4;background:var(--bronce)}
+.pt__b i:nth-child(2){grid-column:4/6;background:var(--cilantro)}
+.pt__b i:nth-child(3){grid-column:6/10;background:var(--lana)}
+.pt__b i:nth-child(4){grid-column:10/11;background:var(--barro)}
+.pt__b i:nth-child(5){grid-column:11/13;background:var(--mora)}
+.cred{margin-top:1.8rem;padding-top:1rem;border-top:1px solid var(--tinta);
+  font-size:.84rem;color:var(--suave);display:flex;flex-wrap:wrap;gap:.3rem 1.6rem;max-width:none}
+.cred b{color:var(--tinta);font-weight:600}
+
+/* Las listas se alinean a la retícula: el numeral tiene su propia columna */
+.filas{list-style:none;margin:0;padding:0;counter-reset:n}
+.filas li{counter-increment:n;display:grid;grid-template-columns:2.8rem 1fr;gap:.8rem;
+  padding:.82rem 0;border-bottom:1px solid var(--linea);font-size:.98rem}
+.filas li::before{content:counter(n,decimal-leading-zero);font-size:.76rem;font-weight:700;
+  color:var(--suave);padding-top:.28rem;font-variant-numeric:tabular-nums}
+.s--osc .filas li,.s--osc .rej li{border-color:color-mix(in srgb,var(--papel) 24%,transparent)}
+.s--osc .filas li::before{color:color-mix(in srgb,var(--papel) 62%,transparent)}
+.rej{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:0 1.4rem}
+.rej li{padding:.8rem 0;border-bottom:1px solid var(--linea);font-size:.95rem}
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem;margin-top:1.6rem}
+.c h3{font-size:1rem;margin-bottom:.45rem;padding-top:.6rem;border-top:3px solid var(--tinta)}
+.s--osc .c h3{border-top-color:var(--papel)}
+.c p{font-size:.92rem;color:var(--suave)}
+.via h3{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--suave);padding-bottom:.6rem;border-bottom:2px solid var(--tinta);margin-bottom:.2rem}
+.s--osc .via h3{color:var(--papel);border-bottom-color:var(--papel)}
+.s--osc a{color:var(--aguacate)}
+.s--osc .b--p{background:var(--aguacate);color:var(--tinta)}
+.b{border-radius:0}
+.mapa-caja{border:1px solid var(--tinta)}
+.cierre{padding:clamp(3rem,7vw,4.8rem) 0;border-top:1px solid var(--tinta)}
+.cierre h2{font-size:clamp(1.6rem,3.6vw,2.6rem)}
+@media(max-width:860px){
+  .rt::before{display:none}
+  .g{grid-template-columns:1fr;gap:0}
+  .c1-3,.c4-12,.c1-7,.c4-9,.c8-12,.c1-12,.c4-11{grid-column:1/-1}
+  .c1-3{margin-bottom:.7rem}
+}

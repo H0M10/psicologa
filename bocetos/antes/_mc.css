@@ -1,0 +1,82 @@
+/* ============================================================================
+   Base mid-century compartida por los cuatro bocetos.
+   Los colores salen de la guía de preservación histórica de Scottsdale y de
+   las dos imágenes de Thania. Todos verificados contra WCAG 2 en MIDCENTURY.md.
+   Aquí van los tokens y las piezas que se comportan igual en los cuatro;
+   la personalidad de cada uno vive en su propia hoja.
+   ========================================================================== */
+:root{
+  /* Neutros: la base ocupa casi todo, como en el mueble de la época */
+  --papel:#F8F4EA; --crema:#F0E9DB; --lana:#D9CFBA;
+  /* Protagonistas */
+  --bronce:#575449; --cilantro:#537150; --urbano:#54504A;
+  /* Acentos, contados */
+  --mora:#533640; --barro:#CB7841; --barro-hondo:#9C4E23;
+  /* Superficies que nunca llevan texto encima */
+  --jade:#61826D; --aguacate:#C4B47D;
+  /* Tinta */
+  --tinta:#332E27; --suave:#5D554B; --linea:rgba(84,80,74,.24);
+  --e:cubic-bezier(.32,.72,0,1);
+  --mv-bg:#F0E9DB; --mv-fg:#332E27; --mv-acc:#9C4E23;
+  --mv-line:rgba(84,80,74,.24); --mv-on-acc:#FFFFFF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--crema);color:var(--tinta);line-height:1.65;
+  overflow-x:clip;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+img,svg{max-width:100%;display:block}
+a{color:var(--barro-hondo)}
+:focus-visible{outline:2.5px solid var(--barro-hondo);outline-offset:3px}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0;max-width:66ch;text-wrap:pretty}
+/* Bandera a la izquierda: el estilo nunca justifica */
+p,li,dd{text-align:left}
+
+/* ── Botones ── */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:50px;padding:.8rem 1.5rem;border:1.5px solid transparent;
+  font:inherit;font-size:.95rem;font-weight:600;text-decoration:none;cursor:pointer;
+  transition:transform .32s var(--e),background-color .32s var(--e)}
+.b--p{background:var(--barro-hondo);color:#fff}
+.b--s{background:transparent;color:inherit;border-color:currentColor}
+.b:hover{transform:translateY(-2px)}
+.rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:.6rem;margin-top:.9rem}
+.rutas--2{grid-template-columns:repeat(auto-fit,minmax(212px,1fr));margin-top:1.7rem}
+
+/* ── Mapa ── */
+.mapa-caja{position:relative;margin-top:1.9rem;overflow:hidden}
+#mapa{height:clamp(280px,42vh,410px);width:100%;background:var(--lana)}
+/* Las teselas se viran a la paleta para que el mapa no abra un hueco ajeno */
+.leaflet-tile-pane{filter:saturate(.58) sepia(.16) brightness(1.03)}
+.leaflet-container{font-family:inherit}
+.pin{display:grid;place-items:center;width:28px;height:28px;background:var(--barro-hondo);
+  border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
+.pin__c{width:8px;height:8px;border-radius:50%;background:var(--papel)}
+.mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--bronce) 52%,transparent);color:var(--papel);
+  font:inherit;font-size:.95rem;font-weight:600;border:0;cursor:pointer}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center;color:var(--suave)}
+
+/* ── Datos prácticos ── */
+.datos{margin:2.1rem 0 0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:0 2.2rem}
+.datos>div{padding:.95rem 0;border-bottom:1px solid var(--linea)}
+.datos dt{font-size:.78rem;font-weight:700;color:var(--urbano);margin-bottom:.25rem}
+.datos dd{margin:0;font-size:.96rem}
+.datos dd span{display:block;color:var(--suave);font-size:.87rem}
+
+/* ── Formación, en dos vías ── */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:1.1rem;margin-top:2rem}
+.via ol{list-style:none;margin:0;padding:0}
+.via li{padding:.78rem 0;border-bottom:1px solid var(--linea)}
+.via li:last-child{border-bottom:0;padding-bottom:0}
+.via strong{display:block;font-size:.93rem;font-weight:600;line-height:1.45}
+.via em{display:block;font-style:normal;font-size:.81rem;color:var(--suave);margin-top:.14rem}
+
+/* ── Pie ── */
+.fin{padding:2.1rem 0 1.5rem;border-top:1px solid var(--linea);
+  font-size:.85rem;color:var(--suave)}
+.fin p+p{margin-top:.3rem}

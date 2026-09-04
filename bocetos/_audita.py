@@ -16,7 +16,7 @@ JS = r"""
     if (/^color\(/.test(s)) v = v.map((x,i) => i < 3 ? x*255 : x);  // srgb va de 0 a 1
     return v;
   };
-  const opaco = s => { const v = rgb(s); return v.length>=3 && (v.length<4 || v[3] >= 0.9); };
+  const opaco = s => { const v = rgb(s); return v.length>=3 && (v.length<4 || v[3] >= 0.8); };
   const fondoDe = el => {
     let n = el;
     while (n && n !== document.documentElement) {

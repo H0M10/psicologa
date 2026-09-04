@@ -1,0 +1,170 @@
+/* ============================================================================
+   NIVEL DE DETALLE — lo que el sitio principal tiene y a los bocetos les
+   faltaba. Tres piezas:
+
+     1. Barra inferior de pestañas con scrollspy (sustituye a _movil)
+     2. Formulario de cotización real
+     3. Biografía plegable en celular
+
+   Todo se tiñe con las variables que cada boceto ya define:
+   --mv-bg, --mv-fg, --mv-acc, --mv-line. Cero decoración propia.
+   ========================================================================== */
+
+:root{
+  --mv-bg:#FFFFFF; --mv-fg:#1A1A1A; --mv-acc:#2F6F73; --mv-line:rgba(0,0,0,.14); --mv-on-acc:#FFFFFF;
+}
+
+/* ---------------------------------------------------------------------------
+   1. BARRA DE PESTAÑAS CON SCROLLSPY
+   Navegación siempre visible en la zona del pulgar. La navegación oculta
+   cuesta más de un 20% de descubrimiento de contenido (NN/G), así que aquí
+   va a la vista, y la pestaña activa se ilumina sola al hacer scroll.
+   ------------------------------------------------------------------------- */
+.tb{
+  display:none;
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  align-items:flex-end;justify-content:space-around;gap:.15rem;
+  padding:.4rem .4rem;
+  padding-bottom:calc(.4rem + env(safe-area-inset-bottom, 0px));
+  background:var(--mv-bg);
+  border-top:1.5px solid var(--mv-line);
+  box-shadow:0 -12px 30px -24px rgba(0,0,0,.85);
+}
+.tb__i{
+  flex:1 1 0;min-width:0;min-height:52px;      /* holgado sobre el mínimo de 48 */
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.18rem;
+  padding:.3rem .12rem;border-radius:12px;
+  color:var(--mv-fg);text-decoration:none;opacity:.62;
+  transition:opacity .3s cubic-bezier(.32,.72,0,1),background .3s cubic-bezier(.32,.72,0,1);
+}
+.tb__i:hover,.tb__i:focus-visible{opacity:.9}
+.tb__i:active{background:color-mix(in srgb, var(--mv-fg) 9%, transparent)}
+.tb__i svg{width:1.28rem;height:1.28rem;flex:none}
+.tb__i span{font-size:.6rem;letter-spacing:.02em;line-height:1.1;white-space:nowrap}
+/* La sección en la que estás */
+.tb__i.on{opacity:1;color:var(--mv-acc)}
+.tb__i.on svg{stroke-width:2.2}
+.tb__i.on span{font-weight:700}
+
+.tb__wa{
+  flex:0 0 auto;width:56px;height:56px;
+  margin:-19px .15rem .28rem;
+  display:grid;place-items:center;border-radius:50%;
+  background:var(--mv-acc);color:var(--mv-on-acc,#fff);
+  border:2.5px solid var(--mv-bg);text-decoration:none;
+  box-shadow:0 6px 20px -8px rgba(0,0,0,.6);
+  transition:transform .25s cubic-bezier(.32,.72,0,1);
+}
+.tb__wa svg{width:1.6rem;height:1.6rem}
+.tb__wa:active{transform:translateY(3px)}
+
+@media (max-width:900px){
+  .tb{display:flex}
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom, 0px))}
+  .volver{bottom:calc(92px + env(safe-area-inset-bottom, 0px))}
+  /* La barra sencilla de antes sobra si esta está presente */
+  .mv{display:none !important}
+}
+@media (max-height:480px) and (orientation:landscape){
+  .tb{display:none}
+  body{padding-bottom:0}
+  .volver{bottom:1rem}
+}
+
+/* ---------------------------------------------------------------------------
+   2. FORMULARIO DE COTIZACIÓN
+   Responde a la pregunta de Thania. Es un formulario de verdad, pero al
+   enviarlo abre WhatsApp con las respuestas ya ordenadas: sin servidor.
+   ------------------------------------------------------------------------- */
+.fc{margin-top:1.4rem}
+.fc__abre{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:none;border:1.5px solid var(--mv-line);border-radius:8px;
+  color:inherit;font:inherit;font-size:.9rem;font-weight:600;
+  padding:.7rem 1.2rem;min-height:46px;cursor:pointer;
+  transition:border-color .3s cubic-bezier(.32,.72,0,1);
+}
+.fc__abre:hover{border-color:var(--mv-acc)}
+.fc__abre svg{width:1rem;height:1rem;transition:transform .35s cubic-bezier(.32,.72,0,1)}
+.fc__abre[aria-expanded="true"] svg{transform:rotate(180deg)}
+
+.fc__cuerpo{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.32,.72,0,1)}
+.fc__cuerpo > div{overflow:hidden}
+.fc.abierto .fc__cuerpo{grid-template-rows:1fr}
+
+.fc form{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:1.4rem;
+  margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--mv-line);
+}
+.fc fieldset{border:0;padding:0;margin:0;display:grid;gap:.85rem}
+.fc__campo{display:grid;gap:.3rem}
+.fc__campo label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.72;font-weight:600}
+.fc__campo label .req{color:var(--mv-acc)}
+.fc__campo input,.fc__campo select,.fc__campo textarea{
+  font:inherit;font-size:.98rem;color:var(--mv-fg);
+  background:color-mix(in srgb, var(--mv-fg) 4%, transparent);
+  border:1.5px solid var(--mv-line);border-radius:8px;
+  padding:.65rem .8rem;min-height:46px;width:100%;
+  transition:border-color .25s cubic-bezier(.32,.72,0,1);
+}
+.fc__campo textarea{min-height:6rem;resize:vertical;line-height:1.6}
+.fc__campo input:focus,.fc__campo select:focus,.fc__campo textarea:focus{
+  border-color:var(--mv-acc);outline:none}
+.fc__campo input:focus-visible,.fc__campo select:focus-visible,.fc__campo textarea:focus-visible{
+  outline:3px solid var(--mv-acc);outline-offset:2px}
+.fc__ayuda{font-size:.76rem;opacity:.62}
+.fc__enviar{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  background:var(--mv-acc);color:var(--mv-on-acc,#fff);border:1.5px solid var(--mv-acc);border-radius:999px;
+  font:inherit;font-size:.92rem;font-weight:700;padding:.8rem 1.5rem;min-height:48px;cursor:pointer;
+  transition:transform .3s cubic-bezier(.32,.72,0,1);
+}
+.fc__enviar:hover{transform:translateY(-2px)}
+.fc__enviar:active{transform:none}
+.fc__enviar svg{width:1.05em;height:1.05em}
+
+.fc__vista{
+  background:color-mix(in srgb, var(--mv-fg) 5%, transparent);
+  border:1.5px solid var(--mv-line);border-radius:10px;padding:1rem 1.1rem;
+  align-self:start;position:sticky;top:1.5rem;
+}
+.fc__vista h4{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mv-acc);margin-bottom:.55rem;font-weight:700}
+.fc__vista pre{font:inherit;font-size:.86rem;line-height:1.6;white-space:pre-wrap;
+  word-break:break-word;opacity:.8;margin:0}
+.fc__aviso{
+  margin-top:.7rem;font-size:.86rem;color:var(--mv-acc);
+  background:color-mix(in srgb, var(--mv-acc) 12%, transparent);
+  border-radius:8px;padding:.65rem .8rem;
+}
+.fc__aviso[hidden]{display:none}
+
+/* ---------------------------------------------------------------------------
+   3. BIOGRAFÍA PLEGABLE EN CELULAR
+   Evita el muro de texto de tres pantallas. Sin JavaScript se ve completa.
+   ------------------------------------------------------------------------- */
+.bio-mas__btn{
+  display:none;align-items:center;gap:.45rem;margin-top:.9rem;
+  background:none;border:1.5px solid var(--mv-line);border-radius:999px;
+  color:inherit;font:inherit;font-size:.88rem;font-weight:600;
+  padding:.6rem 1.15rem;min-height:44px;cursor:pointer;
+}
+.bio-mas__btn svg{width:1rem;height:1rem;transition:transform .35s cubic-bezier(.32,.72,0,1)}
+.bio-mas__btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+
+@media (max-width:900px){
+  .fc form{grid-template-columns:1fr}
+  .fc__vista{position:static}
+  .fc__enviar{width:100%}
+  .fc__abre{width:100%;justify-content:center}
+  .bio-mas.plegable{display:grid;grid-template-rows:0fr;
+    transition:grid-template-rows .45s cubic-bezier(.32,.72,0,1)}
+  .bio-mas.plegable > div{overflow:hidden}
+  .bio-mas.plegable.abierto{grid-template-rows:1fr}
+  .bio-mas__btn{display:inline-flex}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .tb__i,.tb__wa,.fc__cuerpo,.fc__enviar,.bio-mas,.fc__abre svg,.bio-mas__btn svg{
+    transition-duration:.001ms !important}
+}

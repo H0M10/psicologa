@@ -1,0 +1,70 @@
+/* ============================================================================
+   Barra superior compartida. Se tiñe sola con las variables --mv-* que cada
+   boceto define, así que hereda su paleta sin tener que declararla aquí.
+   ========================================================================== */
+.tn{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb, var(--mv-bg,#fff) 92%, transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--mv-line,rgba(0,0,0,.14));
+  color:var(--mv-fg,#1A1A1A);
+}
+.tn__w{
+  width:min(100% - 2rem,1180px);margin-inline:auto;
+  display:flex;align-items:center;gap:1.2rem;min-height:60px;
+}
+.tn__m{
+  flex:none;text-decoration:none;color:inherit;font-weight:700;
+  font-size:.98rem;line-height:1.2;letter-spacing:-.01em;
+}
+.tn__m span{
+  display:block;font-size:.72rem;font-weight:400;opacity:.66;
+  letter-spacing:0;margin-top:.1rem;
+}
+
+/* En pantalla estrecha los enlaces se deslizan en horizontal en vez de
+   esconderse: la instrucción era que estuvieran arriba en todas. */
+.tn__n{
+  display:flex;gap:.15rem;margin-left:auto;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  scroll-snap-type:x proximity;
+}
+.tn__n::-webkit-scrollbar{display:none}
+.tn__i{
+  flex:none;scroll-snap-align:end;
+  padding:.5rem .8rem;border-radius:999px;
+  font-size:.88rem;font-weight:500;text-decoration:none;
+  color:color-mix(in srgb, var(--mv-fg,#1A1A1A) 68%, transparent);
+  white-space:nowrap;
+  transition:background-color .28s cubic-bezier(.32,.72,0,1),
+             color .28s cubic-bezier(.32,.72,0,1);
+}
+.tn__i:hover{
+  color:var(--mv-fg,#1A1A1A);
+  background:color-mix(in srgb, var(--mv-fg,#1A1A1A) 9%, transparent);
+}
+.tn__i.on{
+  color:var(--mv-on-acc,#fff);
+  background:var(--mv-acc,#2F6F73);
+}
+.tn__i:focus-visible{
+  outline:2.5px solid var(--mv-acc,#2F6F73);outline-offset:2px;
+}
+
+@media(max-width:900px){
+  .tn__w{gap:.7rem;min-height:56px}
+  .tn__m{font-size:.9rem}
+  .tn__m span{display:none}
+  .tn__i{font-size:.84rem;padding:.45rem .7rem}
+  /* Un degradado corto avisa de que la fila sigue */
+  .tn__n{
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+  }
+}
+@media(max-width:420px){
+  .tn__m{max-width:7.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){
+  .tn__i{transition:none}
+}

@@ -63,6 +63,27 @@ h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spac
   .t{grid-template-columns:1fr}
   .t__p{border-right:0;border-bottom:1px solid var(--linea);aspect-ratio:16/10}
 }
+
+.antes{padding:0 0 clamp(3rem,7vw,5rem)}
+.antes__k{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terracota);padding-top:clamp(2rem,4vw,3rem);border-top:2px solid var(--linea);
+  margin-bottom:1.2rem}
+.antes__g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 240px),1fr));
+  gap:.7rem;margin-bottom:1.8rem}
+.antes__c{display:block;padding:1.1rem 1.3rem;background:var(--crema);
+  border:1px solid var(--linea);text-decoration:none;color:inherit;
+  transition:transform .3s var(--e)}
+.antes__c:hover{transform:translateY(-2px)}
+.antes__c b{font-family:var(--disp);font-weight:500;font-size:1.02rem}
+.antes__c span{display:block;font-size:.84rem;opacity:.7;margin-top:.2rem}
+.antes__t{width:100%;border-collapse:collapse;font-size:.88rem}
+.antes__t caption{text-align:left;font-size:.78rem;opacity:.66;padding-bottom:.7rem}
+.antes__t th,.antes__t td{text-align:left;padding:.6rem .8rem .6rem 0;
+  border-bottom:1px solid var(--linea)}
+.antes__t thead th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.antes__t td:nth-child(2){opacity:.66}
+.antes__t td:nth-child(3){font-weight:700;color:var(--olivo)}
+.antes__n{font-size:.88rem;opacity:.76;margin-top:1.2rem;max-width:62ch}
 </style>
 </head>
 <body>
@@ -128,6 +149,39 @@ h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spac
   </a>
 
 </main>
+
+<section class="w antes">
+  <p class="antes__k">Para comparar</p>
+  <div class="antes__g">
+    <a class="antes__c" href="antes/reticula.html">
+      <b>Retícula · antes</b>
+      <span>Como estaba antes de la marca Indicio</span>
+    </a>
+    <a class="antes__c" href="antes/ventanal.html">
+      <b>Ventanal · antes</b>
+      <span>Como estaba antes de la marca Indicio</span>
+    </a>
+  </div>
+  <table class="antes__t">
+    <caption>Medido en teléfono, a 390 × 844</caption>
+    <thead><tr><th></th><th>Antes</th><th>Ahora</th></tr></thead>
+    <tbody>
+      <tr><td>Textos que no se leían</td><td>9 y 11</td><td>0</td></tr>
+      <tr><td>Botones por debajo de 44 px</td><td>12</td><td>2</td></tr>
+      <tr><td>Desbordes horizontales</td><td>3</td><td>0</td></tr>
+      <tr><td>Barras de navegación a la vez</td><td>2</td><td>1</td></tr>
+      <tr><td>Secciones alcanzables desde la barra</td><td>4</td><td>5</td></tr>
+      <tr><td>Secciones de contenido</td><td>5</td><td>7</td></tr>
+      <tr><td>Alto de la página</td><td>7.0 y 7.9 pantallas</td><td>10.5 y 11.4</td></tr>
+    </tbody>
+  </table>
+  <p class="antes__n">
+    La página creció porque ahora lleva más: el índice de entrada, la formación
+    completa con fechas y las dos instituciones que faltaban. Lo que se acortó
+    fue el camino a cada cosa, no la cantidad de información.
+  </p>
+</section>
+
 
 <script>
 function ajustar(){

@@ -144,7 +144,9 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
   border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
 .pin__c{width:8px;height:8px;border-radius:50%;background:var(--crema)}
 .mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
-  background:rgba(81,48,41,.55);color:var(--crema);font:inherit;font-weight:600;border:0;cursor:pointer}
+  /* Al 55% el velo dejaba pasar la tesela del mapa y el aviso se quedaba en
+   2.69:1 sobre las claras. Al 86% da 6.14 pase lo que pase debajo. */
+  background:rgba(81,48,41,.86);color:var(--crema);font:inherit;font-weight:600;border:0;cursor:pointer}
 .mapa-toque[hidden]{display:none}
 .mapa-aviso{padding:1rem;text-align:center}
 
