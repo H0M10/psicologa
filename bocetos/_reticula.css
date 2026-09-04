@@ -61,25 +61,6 @@ a{color:var(--terracota)}
   color:#fff;opacity:.82}
 .sup__t{font-size:1rem;line-height:1.45}
 
-/* ── Motivos: etiquetas, otra forma para otro contenido ── */
-.mot{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
-.mot li{border:1.5px solid rgba(0,0,0,.22);padding:.7rem 1.15rem;font-size:.95rem}
-.mot li:nth-child(3n+1){border-color:var(--olivo);color:var(--olivo)}
-.mot li:nth-child(3n+2){border-color:var(--terracota);color:var(--terracota)}
-.mot li:nth-child(3n+3){border-color:var(--cacao);color:var(--cacao)}
-
-/* ── Biografía: entrada grande, luego tres bloques con intertítulo ── */
-.bio__lead{font-family:var(--disp);font-size:clamp(1.1rem,2.4vw,1.42rem);font-weight:300;
-  line-height:1.5;max-width:44ch;margin-bottom:clamp(2rem,4vw,2.8rem)}
-.bio{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:2rem}
-.bio__b h3{font-size:.72rem;font-weight:700;font-family:var(--txt);letter-spacing:.16em;
-  text-transform:uppercase;color:var(--terracota);padding-bottom:.7rem;margin-bottom:.9rem;
-  border-bottom:1px solid rgba(0,0,0,.16)}
-.bio__b p{font-size:.96rem}
-.cita{margin:clamp(2.4rem,5vw,3.4rem) 0 0;padding:1.8rem 0 0;border-top:2px solid var(--negro)}
-.cita p{font-family:var(--disp);font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:300;
-  max-width:30ch}
-
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1rem;margin-top:1.6rem}
 .par__c{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);padding:1.5rem}
@@ -89,16 +70,6 @@ a{color:var(--terracota)}
 .par__c h3{font-size:1.06rem;font-weight:500;margin-bottom:.6rem}
 .par__c p{font-size:.94rem}
 .par__l{margin-top:1rem;font-weight:700}
-
-/* ── Formación ── */
-.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-.via h3{font-family:var(--txt);font-size:.72rem;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--cacao);padding-bottom:.8rem;border-bottom:2px solid var(--cacao)}
-.via ol{list-style:none;margin:0;padding:0}
-.via li{padding:.9rem 0;border-bottom:1px solid rgba(74,46,36,.24)}
-.via li:last-child{border-bottom:0}
-.via strong{display:block;font-size:.95rem;font-weight:600;line-height:1.45}
-.via em{display:block;font-style:normal;font-size:.82rem;margin-top:.2rem;opacity:.74}
 
 /* ── Mapa, cierre y pie ── */
 .mapa-caja{border:2px solid var(--negro)}
@@ -121,3 +92,25 @@ a{color:var(--terracota)}
     background-image:repeating-linear-gradient(90deg,transparent 0,transparent calc(33.3333% - 1px),
       rgba(0,0,0,.06) calc(33.3333% - 1px),rgba(0,0,0,.06) 33.3333%)}
 }
+
+/* ── Índice: fichas cuadradas, como el resto del boceto ── */
+.idx__c{background:var(--blanco);border:1px solid rgba(0,0,0,.16);
+  border-left:5px solid var(--terracota)}
+.idx__c--f{border-left-color:var(--olivo)}
+.idx__k{color:var(--terracota)}
+.idx__c--f .idx__k{color:var(--olivo)}
+.idx__b{color:var(--terracota)}
+
+/* ── Psicoterapia sobre blanco ── */
+.mot{color:var(--negro)}
+.mot li::after{background:var(--olivo)}
+
+/* ── Formación sobre blanco: dos líneas de tiempo en paralelo ── */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.6rem}
+.via h3{font-family:var(--txt);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terracota);padding-bottom:.9rem;margin-bottom:.4rem;
+  border-bottom:2px solid var(--negro)}
+.via--f h3{color:var(--olivo)}
+.linea{color:var(--negro)}
+.linea li::before{background:var(--terracota)}
+.via--f .linea li::before{background:var(--olivo)}

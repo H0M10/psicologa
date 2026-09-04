@@ -65,27 +65,6 @@ a{color:var(--terracota)}
 .sup__n{font-family:var(--disp);font-size:2rem;font-weight:200;line-height:1;opacity:.5}
 .sup__t{font-size:1.02rem;line-height:1.45}
 
-/* ── Motivos: lista abierta a dos columnas, sin caja ── */
-.mot{list-style:none;margin:0;padding:0;
-  columns:2;column-gap:3.4rem;column-rule:1px solid rgba(0,0,0,.14)}
-.mot li{break-inside:avoid;padding:.95rem 0;border-bottom:1px solid rgba(0,0,0,.1);
-  font-size:1rem}
-.mot li::before{content:'';display:inline-block;width:.52rem;height:.52rem;
-  margin-right:.85rem;background:var(--terracota);border-radius:50%;vertical-align:middle}
-@media(max-width:720px){.mot{columns:1}}
-
-/* ── Biografía: entrada grande y tres paños ── */
-.bio__lead{font-family:var(--disp);font-size:clamp(1.15rem,2.6vw,1.55rem);font-weight:200;
-  line-height:1.5;max-width:42ch;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
-.bio{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:2.6rem}
-.bio__b h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--terracota);padding-bottom:.8rem;margin-bottom:1rem;
-  border-bottom:2px solid var(--negro)}
-.bio__b p{font-size:.96rem;opacity:.86}
-.cita{margin:clamp(3rem,7vw,4.6rem) 0 0;padding:0}
-.cita p{font-family:var(--disp);font-size:clamp(1.3rem,3.4vw,2.1rem);font-weight:200;
-  max-width:24ch;color:var(--olivo)}
-
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
   margin-top:3px;background:color-mix(in srgb,#fff 34%,transparent)}
@@ -95,17 +74,6 @@ a{color:var(--terracota)}
 .par__c h3{font-size:1.1rem;font-weight:400;margin-bottom:.7rem}
 .par__c p{font-size:.95rem}
 .par__l{margin-top:1.1rem;font-weight:700}
-
-/* ── Formación: dos paños ── */
-.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem}
-.via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;
-  border-bottom:2px solid var(--arena)}
-.via ol{list-style:none;margin:0;padding:0}
-.via li{padding:1rem 0;border-bottom:1px solid rgba(199,178,150,.26)}
-.via li:last-child{border-bottom:0}
-.via strong{display:block;font-size:.96rem;font-weight:600;line-height:1.45;color:#fff}
-.via em{display:block;font-style:normal;font-size:.83rem;margin-top:.22rem;opacity:.82}
 
 /* ── Mapa a sangre, como un ventanal ── */
 .mapa-caja{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw}
@@ -128,3 +96,24 @@ a{color:var(--terracota)}
   .lock .lg{margin-inline:0}
   .cab h2{max-width:none}
 }
+
+/* ── Índice: paños con parteluz, como el resto del boceto ── */
+.idx{gap:3px;background:rgba(0,0,0,.16)}
+.idx__c{background:var(--blanco)}
+.idx__c:hover{transform:none;background:var(--arena-cl)}
+.idx__k{color:var(--terracota)}
+.idx__c--f .idx__k{color:var(--olivo)}
+.idx__b{color:var(--terracota)}
+
+/* ── Psicoterapia sobre blanco, con mucho aire ── */
+.mot{max-width:30ch;font-size:clamp(1.15rem,2.9vw,1.75rem)}
+.mot li::after{background:var(--olivo)}
+
+/* ── Formación sobre cacao: dos líneas de tiempo ── */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem}
+.via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;margin-bottom:.4rem;
+  border-bottom:2px solid var(--arena)}
+.linea{color:var(--arena)}
+.linea strong{color:#fff}
+.linea li::before{background:var(--arena)}

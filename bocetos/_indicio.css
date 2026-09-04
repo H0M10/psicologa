@@ -114,3 +114,51 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .fin__d{font-size:.84rem;opacity:.76;text-align:right}
 .fin__d p+p{margin-top:.25rem}
 @media(max-width:640px){.fin__d{text-align:left}}
+
+/* ── Índice de entrada, por tarea ────────────────────────────────────────
+   No es «soy abogado / soy paciente»: NN/G desaconseja la navegación por
+   público porque la gente no se identifica con una sola categoría y añade
+   un paso mental. Aquí la pregunta es qué necesitas, y no esconde nada:
+   son enlaces a secciones de esta misma página. */
+.idx__h{font-family:var(--disp);font-size:clamp(1.35rem,3.2vw,1.95rem);font-weight:300;
+  margin-bottom:clamp(1.4rem,3vw,2rem)}
+.idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(304px,1fr));gap:1rem}
+.idx__c{position:relative;display:grid;gap:.45rem;align-content:start;
+  padding:clamp(1.6rem,3.4vw,2.3rem);text-decoration:none;color:inherit;
+  transition:transform .35s var(--e)}
+.idx__c:hover{transform:translateY(-3px)}
+/* Sus insignias hacen de ancla visual, una por vía. Salen de su hoja. */
+.idx__c::after{content:'';position:absolute;top:clamp(1.4rem,3vw,2rem);
+  right:clamp(1.4rem,3vw,2rem);width:clamp(44px,6vw,58px);aspect-ratio:1;
+  background-size:contain;background-repeat:no-repeat}
+.idx__c--f::after{background-image:url(../assets/img/indicio-insignia-olivo.png)}
+.idx__c--t::after{background-image:url(../assets/img/indicio-insignia-terracota.png)}
+.idx__k{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  opacity:.72;padding-right:clamp(56px,8vw,72px)}
+.idx__t{font-family:var(--disp);font-size:clamp(1.14rem,2.5vw,1.48rem);font-weight:400;
+  line-height:1.22;padding-right:clamp(56px,8vw,72px)}
+.idx__d{font-size:.94rem;opacity:.82;max-width:34ch}
+.idx__b{font-weight:700;font-size:.89rem;margin-top:.45rem}
+
+/* ── Psicoterapia: lista corrida ─────────────────────────────────────────
+   Antes era otra retícula de fichas, igual que las de al lado. Ahora fluye
+   como una frase, con un punto de color entre tema y tema: son temas para
+   hablar, no supuestos legales, y piden ligereza. */
+.mot{list-style:none;margin:0;padding:0;font-family:var(--disp);font-weight:300;
+  font-size:clamp(1.06rem,2.5vw,1.52rem);line-height:1.62;max-width:34ch}
+.mot li{display:inline}
+.mot li::after{content:'';display:inline-block;width:.42rem;height:.42rem;border-radius:50%;
+  margin:0 .72rem;vertical-align:.22em;background:var(--terracota)}
+.mot li:last-child::after{display:none}
+
+/* ── Formación: línea de tiempo ──────────────────────────────────────────
+   La formación es un recorrido, así que pide secuencia. Y con esto las tres
+   listas dejan de tener la misma forma, que era lo que las fundía. */
+.linea{list-style:none;margin:0;padding:0 0 0 1.7rem;position:relative}
+.linea::before{content:'';position:absolute;left:4px;top:1.5rem;bottom:1.5rem;
+  width:1px;background:currentColor;opacity:.3}
+.linea li{position:relative;padding:.85rem 0}
+.linea li::before{content:'';position:absolute;left:-1.7rem;top:1.35rem;
+  width:9px;height:9px;border-radius:50%;background:currentColor}
+.linea strong{display:block;font-size:.95rem;font-weight:600;line-height:1.45}
+.linea em{display:block;font-style:normal;font-size:.82rem;margin-top:.2rem;opacity:.76}

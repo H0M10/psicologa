@@ -109,20 +109,41 @@ def bloque_supuestos():
     return u'<ol class="sup">%s\n  </ol>' % li
 
 def bloque_motivos():
+    u"""Lista corrida, no fichas. Son temas para hablar, no supuestos legales:
+    piden ligereza, y de paso rompen la igualdad con la seccion de al lado."""
     return u'<ul class="mot">%s\n  </ul>' % u''.join(
-        [u'\n    <li>%s</li>' % m for m in MOTIVOS])
+        [u'\n    <li><span>%s</span></li>' % m for m in MOTIVOS])
 
 def bloque_formacion():
-    def via(nombre, lista):
+    u"""Linea de tiempo vertical. La formacion es un recorrido, asi que pide
+    secuencia; y deja de tener la misma forma que las otras dos listas."""
+    def via(nombre, lista, clase):
         li = u''.join([u'\n      <li><strong>%s</strong><em>%s</em></li>' % (a, b)
                        for a, b in lista])
-        return u'''<div class="via">
-      <h3>%s</h3>
-      <ol>%s
-      </ol>
-    </div>''' % (nombre, li)
+        return (u'<div class="via via--%s">\n      <h3>%s</h3>\n'
+                u'      <ol class="linea">%s\n      </ol>\n    </div>') % (clase, nombre, li)
     return u'<div class="vias">\n    %s\n    %s\n  </div>' % (
-        via(u'V\u00eda cl\u00ednica', CLINICA), via(u'V\u00eda forense', FORENSE))
+        via(u'V\u00eda cl\u00ednica', CLINICA, 'c'),
+        via(u'V\u00eda forense', FORENSE, 'f'))
+
+def bloque_indice():
+    u"""Entrada por tarea, no por publico. NN/G desaconseja la navegacion por
+    publico: la gente no se identifica con una sola categoria y anade un paso
+    mental. Aqui la pregunta es que necesitas, y no esconde la otra mitad:
+    son enlaces a secciones de la misma pagina."""
+    return (u'<div class="idx">\n'
+      u'    <a class="idx__c idx__c--f" href="#forense">\n'
+      u'      <span class="idx__k">Para abogados, juzgados y particulares</span>\n'
+      u'      <span class="idx__t">Necesito un peritaje psicol\u00f3gico</span>\n'
+      u'      <span class="idx__d">Siete supuestos en materia familiar, y metapericiales.</span>\n'
+      u'      <span class="idx__b">Ver el \u00e1rea forense</span>\n'
+      u'    </a>\n'
+      u'    <a class="idx__c idx__c--t" href="#terapia">\n'
+      u'      <span class="idx__k">Para adolescentes, juventudes y sus familias</span>\n'
+      u'      <span class="idx__t">Busco terapia para un adolescente</span>\n'
+      u'      <span class="idx__d">Nueve motivos de consulta, y lo que no est\u00e9 en la lista tambi\u00e9n.</span>\n'
+      u'      <span class="idx__b">Ver psicoterapia</span>\n'
+      u'    </a>\n  </div>')
 
 def bloque_bio():
     p = u''.join([u'''
@@ -177,13 +198,18 @@ def bloque_cierre():
 </div></footer>''' % (sello('sl sl--c'), WA, TEL, sello('sl sl--f'))
 
 def cuerpo(clases):
-    u"""El cuerpo es el mismo en los dos; lo que cambia es el fondo que lleva
-    cada seccion, que es justo la senal de corte que faltaba."""
-    return u'''
+    u"""Orden nuevo: que hace antes de quien es. La biografia son 223 palabras
+    de prosa seguida, el bloque mas denso de la pagina, y estaba de primera:
+    quien llega buscando un peritaje tenia que atravesarla. Baja dos sitios.
+
+    Y cada lista toma una forma distinta -fichas, lista corrida, linea de
+    tiempo- porque forense, psicoterapia y formacion tenian exactamente la
+    misma, y por eso se leian como un solo apartado."""
+    return u"""
 <main>
 
-<section class="s %s" id="sobre-mi"><div class="w">
-  %s
+<section class="s %s" id="empezar"><div class="w">
+  <h2 class="idx__h">\u00bfQu\u00e9 necesitas?</h2>
   %s
 </div></section>
 
@@ -208,6 +234,11 @@ def cuerpo(clases):
   %s
 </div></section>
 
+<section class="s %s" id="sobre-mi"><div class="w">
+  %s
+  %s
+</div></section>
+
 <section class="s %s" id="formacion"><div class="w">
   %s
   %s
@@ -219,21 +250,22 @@ def cuerpo(clases):
 </div></section>
 
 %s
-</main>''' % (
-   clases[0], cab(u'01', u'Sobre m\u00ed', u'Hola, soy Thania'), bloque_bio(),
-   clases[1], cab(u'02', u'\u00c1rea forense',
+</main>""" % (
+   clases[0], bloque_indice(),
+   clases[1], cab(u'01', u'\u00c1rea forense',
                   u'Cuando un proceso familiar necesita una valoraci\u00f3n psicol\u00f3gica',
                   u'Trabajo con abogados, juzgados y particulares. Estos son los siete '
                   u'supuestos en los que puedo intervenir.'),
    bloque_supuestos(),
-   clases[2], cab(u'03', u'Psicoterapia', u'Temas en los que podemos trabajar',
+   clases[2], cab(u'02', u'Psicoterapia', u'Temas en los que podemos trabajar',
                   u'Consulta para adolescentes y juventudes. Si lo que te pasa no est\u00e1 '
                   u'en la lista, escr\u00edbeme igual.'),
    bloque_motivos(),
-   clases[3], cab(u'04', u'Formaci\u00f3n', u'En qu\u00e9 me he formado',
+   clases[3], cab(u'03', u'Sobre m\u00ed', u'Hola, soy Thania'), bloque_bio(),
+   clases[4], cab(u'04', u'Formaci\u00f3n', u'En qu\u00e9 me he formado',
                   u'Dos recorridos en paralelo, uno por cada \u00e1rea en la que trabajo.'),
    bloque_formacion(),
-   clases[4], cab(u'05', u'Consultorio', u'D\u00f3nde nos vemos',
+   clases[5], cab(u'05', u'Consultorio', u'D\u00f3nde nos vemos',
                   u'Abre la ruta directo en tu aplicaci\u00f3n, o mueve el mapa para '
                   u'reconocer la zona.'),
    bloque_mapa(),
@@ -267,9 +299,9 @@ def portada(clase):
 if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio \u00b7 Ret\u00edcula', '_reticula.css', '#FAF7F2', 'rt',
-       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--blanco']),
+       ['s--arenacl', 's--olivo', 's--blanco', 's--arenacl', 's--blanco', 's--arena']),
       ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#FAF7F2', 'vn',
-       ['s--arenacl', 's--olivo', 's--blanco', 's--cacao', 's--arena']),
+       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--cacao', 's--blanco']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema) + portada(cl) + cuerpo(fondos) + pie()
