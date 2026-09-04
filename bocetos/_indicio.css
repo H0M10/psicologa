@@ -77,8 +77,8 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .b:hover{transform:translateY(-2px)}
 .b--p{background:var(--terracota);color:#fff;border-color:var(--terracota)}
 .b--s{background:transparent;color:inherit;border-color:currentColor}
-.rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:.65rem;margin-top:1rem}
-.rutas--2{grid-template-columns:repeat(auto-fit,minmax(212px,1fr));margin-top:1.8rem}
+.rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 158px),1fr));gap:.65rem;margin-top:1rem}
+.rutas--2{grid-template-columns:repeat(auto-fit,minmax(min(100%, 212px),1fr));margin-top:1.8rem}
 
 /* ── Mapa ── */
 .mapa-caja{position:relative;overflow:hidden;margin-top:.5rem}
@@ -93,7 +93,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .mapa-aviso{padding:1rem;text-align:center}
 
 /* ── Datos prácticos ── */
-.datos{margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0 2rem}
+.datos{margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 232px),1fr));gap:0 2rem}
 .datos>div{padding:1rem 0}
 .datos dt{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
   margin-bottom:.3rem;opacity:.72}
@@ -122,7 +122,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
    son enlaces a secciones de esta misma página. */
 .idx__h{font-family:var(--disp);font-size:clamp(1.35rem,3.2vw,1.95rem);font-weight:300;
   margin-bottom:clamp(1.4rem,3vw,2rem)}
-.idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(304px,1fr));gap:1rem}
+.idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 304px),1fr));gap:1rem}
 .idx__c{position:relative;display:grid;gap:.45rem;align-content:start;
   padding:clamp(1.6rem,3.4vw,2.3rem);text-decoration:none;color:inherit;
   transition:transform .35s var(--e)}
@@ -215,3 +215,37 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .datos>div{border-bottom-color:var(--rule)}
 .datos dt{color:var(--acc);opacity:1}
 .datos dd span{color:var(--fg2);opacity:1}
+
+/* ── Teléfono ────────────────────────────────────────────────────────────
+   Las piezas nuevas —el índice, la lista corrida, la línea de tiempo— se
+   escribieron después de la consulta de medios que había, así que no tenían
+   tratamiento propio. Esto es el suyo. */
+@media(max-width:640px){
+  /* La insignia baja de tamaño y el texto recupera el ancho */
+  .idx__c::after{width:38px;top:1.2rem;right:1.2rem}
+  .idx__k,.idx__t{padding-right:48px}
+  .idx__c{padding:1.3rem 1.25rem}
+  .idx__d{max-width:none}
+
+  /* La lista corrida se aprieta un punto para que no queden viudas */
+  .mot{font-size:1.04rem;line-height:1.58;max-width:none}
+  .mot li::after{margin:0 .55rem}
+
+  /* La línea de tiempo arrima el rail al borde */
+  .linea{padding-left:1.35rem}
+  .linea li::before{left:-1.35rem;top:1.25rem}
+  .linea li{padding:.75rem 0}
+
+  /* Las fichas y las vías respiran menos, que en vertical sobra alto */
+  .sup li{padding:1.15rem 1.2rem}
+  .vias{gap:2rem}
+  .par__c{padding:1.25rem 1.2rem}
+
+  /* Objetivos táctiles: 48 px es el mínimo de Material, 44 el de Apple */
+  .idx__c,.b{min-height:48px}
+  .datos dd a{display:inline-block;padding:.35rem 0;min-height:44px}
+
+  /* El logotipo no se come la pantalla */
+  .lg--p{width:clamp(104px,26vw,132px)}
+  .cab__n{font-size:2.4rem}
+}

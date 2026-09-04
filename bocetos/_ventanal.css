@@ -36,7 +36,7 @@ a{color:var(--terracota)}
 
 /* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
 .firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--negro)}
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 180px),1fr));gap:2px;background:var(--negro)}
 /* Los paños ponen fondo propio, así que ponen también su texto */
 .firma>div{background:var(--blanco);color:var(--negro);padding:1.3rem 1.4rem}
 .firma dt{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.58}
@@ -49,7 +49,7 @@ a{color:var(--terracota)}
 
 /* ── Supuestos: paños de ventanal, con parteluz grueso entre ellos ── */
 .sup{list-style:none;margin:0;padding:0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
   background:color-mix(in srgb,#fff 34%,transparent)}
 .sup li{background:var(--olivo);color:#fff;padding:1.8rem 1.6rem;display:flex;flex-direction:column;
   gap:.9rem;min-height:9.5rem}
@@ -57,7 +57,7 @@ a{color:var(--terracota)}
 .sup__t{font-size:1.02rem;line-height:1.45}
 
 /* ── Par de tarjetas ── */
-.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
   margin-top:3px;background:color-mix(in srgb,#fff 34%,transparent)}
 /* El fondo lo pone el sistema; aquí solo el aire */
 .par__c{padding:1.8rem 1.6rem}
@@ -99,7 +99,7 @@ a{color:var(--terracota)}
 .mot{max-width:30ch;font-size:clamp(1.15rem,2.9vw,1.75rem)}
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
-.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem}
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));gap:3rem}
 .via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;margin-bottom:.4rem;
   border-bottom:2px solid var(--arena)}
