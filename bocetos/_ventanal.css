@@ -11,15 +11,17 @@ a{color:var(--terracota)}
 .w{width:min(100% - 2.6rem,1180px)}
 
 /* Ritmo amplio: el aire es el material principal de este boceto */
-.s{padding:clamp(4.4rem,11vw,8rem) 0}
+/* Filete grueso arriba de cada sección, como el parteluz de un ventanal.
+   Donde el salto de fondo es corto, es lo que anuncia el corte. */
+.s{padding:clamp(4.4rem,11vw,8rem) 0;border-top:5px solid var(--terracota)}
 .s--blanco{background:var(--blanco)}
-.s--hueso{background:var(--hueso)}
-.s--arena{background:var(--arena);color:var(--negro)}
-.s--olivo{background:var(--olivo);color:#fff}
-.s--cacao{background:var(--cacao);color:var(--arena)}
+.s--arenacl{background:var(--arena-cl)}
+.s--arena{background:var(--arena);color:var(--negro);border-top-color:var(--cacao)}
+.s--olivo{background:var(--olivo);color:#fff;border-top-color:var(--cacao)}
+.s--cacao{background:var(--cacao);color:var(--arena);border-top-color:var(--arena)}
 
 /* En cada fondo, el único acento que llega a 4.5:1 con la paleta real */
-.s--blanco .cab__k,.s--hueso .cab__k{color:var(--terracota)}
+.s--blanco .cab__k,.s--arenacl .cab__k{color:var(--terracota)}
 .s--olivo .cab__k,.s--olivo a{color:#fff}
 .s--arena .cab__k,.s--arena a{color:var(--cacao)}
 .s--cacao .cab__k,.s--cacao a{color:var(--arena)}
@@ -111,7 +113,8 @@ a{color:var(--terracota)}
 .datos>div{border-bottom:1px solid rgba(0,0,0,.16)}
 
 /* ── Cierre y pie ── */
-.cierre{background:var(--olivo);color:#fff;padding:clamp(4rem,10vw,7rem) 0}
+.cierre{background:var(--olivo);color:#fff;padding:clamp(4rem,10vw,7rem) 0;
+  border-top:5px solid var(--cacao)}
 .cierre .sl{color:#fff}
 .cierre .b--p{background:#fff;color:var(--olivo);border-color:#fff}
 .cierre .b--s{border-color:rgba(255,255,255,.62)}

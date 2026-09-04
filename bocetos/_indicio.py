@@ -267,9 +267,9 @@ def portada(clase):
 if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio \u00b7 Ret\u00edcula', '_reticula.css', '#FAF7F2', 'rt',
-       ['s--blanco', 's--olivo', 's--hueso', 's--arena', 's--blanco']),
+       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--blanco']),
       ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#FAF7F2', 'vn',
-       ['s--hueso', 's--olivo', 's--blanco', 's--cacao', 's--arena']),
+       ['s--arenacl', 's--olivo', 's--blanco', 's--cacao', 's--arena']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema) + portada(cl) + cuerpo(fondos) + pie()

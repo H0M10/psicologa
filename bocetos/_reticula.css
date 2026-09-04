@@ -19,12 +19,14 @@ a{color:var(--terracota)}
     rgba(255,255,255,.14) calc(16.6667% - 1px),rgba(255,255,255,.14) 16.6667%)}
 
 /* ── Fondos de sección: la señal de corte ── */
-.s{padding:clamp(3.6rem,9vw,6.4rem) 0;border-top:1px solid rgba(0,0,0,.12)}
+/* Filete grueso arriba de cada sección. Donde el salto de fondo es corto
+   —blanco a arena clara, arena a blanco— es lo que anuncia el corte. */
+.s{padding:clamp(3.6rem,9vw,6.4rem) 0;border-top:4px solid var(--terracota)}
 .s--blanco{background:var(--blanco)}
-.s--hueso{background:var(--hueso)}
-.s--arena{background:var(--arena)}
+.s--arenacl{background:var(--arena-cl)}
+.s--arena{background:var(--arena);border-top-color:var(--cacao)}
 .s--arena .cab__k,.s--arena a{color:var(--cacao)}
-.s--olivo{background:var(--olivo);color:#fff;border-top-color:var(--olivo)}
+.s--olivo{background:var(--olivo);color:#fff;border-top-color:var(--cacao)}
 .s--olivo .cab__k,.s--olivo a{color:#fff}
 .s--olivo .cab__n{opacity:.34}
 
@@ -106,7 +108,8 @@ a{color:var(--terracota)}
 .cierre h2{color:var(--blanco)}
 /* Mostaza sobre cacao da 3.4:1 con la paleta real; arena da 5.7 */
 .cierre .b--p{background:var(--arena);color:var(--cacao);border-color:var(--arena)}
-.fin{background:var(--cacao);color:var(--arena);border-top:1px solid rgba(213,192,166,.2)}
+/* El pie iba en cacao igual que el cierre y se fundían: ahora negro */
+.fin{background:var(--negro);color:var(--arena)}
 .fin .sl{color:var(--arena)}
 
 @media(max-width:860px){

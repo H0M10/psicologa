@@ -17,6 +17,8 @@
      los otros dos son la misma familia aclarada, para tener superficies. */
   --blanco:#FFFFFF;
   --hueso:#FAF7F2;
+  /* Fondo claro intermedio. El hueso quedaba a 1.07 del blanco y el ojo no
+     lo leia como corte de seccion; este da 1.38 y si se ve. */
   --arena-cl:#E5DACA;
 
   /* Trend Sans One es de licencia comercial y no está en Google Fonts.
