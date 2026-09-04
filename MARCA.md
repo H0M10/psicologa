@@ -182,13 +182,11 @@ cada una lleva `role="img"` y su etiqueta.
 | `indicio-patron.png` | El patrón de volutas |
 | `indicio-insignia-olivo/terracota/cacao.png` | Las tres versiones en círculo |
 
-**Compartió el Canva editable**, que es de donde debe salir el SVG:
-`canva.link/s1tbcmyedzqx3ma`
+**Compartió el Canva editable:** `canva.link/s1tbcmyedzqx3ma`
 
-Lo que hay ahora son PNG recortados de su hoja, y a tamaño grande se les nota
-el borde. Desde el Canva se exporta el logotipo en SVG —nítido en cualquier
-pantalla y más ligero— y de paso se confirman los hexadecimales contra los
-que muestreé.
+Los archivos que se usan son PNG recortados de su hoja, convertidos a máscara.
+A los tamaños en que aparecen —hasta 300 px en la portada— se ven bien. Si
+alguna vez hiciera falta más grande, el SVG saldría de ese Canva.
 
 ---
 
@@ -217,8 +215,7 @@ cosa y empieza la siguiente, así que lo lee todo como un bloque.
 
 ## 6. Lo que sigue pendiente
 
-1. **El logotipo en SVG**, exportado desde su Canva.
-2. **Trend Sans One** para web: archivos `.woff2` y licencia de uso web.
+1. **Trend Sans One** para web: archivos `.woff2` y licencia de uso web.
 4. **La foto real del consultorio.**
 5. **El número de la calle:** su documento dice #102; la última indicación, 808.
 6. **La coordenada exacta**, que ahora cae en la calle y no en el número.

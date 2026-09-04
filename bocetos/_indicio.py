@@ -43,16 +43,24 @@ MOTIVOS = [u'Depresi\u00f3n', u'Regulaci\u00f3n emocional',
 # Formacion. Tomada de la tabla de su documento -no de la version anterior
 # del sitio, que traia cinco instituciones cambiadas y dos estudios de menos-.
 # Cada registro es (estudio, institucion, fechas), ordenado del mas reciente.
+# Formacion. Tomada de la tabla de su documento -no de la version anterior
+# del sitio, que traia cinco instituciones cambiadas y dos estudios de menos-.
+# Cada registro es (estudio, institucion, fechas).
+#
+# El orden es por rango academico, no por fecha: primero la licenciatura, que
+# es el titulo que habilita, luego la maestria, despues certificaciones y
+# diplomados, y al final cursos y seminarios. Quien lee credenciales busca
+# primero el grado, no el ano.
 CLINICA = [
- (u'Diplomado en Psicoterapia Infantojuvenil', u'CAPCIA', u'Ago 2026 – en curso'),
+ (u'Licenciatura en Psicología', u'Universidad Mondragón México', u'Ago 2020 – may 2024'),
  (u'Maestría en Psicoterapia Cognitivo Conductual', u'Centro de Psicoterapia Cognitiva', u'May 2026 – en curso'),
  (u'Diplomado en Psicoterapia Cognitivo Conductual', u'UAQ · IMFAPSI', u'Ene – nov 2025'),
- (u'Licenciatura en Psicología', u'Universidad Mondragón México', u'Ago 2020 – may 2024')]
+ (u'Diplomado en Psicoterapia Infantojuvenil', u'CAPCIA', u'Ago 2026 – en curso')]
 
 FORENSE = [
  (u'Maestría en Investigación y Evaluación Criminal y Forense', u'Instituto de Ciencia Aplicada', u'May 2024 – may 2026'),
- (u'Curso de elaboración de peritajes judiciales', u'Poder Judicial del Estado de Querétaro', u'Mayo 2025'),
  (u'Certificación en Análisis de Contexto en la Investigación Criminal', u'Consejo Certificador en Psicología Forense', u'Mar – may 2025'),
+ (u'Curso de elaboración de peritajes judiciales', u'Poder Judicial del Estado de Querétaro', u'Mayo 2025'),
  (u'Curso-taller de peritajes psicológicos en guarda y custodia', u'FORENPSIC · con perspectiva de infancia', u'Feb – may 2025'),
  (u'Seminario en disociación y trauma en víctimas de violencia', u'Instituto de Ciencia Aplicada', u'Sep – dic 2024'),
  (u'Curso de elaboración de peritaje psicológico', u'Centro de SubjetividadEs, Identidad Clínica y Forense', u'Julio 2024')]
