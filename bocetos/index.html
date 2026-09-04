@@ -4,207 +4,125 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F0E9DB">
-<title>Bocetos · Thania Huerta</title>
+<meta name="theme-color" content="#FAF7F2">
+<title>Indicio · dos propuestas</title>
+<link rel="icon" href="../assets/img/indicio-sello.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300..600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="_base.css">
-<link rel="stylesheet" href="_mc.css">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300..700&family=Jost:wght@200..600&display=swap" rel="stylesheet">
 <style>
-body{font-family:'Archivo',system-ui,sans-serif;padding-bottom:0}
-h1,h2,h3{font-family:'Jost',system-ui,sans-serif;font-weight:500;letter-spacing:-.015em}
-.w{width:min(100% - 2.4rem,1180px);margin-inline:auto}
+:root{
+  --terracota:#B84A22; --negro:#000000; --mostaza:#C9A22B;
+  --olivo:#5F6B4F; --arena:#D5C0A6; --cacao:#4A2E24;
+  --blanco:#FFFFFF; --hueso:#FAF7F2; --linea:rgba(0,0,0,.13);
+  --disp:'Jost',system-ui,sans-serif; --txt:'Raleway',system-ui,sans-serif;
+  --e:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--txt);background:var(--hueso);color:var(--negro);line-height:1.65}
+img,svg{max-width:100%;display:block}
+p{margin:0}
+h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spacing:-.015em}
+.w{width:min(100% - 2.4rem,1120px);margin-inline:auto}
 
-.cab{padding:clamp(2rem,5vw,3.2rem) 0 clamp(1.6rem,3vw,2.4rem)}
-.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:.5rem}
-.pal div{background:var(--papel);border-bottom:3px solid var(--urbano)}
-.pal i{display:block;height:3.4rem}
-.pal b{display:block;font-size:.8rem;padding:.55rem .65rem .05rem;font-weight:600}
-.pal code{display:block;font-size:.66rem;color:var(--suave);padding:0 .65rem .55rem}
+/* Solo la paleta arriba, como pidió: nada de texto que la distraiga */
+.pal{padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.8rem,4vw,2.6rem)}
+.pal__g{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.9rem}
+.pal__c{text-align:center}
+.pal__c i{display:block;aspect-ratio:1;border-radius:50%;margin-bottom:.7rem;
+  box-shadow:0 10px 26px -18px rgba(0,0,0,.6)}
+.pal__c b{display:block;font-family:var(--disp);font-size:.9rem;font-weight:500}
+.pal__c code{display:block;font-size:.72rem;opacity:.6;letter-spacing:.04em;margin-top:.15rem}
 
-.rej{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
-.bo{display:block;background:var(--papel);text-decoration:none;color:inherit;
-  border-bottom:6px solid var(--urbano);
-  transition:transform .4s var(--e),border-color .4s var(--e)}
-.bo:hover{transform:translateY(-4px);border-bottom-color:var(--barro-hondo)}
-.bo__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff;
-  border-bottom:1px solid var(--linea)}
-.bo__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
+.dest{padding:0 0 clamp(3rem,7vw,5rem);display:grid;gap:clamp(1.2rem,3vw,2rem)}
+.t{display:grid;grid-template-columns:1.08fr .92fr;background:var(--blanco);
+  border:1px solid var(--linea);text-decoration:none;color:inherit;overflow:hidden;
+  transition:transform .45s var(--e),box-shadow .45s var(--e)}
+.t:hover{transform:translateY(-4px);box-shadow:0 28px 60px -34px rgba(0,0,0,.5)}
+.t__p{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--hueso);
+  border-right:1px solid var(--linea)}
+.t__p iframe{position:absolute;top:0;left:0;width:1280px;height:880px;border:0;
   transform:scale(var(--s,.42));transform-origin:0 0;pointer-events:none}
-.bo__t{padding:1.3rem 1.4rem 1.5rem}
-.bo__e{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--barro-hondo);margin-bottom:.5rem}
-.bo h3{font-size:1.3rem;margin-bottom:.55rem}
-.bo__d{font-size:.92rem;color:var(--suave);line-height:1.6}
-.bo__l{list-style:none;padding:0;margin:.9rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
-.bo__l li{font-size:.7rem;border:1px solid var(--linea);padding:.26rem .65rem;color:var(--suave)}
-.bo__b{display:block;font-size:.88rem;font-weight:700;color:var(--barro-hondo);margin-top:.9rem}
-
-.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:.8rem;
-  margin-top:clamp(2.4rem,5vw,3.6rem)}
-.nota{background:var(--lana);padding:1.1rem 1.2rem;border-bottom:4px solid var(--cilantro)}
-.nota b{display:block;font-family:'Jost',sans-serif;font-size:.96rem;margin-bottom:.3rem;color:var(--bronce)}
-.nota p{font-size:.86rem;color:var(--suave);line-height:1.55}
-.pie{margin-top:clamp(2.4rem,5vw,3.4rem)}
+.t__x{padding:clamp(1.5rem,3.2vw,2.4rem);display:flex;flex-direction:column;
+  justify-content:center;gap:.8rem}
+.t__e{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--terracota)}
+.t h2{font-size:clamp(1.4rem,3vw,2rem)}
+.t__d{font-size:.95rem;opacity:.78}
+.t__l{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.t__l li{font-size:.72rem;border:1px solid var(--linea);padding:.32rem .8rem;opacity:.8}
+.t__b{font-size:.9rem;font-weight:700;color:var(--terracota)}
+@media(max-width:760px){
+  .t{grid-template-columns:1fr}
+  .t__p{border-right:0;border-bottom:1px solid var(--linea);aspect-ratio:16/10}
+}
 </style>
 </head>
 <body>
 
-<header class="cab"><div class="w">
-  <div class="pal">
-    <div><i style="background:#F0E9DB"></i><b>Crema</b><code>#F0E9DB</code></div>
-    <div><i style="background:#D9CFBA"></i><b>Wool Skein</b><code>SW 6148</code></div>
-    <div><i style="background:#575449"></i><b>Bronze Green</b><code>SW 2846</code></div>
-    <div><i style="background:#537150"></i><b>Cilantro</b><code>SW 6453</code></div>
-    <div><i style="background:#54504A"></i><b>Urbane Bronze</b><code>SW 7048</code></div>
-    <div><i style="background:#533640"></i><b>Blackberry</b><code>SW 7577</code></div>
-    <div><i style="background:#CB7841"></i><b>Rhumba Orange</b><code>SW 6642</code></div>
-    <div><i style="background:#C4B47D"></i><b>Cool Avocado</b><code>SW 9029</code></div>
-  </div>
-</div></header>
+<section class="w pal"><div class="pal__g">
+  <div class="pal__c"><i style="background:#B84A22"></i><b>Terracota</b><code>#B84A22</code></div>
+  <div class="pal__c"><i style="background:#000000"></i><b>Negro</b><code>#000000</code></div>
+  <div class="pal__c"><i style="background:#C9A22B"></i><b>Mostaza</b><code>#C9A22B</code></div>
+  <div class="pal__c"><i style="background:#5F6B4F"></i><b>Olivo</b><code>#5F6B4F</code></div>
+  <div class="pal__c"><i style="background:#D5C0A6"></i><b>Arena</b><code>#D5C0A6</code></div>
+  <div class="pal__c"><i style="background:#4A2E24"></i><b>Cacao</b><code>#4A2E24</code></div>
+</div></section>
 
-<main class="w"><div class="rej">
+<main class="w dest">
 
-  <a class="bo" href="propuesta-2.html">
-    <div class="bo__p"><iframe data-src="propuesta-2.html" title="Vista previa de Con textura" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Materiales dibujados</p>
-      <h3>Con textura</h3>
-      <p class="bo__d">
-        Arco en el retrato, forma cónica, azulejo vidriado y grano de papel.
-        La versión más decorada de todas: el carácter lo llevan los elementos
-        dibujados y no solo el color.
+  <a class="t" href="reticula.html">
+    <div class="t__p"><iframe data-src="reticula.html" title="Vista previa de Retícula" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="t__x">
+      <p class="t__e">Propuesta 1</p>
+      <h2>Retícula</h2>
+      <p class="t__d">
+        En claro. Retícula visible, esquinas rectas y todo alineado a columna.
+        Cada sección cambia de fondo —blanco, olivo, hueso, arena— para que la
+        información deje de leerse como un solo bloque.
       </p>
-      <ul class="bo__l"><li>Bitter · Jost</li><li>Arco y azulejo</li><li>Grano de papel</li></ul>
-      <span class="bo__b">Abrir Con textura →</span>
+      <ul class="t__l">
+        <li>Jost · Raleway</li>
+        <li>Fondo claro</li>
+        <li>Apertura numerada</li>
+        <li>Supuestos en fichas</li>
+      </ul>
+      <span class="t__b">Abrir Retícula →</span>
     </div>
   </a>
 
-  <a class="bo" href="propuesta-4.html">
-    <div class="bo__p"><iframe data-src="propuesta-4.html" title="Vista previa de Mosaico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Azulejo mid-century</p>
-      <h3>Mosaico</h3>
-      <p class="bo__d">
-        Los motivos de tu segunda imagen —pétalos, círculos concéntricos,
-        estrellas de cuatro puntas y abanicos— dibujados una vez y repetidos
-        por toda la página.
+  <a class="t" href="atomico.html">
+    <div class="t__p"><iframe data-src="atomico.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+    <div class="t__x">
+      <p class="t__e">Propuesta 2</p>
+      <h2>Atómico</h2>
+      <p class="t__d">
+        En oscuro, centrado, con la voluta del logotipo de filigrana. Alterna
+        cacao, negro y olivo, y abre en arena al llegar al consultorio, para
+        que la lectura respire y no sea un bloque continuo.
       </p>
-      <ul class="bo__l"><li>Outfit · Karla</li><li>Azulejos dibujados</li><li>Retícula de mosaico</li></ul>
-      <span class="bo__b">Abrir Mosaico →</span>
+      <ul class="t__l">
+        <li>Jost · Raleway</li>
+        <li>Fondo oscuro</li>
+        <li>Voluta de filigrana</li>
+        <li>Cierre en terracota</li>
+      </ul>
+      <span class="t__b">Abrir Atómico →</span>
     </div>
   </a>
-
-  <a class="bo" href="mc-reticula.html">
-    <div class="bo__p"><iframe data-src="mc-reticula.html" title="Vista previa de Retícula" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Estructura suiza · con la paleta</p>
-      <h3>Retícula</h3>
-      <p class="bo__d">
-        La retícula se dibuja, con sus doce filetes a la vista. Ahora el color
-        entra a la manera suiza: campos medidos en columnas en la portada, y
-        cada sección con su fondo —lino, bronce, cilantro y vino.
-      </p>
-      <ul class="bo__l"><li>Archivo</li><li>Retícula visible</li><li>Campos de color</li><li>Cinco fondos</li></ul>
-      <span class="bo__b">Abrir Retícula →</span>
-    </div>
-  </a>
-
-  <a class="bo" href="propuesta-5.html">
-    <div class="bo__p"><iframe data-src="propuesta-5.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Oscuro · con más madera</p>
-      <h3>Atómico</h3>
-      <p class="bo__d">
-        El fondo deja de ser verde y pasa a ser madera oscura. El verde ahora
-        es un panel entre varios, junto al vino, así que la página se lee
-        mid-century y no monocroma. Los acentos son aguacate y barro.
-      </p>
-      <ul class="bo__l"><li>Josefin Sans · Lora</li><li>Madera oscura</li><li>Paneles verde y vino</li><li>Estrella atómica</li></ul>
-      <span class="bo__b">Abrir Atómico →</span>
-    </div>
-  </a>
-
-  <a class="bo" href="mc-credenza.html">
-    <div class="bo__p"><iframe data-src="mc-credenza.html" title="Vista previa de Credenza" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Materiales y horizontalidad</p>
-      <h3>Credenza</h3>
-      <p class="bo__d">
-        Todo se lee en franjas anchas y bajas, como un mueble de los sesenta:
-        la madera abajo sosteniendo cada franja y el contenido apaisado en
-        filas. Los estratos de color son el canto del mueble.
-      </p>
-      <ul class="bo__l"><li>Jost · Archivo</li><li>Franjas horizontales</li><li>Madera como base</li></ul>
-      <span class="bo__b">Abrir Credenza →</span>
-    </div>
-  </a>
-
-  <a class="bo" href="mc-silueta.html">
-    <div class="bo__p"><iframe data-src="mc-silueta.html" title="Vista previa de Silueta" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Formas recortadas</p>
-      <h3>Silueta</h3>
-      <p class="bo__d">
-        Los planos de color macizo de Saul Bass, sin contorno y en composición
-        asimétrica. Las formas no van encima como adorno: son el fondo de cada
-        sección y lo que separa una de otra.
-      </p>
-      <ul class="bo__l"><li>Jost · Archivo</li><li>Planos recortados</li><li>Asimetría</li></ul>
-      <span class="bo__b">Abrir Silueta →</span>
-    </div>
-  </a>
-
-  <a class="bo" href="mc-ventanal.html">
-    <div class="bo__p"><iframe data-src="mc-ventanal.html" title="Vista previa de Ventanal" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Dentro y fuera se funden</p>
-      <h3>Ventanal</h3>
-      <p class="bo__d">
-        El rasgo que definió la arquitectura del estilo. Bloques a sangre,
-        verde profundo y, sobre todo, aire: los ventanales de la época
-        existían para dejar entrar el vacío y la luz.
-      </p>
-      <ul class="bo__l"><li>Outfit · Hanken Grotesk</li><li>Bloques a sangre</li><li>Mucho aire</li></ul>
-      <span class="bo__b">Abrir Ventanal →</span>
-    </div>
-  </a>
-
-  <a class="bo" href="propuesta.html">
-    <div class="bo__p"><iframe data-src="propuesta.html" title="Vista previa de Sin adornos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
-    <div class="bo__t">
-      <p class="bo__e">Sombras difusas</p>
-      <h3>Sin adornos</h3>
-      <p class="bo__d">
-        Sombras difusas y teñidas, tinta gris cálida en vez de negra y
-        titulares que hablan en segunda persona. Sale de leer el código de la
-        página que compartiste.
-      </p>
-      <ul class="bo__l"><li>Petrona · Hanken Grotesk</li><li>Superficies lisas</li><li>Sombras difusas</li></ul>
-      <span class="bo__b">Abrir Sin adornos →</span>
-    </div>
-  </a>
-
-</div>
-
 
 </main>
 
-<footer class="fin pie"><div class="w">
- 
-</div></footer>
-
 <script>
 function ajustar(){
-  document.querySelectorAll('.bo__p').forEach(function(t){
+  document.querySelectorAll('.t__p').forEach(function(t){
     t.style.setProperty('--s', t.clientWidth / 1280);
   });
 }
 ajustar();
 window.addEventListener('resize', ajustar, { passive:true });
 window.addEventListener('load', ajustar);
-// Cada vista previa carga solo cuando su tarjeta se acerca a pantalla
+// Las vistas previas cargan solo cuando su tarjeta se acerca a pantalla
 (function(){
   var fs = document.querySelectorAll('iframe[data-src]');
   if (!fs.length) return;
@@ -218,7 +136,7 @@ window.addEventListener('load', ajustar);
       e.target.src = e.target.dataset.src;
       ob.unobserve(e.target);
     });
-  }, { rootMargin:'320px' });
+  }, { rootMargin:'300px' });
   Array.prototype.forEach.call(fs, function(f){ ob.observe(f); });
 })();
 </script>

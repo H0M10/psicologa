@@ -1,0 +1,108 @@
+/* ============================================================================
+   INDICIO · hoja de marca
+   Paleta, tipografía y las piezas que los dos bocetos comparten.
+   Lo que cambia entre ellos vive en _reticula.css y _atomico.css.
+   ========================================================================== */
+:root{
+  /* Su paleta, leída de la hoja de marca */
+  --terracota:#B84A22;
+  --negro:#000000;
+  --mostaza:#C9A22B;
+  --olivo:#5F6B4F;
+  --arena:#D5C0A6;
+  --cacao:#4A2E24;
+
+  /* Derivados. Su hoja está sobre blanco, así que el claro sale de ahí;
+     los otros dos son la misma familia aclarada, para tener superficies. */
+  --blanco:#FFFFFF;
+  --hueso:#FAF7F2;
+  --arena-cl:#EDE3D4;
+  --cacao-2:#5C3B2F;
+  --olivo-cl:#7C8768;
+
+  /* Trend Sans One es de licencia comercial y no está en Google Fonts.
+     Jost sustituye mientras llegan los archivos: mismo registro geométrico,
+     trazo uniforme y «O» casi circular. Raleway sí es la suya. */
+  --disp:'Jost',system-ui,-apple-system,sans-serif;
+  --txt:'Raleway',system-ui,-apple-system,sans-serif;
+  --e:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;font-family:var(--txt);line-height:1.68;overflow-x:clip;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+img,svg{max-width:100%;display:block}
+p{margin:0;max-width:66ch}
+h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
+.w{width:min(100% - 2.4rem,1120px);margin-inline:auto}
+
+/* ── La marca ── */
+.mk{width:auto;flex:none}
+.mk--p{height:clamp(64px,9vw,88px);margin-bottom:1rem}
+.mk--c{height:52px;margin:0 auto 1.4rem}
+.mk--f{height:44px}
+.lock__n{font-family:var(--disp);font-weight:300;font-size:clamp(1.5rem,3.4vw,2rem);
+  letter-spacing:.42em;text-indent:.42em;line-height:1}
+.lock__b{font-family:var(--txt);font-size:.68rem;font-weight:500;
+  letter-spacing:.24em;text-transform:uppercase;margin-top:.55rem;opacity:.72}
+
+/* ── Apertura de sección ────────────────────────────────────────────────
+   Es la pieza que arregla lo que ella notó: antes toda la información
+   empezaba igual y se leía como un solo bloque. Ahora cada sección abre
+   con número, nombre y titular, y eso da dónde parar la vista. */
+.cab{max-width:46rem;padding-bottom:clamp(1.6rem,3vw,2.2rem);margin-bottom:clamp(1.8rem,4vw,2.8rem)}
+.cab__n{font-family:var(--disp);font-weight:300;font-size:clamp(2.6rem,7vw,4.4rem);
+  line-height:.9;opacity:.2;margin-bottom:.4rem}
+.cab__k{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:.9rem}
+.cab h2{font-size:clamp(1.6rem,4.2vw,2.6rem);font-weight:400;letter-spacing:-.015em}
+.cab__d{margin-top:1rem;font-size:1.04rem;opacity:.78}
+
+/* ── Botones ── */
+.b{display:inline-flex;align-items:center;justify-content:center;min-height:52px;
+  padding:.85rem 1.6rem;font-family:var(--txt);font-size:.95rem;font-weight:600;
+  text-decoration:none;cursor:pointer;border:1.5px solid transparent;
+  transition:transform .32s var(--e),background-color .32s var(--e)}
+.b:hover{transform:translateY(-2px)}
+.b--p{background:var(--terracota);color:#fff;border-color:var(--terracota)}
+.b--s{background:transparent;color:inherit;border-color:currentColor}
+.rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:.65rem;margin-top:1rem}
+.rutas--2{grid-template-columns:repeat(auto-fit,minmax(212px,1fr));margin-top:1.8rem}
+
+/* ── Mapa ── */
+.mapa-caja{position:relative;overflow:hidden;margin-top:.5rem}
+#mapa{height:clamp(280px,44vh,420px);width:100%;background:var(--arena-cl)}
+.leaflet-container{font-family:var(--txt)}
+.pin{display:grid;place-items:center;width:28px;height:28px;background:var(--terracota);
+  border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
+.pin__c{width:8px;height:8px;border-radius:50%;background:var(--arena)}
+.mapa-toque{position:absolute;inset:0;z-index:500;display:grid;place-items:center;
+  background:rgba(74,46,36,.5);color:#fff;font:inherit;font-weight:600;border:0;cursor:pointer}
+.mapa-toque[hidden]{display:none}
+.mapa-aviso{padding:1rem;text-align:center}
+
+/* ── Datos prácticos ── */
+.datos{margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0 2rem}
+.datos>div{padding:1rem 0}
+.datos dt{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:.3rem;opacity:.72}
+.datos dd{margin:0;font-size:.96rem}
+.datos dd span{display:block;font-size:.87rem;opacity:.72;margin-top:.15rem}
+
+/* ── Cierre y pie ── */
+.cierre{padding:clamp(3.4rem,8vw,5.6rem) 0;text-align:center}
+.cierre h2{font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:400}
+.cierre p{margin:1.1rem auto 0;max-width:48ch;opacity:.82}
+.cierre .rutas{max-width:34rem;margin-inline:auto}
+.fin{padding:2.4rem 0}
+.fin__g{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.4rem}
+.fin__m{display:flex;align-items:center;gap:.9rem}
+.fin__m b{font-family:var(--disp);font-weight:300;font-size:1.05rem;letter-spacing:.3em;line-height:1.2}
+.fin__m span{display:block;font-family:var(--txt);font-size:.7rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;opacity:.68;margin-top:.3rem}
+.fin__d{font-size:.84rem;opacity:.76;text-align:right}
+.fin__d p+p{margin-top:.25rem}
+@media(max-width:640px){.fin__d{text-align:left}}

@@ -1,0 +1,126 @@
+/* ============================================================================
+   INDICIO · Atómico
+   Oscuro, centrado, con la voluta de la marca de filigrana. Las secciones
+   alternan cacao, negro, olivo y una de arena que abre en claro: sin ese
+   cambio de fondo todo se leía como un solo bloque.
+   Cada par de color está medido; ninguno baja de 4.5:1.
+   ========================================================================== */
+body{background:var(--cacao);color:var(--arena);font-size:1.02rem}
+a{color:var(--mostaza)}
+:focus-visible{outline:2.5px solid var(--mostaza);outline-offset:3px}
+
+/* ── Fondos de sección ── */
+.s{padding:clamp(3.6rem,9vw,6.6rem) 0;position:relative}
+.s--cacao{background:var(--cacao);color:var(--arena)}
+.s--negro{background:var(--negro);color:var(--arena)}
+.s--olivo{background:var(--olivo);color:#fff}
+.s--arena{background:var(--arena);color:var(--cacao)}
+
+/* Acentos: en cada fondo, el único tono que llega a 4.5:1 */
+.s--cacao .cab__k,.s--negro .cab__k{color:var(--mostaza)}
+.s--olivo .cab__k{color:#fff}
+.s--olivo a{color:#fff}
+.s--arena .cab__k,.s--arena a{color:var(--cacao)}
+.s--arena .cab__n{opacity:.26}
+
+/* ── Portada, centrada, con la voluta detrás ── */
+.pt{position:relative;overflow:hidden;background:var(--cacao);
+  padding:clamp(3.4rem,9vw,6rem) 0 clamp(3rem,7vw,5rem);text-align:center}
+/* La filigrana va detrás de todo: si compartiera regla con el contenido
+   perdería el position y empujaría el texto hacia abajo. */
+.pt::after{content:'';position:absolute;top:50%;left:50%;width:min(86vw,720px);
+  aspect-ratio:200/300;transform:translate(-50%,-50%);opacity:.055;pointer-events:none;
+  background:currentColor;
+  -webkit-mask:url(../assets/img/indicio-marca.svg) center/contain no-repeat;
+  mask:url(../assets/img/indicio-marca.svg) center/contain no-repeat}
+.pt>.w{position:relative;z-index:1}
+.pt__g{display:grid;gap:clamp(2.2rem,5vw,3.4rem);justify-items:center}
+.lock .mk{color:var(--mostaza);margin-inline:auto}
+.lock__n{color:#fff}
+.pt h1{font-size:clamp(1.9rem,4.8vw,3.2rem);font-weight:200;letter-spacing:-.01em;
+  max-width:20ch;margin-inline:auto}
+.pt h1 em{font-style:normal;font-weight:400;color:var(--mostaza)}
+.pt__d{margin:1.3rem auto 0;font-size:1.06rem;max-width:44ch;opacity:.84}
+.pt .rutas--2{max-width:32rem;margin-inline:auto}
+/* Credenciales en fila, separadas por filete */
+.firma{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  gap:0;width:100%;border-top:1px solid rgba(213,192,166,.24)}
+.firma>div{padding:1.1rem .8rem;text-align:center;border-right:1px solid rgba(213,192,166,.24)}
+.firma>div:last-child{border-right:0}
+.firma dt{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.66}
+.firma dd{margin:.35rem 0 0;font-family:var(--disp);font-size:1rem;font-weight:300;color:#fff}
+
+/* ── Apertura de sección, centrada ── */
+.cab{max-width:44rem;margin-inline:auto;text-align:center;border-bottom:0;
+  padding-bottom:clamp(1.4rem,3vw,2rem)}
+.cab__n{font-weight:200;opacity:.24}
+.cab h2{font-weight:300}
+.cab__d{margin-inline:auto}
+
+/* ── Supuestos: fichas con filete, en dos columnas ── */
+.sup{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:.7rem}
+.sup li{display:flex;gap:1rem;align-items:baseline;padding:1.1rem 1.3rem;
+  background:rgba(255,255,255,.07);border-left:3px solid #fff;border-radius:0 10px 10px 0}
+.sup__n{flex:none;font-family:var(--disp);font-size:.82rem;font-weight:500;letter-spacing:.12em;
+  opacity:.72}
+.sup__t{font-size:.99rem;line-height:1.45}
+
+/* ── Motivos: pastillas ── */
+.mot{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;
+  justify-content:center}
+.mot li{padding:.72rem 1.2rem;border-radius:999px;font-size:.95rem;
+  background:rgba(213,192,166,.1);border:1px solid rgba(213,192,166,.3)}
+.mot li:nth-child(4n+1){border-color:var(--mostaza);color:var(--mostaza)}
+
+/* ── Biografía ── */
+.bio__lead{font-family:var(--disp);font-size:clamp(1.12rem,2.5vw,1.46rem);font-weight:200;
+  line-height:1.55;max-width:46ch;margin:0 auto clamp(2.2rem,4vw,3rem);text-align:center;color:#fff}
+.bio{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:1.8rem}
+.bio__b h3{font-family:var(--txt);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mostaza);padding-bottom:.7rem;margin-bottom:.9rem;
+  border-bottom:1px solid rgba(213,192,166,.22)}
+.bio__b p{font-size:.95rem;opacity:.88}
+.cita{margin:clamp(2.6rem,5vw,3.6rem) auto 0;max-width:36rem;text-align:center;padding:0}
+.cita p{font-family:var(--disp);font-size:clamp(1.2rem,2.9vw,1.72rem);font-weight:200;
+  color:var(--mostaza);margin-inline:auto}
+
+/* ── Par de tarjetas ── */
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1rem;margin-top:1.8rem}
+.par__c{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.26);
+  border-radius:14px;padding:1.6rem;text-align:left}
+.par__c--acc{background:#fff;color:var(--cacao);border-color:#fff}
+.par__c--acc a{color:var(--terracota)}
+.par__c h3{font-size:1.06rem;font-weight:500;margin-bottom:.6rem}
+.par__c p{font-size:.94rem}
+.par__l{margin-top:1rem;font-weight:700}
+
+/* ── Formación ── */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.via{background:rgba(255,255,255,.06);border:1px solid rgba(213,192,166,.2);
+  border-radius:14px;padding:1.6rem}
+.via h3{font-family:var(--txt);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mostaza);padding-bottom:.8rem;
+  border-bottom:1px solid rgba(213,192,166,.22)}
+.via ol{list-style:none;margin:0;padding:0}
+.via li{padding:.85rem 0;border-bottom:1px solid rgba(213,192,166,.16)}
+.via li:last-child{border-bottom:0}
+.via strong{display:block;font-size:.94rem;font-weight:600;line-height:1.45;color:#fff}
+.via em{display:block;font-style:normal;font-size:.82rem;margin-top:.2rem;opacity:.8}
+
+/* ── Mapa, cierre y pie ── */
+.mapa-caja{border-radius:14px;border:1px solid rgba(74,46,36,.3)}
+.datos>div{border-bottom:1px solid rgba(74,46,36,.22)}
+.cierre{background:var(--terracota);color:#fff}
+.cierre .mk{color:rgba(255,255,255,.9)}
+.cierre .b--p{background:#fff;color:var(--terracota);border-color:#fff}
+.cierre .b--s{border-color:rgba(255,255,255,.6)}
+.fin{background:var(--negro);color:var(--arena)}
+.fin .mk{color:var(--mostaza)}
+.fin__m b{color:#fff}
+
+@media(max-width:860px){
+  .firma>div{border-right:0;border-bottom:1px solid rgba(213,192,166,.24)}
+  .firma>div:last-child{border-bottom:0}
+  .par__c{text-align:left}
+}
