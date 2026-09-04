@@ -14,21 +14,11 @@ a{color:var(--terracota)}
 /* Filete grueso arriba de cada sección, como el parteluz de un ventanal.
    Donde el salto de fondo es corto, es lo que anuncia el corte. */
 .s{padding:clamp(4.4rem,11vw,8rem) 0;border-top:5px solid var(--terracota)}
-.s--blanco{background:var(--blanco)}
-.s--arenacl{background:var(--arena-cl)}
-.s--arena{background:var(--arena);color:var(--negro);border-top-color:var(--cacao)}
-.s--olivo{background:var(--olivo);color:#fff;border-top-color:var(--cacao)}
-.s--cacao{background:var(--cacao);color:var(--arena);border-top-color:var(--arena)}
 
 /* En cada fondo, el único acento que llega a 4.5:1 con la paleta real */
-.s--blanco .cab__k,.s--arenacl .cab__k{color:var(--terracota)}
-.s--olivo .cab__k,.s--olivo a{color:#fff}
-.s--arena .cab__k,.s--arena a{color:var(--cacao)}
-.s--cacao .cab__k,.s--cacao a{color:var(--arena)}
-.s--arena .cab__n,.s--cacao .cab__n{opacity:.3}
 
 /* ── Portada: un ventanal. El logotipo a un lado, el vacío al otro ── */
-.pt{position:relative;background:var(--blanco);overflow:hidden;
+.pt{position:relative;overflow:hidden;
   padding:clamp(3rem,8vw,6rem) 0 clamp(3.4rem,9vw,6.4rem)}
 /* El patrón de volutas de su marca, muy tenue, hace de textura */
 .pt::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;
@@ -47,7 +37,8 @@ a{color:var(--terracota)}
 /* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
 .firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--negro)}
-.firma>div{background:var(--blanco);padding:1.3rem 1.4rem}
+/* Los paños ponen fondo propio, así que ponen también su texto */
+.firma>div{background:var(--blanco);color:var(--negro);padding:1.3rem 1.4rem}
 .firma dt{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.58}
 .firma dd{margin:.4rem 0 0;font-family:var(--disp);font-size:1.08rem;font-weight:300}
 
@@ -60,7 +51,7 @@ a{color:var(--terracota)}
 .sup{list-style:none;margin:0;padding:0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
   background:color-mix(in srgb,#fff 34%,transparent)}
-.sup li{background:var(--olivo);padding:1.8rem 1.6rem;display:flex;flex-direction:column;
+.sup li{background:var(--olivo);color:#fff;padding:1.8rem 1.6rem;display:flex;flex-direction:column;
   gap:.9rem;min-height:9.5rem}
 .sup__n{font-family:var(--disp);font-size:2rem;font-weight:200;line-height:1;opacity:.5}
 .sup__t{font-size:1.02rem;line-height:1.45}
@@ -68,8 +59,9 @@ a{color:var(--terracota)}
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
   margin-top:3px;background:color-mix(in srgb,#fff 34%,transparent)}
-.par__c{background:var(--olivo);padding:1.8rem 1.6rem}
-.par__c--acc{background:#fff;color:var(--negro)}
+/* El fondo lo pone el sistema; aquí solo el aire */
+.par__c{padding:1.8rem 1.6rem}
+
 .par__c--acc a{color:var(--terracota)}
 .par__c h3{font-size:1.1rem;font-weight:400;margin-bottom:.7rem}
 .par__c p{font-size:.95rem}
@@ -81,9 +73,8 @@ a{color:var(--terracota)}
 .datos>div{border-bottom:1px solid rgba(0,0,0,.16)}
 
 /* ── Cierre y pie ── */
-.cierre{background:var(--olivo);color:#fff;padding:clamp(4rem,10vw,7rem) 0;
-  border-top:5px solid var(--cacao)}
-.cierre .sl{color:#fff}
+.cierre{padding:clamp(4rem,10vw,7rem) 0;border-top:5px solid var(--cacao)}
+.cierre .sl{color:var(--acc)}
 .cierre .b--p{background:#fff;color:var(--olivo);border-color:#fff}
 .cierre .b--s{border-color:rgba(255,255,255,.62)}
 .fin{background:var(--negro);color:var(--arena)}
@@ -99,21 +90,17 @@ a{color:var(--terracota)}
 
 /* ── Índice: paños con parteluz, como el resto del boceto ── */
 .idx{gap:3px;background:rgba(0,0,0,.16)}
-.idx__c{background:var(--blanco)}
+
 .idx__c:hover{transform:none;background:var(--arena-cl)}
-.idx__k{color:var(--terracota)}
-.idx__c--f .idx__k{color:var(--olivo)}
-.idx__b{color:var(--terracota)}
+
+.idx__c--f 
 
 /* ── Psicoterapia sobre blanco, con mucho aire ── */
 .mot{max-width:30ch;font-size:clamp(1.15rem,2.9vw,1.75rem)}
-.mot li::after{background:var(--olivo)}
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem}
 .via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;margin-bottom:.4rem;
   border-bottom:2px solid var(--arena)}
-.linea{color:var(--arena)}
-.linea strong{color:#fff}
-.linea li::before{background:var(--arena)}
+

@@ -175,8 +175,8 @@ def bloque_mapa():
     <div><dt>C\u00e9dula</dt><dd>14661976<span>Consejo de Psicolog\u00eda Forense 25-08-63</span></dd></div>
   </dl>''' % (LAT, LNG, LAT, LNG, LAT, LNG, LAT, LNG, TEL)
 
-def bloque_cierre():
-    return u'''<section class="cierre">
+def bloque_cierre(fondo):
+    return u'''<section class="cierre %s">
   <div class="w">
     %s
     <h2>Escr\u00edbeme, sin compromiso</h2>
@@ -195,7 +195,7 @@ def bloque_cierre():
     <p>Psic. Thania Huerta \u00b7 C\u00e9dula profesional 14661976</p>
     <p>Consejo de Psicolog\u00eda Forense 25-08-63 \u00b7 Santiago de Quer\u00e9taro, Qro.</p>
   </div>
-</div></footer>''' % (sello('sl sl--c'), WA, TEL, sello('sl sl--f'))
+</div></footer>''' % (fondo, sello('sl sl--c'), WA, TEL, sello('sl sl--f'))
 
 def cuerpo(clases):
     u"""Orden nuevo: que hace antes de quien es. La biografia son 223 palabras
@@ -269,11 +269,11 @@ def cuerpo(clases):
                   u'Abre la ruta directo en tu aplicaci\u00f3n, o mueve el mapa para '
                   u'reconocer la zona.'),
    bloque_mapa(),
-   bloque_cierre())
+   bloque_cierre(clases[6]))
 
-def portada(clase):
+def portada(clase, fondo):
     return u'''
-<header class="pt %s" id="inicio"><div class="w pt__g">
+<header class="pt %s %s" id="inicio"><div class="w pt__g">
   <div class="pt__t">
     <div class="lock">
       %s
@@ -294,16 +294,16 @@ def portada(clase):
     <div><dt>Consejo de Psicolog\u00eda Forense</dt><dd>25-08-63</dd></div>
     <div><dt>Consultorio</dt><dd>Santiago de Quer\u00e9taro</dd></div>
   </dl>
-</div></header>'''  % (clase, logo('lg lg--p'), WA)
+</div></header>'''  % (clase, fondo, logo('lg lg--p'), WA)
 
 if __name__ == '__main__':
     salidas = [
-      ('reticula.html', u'Indicio \u00b7 Ret\u00edcula', '_reticula.css', '#FAF7F2', 'rt',
-       ['s--arenacl', 's--olivo', 's--blanco', 's--arenacl', 's--blanco', 's--arena']),
-      ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#FAF7F2', 'vn',
-       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--cacao', 's--blanco']),
+      ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#E5DACA', 'rt',
+       ['s--arenacl', 's--olivo', 's--blanco', 's--arena', 's--blanco', 's--arena', 's--olivo', 's--arenacl']),
+      ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#5C6046', 'vn',
+       ['s--olivo', 's--blanco', 's--olivo', 's--blanco', 's--cacao', 's--arenacl', 's--cacao', 's--arenacl']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
-        h = cabeza(tit, css, tema) + portada(cl) + cuerpo(fondos) + pie()
+        h = cabeza(tit, css, tema) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()
         io.open(D + arch, 'w', encoding='utf-8').write(h)
         print('%-16s %6d bytes' % (arch, os.path.getsize(D + arch)))

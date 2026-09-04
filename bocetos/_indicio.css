@@ -162,3 +162,56 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
   width:9px;height:9px;border-radius:50%;background:currentColor}
 .linea strong{display:block;font-size:.95rem;font-weight:600;line-height:1.45}
 .linea em{display:block;font-style:normal;font-size:.82rem;margin-top:.2rem;opacity:.76}
+
+/* ── Sistema de fondos ───────────────────────────────────────────────────
+   Cada fondo declara TODO lo que va encima: texto, acento, filete, color de
+   ficha y color sobre la ficha. Los componentes no nombran colores, usan
+   estos tokens.
+
+   Antes las reglas de color estaban atadas a qué sección era —el acento de
+   «forense», el filete de «formación»— así que cada vez que se reordenaban
+   las secciones algo se quedaba sin contraste. Con esto, cualquier sección
+   puede llevar cualquier fondo y nada se pierde.
+
+   Los cinco pares texto/fondo están medidos y ninguno baja de 4.5:1. */
+.s,.pt,.cierre{color:var(--fg)}
+.s--blanco{background:var(--blanco);
+  --fg:var(--negro); --fg2:rgba(0,0,0,.72); --acc:var(--terracota);
+  --rule:rgba(0,0,0,.16); --card:var(--arena-cl); --oncard:var(--negro)}
+.s--arenacl{background:var(--arena-cl);
+  --fg:var(--negro); --fg2:rgba(0,0,0,.7); --acc:var(--terracota);
+  --rule:rgba(0,0,0,.2); --card:var(--blanco); --oncard:var(--negro)}
+.s--arena{background:var(--arena);
+  --fg:var(--negro); --fg2:rgba(0,0,0,.72); --acc:var(--cacao);
+  --rule:rgba(0,0,0,.24); --card:var(--blanco); --oncard:var(--negro)}
+.s--olivo{background:var(--olivo);
+  --fg:#fff; --fg2:rgba(255,255,255,.84); --acc:#fff;
+  --rule:rgba(255,255,255,.3); --card:var(--blanco); --oncard:var(--negro)}
+.s--cacao{background:var(--cacao);
+  --fg:var(--arena); --fg2:rgba(199,178,150,.84); --acc:var(--arena);
+  --rule:rgba(199,178,150,.28); --card:var(--arena-cl); --oncard:var(--cacao)}
+.s a{color:var(--acc)}
+.cab__k{color:var(--acc)}
+.cab__d{color:var(--fg2);opacity:1}
+
+/* ── Componentes, todos sobre los tokens del fondo ── */
+.idx__c{background:var(--card);color:var(--oncard)}
+.idx__c .idx__k,.idx__c .idx__b{color:var(--terracota)}
+.idx__c--f .idx__k{color:var(--olivo)}
+.mot li::after{background:var(--acc)}
+.linea{color:var(--fg)}
+.linea::before,.linea li::before{background:var(--acc)}
+.linea em{color:var(--fg2);opacity:1}
+.via h3{color:var(--acc);border-bottom-color:var(--acc)}
+.sup{background:var(--rule)}
+.par__c{background:color-mix(in srgb,var(--fg) 8%,transparent);
+  border-color:var(--rule);color:var(--fg)}
+.par__c--acc{background:var(--card);color:var(--oncard);border-color:var(--card)}
+.par__c--acc a{color:var(--terracota)}
+.par__c p{color:var(--fg2)}
+.par__c--acc p{color:var(--oncard);opacity:.82}
+.bio__b h3{color:var(--acc);border-bottom-color:var(--rule)}
+.bio__b p{color:var(--fg2)}
+.datos>div{border-bottom-color:var(--rule)}
+.datos dt{color:var(--acc);opacity:1}
+.datos dd span{color:var(--fg2);opacity:1}

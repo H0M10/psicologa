@@ -111,11 +111,51 @@ recorta ni se esconde; baja dos secciones.
 > **Es una decisión de criterio, no una regla.** Si prefiere abrir
 > presentándose, se vuelve a subir en un minuto.
 
-### 6 · El corte entre secciones, que ya estaba
+### 6 · El corte entre secciones, rehecho
 
-Los fondos consecutivos ahora saltan lo suficiente para leerse como corte
-—el más corto es 1.38:1, antes había dos a 1.00 y 1.07— y cada sección abre
-con un filete grueso de color de marca.
+Aquí me equivoqué dos veces y ella lo dijo las dos.
+
+**Primero** dejé la portada y la primera sección en el mismo blanco: 1.00:1.
+**Después** metí un claro intermedio y me quedé tranquilo en 1.38:1, con un
+umbral de 1.20 que **me inventé**. Ella volvió a decir que no lo percibía, y
+tenía razón otra vez.
+
+El número real es **3:1**, que es lo que pide WCAG 1.4.11 para que un límite
+entre dos zonas se perciba sin borde. Y medido, su paleta no tiene **dos
+claros que lleguen a 3:1 entre sí**: el máximo es blanco contra arena, 2.05.
+
+O sea: **separar dos secciones claras solo con el fondo es imposible con su
+paleta.** Hay que alternar con los oscuros.
+
+Así que las secuencias dejan de elegirse a ojo. Se buscan por ordenador,
+maximizando el salto más corto, con estas restricciones:
+
+- La portada no abre en blanco. Lo pidió ella.
+- Ningún fondo se usa más de dos veces.
+- El negro solo en el pie.
+- Retícula mantiene mayoría de claros; Ventanal alterna bloques.
+
+| | Antes | Ahora |
+|---|---|---|
+| Retícula · salto mínimo | 1.38 | **2.05** |
+| Ventanal · salto mínimo | 1.38 | **6.53** |
+
+Ventanal abre en **olivo** y Retícula en **arena clara**. Ninguna abre en
+blanco.
+
+### 7 · Y la causa de fondo: el color dejó de depender de la sección
+
+Las reglas de color estaban atadas a *qué sección* era —el acento de
+«forense», el filete de «formación»—. Por eso cada reordenación rompía algo
+y había que ir persiguiendo fallos uno a uno.
+
+Ahora **cada fondo declara todo lo que va encima**: texto, acento, filete,
+color de ficha y color sobre la ficha. Los componentes no nombran colores,
+usan esos tokens. Cualquier sección puede llevar cualquier fondo y nada se
+pierde.
+
+Los mínimos, medidos sobre los archivos generados: **texto 5.67, acento
+4.96**, con AA en 4.5.
 
 ---
 
