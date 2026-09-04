@@ -1,0 +1,127 @@
+/* ============================================================================
+   INDICIO · Ventanal
+   El rasgo que definió la arquitectura del estilo: dentro y fuera se funden.
+   Bloques a sangre, parteluces gruesos como los de un ventanal, y sobre todo
+   aire — los ventanales de la época existían para dejar entrar el vacío.
+   Cada bloque cambia de color: esa es la señal de corte que faltaba.
+   ========================================================================== */
+body{background:var(--hueso);color:var(--negro);font-size:1.03rem}
+a{color:var(--terracota)}
+:focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px}
+.w{width:min(100% - 2.6rem,1180px)}
+
+/* Ritmo amplio: el aire es el material principal de este boceto */
+.s{padding:clamp(4.4rem,11vw,8rem) 0}
+.s--blanco{background:var(--blanco)}
+.s--hueso{background:var(--hueso)}
+.s--arena{background:var(--arena);color:var(--negro)}
+.s--olivo{background:var(--olivo);color:#fff}
+.s--cacao{background:var(--cacao);color:var(--arena)}
+
+/* En cada fondo, el único acento que llega a 4.5:1 con la paleta real */
+.s--blanco .cab__k,.s--hueso .cab__k{color:var(--terracota)}
+.s--olivo .cab__k,.s--olivo a{color:#fff}
+.s--arena .cab__k,.s--arena a{color:var(--cacao)}
+.s--cacao .cab__k,.s--cacao a{color:var(--arena)}
+.s--arena .cab__n,.s--cacao .cab__n{opacity:.3}
+
+/* ── Portada: un ventanal. El logotipo a un lado, el vacío al otro ── */
+.pt{position:relative;background:var(--blanco);overflow:hidden;
+  padding:clamp(3rem,8vw,6rem) 0 clamp(3.4rem,9vw,6.4rem)}
+/* El patrón de volutas de su marca, muy tenue, hace de textura */
+.pt::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background:var(--olivo);
+  -webkit-mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat;
+  mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat}
+.pt>.w{position:relative;z-index:1}
+.pt__g{display:grid;grid-template-columns:auto 1fr;gap:clamp(2.2rem,6vw,4.6rem);align-items:center}
+.lock{text-align:center}
+.lock .lg{color:var(--cacao);margin-inline:auto}
+.lock__b{color:var(--olivo)}
+.pt h1{font-size:clamp(1.95rem,4.8vw,3.3rem);font-weight:300;letter-spacing:-.02em;max-width:17ch}
+.pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
+.pt__d{margin-top:1.4rem;font-size:1.06rem;max-width:40ch;opacity:.76}
+
+/* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
+.firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--negro)}
+.firma>div{background:var(--blanco);padding:1.3rem 1.4rem}
+.firma dt{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.58}
+.firma dd{margin:.4rem 0 0;font-family:var(--disp);font-size:1.08rem;font-weight:300}
+
+/* ── Apertura de sección, con mucho aire debajo ── */
+.cab{border-bottom:0;padding-bottom:0;margin-bottom:clamp(2.4rem,6vw,4rem)}
+.cab__n{font-weight:200;opacity:.22}
+.cab h2{font-weight:300;max-width:17ch}
+
+/* ── Supuestos: paños de ventanal, con parteluz grueso entre ellos ── */
+.sup{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
+  background:color-mix(in srgb,#fff 34%,transparent)}
+.sup li{background:var(--olivo);padding:1.8rem 1.6rem;display:flex;flex-direction:column;
+  gap:.9rem;min-height:9.5rem}
+.sup__n{font-family:var(--disp);font-size:2rem;font-weight:200;line-height:1;opacity:.5}
+.sup__t{font-size:1.02rem;line-height:1.45}
+
+/* ── Motivos: lista abierta a dos columnas, sin caja ── */
+.mot{list-style:none;margin:0;padding:0;
+  columns:2;column-gap:3.4rem;column-rule:1px solid rgba(0,0,0,.14)}
+.mot li{break-inside:avoid;padding:.95rem 0;border-bottom:1px solid rgba(0,0,0,.1);
+  font-size:1rem}
+.mot li::before{content:'';display:inline-block;width:.52rem;height:.52rem;
+  margin-right:.85rem;background:var(--terracota);border-radius:50%;vertical-align:middle}
+@media(max-width:720px){.mot{columns:1}}
+
+/* ── Biografía: entrada grande y tres paños ── */
+.bio__lead{font-family:var(--disp);font-size:clamp(1.15rem,2.6vw,1.55rem);font-weight:200;
+  line-height:1.5;max-width:42ch;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+.bio{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:2.6rem}
+.bio__b h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terracota);padding-bottom:.8rem;margin-bottom:1rem;
+  border-bottom:2px solid var(--negro)}
+.bio__b p{font-size:.96rem;opacity:.86}
+.cita{margin:clamp(3rem,7vw,4.6rem) 0 0;padding:0}
+.cita p{font-family:var(--disp);font-size:clamp(1.3rem,3.4vw,2.1rem);font-weight:200;
+  max-width:24ch;color:var(--olivo)}
+
+/* ── Par de tarjetas ── */
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:3px;
+  margin-top:3px;background:color-mix(in srgb,#fff 34%,transparent)}
+.par__c{background:var(--olivo);padding:1.8rem 1.6rem}
+.par__c--acc{background:#fff;color:var(--negro)}
+.par__c--acc a{color:var(--terracota)}
+.par__c h3{font-size:1.1rem;font-weight:400;margin-bottom:.7rem}
+.par__c p{font-size:.95rem}
+.par__l{margin-top:1.1rem;font-weight:700}
+
+/* ── Formación: dos paños ── */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem}
+.via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;
+  border-bottom:2px solid var(--arena)}
+.via ol{list-style:none;margin:0;padding:0}
+.via li{padding:1rem 0;border-bottom:1px solid rgba(199,178,150,.26)}
+.via li:last-child{border-bottom:0}
+.via strong{display:block;font-size:.96rem;font-weight:600;line-height:1.45;color:#fff}
+.via em{display:block;font-style:normal;font-size:.83rem;margin-top:.22rem;opacity:.82}
+
+/* ── Mapa a sangre, como un ventanal ── */
+.mapa-caja{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw}
+#mapa{height:clamp(320px,50vh,480px)}
+.datos>div{border-bottom:1px solid rgba(0,0,0,.16)}
+
+/* ── Cierre y pie ── */
+.cierre{background:var(--olivo);color:#fff;padding:clamp(4rem,10vw,7rem) 0}
+.cierre .sl{color:#fff}
+.cierre .b--p{background:#fff;color:var(--olivo);border-color:#fff}
+.cierre .b--s{border-color:rgba(255,255,255,.62)}
+.fin{background:var(--negro);color:var(--arena)}
+.fin .sl{color:var(--arena)}
+.fin__m b{color:#fff}
+
+@media(max-width:860px){
+  .pt__g{grid-template-columns:1fr;gap:2.2rem}
+  .lock{text-align:left}
+  .lock .lg{margin-inline:0}
+  .cab h2{max-width:none}
+}

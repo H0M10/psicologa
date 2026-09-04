@@ -4,21 +4,20 @@
    Lo que cambia entre ellos vive en _reticula.css y _atomico.css.
    ========================================================================== */
 :root{
-  /* Su paleta, leída de la hoja de marca */
-  --terracota:#B84A22;
+  /* Su paleta, muestreada de los círculos de su hoja. No son estimaciones:
+     salen de promediar el centro de cada círculo en el archivo original. */
+  --terracota:#A03812;
   --negro:#000000;
-  --mostaza:#C9A22B;
-  --olivo:#5F6B4F;
-  --arena:#D5C0A6;
-  --cacao:#4A2E24;
+  --mostaza:#AC8632;
+  --olivo:#5C6046;
+  --arena:#C7B296;
+  --cacao:#513029;
 
   /* Derivados. Su hoja está sobre blanco, así que el claro sale de ahí;
      los otros dos son la misma familia aclarada, para tener superficies. */
   --blanco:#FFFFFF;
   --hueso:#FAF7F2;
-  --arena-cl:#EDE3D4;
-  --cacao-2:#5C3B2F;
-  --olivo-cl:#7C8768;
+  --arena-cl:#E5DACA;
 
   /* Trend Sans One es de licencia comercial y no está en Google Fonts.
      Jost sustituye mientras llegan los archivos: mismo registro geométrico,
@@ -39,15 +38,22 @@ p{margin:0;max-width:66ch}
 h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .w{width:min(100% - 2.4rem,1120px);margin-inline:auto}
 
-/* ── La marca ── */
-.mk{width:auto;flex:none}
-.mk--p{height:clamp(64px,9vw,88px);margin-bottom:1rem}
-.mk--c{height:52px;margin:0 auto 1.4rem}
-.mk--f{height:44px}
-.lock__n{font-family:var(--disp);font-weight:300;font-size:clamp(1.5rem,3.4vw,2rem);
-  letter-spacing:.42em;text-indent:.42em;line-height:1}
-.lock__b{font-family:var(--txt);font-size:.68rem;font-weight:500;
-  letter-spacing:.24em;text-transform:uppercase;margin-top:.55rem;opacity:.72}
+/* ── Sus logotipos ──────────────────────────────────────────────────────
+   Van como máscara y no como imagen: así el mismo archivo se tiñe del color
+   que toque en cada fondo, en vez de necesitar una versión clara y otra
+   oscura. Llevan role e etiqueta, que una máscara no da texto alternativo. */
+.lg,.sl{display:block;background:currentColor}
+.lg{-webkit-mask:url(../assets/img/indicio-logo.png) center/contain no-repeat;
+  mask:url(../assets/img/indicio-logo.png) center/contain no-repeat;
+  aspect-ratio:922/1098}
+.sl{-webkit-mask:url(../assets/img/indicio-sello.png) center/contain no-repeat;
+  mask:url(../assets/img/indicio-sello.png) center/contain no-repeat;
+  aspect-ratio:242/260}
+.lg--p{width:clamp(132px,17vw,190px)}
+.sl--c{width:76px;margin:0 auto 1.5rem}
+.sl--f{width:56px}
+.lock__b{font-family:var(--txt);font-size:.66rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;margin-top:1rem;opacity:.72}
 
 /* ── Apertura de sección ────────────────────────────────────────────────
    Es la pieza que arregla lo que ella notó: antes toda la información

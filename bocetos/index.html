@@ -6,14 +6,14 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FAF7F2">
 <title>Indicio · dos propuestas</title>
-<link rel="icon" href="../assets/img/indicio-sello.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/indicio-sello.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300..700&family=Jost:wght@200..600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --terracota:#B84A22; --negro:#000000; --mostaza:#C9A22B;
-  --olivo:#5F6B4F; --arena:#D5C0A6; --cacao:#4A2E24;
+  --terracota:#A03812; --negro:#000000; --mostaza:#AC8632;
+  --olivo:#5C6046; --arena:#C7B296; --cacao:#513029;
   --blanco:#FFFFFF; --hueso:#FAF7F2; --linea:rgba(0,0,0,.13);
   --disp:'Jost',system-ui,sans-serif; --txt:'Raleway',system-ui,sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
@@ -26,7 +26,14 @@ h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spac
 .w{width:min(100% - 2.4rem,1120px);margin-inline:auto}
 
 /* Solo la paleta arriba, como pidió: nada de texto que la distraiga */
-.pal{padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.8rem,4vw,2.6rem)}
+.marca{padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.4rem,3vw,2rem)}
+.marca__l{display:flex;align-items:center;justify-content:center;gap:clamp(2rem,6vw,4.5rem);
+  flex-wrap:wrap}
+.lg{display:block;width:clamp(104px,13vw,140px);aspect-ratio:922/1098;background:var(--cacao);
+  -webkit-mask:url(../assets/img/indicio-logo.png) center/contain no-repeat;
+  mask:url(../assets/img/indicio-logo.png) center/contain no-repeat}
+.marca__l img{width:clamp(210px,30vw,320px)}
+.pal{padding:0 0 clamp(1.8rem,4vw,2.6rem)}
 .pal__g{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.9rem}
 .pal__c{text-align:center}
 .pal__c i{display:block;aspect-ratio:1;border-radius:50%;margin-bottom:.7rem;
@@ -60,13 +67,20 @@ h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spac
 </head>
 <body>
 
+<section class="w marca">
+  <div class="marca__l">
+    <span class="lg" role="img" aria-label="Indicio · Psic. Thania Huerta"></span>
+    <img src="../assets/img/indicio-insignias.png" alt="Las tres versiones en círculo del logotipo: olivo, terracota y cacao">
+  </div>
+</section>
+
 <section class="w pal"><div class="pal__g">
-  <div class="pal__c"><i style="background:#B84A22"></i><b>Terracota</b><code>#B84A22</code></div>
+  <div class="pal__c"><i style="background:#A03812"></i><b>Terracota</b><code>#A03812</code></div>
   <div class="pal__c"><i style="background:#000000"></i><b>Negro</b><code>#000000</code></div>
-  <div class="pal__c"><i style="background:#C9A22B"></i><b>Mostaza</b><code>#C9A22B</code></div>
-  <div class="pal__c"><i style="background:#5F6B4F"></i><b>Olivo</b><code>#5F6B4F</code></div>
-  <div class="pal__c"><i style="background:#D5C0A6"></i><b>Arena</b><code>#D5C0A6</code></div>
-  <div class="pal__c"><i style="background:#4A2E24"></i><b>Cacao</b><code>#4A2E24</code></div>
+  <div class="pal__c"><i style="background:#AC8632"></i><b>Mostaza</b><code>#AC8632</code></div>
+  <div class="pal__c"><i style="background:#5C6046"></i><b>Olivo</b><code>#5C6046</code></div>
+  <div class="pal__c"><i style="background:#C7B296"></i><b>Arena</b><code>#C7B296</code></div>
+  <div class="pal__c"><i style="background:#513029"></i><b>Cacao</b><code>#513029</code></div>
 </div></section>
 
 <main class="w dest">
@@ -91,23 +105,23 @@ h2{margin:0;font-family:var(--disp);font-weight:400;line-height:1.16;letter-spac
     </div>
   </a>
 
-  <a class="t" href="atomico.html">
-    <div class="t__p"><iframe data-src="atomico.html" title="Vista previa de Atómico" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+  <a class="t" href="ventanal.html">
+    <div class="t__p"><iframe data-src="ventanal.html" title="Vista previa de Ventanal" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
     <div class="t__x">
       <p class="t__e">Propuesta 2</p>
-      <h2>Atómico</h2>
+      <h2>Ventanal</h2>
       <p class="t__d">
-        En oscuro, centrado, con la voluta del logotipo de filigrana. Alterna
-        cacao, negro y olivo, y abre en arena al llegar al consultorio, para
-        que la lectura respire y no sea un bloque continuo.
+        Bloques a sangre y mucho aire, como los ventanales de la época, que
+        existían para dejar entrar el vacío. Los supuestos van en paños con
+        parteluz grueso, y el mapa cruza la pantalla de lado a lado.
       </p>
       <ul class="t__l">
         <li>Jost · Raleway</li>
-        <li>Fondo oscuro</li>
-        <li>Voluta de filigrana</li>
-        <li>Cierre en terracota</li>
+        <li>Bloques a sangre</li>
+        <li>Su patrón de volutas</li>
+        <li>Mapa a pantalla completa</li>
       </ul>
-      <span class="t__b">Abrir Atómico →</span>
+      <span class="t__b">Abrir Ventanal →</span>
     </div>
   </a>
 

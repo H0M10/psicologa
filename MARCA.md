@@ -28,40 +28,43 @@ sonar a observación cuidadosa. Los verbos son *acompañar*, *valorar*,
 Seis colores. Las cuatro familias que había nombrado por WhatsApp —madera,
 verdes, marrón y vino— están todas, más la mostaza, que no había mencionado.
 
-| | Nombre de trabajo | Hex leído | Papel |
+| | Nombre de trabajo | Hex | Papel |
 |---|---|---|---|
-| ● | **Terracota** | `#B84A22` | Acento de acción: botones y enlaces |
+| ● | **Terracota** | `#A03812` | Acento de acción: botones y enlaces |
 | ● | **Negro** | `#000000` | Texto y el logotipo en su versión principal |
-| ● | **Mostaza** | `#C9A22B` | Relleno de superficies grandes. **Nunca texto sobre claro** |
-| ● | **Olivo** | `#5F6B4F` | Color de sección y segundo acento |
-| ● | **Arena** | `#D5C0A6` | Superficie cálida, y texto sobre los oscuros |
-| ● | **Cacao** | `#4A2E24` | Fondo oscuro y texto de peso |
+| ● | **Mostaza** | `#AC8632` | Relleno de superficies grandes. **Casi nunca texto** |
+| ● | **Olivo** | `#5C6046` | Color de sección y segundo acento |
+| ● | **Arena** | `#C7B296` | Superficie cálida, y texto sobre los oscuros |
+| ● | **Cacao** | `#513029` | Fondo oscuro y texto de peso |
 
-> **Pendiente:** los hexadecimales están leídos de la imagen, no de un archivo.
-> Si su diseñadora tiene el `.ase` o el manual, conviene pedirlos y sustituir.
+Los valores no son estimaciones: salen de promediar el centro de cada círculo
+en su archivo original, saltándose el antialias del borde.
 
 ### La regla que sale de medir el contraste
 
 Se midió cada color como texto sobre cada fondo posible. El resultado no es
 opinión, es la norma WCAG AA (4.5:1 para texto corrido):
 
-| Color | Sobre claro | Sobre olivo | Sobre cacao / negro |
-|---|---|---|---|
-| Terracota | ✅ 5.2 | ❌ 1.1 | ❌ 2.4 |
-| Negro | ✅ 21.0 | ⚠️ 3.7 | ❌ |
-| **Mostaza** | ❌ **2.4** | ❌ 2.3 | ✅ 5.1 |
-| Olivo | ✅ 5.7 | ❌ | ❌ 2.2 |
-| Arena | ❌ 1.8 | ⚠️ 3.2 | ✅ 7.0 |
-| Cacao | ✅ 12.3 | ❌ 2.2 | ❌ |
+| Color | Sobre claro | Sobre arena | Sobre olivo | Sobre cacao | Sobre negro |
+|---|---|---|---|---|---|
+| Terracota | ✅ 6.8 | ⚠️ 3.3 | ❌ 1.0 | ❌ 1.7 | ⚠️ 3.1 |
+| Negro | ✅ 21.0 | ✅ 10.2 | ⚠️ 3.2 | ❌ 1.8 | — |
+| **Mostaza** | ⚠️ **3.4** | ❌ 1.6 | ❌ 1.9 | ⚠️ **3.4** | ✅ 6.2 |
+| Olivo | ✅ 6.5 | ⚠️ 3.2 | — | ❌ 1.8 | ⚠️ 3.2 |
+| Arena | ❌ 2.1 | — | ⚠️ 3.2 | ✅ 5.7 | ✅ 10.2 |
+| Cacao | ✅ 11.6 | ✅ 5.7 | ❌ 1.8 | — | ❌ 1.8 |
+| Blanco | — | ❌ 2.1 | ✅ 6.5 | ✅ 11.6 | ✅ 21.0 |
 
 **Lo que esto obliga:**
 
-1. **La mostaza no puede llevar texto sobre fondo claro.** Da 2.4:1. Es un
-   color de superficie: un bloque, una banda, un relleno grande. En cuanto
-   se pone como letra sobre hueso, desaparece.
-2. **La terracota y el olivo son colores de texto solo sobre claro.**
-3. **La arena y la mostaza son colores de texto solo sobre cacao o negro.**
-4. **Sobre olivo va blanco** (5.67), no arena (3.22).
+1. **La mostaza casi nunca puede llevar texto.** Solo llega a 4.5:1 sobre
+   negro (6.2). Sobre claro da 3.4 y sobre cacao también 3.4. Es un color de
+   superficie: un bloque, una banda, un relleno grande.
+2. **La terracota y el olivo son colores de texto solo sobre claro.** Sobre
+   arena se quedan en 3.3 y 3.2.
+3. **Sobre arena va negro o cacao.** Nada más.
+4. **Sobre olivo va blanco** (6.5), no arena (3.2).
+5. **Sobre cacao va arena o blanco.**
 
 Es una paleta de dos registros: uno claro y uno oscuro, cada uno con sus
 colores. Mezclarlos es lo que la rompe.
@@ -115,10 +118,24 @@ en versalitas muy espaciadas y de trazo fino, con la bajada opcional
 El patrón de volutas es el hallazgo aprovechable: da textura de marca sin
 tener que inventar adornos, que es justo lo que sobraba en los bocetos.
 
-**Pendiente:** hace falta el logotipo en **SVG**. En la página va dibujado en
-vectores, no como imagen: tiene que verse nítido en cualquier pantalla y poder
-cambiar de color según el fondo. Mientras llega, va una reconstrucción, y se
-nota que lo es.
+### Cómo están puestos en la página
+
+Sus archivos van como **máscara**, no como imagen. La razón es práctica: así
+el mismo archivo se tiñe del color que toque en cada fondo —cacao sobre
+blanco, arena sobre cacao, blanco sobre olivo— en vez de necesitar una versión
+clara y otra oscura de cada pieza. Como una máscara no da texto alternativo,
+cada una lleva `role="img"` y su etiqueta.
+
+| Archivo | De dónde sale |
+|---|---|
+| `indicio-logo.png` | Su logotipo vertical completo |
+| `indicio-sello.png` | El sello circular de su hoja |
+| `indicio-patron.png` | El patrón de volutas |
+| `indicio-insignia-olivo/terracota/cacao.png` | Las tres versiones en círculo |
+
+**Pendiente:** el logotipo en **SVG**. Lo que hay son PNG recortados de su
+hoja, y a tamaño grande se les nota el borde. Un SVG se vería nítido en
+cualquier pantalla y pesaría menos.
 
 ---
 

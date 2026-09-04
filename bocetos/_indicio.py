@@ -53,14 +53,13 @@ FORENSE = [
  (u'Curso-taller de peritajes psicol\u00f3gicos en guarda y custodia', u'Con perspectiva de infancia'),
  (u'Curso de elaboraci\u00f3n de peritajes judiciales', u'Centro de SubjetividadEs, Identidad Cl\u00ednica y Forense')]
 
-# La marca, dibujada. Se tine con currentColor, asi que sirve en claro y oscuro.
-MARCA = io.open('c:/Users/hanni/Desktop/THPSICOLOGOA/assets/img/indicio-marca.svg',
-                encoding='utf-8').read()
-MARCA = MARCA.split('>', 1)[1].rsplit('</svg>', 1)[0]  # solo el interior
+# Sus archivos, no una reconstruccion. Van como mascara para poder tenirlos:
+# el mismo logo sirve sobre claro y sobre oscuro sin tener dos versiones.
+def logo(clase='lg', etiqueta=u'Indicio · Psic. Thania Huerta'):
+    return u'<span class="%s" role="img" aria-label="%s"></span>' % (clase, etiqueta)
 
-def marca(clase='mk'):
-    return (u'<svg class="%s" viewBox="0 0 200 300" fill="currentColor" '
-            u'aria-hidden="true">%s</svg>' % (clase, MARCA))
+def sello(clase='sl'):
+    return u'<span class="%s" role="img" aria-label="Indicio"></span>' % clase
 
 def cabeza(titulo, css, tema):
     return u'''<!DOCTYPE html>
@@ -71,7 +70,7 @@ def cabeza(titulo, css, tema):
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="%s">
 <title>%s</title>
-<link rel="icon" href="../assets/img/indicio-sello.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/indicio-sello.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300..700&family=Jost:wght@200..600&display=swap" rel="stylesheet">
@@ -175,7 +174,7 @@ def bloque_cierre():
     <p>Psic. Thania Huerta \u00b7 C\u00e9dula profesional 14661976</p>
     <p>Consejo de Psicolog\u00eda Forense 25-08-63 \u00b7 Santiago de Quer\u00e9taro, Qro.</p>
   </div>
-</div></footer>''' % (marca('mk mk--c'), WA, TEL, marca('mk mk--f'))
+</div></footer>''' % (sello('sl sl--c'), WA, TEL, sello('sl sl--f'))
 
 def cuerpo(clases):
     u"""El cuerpo es el mismo en los dos; lo que cambia es el fondo que lleva
@@ -263,14 +262,14 @@ def portada(clase):
     <div><dt>Consejo de Psicolog\u00eda Forense</dt><dd>25-08-63</dd></div>
     <div><dt>Consultorio</dt><dd>Santiago de Quer\u00e9taro</dd></div>
   </dl>
-</div></header>'''  % (clase, marca('mk mk--p'), WA)
+</div></header>'''  % (clase, logo('lg lg--p'), WA)
 
 if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio \u00b7 Ret\u00edcula', '_reticula.css', '#FAF7F2', 'rt',
        ['s--blanco', 's--olivo', 's--hueso', 's--arena', 's--blanco']),
-      ('atomico.html',  u'Indicio \u00b7 At\u00f3mico',  '_atomico.css',  '#4A2E24', 'at',
-       ['s--negro', 's--olivo', 's--cacao', 's--negro', 's--arena']),
+      ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#FAF7F2', 'vn',
+       ['s--hueso', 's--olivo', 's--blanco', 's--cacao', 's--arena']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema) + portada(cl) + cuerpo(fondos) + pie()
