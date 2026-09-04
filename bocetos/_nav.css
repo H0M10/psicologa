@@ -4,8 +4,9 @@
    ========================================================================== */
 .tn{
   position:sticky;top:0;z-index:60;
-  background:color-mix(in srgb, var(--mv-bg,#fff) 92%, transparent);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  /* Opaca a proposito: al flotar sobre secciones de colores distintos, con
+     transparencia el fondo efectivo cambiaba y el contraste con el. */
+  background:var(--mv-bg,#fff);
   border-bottom:1px solid var(--mv-line,rgba(0,0,0,.14));
   color:var(--mv-fg,#1A1A1A);
 }

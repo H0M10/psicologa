@@ -272,14 +272,12 @@ def cuerpo(clases):
    bloque_cierre(clases[6]))
 
 def portada(clase, fondo):
-    return u'''
+    u"""Texto a la izquierda, logotipo a la derecha y en grande, credenciales
+    cruzando debajo. Los tres son hijos directos de la rejilla: antes el
+    bloque de marca colgaba de dentro del texto y por eso no se podia colocar."""
+    return u"""
 <header class="pt %s %s" id="inicio"><div class="w pt__g">
   <div class="pt__t">
-    <div class="lock">
-      %s
-      <p class="lock__n">INDICIO</p>
-      <p class="lock__b">Psicolog\u00eda forense y psicoterapia</p>
-    </div>
     <h1>Acompa\u00f1o a <em>adolescentes</em> en consulta y a <em>familias</em> en procesos judiciales.</h1>
     <p class="pt__d">Dos trabajos distintos, con l\u00edmites \u00e9ticos distintos.
        Aqu\u00ed puedes ver cu\u00e1l de los dos es el que est\u00e1s buscando.</p>
@@ -288,13 +286,17 @@ def portada(clase, fondo):
       <a class="b b--s" href="#cotizacion">Pedir una cotizaci\u00f3n</a>
     </div>
   </div>
+  <div class="lock">
+    %s
+    <p class="lock__b">Psicolog\u00eda forense y psicoterapia</p>
+  </div>
   <dl class="firma">
     <div><dt>Psic\u00f3loga</dt><dd>Thania Huerta</dd></div>
     <div><dt>C\u00e9dula profesional</dt><dd>14661976</dd></div>
     <div><dt>Consejo de Psicolog\u00eda Forense</dt><dd>25-08-63</dd></div>
     <div><dt>Consultorio</dt><dd>Santiago de Quer\u00e9taro</dd></div>
   </dl>
-</div></header>'''  % (clase, fondo, logo('lg lg--p'), WA)
+</div></header>""" % (clase, fondo, WA, logo('lg lg--p'))
 
 if __name__ == '__main__':
     salidas = [

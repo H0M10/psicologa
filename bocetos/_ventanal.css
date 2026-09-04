@@ -6,7 +6,6 @@
    Cada bloque cambia de color: esa es la señal de corte que faltaba.
    ========================================================================== */
 body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
-a{color:var(--terracota)}
 :focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px}
 .w{width:min(100% - 2.6rem,1180px)}
 
@@ -104,11 +103,10 @@ a{color:var(--terracota)}
 .idx__c--f 
 
 /* ── Psicoterapia sobre blanco, con mucho aire ── */
-.mot{max-width:30ch;font-size:var(--t-xl)}
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));gap:3rem}
 .via h3{font-family:var(--txt);font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);
-  text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;margin-bottom:.4rem;
-  border-bottom:2px solid var(--arena)}
+  text-transform:uppercase;padding-bottom:.9rem;margin-bottom:.4rem;
+  border-bottom:2px solid var(--acc)}
 
