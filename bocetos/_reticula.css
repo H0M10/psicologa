@@ -99,9 +99,9 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
   .cab{grid-template-columns:1fr;gap:0}
   .cab__n{grid-row:auto;text-align:left}
   .cab h2,.cab__d{grid-column:1}
-  .s::before,.pt::before{background-size:33.3333% 100%;
-    background-image:repeating-linear-gradient(90deg,transparent 0,transparent calc(33.3333% - 1px),
-      rgba(0,0,0,.06) calc(33.3333% - 1px),rgba(0,0,0,.06) 33.3333%)}
+  /* La retícula se retira: a este ancho las líneas no organizan nada y se
+     leen como rayas sueltas encima del texto. */
+  .s::before,.pt::before{display:none}
 }
 
 /* ── Índice: fichas cuadradas, como el resto del boceto ── */

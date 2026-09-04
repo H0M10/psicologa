@@ -40,7 +40,8 @@
 .tb__i:hover,.tb__i:focus-visible{opacity:.9}
 .tb__i:active{background:color-mix(in srgb, var(--mv-fg) 9%, transparent)}
 .tb__i svg{width:1.28rem;height:1.28rem;flex:none}
-.tb__i span{font-size:.6rem;letter-spacing:.02em;line-height:1.1;white-space:nowrap}
+/* .6rem son 9.6 px, por debajo del minimo de 12 para texto de interfaz */
+.tb__i span{font-size:.75rem;letter-spacing:0;line-height:1.15;white-space:nowrap}
 /* La sección en la que estás */
 .tb__i.on{opacity:1;color:var(--mv-acc)}
 .tb__i.on svg{stroke-width:2.2}

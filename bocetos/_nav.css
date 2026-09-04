@@ -52,16 +52,22 @@
   outline:2.5px solid var(--mv-acc,#2F6F73);outline-offset:2px;
 }
 
+/* ── Telefono ────────────────────────────────────────────────────────────
+   Los enlaces de arriba desaparecen y manda la barra inferior. Tres razones,
+   las tres de la investigacion de NN/G:
+
+   1. Cuando una fila de pestanas se desborda y hay que deslizarla, las que
+      quedan fuera pierden descubribilidad: nadie adivina que hay detras.
+   2. No recomiendan tener navegacion arriba y abajo a la vez.
+   3. La barra de arriba se come espacio sobre el pliegue, que en telefono es
+      justo lo que falta.
+
+   La de abajo ademas cae en la zona del pulgar. */
 @media(max-width:900px){
-  .tn__w{gap:.7rem;min-height:56px}
+  .tn__w{gap:.7rem;min-height:52px;justify-content:flex-start}
+  .tn__n{display:none}
   .tn__m{font-size:.9rem}
-  .tn__m span{display:none}
-  .tn__i{font-size:.84rem;padding:.45rem .7rem}
-  /* Un degradado corto avisa de que la fila sigue */
-  .tn__n{
-    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
-    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
-  }
+  .tn__m span{display:block;font-size:.68rem;margin-top:.05rem}
 }
 @media(max-width:420px){
   .tn__m{max-width:7.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

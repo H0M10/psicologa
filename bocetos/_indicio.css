@@ -311,7 +311,25 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .par__c--acc a,.idx__c .idx__k,.idx__c .idx__b{color:var(--cardacc)}
 .par__c p{color:var(--fg2)}
 .par__c--acc p{color:var(--oncard);opacity:.82}
-.bio__b h3{color:var(--acc);border-bottom-color:var(--rule)}
+/* ── Biografía y cita ────────────────────────────────────────────────────
+   Se habían quedado sin maquetación al limpiar reglas duplicadas de las
+   hojas de cada boceto: los intertítulos iban pegados al párrafo anterior
+   y la cita no se distinguía del texto. */
+.bio__lead{font-family:var(--disp);font-weight:300;
+  font-size:clamp(1.12rem,2.6vw,1.5rem);line-height:1.5;
+  max-width:var(--m-lead);margin-bottom:clamp(2rem,4vw,2.8rem)}
+.bio{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 262px),1fr));
+  gap:clamp(1.8rem,4vw,2.6rem)}
+.bio__b h3{font-family:var(--txt);font-size:var(--t-xs);font-weight:700;
+  letter-spacing:var(--ls-caps);text-transform:uppercase;
+  padding-bottom:.7rem;margin-bottom:.9rem;border-bottom:1px solid var(--rule)}
+.bio__b p{font-size:var(--t-base);max-width:var(--m-body)}
+.cita{margin:clamp(2.4rem,5vw,3.4rem) 0 0;padding:clamp(1.6rem,3vw,2.2rem) 0 0;
+  border-top:2px solid var(--acc)}
+.cita p{font-family:var(--disp);font-weight:300;
+  font-size:clamp(1.25rem,3.2vw,1.85rem);line-height:var(--lh-head);
+  max-width:26ch;color:var(--acc)}
+.bio__b h3{color:var(--acc)}
 .bio__b p{color:var(--fg2)}
 .datos>div{border-bottom-color:var(--rule)}
 .datos dt{color:var(--acc);opacity:1}

@@ -76,7 +76,7 @@ def firma(*archivos):
     return h.hexdigest()[:8]
 
 def cabeza(titulo, css, tema, fondo_form):
-    v = firma('_base.css', '_detalle.css', '_nav.css', '_indicio.css', css)
+    v = firma('_base.css', '_detalle.css', '_nav.css', '_indicio.css', css, '_movil.css')
     return u'''<!DOCTYPE html>
 <html lang="es-MX">
 <head>
@@ -95,8 +95,9 @@ def cabeza(titulo, css, tema, fondo_form):
 <link rel="stylesheet" href="_nav.css?v=%s">
 <link rel="stylesheet" href="_indicio.css?v=%s">
 <link rel="stylesheet" href="%s?v=%s">
+<link rel="stylesheet" href="_movil.css?v=%s">
 </head>
-<body data-fondo-form="%s">''' % (tema, titulo, v, v, v, v, css, v, fondo_form)
+<body data-fondo-form="%s">''' % (tema, titulo, v, v, v, v, css, v, v, fondo_form)
 
 def pie():
     v = firma('_mapa.js', '_nav.js', '_detalle.js', '_rv.js')

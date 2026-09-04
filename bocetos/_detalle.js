@@ -28,19 +28,18 @@
      Se arma con las secciones que el boceto realmente tenga, en orden.
      -------------------------------------------------------------------- */
   var CANDIDATAS = [
-    ['inicio',            'Inicio',      IC.inicio],
     ['sobre-mi',          'Sobre mí',    IC.persona],
     ['forense',           'Forense',     IC.balanza],
     ['forense-detalle',   'Forense',     IC.balanza],
     ['terapia',           'Terapia',     IC.corazon],
     ['clinica',           'Terapia',     IC.corazon],
     ['terapia-detalle',   'Terapia',     IC.corazon],
-    ['formacion',         'Formación',   IC.libro],
-    ['formacion-detalle', 'Formación',   IC.libro],
-    ['donde',             'Consultorio', IC.pin],
-    ['ubicacion',         'Consultorio', IC.pin],
-    ['general',           'Consultorio', IC.pin],
-    ['informacion',       'Consultorio', IC.pin]
+    ['formacion',         'Estudios',    IC.libro],
+    ['formacion-detalle', 'Estudios',    IC.libro],
+    ['donde',             'Dónde',       IC.pin],
+    ['ubicacion',         'Dónde',       IC.pin],
+    ['general',           'Dónde',       IC.pin],
+    ['informacion',       'Dónde',       IC.pin]
   ];
 
   function montarBarra() {
@@ -48,7 +47,7 @@
 
     var vistos = {}, elegidas = [];
     CANDIDATAS.forEach(function (c) {
-      if (elegidas.length >= 4 || vistos[c[1]]) return;
+      if (elegidas.length >= 5 || vistos[c[1]]) return;
       var el = document.getElementById(c[0]);
       if (!el) return;
       vistos[c[1]] = true;

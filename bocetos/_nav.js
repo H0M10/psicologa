@@ -35,7 +35,7 @@
   var barra = document.createElement('header');
   barra.className = 'tn';
 
-  var marca = '<a class="tn__m" href="#inicio">Thania Huerta<span>Psicóloga clínica y forense</span></a>';
+  var marca = '<a class="tn__m" href="#inicio">INDICIO<span>Psic. Thania Huerta</span></a>';
   var enlaces = secciones.map(function (s) {
     return '<a class="tn__i" href="#' + s.id + '" data-spy="' + s.id + '">' + s.txt + '</a>';
   }).join('');
