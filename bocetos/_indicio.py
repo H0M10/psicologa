@@ -300,8 +300,8 @@ if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#C7B296', 'rt',
        ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--terracota']),
-      ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#5C6046', 'vn',
-       ['s--olivo', 's--crema', 's--cacao', 's--arena', 's--terracota', 's--crema', 's--olivo', 's--arena']),
+      ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#EAE2D7', 'vn',
+       ['s--crema', 's--olivo', 's--arena', 's--cacao', 's--crema', 's--olivo', 's--arena', 's--terracota']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()

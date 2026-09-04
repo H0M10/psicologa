@@ -188,3 +188,44 @@ Sin esa foto, la página lo cuenta en vez de enseñarlo.
 - [UI Design Best Practices for Better Scannability](https://www.toptal.com/designers/web/ui-design-best-practices) · Toptal
 - [Rhythm and Flow in Editorial Design](https://fiveable.me/advanced-editorial-design/unit-2/rhythm-flow-editorial-design/study-guide/RyqTytOWkCcd0y6x)
 - [How to Design Pages That Keep Visitors Scrolling](https://www.flowvibe.studio/blog/how-to-design-webflow-pages-that-keep-visitors-scrolling)
+
+---
+
+## 6. La restricción que impone su paleta
+
+Al colocar los fondos aparece algo que no es opinión, es aritmética.
+
+**Sus dos claros no se distinguen entre sí** (crema contra arena: 1.60) y
+**sus tres oscuros tampoco** (olivo/cacao 1.78, olivo/terracota 1.05,
+cacao/terracota 1.70). Ninguno de esos pares llega al 3:1 que hace falta para
+que un corte de sección se perciba.
+
+**Consecuencia:** claro y oscuro tienen que alternar obligatoriamente. No hay
+otra secuencia posible. Y el negro solo puede ir al final, porque es el único
+oscuro que salta de verdad contra los otros oscuros.
+
+De ahí sale algo que no habría adivinado: **las dos páginas tienen que abrir
+en un fondo claro.** Como la biografía va en la posición 4 y necesita fondo
+neutro, y la alternancia fija las paridades, la posición 0 queda neutra
+también. No es una preferencia estética: es lo único que cumple.
+
+### Y una regla que faltaba: dónde puede ir la prosa
+
+El contraste mide si se distingue una letra, no si cansa leer un párrafo. Un
+fondo saturado a 5:1 cumple la norma y aun así fatiga en 223 palabras
+seguidas.
+
+Ventanal tenía la biografía sobre terracota y el consultorio sobre olivo.
+Los dos bloques de prosa de la página, sobre los dos colores más saturados.
+Por eso costaba leerlo, aunque los números pasaran.
+
+**La regla:** la prosa seguida solo va sobre crema o arena. Los saturados
+llevan trozos cortos —el índice, las listas, la línea de tiempo, el mapa y la
+llamada final—, que se escanean en vez de leerse.
+
+| | Retícula | Ventanal |
+|---|---|---|
+| Abre en | arena | crema |
+| Salto mínimo | 3.07 | 3.07 |
+| Prosa sobre saturado | 0 | 0 |
+| Fondos saturados | 4 de 9 | 4 de 9 |
