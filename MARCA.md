@@ -100,6 +100,43 @@ casi circular, buena en versalitas espaciadas— y se marca como provisional.
 **Pendiente:** preguntarle si su diseñadora entregó los archivos `.woff2` de
 Trend Sans One y si la licencia cubre uso web.
 
+### Cómo están puestas
+
+Auditar lo que había dio un resultado feo: **33 tamaños distintos, 24 de ellos
+fijos**, con `.94`, `.95` y `.96rem` haciendo el mismo trabajo. Nueve
+interlíneas, nueve espaciados y seis pesos. Eso no es una escala, son valores
+sueltos, y es lo que hacía que el texto no tuviera jerarquía.
+
+Y siete tamaños estaban **por debajo de 12 px** —entre 10 y 11.5—, que es el
+mínimo para texto de interfaz.
+
+Ahora hay ocho pasos y todo sale de ahí:
+
+| Token | Tamaño | Para |
+|---|---|---|
+| `--t-xs` | 12 px | Versalitas y etiquetas |
+| `--t-sm` | 14 px | Pie, notas, metadatos |
+| `--t-base` | 16 px | Texto corrido |
+| `--t-md` | 18 px | Entradillas |
+| `--t-lg` | 22 px | h3 y citas cortas |
+| `--t-xl` | 24–30 px | h2 pequeño |
+| `--t-2xl` | 28–40 px | h2 |
+| `--t-3xl` | 32–52 px | h1 |
+
+Cuatro interlíneas atadas al tamaño —cuanto más grande, más apretada—, tres
+espaciados y cinco pesos.
+
+### Dos decisiones que no se ven pero se notan
+
+**El texto fino sobre fondo oscuro se deshace.** La letra clara sangra sobre
+el fondo —halación— y el suavizado de WebKit la adelgaza todavía más. Como
+cuatro de sus siete fondos son oscuros, en esos el display sube de 300 a 400 y
+el texto corrido de 400 a 500. Misma jerarquía, con el peso que ahí hace falta.
+
+**Las cifras van alineadas y de ancho fijo.** Raleway trae numerales de estilo
+antiguo por defecto, que bailan de altura. La cédula, el número del consejo y
+los horarios se leen en columna, así que llevan `lining-nums tabular-nums`.
+
 ---
 
 ## 4. El logotipo

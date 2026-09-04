@@ -27,17 +27,62 @@
   --disp:'Jost',system-ui,-apple-system,sans-serif;
   --txt:'Raleway',system-ui,-apple-system,sans-serif;
   --e:cubic-bezier(.32,.72,0,1);
+
+  /* ── Escala tipografica ────────────────────────────────────────────────
+     Ocho pasos. Antes habia 33 tamanos distintos, 24 de ellos fijos, con
+     tres valores (.94, .95, .96rem) haciendo el mismo trabajo. Y siete por
+     debajo de 12 px, que es el minimo para texto de interfaz.
+     Razon 1.25 abajo, saltos mayores arriba para que los titulares manden. */
+  --t-xs:.75rem;      /* 12 px · versalitas y etiquetas */
+  --t-sm:.875rem;     /* 14 px · pie, notas, metadatos */
+  --t-base:1rem;      /* 16 px · texto corrido */
+  --t-md:1.125rem;    /* 18 px · entradillas */
+  --t-lg:1.375rem;    /* 22 px · h3 y citas cortas */
+  --t-xl:clamp(1.5rem,3.4vw,1.875rem);   /* h2 pequeno */
+  --t-2xl:clamp(1.75rem,4.4vw,2.5rem);   /* h2 */
+  --t-3xl:clamp(2rem,5.4vw,3.25rem);     /* h1 */
+  --t-num:clamp(2.25rem,6vw,3.75rem);    /* el numeral de seccion */
+
+  /* Interlinea atada al tamano: cuanto mas grande, mas apretada */
+  --lh-tight:1.1;     /* display */
+  --lh-head:1.2;      /* titulares */
+  --lh-body:1.6;      /* texto corrido, dentro del 1.5-1.75 recomendado */
+  --lh-ui:1.45;       /* fichas y listas */
+
+  /* Espaciado. El ancho de INDICIO sale de su logotipo. */
+  --ls-tight:-.02em;
+  --ls-caps:.18em;
+  --ls-marca:.42em;
+
+  /* Medida de linea */
+  --m-body:66ch;
+  --m-lead:44ch;
+  --m-head:22ch;
+
+  /* Las barras compartidas —la de arriba y la de abajo— se tinen con estos
+     tokens. Sin definirlos aqui caian en los de reserva de _detalle.css, que
+     son blanco y un turquesa #2F6F73 que no es de su paleta. Se quedan en
+     cacao con crema para leerse igual sobre cualquiera de los siete fondos. */
+  --mv-bg:#513029;
+  --mv-fg:#EAE2D7;
+  --mv-acc:#A03812;
+  --mv-on-acc:#EAE2D7;
+  --mv-line:rgba(234,226,215,.22);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{margin:0;font-family:var(--txt);line-height:1.68;overflow-x:clip;
+body{margin:0;font-family:var(--txt);line-height:var(--lh-body);overflow-x:clip;
+  font-size:var(--t-base);
+  /* Cifras alineadas y de ancho fijo: la cedula, el consejo y los horarios
+     se leen en columna, y Raleway las trae de estilo antiguo por defecto */
+  font-variant-numeric:lining-nums tabular-nums;
   padding-bottom:calc(64px + env(safe-area-inset-bottom));
   -webkit-font-smoothing:antialiased}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 img,svg{max-width:100%;display:block}
 p{margin:0;max-width:66ch}
-h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
+h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:balance}
 .w{width:min(100% - 2.4rem,1120px);margin-inline:auto}
 
 /* ── Sus logotipos ──────────────────────────────────────────────────────
@@ -54,24 +99,24 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .lg--p{width:clamp(132px,17vw,190px)}
 .sl--c{width:76px;margin:0 auto 1.5rem}
 .sl--f{width:56px}
-.lock__b{font-family:var(--txt);font-size:.66rem;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;margin-top:1rem;opacity:.72}
+.lock__b{font-family:var(--txt);font-size:var(--t-xs);font-weight:600;
+  letter-spacing:var(--ls-caps);text-transform:uppercase;margin-top:1rem;opacity:.72}
 
 /* ── Apertura de sección ────────────────────────────────────────────────
    Es la pieza que arregla lo que ella notó: antes toda la información
    empezaba igual y se leía como un solo bloque. Ahora cada sección abre
    con número, nombre y titular, y eso da dónde parar la vista. */
 .cab{max-width:46rem;padding-bottom:clamp(1.6rem,3vw,2.2rem);margin-bottom:clamp(1.8rem,4vw,2.8rem)}
-.cab__n{font-family:var(--disp);font-weight:300;font-size:clamp(2.6rem,7vw,4.4rem);
-  line-height:.9;opacity:.2;margin-bottom:.4rem}
-.cab__k{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+.cab__n{font-family:var(--disp);font-weight:300;font-size:var(--t-num);
+  line-height:var(--lh-num);opacity:.2;margin-bottom:.4rem}
+.cab__k{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;
   margin-bottom:.9rem}
-.cab h2{font-size:clamp(1.6rem,4.2vw,2.6rem);font-weight:400;letter-spacing:-.015em}
-.cab__d{margin-top:1rem;font-size:1.04rem;opacity:.78}
+.cab h2{font-size:var(--t-2xl);font-weight:400;letter-spacing:var(--ls-tight)}
+.cab__d{margin-top:1rem;font-size:var(--t-md);opacity:.78}
 
 /* ── Botones ── */
 .b{display:inline-flex;align-items:center;justify-content:center;min-height:52px;
-  padding:.85rem 1.6rem;font-family:var(--txt);font-size:.95rem;font-weight:600;
+  padding:.85rem 1.6rem;font-family:var(--txt);font-size:var(--t-base);font-weight:600;
   text-decoration:none;cursor:pointer;border:1.5px solid transparent;
   transition:transform .32s var(--e),background-color .32s var(--e)}
 .b:hover{transform:translateY(-2px)}
@@ -95,23 +140,23 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 /* ── Datos prácticos ── */
 .datos{margin:2.2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 232px),1fr));gap:0 2rem}
 .datos>div{padding:1rem 0}
-.datos dt{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+.datos dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;
   margin-bottom:.3rem;opacity:.72}
-.datos dd{margin:0;font-size:.96rem}
-.datos dd span{display:block;font-size:.87rem;opacity:.72;margin-top:.15rem}
+.datos dd{margin:0;font-size:var(--t-base)}
+.datos dd span{display:block;font-size:var(--t-sm);opacity:.72;margin-top:.15rem}
 
 /* ── Cierre y pie ── */
 .cierre{padding:clamp(3.4rem,8vw,5.6rem) 0;text-align:center}
-.cierre h2{font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:400}
+.cierre h2{font-size:var(--t-2xl);font-weight:400}
 .cierre p{margin:1.1rem auto 0;max-width:48ch;opacity:.82}
 .cierre .rutas{max-width:34rem;margin-inline:auto}
 .fin{padding:2.4rem 0}
 .fin__g{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.4rem}
 .fin__m{display:flex;align-items:center;gap:.9rem}
-.fin__m b{font-family:var(--disp);font-weight:300;font-size:1.05rem;letter-spacing:.3em;line-height:1.2}
-.fin__m span{display:block;font-family:var(--txt);font-size:.7rem;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;opacity:.68;margin-top:.3rem}
-.fin__d{font-size:.84rem;opacity:.76;text-align:right}
+.fin__m b{font-family:var(--disp);font-weight:300;font-size:var(--t-md);letter-spacing:var(--ls-caps);line-height:var(--lh-head)}
+.fin__m span{display:block;font-family:var(--txt);font-size:var(--t-xs);font-weight:500;
+  letter-spacing:var(--ls-caps);text-transform:uppercase;opacity:.68;margin-top:.3rem}
+.fin__d{font-size:var(--t-sm);opacity:.76;text-align:right}
 .fin__d p+p{margin-top:.25rem}
 @media(max-width:640px){.fin__d{text-align:left}}
 
@@ -120,7 +165,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
    público porque la gente no se identifica con una sola categoría y añade
    un paso mental. Aquí la pregunta es qué necesitas, y no esconde nada:
    son enlaces a secciones de esta misma página. */
-.idx__h{font-family:var(--disp);font-size:clamp(1.35rem,3.2vw,1.95rem);font-weight:300;
+.idx__h{font-family:var(--disp);font-size:var(--t-xl);font-weight:300;
   margin-bottom:clamp(1.4rem,3vw,2rem)}
 .idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 304px),1fr));gap:1rem}
 .idx__c{position:relative;display:grid;gap:.45rem;align-content:start;
@@ -133,19 +178,19 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
   background-size:contain;background-repeat:no-repeat}
 .idx__c--f::after{background-image:url(../assets/img/indicio-insignia-olivo.png)}
 .idx__c--t::after{background-image:url(../assets/img/indicio-insignia-terracota.png)}
-.idx__k{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+.idx__k{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;
   opacity:.72;padding-right:clamp(56px,8vw,72px)}
-.idx__t{font-family:var(--disp);font-size:clamp(1.14rem,2.5vw,1.48rem);font-weight:400;
-  line-height:1.22;padding-right:clamp(56px,8vw,72px)}
-.idx__d{font-size:.94rem;opacity:.82;max-width:34ch}
-.idx__b{font-weight:700;font-size:.89rem;margin-top:.45rem}
+.idx__t{font-family:var(--disp);font-size:var(--t-lg);font-weight:400;
+  line-height:var(--lh-head);padding-right:clamp(56px,8vw,72px)}
+.idx__d{font-size:var(--t-base);opacity:.82;max-width:34ch}
+.idx__b{font-weight:700;font-size:var(--t-sm);margin-top:.45rem}
 
 /* ── Psicoterapia: lista corrida ─────────────────────────────────────────
    Antes era otra retícula de fichas, igual que las de al lado. Ahora fluye
    como una frase, con un punto de color entre tema y tema: son temas para
    hablar, no supuestos legales, y piden ligereza. */
 .mot{list-style:none;margin:0;padding:0;font-family:var(--disp);font-weight:300;
-  font-size:clamp(1.06rem,2.5vw,1.52rem);line-height:1.62;max-width:34ch}
+  font-size:var(--t-lg);line-height:var(--lh-body);max-width:34ch}
 .mot li{display:inline}
 .mot li::after{content:'';display:inline-block;width:.42rem;height:.42rem;border-radius:50%;
   margin:0 .72rem;vertical-align:.22em;background:var(--terracota)}
@@ -160,8 +205,8 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 .linea li{position:relative;padding:.85rem 0}
 .linea li::before{content:'';position:absolute;left:-1.7rem;top:1.35rem;
   width:9px;height:9px;border-radius:50%;background:currentColor}
-.linea strong{display:block;font-size:.95rem;font-weight:600;line-height:1.45}
-.linea em{display:block;font-style:normal;font-size:.82rem;margin-top:.2rem;opacity:.76}
+.linea strong{display:block;font-size:var(--t-base);font-weight:600;line-height:var(--lh-ui)}
+.linea em{display:block;font-style:normal;font-size:var(--t-sm);margin-top:.2rem;opacity:.76}
 
 /* ── Sistema de fondos ───────────────────────────────────────────────────
    Cada fondo declara TODO lo que va encima: texto, acento, filete, color de
@@ -175,6 +220,20 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 
    Los cinco pares texto/fondo están medidos y ninguno baja de 4.5:1. */
 .s,.pt,.cierre{color:var(--fg)}
+
+/* Sobre fondo oscuro, el trazo fino se deshace: la letra clara sangra sobre
+   el fondo -halacion- y el suavizado de WebKit la adelgaza todavia mas. Por
+   eso, en los cuatro fondos oscuros, el display sube de 300 a 400 y el texto
+   corrido de 400 a 500. Es la misma jerarquia, con el peso que ahi hace falta. */
+.s--olivo,.s--terracota,.s--cacao,.s--negro{-webkit-font-smoothing:auto}
+.s--olivo h1,.s--olivo h2,.s--terracota h1,.s--terracota h2,
+.s--cacao h1,.s--cacao h2,.s--negro h1,.s--negro h2,
+.s--olivo .bio__lead,.s--terracota .bio__lead,.s--cacao .bio__lead,.s--negro .bio__lead,
+.s--olivo .mot,.s--terracota .mot,.s--cacao .mot,.s--negro .mot,
+.s--olivo .cita p,.s--terracota .cita p,.s--cacao .cita p,.s--negro .cita p,
+.s--olivo .idx__t,.s--terracota .idx__t,.s--cacao .idx__t,.s--negro .idx__t{font-weight:400}
+.s--olivo p,.s--terracota p,.s--cacao p,.s--negro p,
+.s--olivo li,.s--terracota li,.s--cacao li,.s--negro li{font-weight:500}
 .s--crema{background:var(--crema);
   --fg:var(--negro); --fg2:rgba(0,0,0,.7); --acc:var(--terracota);
   --rule:rgba(0,0,0,.18); --card:var(--arena); --oncard:var(--negro)}
@@ -236,7 +295,7 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
   .idx__d{max-width:none}
 
   /* La lista corrida se aprieta un punto para que no queden viudas */
-  .mot{font-size:1.04rem;line-height:1.58;max-width:none}
+  .mot{font-size:var(--t-md);line-height:var(--lh-body);max-width:none}
   .mot li::after{margin:0 .55rem}
 
   /* La línea de tiempo arrima el rail al borde */
@@ -255,5 +314,5 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:1.16;text-wrap:balance}
 
   /* El logotipo no se come la pantalla */
   .lg--p{width:clamp(104px,26vw,132px)}
-  .cab__n{font-size:2.4rem}
+  .cab__n{font-size:var(--t-2xl)}
 }

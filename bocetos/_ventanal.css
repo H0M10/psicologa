@@ -5,7 +5,7 @@
    aire — los ventanales de la época existían para dejar entrar el vacío.
    Cada bloque cambia de color: esa es la señal de corte que faltaba.
    ========================================================================== */
-body{background:var(--hueso);color:var(--negro);font-size:1.03rem}
+body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 a{color:var(--terracota)}
 :focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px}
 .w{width:min(100% - 2.6rem,1180px)}
@@ -30,21 +30,21 @@ a{color:var(--terracota)}
 .lock{text-align:center}
 .lock .lg{color:var(--cacao);margin-inline:auto}
 .lock__b{color:var(--olivo)}
-.pt h1{font-size:clamp(1.95rem,4.8vw,3.3rem);font-weight:300;letter-spacing:-.02em;max-width:17ch}
+.pt h1{font-size:var(--t-3xl);font-weight:300;letter-spacing:var(--ls-tight);max-width:17ch}
 .pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
-.pt__d{margin-top:1.4rem;font-size:1.06rem;max-width:40ch;opacity:.76}
+.pt__d{margin-top:1.4rem;font-size:var(--t-md);max-width:40ch;opacity:.76}
 
 /* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
 .firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(min(100%, 180px),1fr));gap:2px;background:var(--negro)}
 /* Los paños ponen fondo propio, así que ponen también su texto */
 .firma>div{background:var(--crema);color:var(--negro);padding:1.3rem 1.4rem}
-.firma dt{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.58}
-.firma dd{margin:.4rem 0 0;font-family:var(--disp);font-size:1.08rem;font-weight:300}
+.firma dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;opacity:.58}
+.firma dd{margin:.4rem 0 0;font-family:var(--disp);font-size:var(--t-md);font-weight:300}
 
 /* ── Apertura de sección, con mucho aire debajo ── */
 .cab{border-bottom:0;padding-bottom:0;margin-bottom:clamp(2.4rem,6vw,4rem)}
-.cab__n{font-weight:200;opacity:.22}
+.cab__n{font-weight:300;opacity:.22}
 .cab h2{font-weight:300;max-width:17ch}
 
 /* ── Supuestos: paños de ventanal, con parteluz grueso entre ellos ── */
@@ -53,8 +53,8 @@ a{color:var(--terracota)}
   background:var(--rule)}
 .sup li{background:var(--olivo);color:var(--crema);padding:1.8rem 1.6rem;display:flex;flex-direction:column;
   gap:.9rem;min-height:9.5rem}
-.sup__n{font-family:var(--disp);font-size:2rem;font-weight:200;line-height:1;opacity:.5}
-.sup__t{font-size:1.02rem;line-height:1.45}
+.sup__n{font-family:var(--disp);font-size:var(--t-xl);font-weight:300;line-height:var(--lh-num);opacity:.5}
+.sup__t{font-size:var(--t-base);line-height:var(--lh-ui)}
 
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
@@ -63,8 +63,8 @@ a{color:var(--terracota)}
 .par__c{padding:1.8rem 1.6rem}
 
 .par__c--acc a{color:var(--terracota)}
-.par__c h3{font-size:1.1rem;font-weight:400;margin-bottom:.7rem}
-.par__c p{font-size:.95rem}
+.par__c h3{font-size:var(--t-md);font-weight:400;margin-bottom:.7rem}
+.par__c p{font-size:var(--t-base)}
 .par__l{margin-top:1.1rem;font-weight:700}
 
 /* ── Mapa a sangre, como un ventanal ── */
@@ -96,11 +96,11 @@ a{color:var(--terracota)}
 .idx__c--f 
 
 /* ── Psicoterapia sobre blanco, con mucho aire ── */
-.mot{max-width:30ch;font-size:clamp(1.15rem,2.9vw,1.75rem)}
+.mot{max-width:30ch;font-size:var(--t-xl)}
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));gap:3rem}
-.via h3{font-family:var(--txt);font-size:.68rem;font-weight:700;letter-spacing:.18em;
+.via h3{font-family:var(--txt);font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);
   text-transform:uppercase;color:var(--arena);padding-bottom:.9rem;margin-bottom:.4rem;
   border-bottom:2px solid var(--arena)}
 

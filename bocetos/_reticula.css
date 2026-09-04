@@ -4,7 +4,7 @@
    Cada sección cambia de fondo, que es lo que faltaba para que la
    información deje de leerse como un solo bloque.
    ========================================================================== */
-body{background:var(--hueso);color:var(--negro);font-size:1.02rem}
+body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 a{color:var(--terracota)}
 :focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px}
 
@@ -30,15 +30,15 @@ a{color:var(--terracota)}
 .pt__g{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(2rem,5vw,4rem);align-items:end}
 .lock{margin-bottom:clamp(1.8rem,4vw,2.6rem)}
 .lock .lg{color:var(--cacao)}
-.pt h1{font-size:clamp(1.9rem,4.6vw,3.15rem);font-weight:300;letter-spacing:-.018em;max-width:19ch}
+.pt h1{font-size:var(--t-3xl);font-weight:300;letter-spacing:var(--ls-tight);max-width:19ch}
 .pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
-.pt__d{margin-top:1.3rem;font-size:1.06rem;max-width:38ch;opacity:.76}
+.pt__d{margin-top:1.3rem;font-size:var(--t-md);max-width:38ch;opacity:.76}
 /* Ficha de credenciales, alineada a la última columna */
 .firma{margin:0;border-top:2px solid var(--negro);padding-top:1rem}
 .firma>div{padding:.7rem 0;border-bottom:1px solid rgba(0,0,0,.12)}
 .firma>div:last-child{border-bottom:0}
-.firma dt{font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
-.firma dd{margin:.2rem 0 0;font-family:var(--disp);font-size:1.02rem;font-weight:400}
+.firma dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;opacity:.6}
+.firma dd{margin:.2rem 0 0;font-family:var(--disp);font-size:var(--t-base);font-weight:400}
 
 /* ── Apertura: el número vive en la margen izquierda ── */
 .cab{display:grid;grid-template-columns:5.5rem 1fr;gap:0 1.6rem;max-width:52rem;
@@ -53,17 +53,17 @@ a{color:var(--terracota)}
   background:var(--rule);border:1px solid var(--rule)}
 .sup li{background:var(--olivo);color:var(--crema);padding:1.4rem 1.5rem;
   display:flex;flex-direction:column;gap:.7rem}
-.sup__n{font-family:var(--disp);font-size:.8rem;font-weight:600;letter-spacing:.14em;
+.sup__n{font-family:var(--disp);font-size:var(--t-sm);font-weight:600;letter-spacing:var(--ls-caps);
   color:var(--crema);opacity:.82}
-.sup__t{font-size:1rem;line-height:1.45}
+.sup__t{font-size:var(--t-base);line-height:var(--lh-ui)}
 
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 268px),1fr));gap:1rem;margin-top:1.6rem}
 .par__c{padding:1.5rem}
 /* Sobre arena la terracota se queda en 3.3:1; el cacao llega a 5.7 */
 .par__c--acc a{color:var(--cacao);text-decoration:underline}
-.par__c h3{font-size:1.06rem;font-weight:500;margin-bottom:.6rem}
-.par__c p{font-size:.94rem}
+.par__c h3{font-size:var(--t-md);font-weight:500;margin-bottom:.6rem}
+.par__c p{font-size:var(--t-base)}
 .par__l{margin-top:1rem;font-weight:700}
 
 /* ── Mapa, cierre y pie ── */
@@ -98,7 +98,7 @@ a{color:var(--terracota)}
 
 /* ── Formación sobre blanco: dos líneas de tiempo en paralelo ── */
 .vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));gap:2.6rem}
-.via h3{font-family:var(--txt);font-size:.7rem;font-weight:700;letter-spacing:.18em;
+.via h3{font-family:var(--txt);font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);
   text-transform:uppercase;color:var(--terracota);padding-bottom:.9rem;margin-bottom:.4rem;
   border-bottom:2px solid var(--negro)}
 
