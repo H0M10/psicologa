@@ -105,8 +105,4 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 /* ── Psicoterapia sobre blanco, con mucho aire ── */
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
-.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));gap:3rem}
-.via h3{font-family:var(--txt);font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);
-  text-transform:uppercase;padding-bottom:.9rem;margin-bottom:.4rem;
-  border-bottom:2px solid var(--acc)}
 

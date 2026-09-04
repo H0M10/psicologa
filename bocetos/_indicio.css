@@ -129,7 +129,11 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .rutas--2{grid-template-columns:repeat(auto-fit,minmax(min(100%, 212px),1fr));margin-top:1.8rem}
 
 /* ── Mapa ── */
-.mapa-caja{position:relative;overflow:hidden;margin-top:.5rem}
+/* Leaflet usa z-index propios que llegan a 800 en sus paneles y a 1000 en
+   sus controles, muy por encima de la barra fija. Con isolation el mapa crea
+   su propio contexto de apilado y esos numeros se quedan dentro. */
+.mapa-caja{position:relative;overflow:hidden;margin-top:.5rem;
+  isolation:isolate;z-index:0}
 #mapa{height:clamp(280px,44vh,420px);width:100%;background:var(--arena)}
 .leaflet-container{font-family:var(--txt)}
 /* Leaflet trae su propio azul para el credito, que sobre arena da 2.41 */
@@ -203,18 +207,31 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .mot li{background:var(--card);color:var(--oncard);border-radius:999px;
   padding:.62rem 1.15rem;font-size:var(--t-base);line-height:var(--lh-ui)}
 
-/* ── Formacion: dos columnas ─────────────────────────────────────────────
-   Iba con rail y puntos de linea de tiempo, pero una linea de tiempo promete
-   cronologia y su documento no trae fechas: era un adorno que ademas
-   apretaba la columna. Ahora cada registro es titulo mas institucion,
-   separados por filete. */
+/* ── Formacion: ficha de credencial ──────────────────────────────────────
+   Tres datos por registro: estudio, institucion y fechas. La fecha va a la
+   derecha, alineada y con cifras de ancho fijo, que es como se lee una
+   credencial. Cada via en su ficha, para que el bloque tenga peso. */
+.vias{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 300px),1fr));
+  gap:1rem}
+.via{background:var(--card);color:var(--oncard);padding:clamp(1.4rem,3vw,2rem)}
+.via h3{font-family:var(--disp);font-size:var(--t-lg);font-weight:400;
+  letter-spacing:0;text-transform:none;color:var(--cardacc);
+  padding-bottom:.9rem;margin-bottom:.3rem;border-bottom:2px solid var(--cardacc)}
 .linea{list-style:none;margin:0;padding:0}
-.linea li{padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.linea li{display:grid;grid-template-columns:1fr auto;gap:.15rem 1.2rem;
+  padding:1rem 0;border-bottom:1px solid color-mix(in srgb,var(--oncard) 16%,transparent)}
 .linea li:last-child{border-bottom:0;padding-bottom:0}
-.linea strong{display:block;font-size:var(--t-base);font-weight:600;
+.linea strong{grid-column:1;font-size:var(--t-base);font-weight:600;
   line-height:var(--lh-ui)}
-.linea em{display:block;font-style:normal;font-size:var(--t-sm);
-  color:var(--acc);margin-top:.2rem}
+.linea em{grid-column:1;font-style:normal;font-size:var(--t-sm);
+  opacity:.74;margin-top:.1rem}
+.linea time{grid-column:2;grid-row:1;text-align:right;white-space:nowrap;
+  font-size:var(--t-xs);font-weight:700;letter-spacing:.04em;
+  color:var(--cardacc);font-variant-numeric:tabular-nums lining-nums}
+@media(max-width:520px){
+  .linea li{grid-template-columns:1fr}
+  .linea time{grid-column:1;grid-row:auto;text-align:left;margin-top:.35rem}
+}
 
 /* ── Sistema de fondos ───────────────────────────────────────────────────
    Cada fondo declara TODO lo que va encima: texto, acento, filete, color de
@@ -285,10 +302,6 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 /* ── Componentes, todos sobre los tokens del fondo ── */
 .idx__c{background:var(--card);color:var(--oncard)}
 .mot li::after{background:var(--acc)}
-.linea{color:var(--fg)}
-.linea::before,.linea li::before{background:var(--acc)}
-.linea em{color:var(--fg2);opacity:1}
-.via h3{color:var(--acc);border-bottom-color:var(--acc)}
 .sup{background:var(--rule)}
 .par__c{background:color-mix(in srgb,var(--fg) 8%,transparent);
   border-color:var(--rule);color:var(--fg)}
@@ -337,3 +350,19 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
   .lg--p{width:clamp(104px,26vw,132px)}
   .cab__n{font-size:var(--t-2xl)}
 }
+
+/* ── El formulario ───────────────────────────────────────────────────────
+   Los campos venian con un lavado del 4% del color del texto, que sobre un
+   fondo oscuro no se distingue: no se veia donde empezaba el campo. Ahora
+   llevan el color de ficha, que es el mismo recurso del resto de la pagina. */
+#solicitar .fc__campo > label,#solicitar .fc fieldset legend{
+  color:var(--fg);font-weight:700;font-size:var(--t-sm)}
+#solicitar .fc__campo input,#solicitar .fc__campo select,
+#solicitar .fc__campo textarea{
+  background:var(--card);color:var(--oncard);
+  border:1.5px solid color-mix(in srgb,var(--oncard) 26%,transparent)}
+#solicitar .fc__campo input::placeholder,#solicitar .fc__campo textarea::placeholder{
+  color:color-mix(in srgb,var(--oncard) 58%,transparent)}
+#solicitar .fc__vista{background:var(--card);color:var(--oncard)}
+#solicitar .fc__vista h4{color:var(--cardacc)}
+#solicitar .fc__enviar{background:var(--card);color:var(--oncard);border-color:var(--card)}

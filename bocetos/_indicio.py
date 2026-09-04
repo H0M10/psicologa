@@ -40,18 +40,22 @@ MOTIVOS = [u'Depresi\u00f3n', u'Regulaci\u00f3n emocional',
  u'Desarrollo de habilidades parentales y fortalecimiento del v\u00ednculo',
  u'Educaci\u00f3n sexual', u'Presi\u00f3n acad\u00e9mica']
 
+# Formacion. Tomada de la tabla de su documento -no de la version anterior
+# del sitio, que traia cinco instituciones cambiadas y dos estudios de menos-.
+# Cada registro es (estudio, institucion, fechas), ordenado del mas reciente.
 CLINICA = [
- (u'Licenciatura en Psicolog\u00eda', u'Universidad Aut\u00f3noma de Quer\u00e9taro'),
- (u'Maestr\u00eda en Psicoterapia Cognitivo Conductual', u'Centro de Psicoterapia Cognitiva'),
- (u'Diplomado en Psicoterapia Cognitivo Conductual', u'Centro de Psicoterapia Cognitiva'),
- (u'Diplomado en Psicoterapia Infantojuvenil', u'Centro de Atenci\u00f3n Psicol\u00f3gica y Capacitaci\u00f3n Integral')]
+ (u'Diplomado en Psicoterapia Infantojuvenil', u'CAPCIA', u'Ago 2026 – en curso'),
+ (u'Maestría en Psicoterapia Cognitivo Conductual', u'Centro de Psicoterapia Cognitiva', u'May 2026 – en curso'),
+ (u'Diplomado en Psicoterapia Cognitivo Conductual', u'UAQ · IMFAPSI', u'Ene – nov 2025'),
+ (u'Licenciatura en Psicología', u'Universidad Mondragón México', u'Ago 2020 – may 2024')]
 
 FORENSE = [
- (u'Maestr\u00eda en Investigaci\u00f3n y Evaluaci\u00f3n Criminal y Forense', u'Universidad Mondrag\u00f3n M\u00e9xico'),
- (u'Certificaci\u00f3n en An\u00e1lisis de Contexto en la Investigaci\u00f3n Criminal', u'Instituto de Ciencia Aplicada'),
- (u'Certificador en Psicolog\u00eda Forense', u'Ciencia Aplicada'),
- (u'Curso-taller de peritajes psicol\u00f3gicos en guarda y custodia', u'Con perspectiva de infancia'),
- (u'Curso de elaboraci\u00f3n de peritajes judiciales', u'Centro de SubjetividadEs, Identidad Cl\u00ednica y Forense')]
+ (u'Maestría en Investigación y Evaluación Criminal y Forense', u'Instituto de Ciencia Aplicada', u'May 2024 – may 2026'),
+ (u'Curso de elaboración de peritajes judiciales', u'Poder Judicial del Estado de Querétaro', u'Mayo 2025'),
+ (u'Certificación en Análisis de Contexto en la Investigación Criminal', u'Consejo Certificador en Psicología Forense', u'Mar – may 2025'),
+ (u'Curso-taller de peritajes psicológicos en guarda y custodia', u'FORENPSIC · con perspectiva de infancia', u'Feb – may 2025'),
+ (u'Seminario en disociación y trauma en víctimas de violencia', u'Instituto de Ciencia Aplicada', u'Sep – dic 2024'),
+ (u'Curso de elaboración de peritaje psicológico', u'Centro de SubjetividadEs, Identidad Clínica y Forense', u'Julio 2024')]
 
 # Sus archivos, no una reconstruccion. Van como mascara para poder tenirlos:
 # el mismo logo sirve sobre claro y sobre oscuro sin tener dos versiones.
@@ -115,11 +119,13 @@ def bloque_motivos():
         [u'\n    <li><span>%s</span></li>' % m for m in MOTIVOS])
 
 def bloque_formacion():
-    u"""Linea de tiempo vertical. La formacion es un recorrido, asi que pide
-    secuencia; y deja de tener la misma forma que las otras dos listas."""
+    u"""Cada registro en tres partes: estudio, institucion y fechas. Las
+    fechas salen de la tabla de su documento; la de la licenciatura venia
+    invertida -agosto 2024 a mayo 2024- y se corrige a agosto 2020."""
     def via(nombre, lista, clase):
-        li = u''.join([u'\n      <li><strong>%s</strong><em>%s</em></li>' % (a, b)
-                       for a, b in lista])
+        li = u''.join([u'\n      <li><strong>%s</strong>'
+                       u'<em>%s</em><time>%s</time></li>' % (a, b, f)
+                       for a, b, f in lista])
         return (u'<div class="via via--%s">\n      <h3>%s</h3>\n'
                 u'      <ol class="linea">%s\n      </ol>\n    </div>') % (clase, nombre, li)
     return u'<div class="vias">\n    %s\n    %s\n  </div>' % (
@@ -301,9 +307,9 @@ def portada(clase, fondo):
 if __name__ == '__main__':
     salidas = [
       ('reticula.html', u'Indicio · Retícula', '_reticula.css', '#C7B296', 'rt',
-       ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--arena', 's--terracota']),
+       ['s--arena', 's--olivo', 's--crema', 's--cacao', 's--arena', 's--olivo', 's--crema', 's--arena', 's--cacao']),
       ('ventanal.html', u'Indicio · Ventanal', '_ventanal.css', '#EAE2D7', 'vn',
-       ['s--crema', 's--olivo', 's--arena', 's--cacao', 's--crema', 's--olivo', 's--arena', 's--crema', 's--terracota']),
+       ['s--crema', 's--olivo', 's--arena', 's--terracota', 's--crema', 's--olivo', 's--arena', 's--crema', 's--cacao']),
     ]
     for arch, tit, css, tema, cl, fondos in salidas:
         h = cabeza(tit, css, tema, fondos[8]) + portada(cl, fondos[0]) + cuerpo(fondos[1:]) + pie()
