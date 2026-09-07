@@ -317,6 +317,7 @@ def portada(clase, fondo):
     %s
     <p class="lock__b">Psicolog\u00eda forense y psicoterapia</p>
   </div>
+  <div class="pt__b" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   <dl class="firma">
     <div><dt>Psic\u00f3loga</dt><dd>Thania Huerta</dd></div>
     <div><dt>C\u00e9dula profesional</dt><dd>14661976</dd></div>

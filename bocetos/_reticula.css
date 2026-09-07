@@ -107,11 +107,22 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 /* ── Índice: fichas cuadradas, como el resto del boceto ── */
 
 .idx__c--f{border-left-color:var(--olivo)}
-
-.idx__c--f 
-
 /* ── Psicoterapia sobre blanco ── */
 
 /* ── Formación sobre blanco: dos líneas de tiempo en paralelo ── */
-
-.via--f 
+/* ── La banda de color ───────────────────────────────────────────────────
+   Estaba en la version anterior y se perdio al rehacer la portada. No es
+   adorno: es la paleta puesta a la vista, en bloques de anchos desiguales
+   sobre la misma retícula de doce que ordena la pagina. Y le da trabajo a la
+   mostaza, que no puede llevar texto encima y aqui funciona sola. */
+.pt__b{grid-column:1 / -1;grid-row:3;display:grid;grid-template-columns:repeat(12,1fr);
+  gap:0 .9rem;height:clamp(58px,9vw,116px);margin-top:clamp(1.8rem,4vw,3rem)}
+.pt__b i:nth-child(1){grid-column:1 / 4;background:var(--olivo)}
+.pt__b i:nth-child(2){grid-column:4 / 6;background:var(--terracota)}
+/* El tercero no puede ir en arena: es el fondo de la portada y el bloque
+   mas ancho desaparecia, dejando un hueco en medio de la banda. */
+.pt__b i:nth-child(3){grid-column:6 / 10;background:var(--cacao)}
+.pt__b i:nth-child(4){grid-column:10 / 11;background:var(--mostaza)}
+.pt__b i:nth-child(5){grid-column:11 / 13;background:var(--crema);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cacao) 24%,transparent)}
+.firma{grid-row:4}

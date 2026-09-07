@@ -99,10 +99,30 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 .idx{gap:3px;background:rgba(0,0,0,.16)}
 
 .idx__c:hover{transform:none;background:var(--arena)}
-
-.idx__c--f 
-
 /* ── Psicoterapia sobre blanco, con mucho aire ── */
 
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
 
+/* ── Los paños de color ──────────────────────────────────────────────────
+   La version anterior tenia tres paneles a sangre detras de la portada, con
+   el texto flotando encima en una tarjeta: es literalmente un ventanal, se
+   ven los paños detras del cristal. Se recupera con cinco, uno por color, y
+   la mostaza encuentra por fin donde ir. */
+.pt{isolation:isolate}
+.pt__b{position:absolute;inset:0;z-index:-1;display:grid;
+  grid-template-columns:1.2fr 1fr 1.6fr 1fr .8fr}
+.pt__b i:nth-child(1){background:var(--olivo)}
+.pt__b i:nth-child(2){background:var(--cacao)}
+.pt__b i:nth-child(3){background:var(--arena)}
+.pt__b i:nth-child(4){background:var(--mostaza)}
+.pt__b i:nth-child(5){background:var(--terracota)}
+/* El texto va en una tarjeta opaca: sobre los paños no se leeria */
+.pt__t{background:var(--crema);color:var(--negro);
+  padding:clamp(1.8rem,4vw,3rem);align-self:center}
+/* El logotipo cae sobre un paño u otro según el ancho, así que no puede
+   depender de cuál: lleva su propio plano, y así funciona siempre. */
+.lock{background:var(--cacao);color:var(--crema);
+  padding:clamp(1.6rem,3.4vw,2.4rem) clamp(1.2rem,2.6vw,2rem);align-self:center}
+.lock .lg{color:var(--crema)}
+.lock__b{color:var(--crema);opacity:.86}
+.firma>div{background:var(--crema);color:var(--negro)}
