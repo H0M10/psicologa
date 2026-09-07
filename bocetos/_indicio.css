@@ -286,6 +286,13 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .s--cacao{background:var(--cacao);
   --fg:var(--crema); --fg2:rgba(234,226,215,.82); --acc:var(--arena);
   --rule:rgba(234,226,215,.26); --cardacc:var(--cacao); --onacc:var(--cacao); --card:var(--arena); --oncard:var(--cacao)}
+/* La mostaza entra como fondo. Es el unico de sus colores que solo admite
+   negro encima -6.21-, asi que texto y acento comparten color y se
+   distinguen por peso y versalita. */
+.s--mostaza{background:var(--mostaza);
+  --fg:var(--negro); --fg2:rgba(0,0,0,.78); --acc:var(--negro);
+  --rule:rgba(0,0,0,.26); --onacc:var(--crema); --card:var(--crema);
+  --oncard:var(--negro); --cardacc:var(--terracota)}
 .s--negro{background:var(--negro);
   --fg:var(--crema); --fg2:rgba(234,226,215,.8); --acc:var(--mostaza);
   --rule:rgba(234,226,215,.22); --cardacc:var(--cacao); --onacc:var(--negro); --card:var(--arena); --oncard:var(--negro)}

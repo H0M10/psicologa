@@ -67,14 +67,16 @@ body{font-size:1.03rem}
 .cab h2{font-weight:300;max-width:17ch}
 
 /* ── Índice: paños con parteluz ── */
-.idx{gap:3px;background:var(--rule)}
+.idx{gap:3px}
 .idx__c:hover{transform:none}
 
 /* ── Supuestos: paños de ventanal con parteluz grueso ── */
+/* El parteluz se invierte: el fondo lo pone la seccion y las fichas van un
+   punto mas claras. Antes el hueco lo pintaba el contenedor, asi que con
+   siete fichas en cuatro columnas quedaba una celda vacia a la vista. */
 .sup{list-style:none;margin:0;padding:0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
-  background:var(--rule)}
-.sup li{background:var(--olivo);color:var(--crema);padding:1.8rem 1.6rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px}
+.sup li{background:color-mix(in srgb,var(--fg) 9%,transparent);padding:1.8rem 1.6rem;
   display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:baseline;
   min-height:9rem}
 .sup__n{font-family:var(--disp);font-size:var(--t-lg);font-weight:300;opacity:.6}
@@ -85,7 +87,7 @@ body{font-size:1.03rem}
 
 /* ── Par de tarjetas ── */
 .par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));
-  gap:3px;margin-top:3px;background:var(--rule)}
+  gap:3px;margin-top:3px}
 .par__c{padding:1.8rem 1.6rem;border:0;border-radius:0}
 .par__c h3{font-size:var(--t-md);font-weight:400;margin-bottom:.7rem}
 
