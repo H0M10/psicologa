@@ -142,7 +142,9 @@
     var sec = document.createElement('section');
     // El boceto declara con que fondo va, si no se queda sin tokens de color
     sec.className = 's ' + (document.body.getAttribute('data-fondo-form') || '');
-    sec.id = 'solicitar';
+    // El id tiene que ser el mismo al que apuntan los enlaces, si no el
+    // ancla no lleva a ningun sitio aunque la seccion exista.
+    sec.id = 'cotizacion';
     sec.innerHTML =
       '<div class="w">' +
         '<h2 style="font-family:inherit;font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:600;margin-bottom:.6rem">Solicita una cotización</h2>' +

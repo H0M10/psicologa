@@ -251,6 +251,9 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 
    Los cinco pares texto/fondo están medidos y ninguno baja de 4.5:1. */
 .s,.pt,.cierre{color:var(--fg)}
+/* La barra fija mide 61 px y tapaba el arranque de la seccion a la que
+   llevara cada ancla. El margen de desplazamiento la deja debajo. */
+.s[id],.pt[id],#cotizacion{scroll-margin-top:72px}
 /* El formulario y la biografia plegable los inyecta _detalle.js dentro de una
    seccion, pero venian con los tokens de la barra -crema sobre cacao-, asi
    que sobre un fondo claro salian crema sobre claro. Aqui heredan los de la
@@ -386,24 +389,24 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
    Los campos venian con un lavado del 4% del color del texto, que sobre un
    fondo oscuro no se distingue: no se veia donde empezaba el campo. Ahora
    llevan el color de ficha, que es el mismo recurso del resto de la pagina. */
-#solicitar .fc__campo > label,#solicitar .fc fieldset legend{
+#cotizacion .fc__campo > label,#cotizacion .fc fieldset legend{
   color:var(--fg);font-weight:700;font-size:var(--t-sm)}
-#solicitar .fc__campo input,#solicitar .fc__campo select,
-#solicitar .fc__campo textarea{
+#cotizacion .fc__campo input,#cotizacion .fc__campo select,
+#cotizacion .fc__campo textarea{
   background:var(--card);color:var(--oncard);
   border:1.5px solid color-mix(in srgb,var(--oncard) 26%,transparent)}
-#solicitar .fc__campo input::placeholder,#solicitar .fc__campo textarea::placeholder{
+#cotizacion .fc__campo input::placeholder,#cotizacion .fc__campo textarea::placeholder{
   color:color-mix(in srgb,var(--oncard) 58%,transparent)}
-#solicitar .fc__vista{background:var(--card);color:var(--oncard)}
-#solicitar .fc__vista h4{color:var(--cardacc)}
-#solicitar .fc__enviar{background:var(--card);color:var(--oncard);border-color:var(--card)}
+#cotizacion .fc__vista{background:var(--card);color:var(--oncard)}
+#cotizacion .fc__vista h4{color:var(--cardacc)}
+#cotizacion .fc__enviar{background:var(--card);color:var(--oncard);border-color:var(--card)}
 
 /* La lista desplegada de un select la pinta el sistema con sus colores, no
    con los del select: sin esto las opciones salian ilegibles. */
-#solicitar .fc__campo select option,
-#solicitar .fc__campo select optgroup{
+#cotizacion .fc__campo select option,
+#cotizacion .fc__campo select optgroup{
   background:var(--card);color:var(--oncard);font-weight:500}
-#solicitar .fc__campo select{
+#cotizacion .fc__campo select{
   -webkit-appearance:none;appearance:none;padding-right:2.4rem;
   background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),
     linear-gradient(135deg,currentColor 50%,transparent 50%);
