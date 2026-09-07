@@ -1,137 +1,116 @@
 /* ============================================================================
    INDICIO · Ventanal
-   El rasgo que definió la arquitectura del estilo: dentro y fuera se funden.
-   Bloques a sangre, parteluces gruesos como los de un ventanal, y sobre todo
-   aire — los ventanales de la época existían para dejar entrar el vacío.
-   Cada bloque cambia de color: esa es la señal de corte que faltaba.
+   Portado de la versión anterior, que era mejor. Lo que lo define:
+
+   1. Los paños de color van a sangre y son iguales entre sí: son el fondo.
+   2. La portada mide 92vh, para que quede paño visible arriba y abajo.
+   3. El texto va en un VANO —un bloque de crema que no ocupa el ancho y se
+      abre sobre la banda—. Eso es lo que se lee como un ventanal.
+   4. Mucho aire. Ninguna caja encierra las listas.
+
+   Los colores son los suyos. Los cuatro paños en tono medio-oscuro, para que
+   el vano resalte.
    ========================================================================== */
-body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
+body{font-size:1.03rem}
 :focus-visible{outline:2.5px solid var(--terracota);outline-offset:3px}
 .w{width:min(100% - 2.6rem,1180px)}
 
 /* Ritmo amplio: el aire es el material principal de este boceto */
-/* Filete grueso arriba de cada sección, como el parteluz de un ventanal.
-   Donde el salto de fondo es corto, es lo que anuncia el corte. */
 .s{padding:clamp(4.4rem,11vw,8rem) 0;border-top:5px solid var(--terracota)}
+.s--olivo{border-top-color:var(--cacao)}
+.s--cacao{border-top-color:var(--arena)}
+.s--arena,.s--terracota{border-top-color:var(--cacao)}
 
-/* En cada fondo, el único acento que llega a 4.5:1 con la paleta real */
-
-/* ── Portada: un ventanal. El logotipo a un lado, el vacío al otro ── */
-.pt{position:relative;overflow:hidden;
-  padding:clamp(3rem,8vw,6rem) 0 clamp(3.4rem,9vw,6.4rem)}
-/* El patrón de volutas de su marca, muy tenue, hace de textura */
-.pt::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;
-  background:var(--olivo);
-  -webkit-mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat;
-  mask:url(../assets/img/indicio-patron.png) 0 0/168px repeat}
+/* ── La portada ── */
+.pt{position:relative;min-height:min(92vh,820px);display:grid;align-items:center;
+  padding:clamp(3rem,7vw,5rem) 0;isolation:isolate;overflow:hidden}
+.pt__b{position:absolute;inset:0;z-index:0;display:grid;
+  grid-template-columns:repeat(4,1fr)}
+.pt__b i{background:var(--olivo)}
+.pt__b i:nth-child(2){background:var(--cacao)}
+.pt__b i:nth-child(3){background:var(--terracota)}
+.pt__b i:nth-child(4){background:var(--mostaza)}
+.pt__b i:nth-child(5){display:none}
 .pt>.w{position:relative;z-index:1}
-/* El logotipo manda la portada: va a la derecha y en grande, y el texto
-   ocupa la columna ancha de la izquierda. */
-.pt__g{display:grid;grid-template-columns:1fr auto;gap:0;align-items:stretch;
-  padding:clamp(2.4rem,6vw,4.6rem) 0}
-.lock{grid-column:2;grid-row:1;text-align:center}
-.pt__t{grid-column:1;grid-row:1}
-.lock .lg{width:clamp(180px,24vw,320px);margin-inline:auto}
-.lock__b{margin-top:1.2rem;max-width:16ch;margin-inline:auto}
-.lock .lg{color:var(--cacao)}
-.lock__b{color:var(--olivo)}
-.pt h1{font-size:var(--t-3xl);font-weight:300;letter-spacing:var(--ls-tight);max-width:17ch}
-.pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
-.pt__d{margin-top:1.4rem;font-size:var(--t-md);max-width:40ch;opacity:.76}
+.pt__g{display:grid;grid-template-columns:minmax(0,42rem) auto;
+  align-items:center;
+  /* Sin hueco entre filas: el vano es un solo bloque, no dos */
+  column-gap:clamp(.9rem,2vw,1.6rem);row-gap:0}
 
-/* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
-.firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%, 148px),1fr));gap:2px;background:var(--negro)}
-/* Los paños ponen fondo propio, así que ponen también su texto */
-.firma>div{background:var(--crema);color:var(--negro);padding:1.3rem 1.4rem}
-.firma dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;opacity:.58}
-.firma dd{margin:.4rem 0 0;font-family:var(--disp);font-size:var(--t-md);font-weight:300}
+/* El vano: titular, entrada, botones y credenciales en un solo bloque */
+.pt__t{background:var(--crema);color:var(--negro);grid-column:1;grid-row:1;
+  padding:clamp(2rem,4.6vw,3.4rem) clamp(2rem,4.6vw,3.4rem) 0}
+.pt h1{font-size:clamp(1.9rem,4.4vw,3.05rem);font-weight:300;
+  letter-spacing:var(--ls-tight);max-width:17ch}
+.pt h1 em{font-style:normal;font-weight:500;color:var(--terracota)}
+.pt__d{margin-top:1.2rem;max-width:38ch;opacity:.78}
+.firma{grid-column:1;grid-row:2;background:var(--crema);color:var(--negro);
+  margin:0;padding:0 clamp(2rem,4.6vw,3.4rem) clamp(1.8rem,3.4vw,2.6rem);
+  display:grid;gap:0 1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 142px),1fr))}
+.firma>div{padding:.85rem 0 0;border-top:1px solid rgba(0,0,0,.16)}
+.firma dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);
+  text-transform:uppercase;opacity:.6}
+.firma dd{margin:.3rem 0 0;font-family:var(--disp);font-size:var(--t-base);font-weight:300}
+
+/* El logotipo, en su propio plano: cae sobre un paño u otro según el ancho */
+.lock{background:var(--cacao);color:var(--crema);grid-column:2;grid-row:1 / span 2;
+  padding:clamp(1.6rem,3vw,2.4rem) clamp(1.1rem,2.2vw,1.7rem);
+  align-self:stretch;display:grid;align-content:center;justify-items:center;
+  text-align:center}
+.lock .lg{color:var(--crema);width:clamp(112px,13vw,172px);margin:0}
+.lock__b{color:var(--crema);opacity:.86;margin-top:1rem;max-width:14ch}
 
 /* ── Apertura de sección, con mucho aire debajo ── */
 .cab{border-bottom:0;padding-bottom:0;margin-bottom:clamp(2.4rem,6vw,4rem)}
 .cab__n{font-weight:300;opacity:.22}
 .cab h2{font-weight:300;max-width:17ch}
 
-/* ── Supuestos: paños de ventanal, con parteluz grueso entre ellos ── */
+/* ── Índice: paños con parteluz ── */
+.idx{gap:3px;background:var(--rule)}
+.idx__c:hover{transform:none}
+
+/* ── Supuestos: paños de ventanal con parteluz grueso ── */
 .sup{list-style:none;margin:0;padding:0;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
   background:var(--rule)}
-.sup li{background:var(--olivo);color:var(--crema);padding:1.8rem 1.6rem;display:flex;flex-direction:column;
-  gap:.9rem;min-height:9.5rem}
-.sup__n{font-family:var(--disp);font-size:var(--t-xl);font-weight:300;line-height:var(--lh-num);opacity:.5}
+.sup li{background:var(--olivo);color:var(--crema);padding:1.8rem 1.6rem;
+  display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:baseline;
+  min-height:9rem}
+.sup__n{font-family:var(--disp);font-size:var(--t-lg);font-weight:300;opacity:.6}
 .sup__t{font-size:var(--t-base);line-height:var(--lh-ui)}
 
-/* ── Par de tarjetas ── */
-.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));gap:3px;
-  margin-top:3px;background:var(--rule)}
-/* El fondo lo pone el sistema; aquí solo el aire */
-.par__c{padding:1.8rem 1.6rem}
+/* ── Temas: pastillas, más grandes que en Retícula ── */
+.mot li{padding:.72rem 1.3rem;font-size:var(--t-md)}
 
-.par__c--acc a{color:var(--terracota)}
+/* ── Par de tarjetas ── */
+.par{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 272px),1fr));
+  gap:3px;margin-top:3px;background:var(--rule)}
+.par__c{padding:1.8rem 1.6rem;border:0;border-radius:0}
 .par__c h3{font-size:var(--t-md);font-weight:400;margin-bottom:.7rem}
-.par__c p{font-size:var(--t-base)}
-.par__l{margin-top:1.1rem;font-weight:700}
+
+/* ── Formación ── */
+.via{border-radius:0}
 
 /* ── Mapa a sangre, como un ventanal ── */
-.mapa-caja{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw}
+.mapa-caja{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;
+  border-radius:0}
 #mapa{height:clamp(320px,50vh,480px)}
-.datos>div{border-bottom:1px solid rgba(0,0,0,.16)}
 
 /* ── Cierre y pie ── */
 .cierre{padding:clamp(4rem,10vw,7rem) 0;border-top:5px solid var(--cacao)}
 .cierre .sl{color:var(--acc)}
-.cierre .b--p{background:var(--crema);color:var(--olivo);border-color:var(--crema)}
-.cierre .b--s{border-color:var(--rule)}
 .fin{background:var(--negro);color:var(--arena)}
-.fin .sl{color:var(--arena)}
-.fin__m b{color:var(--crema)}
+.fin .sl{color:var(--mostaza)}
 
 @media(max-width:860px){
-  /* En vertical el logotipo pasa arriba, que es donde manda en el telefono */
-  .pt__g{grid-template-columns:1fr;gap:2rem}
-  .lock{grid-column:1;grid-row:1;text-align:center}
-  .pt__t{grid-column:1;grid-row:2}
-  .lock .lg{width:clamp(150px,42vw,230px)}
+  .pt{min-height:auto;padding:2.4rem 0 3rem}
+  .pt__b{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr)}
+  .pt__g{grid-template-columns:1fr;gap:0}
+  .lock{grid-column:1;grid-row:1;padding:1.4rem 1.2rem}
+  .lock .lg{width:clamp(96px,26vw,132px)}
+  .lock__b{margin-top:.7rem;max-width:24ch}
+  .pt__t{grid-row:2;padding:1.6rem 1.4rem 0}
+  .firma{grid-row:3;padding:0 1.4rem 1.6rem}
   .cab h2{max-width:none}
 }
-
-/* ── Índice: paños con parteluz, como el resto del boceto ── */
-.idx{gap:3px;background:rgba(0,0,0,.16)}
-
-.idx__c:hover{transform:none;background:var(--arena)}
-/* ── Psicoterapia sobre blanco, con mucho aire ── */
-
-/* ── Formación sobre cacao: dos líneas de tiempo ── */
-
-/* ── Los paños de color ──────────────────────────────────────────────────
-   La versión anterior tenía paneles a sangre detrás de la portada, con el
-   texto flotando encima en una tarjeta. Eso es lo que hace que se lea como
-   un ventanal: los paños son el fondo y la tarjeta es el objeto delante.
-   Metidos dentro del contenedor dejaban de serlo, y quedaba una banda de
-   bloques sin más. */
-.pt{isolation:isolate;padding-bottom:0}
-.pt__b{position:absolute;inset:0;z-index:0;display:grid;
-  grid-template-columns:1.15fr 1fr 1.5fr 1fr .85fr}
-.pt__b i:nth-child(1){background:var(--olivo)}
-.pt__b i:nth-child(2){background:var(--cacao)}
-.pt__b i:nth-child(3){background:var(--arena)}
-.pt__b i:nth-child(4){background:var(--mostaza)}
-.pt__b i:nth-child(5){background:var(--terracota)}
-.pt>.w{position:relative;z-index:1}
-
-/* La tarjeta: el texto y las credenciales juntos, como estaba antes */
-.pt__t{background:var(--crema);color:var(--negro);
-  padding:clamp(1.8rem,4vw,3.2rem);align-self:stretch;grid-row:1}
-.firma{grid-column:1;grid-row:2;background:var(--crema);color:var(--negro);
-  margin:0;padding:0 clamp(1.8rem,4vw,3.2rem) clamp(1.6rem,3vw,2.4rem);
-  border-top:0;gap:0 1.6rem}
-.firma>div{background:none;color:var(--negro);padding:.9rem 0 0;
-  border-right:0;border-top:1px solid rgba(0,0,0,.16);text-align:left}
-
-/* El logotipo cae sobre un paño u otro según el ancho, así que no puede
-   depender de cuál: lleva su propio plano. */
-.lock{background:var(--cacao);color:var(--crema);grid-column:2;grid-row:1 / span 2;
-  padding:clamp(1.8rem,3.6vw,2.6rem) clamp(1.2rem,2.6vw,2rem);
-  align-self:stretch;display:grid;align-content:center}
-.lock .lg{color:var(--crema)}
-.lock__b{color:var(--crema);opacity:.86}
