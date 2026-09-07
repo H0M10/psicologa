@@ -140,6 +140,10 @@ h1,h2,h3{margin:0;font-family:var(--disp);line-height:var(--lh-head);text-wrap:b
 .leaflet-control-attribution{background:var(--crema)!important;
   color:var(--cacao)!important;font-size:.65rem}
 .leaflet-control-attribution a{color:var(--terracota)!important}
+/* Leaflet pinta sus botones de zoom en blanco puro, que no esta en su paleta */
+.leaflet-control-zoom a{background:var(--crema)!important;color:var(--cacao)!important;
+  border-color:color-mix(in srgb,var(--cacao) 22%,transparent)!important}
+.leaflet-control-zoom a:hover{background:var(--arena)!important}
 .pin{display:grid;place-items:center;width:28px;height:28px;background:var(--terracota);
   border-radius:50% 50% 50% 4px;transform:rotate(-45deg)}
 .pin__c{width:8px;height:8px;border-radius:50%;background:var(--crema)}

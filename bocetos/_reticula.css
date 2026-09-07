@@ -25,7 +25,11 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 .s{padding:clamp(3.6rem,9vw,6.4rem) 0;border-top:4px solid var(--terracota)}
 
 /* ── Portada ── */
-.pt{padding:clamp(2.6rem,7vw,5rem) 0 clamp(3rem,7vw,5rem)}
+/* La banda es hermana del contenedor para poder alinearse sola, asi que el
+   orden se declara aqui: primero el contenido, la banda al pie. */
+.pt{padding:clamp(2.6rem,7vw,5rem) 0 0;display:flex;flex-direction:column}
+.pt>.w{order:1}
+.pt__b{order:2}
 /* El logotipo manda: columna derecha y en grande. El texto ocupa la ancha
    de la izquierda y las credenciales cruzan debajo, alineadas a la reticula. */
 .pt__g{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,4.4rem);
@@ -115,8 +119,9 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
    adorno: es la paleta puesta a la vista, en bloques de anchos desiguales
    sobre la misma retícula de doce que ordena la pagina. Y le da trabajo a la
    mostaza, que no puede llevar texto encima y aqui funciona sola. */
-.pt__b{grid-column:1 / -1;grid-row:3;display:grid;grid-template-columns:repeat(12,1fr);
-  gap:0 .9rem;height:clamp(58px,9vw,116px);margin-top:clamp(1.8rem,4vw,3rem)}
+.pt__b{width:min(100% - 2.4rem,1120px);margin:0 auto clamp(2rem,4vw,3.2rem);
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 .9rem;
+  height:clamp(58px,9vw,116px)}
 .pt__b i:nth-child(1){grid-column:1 / 4;background:var(--olivo)}
 .pt__b i:nth-child(2){grid-column:4 / 6;background:var(--terracota)}
 /* El tercero no puede ir en arena: es el fondo de la portada y el bloque
@@ -125,4 +130,4 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 .pt__b i:nth-child(4){grid-column:10 / 11;background:var(--mostaza)}
 .pt__b i:nth-child(5){grid-column:11 / 13;background:var(--crema);
   box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cacao) 24%,transparent)}
-.firma{grid-row:4}
+

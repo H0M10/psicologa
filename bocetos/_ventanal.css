@@ -27,8 +27,8 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 .pt>.w{position:relative;z-index:1}
 /* El logotipo manda la portada: va a la derecha y en grande, y el texto
    ocupa la columna ancha de la izquierda. */
-.pt__g{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,4.4rem);
-  align-items:center}
+.pt__g{display:grid;grid-template-columns:1fr auto;gap:0;align-items:stretch;
+  padding:clamp(2.4rem,6vw,4.6rem) 0}
 .lock{grid-column:2;grid-row:1;text-align:center}
 .pt__t{grid-column:1;grid-row:1}
 .lock .lg{width:clamp(180px,24vw,320px);margin-inline:auto}
@@ -41,7 +41,7 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 
 /* Credenciales como cuatro paños de vidrio, con parteluz entre ellos */
 .firma{grid-column:1 / -1;margin:clamp(2.6rem,6vw,4rem) 0 0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%, 180px),1fr));gap:2px;background:var(--negro)}
+  grid-template-columns:repeat(auto-fit,minmax(min(100%, 148px),1fr));gap:2px;background:var(--negro)}
 /* Los paños ponen fondo propio, así que ponen también su texto */
 .firma>div{background:var(--crema);color:var(--negro);padding:1.3rem 1.4rem}
 .firma dt{font-size:var(--t-xs);font-weight:700;letter-spacing:var(--ls-caps);text-transform:uppercase;opacity:.58}
@@ -104,25 +104,34 @@ body{background:var(--hueso);color:var(--negro);font-size:var(--t-base)}
 /* ── Formación sobre cacao: dos líneas de tiempo ── */
 
 /* ── Los paños de color ──────────────────────────────────────────────────
-   La version anterior tenia tres paneles a sangre detras de la portada, con
-   el texto flotando encima en una tarjeta: es literalmente un ventanal, se
-   ven los paños detras del cristal. Se recupera con cinco, uno por color, y
-   la mostaza encuentra por fin donde ir. */
-.pt{isolation:isolate}
-.pt__b{position:absolute;inset:0;z-index:-1;display:grid;
-  grid-template-columns:1.2fr 1fr 1.6fr 1fr .8fr}
+   La versión anterior tenía paneles a sangre detrás de la portada, con el
+   texto flotando encima en una tarjeta. Eso es lo que hace que se lea como
+   un ventanal: los paños son el fondo y la tarjeta es el objeto delante.
+   Metidos dentro del contenedor dejaban de serlo, y quedaba una banda de
+   bloques sin más. */
+.pt{isolation:isolate;padding-bottom:0}
+.pt__b{position:absolute;inset:0;z-index:0;display:grid;
+  grid-template-columns:1.15fr 1fr 1.5fr 1fr .85fr}
 .pt__b i:nth-child(1){background:var(--olivo)}
 .pt__b i:nth-child(2){background:var(--cacao)}
 .pt__b i:nth-child(3){background:var(--arena)}
 .pt__b i:nth-child(4){background:var(--mostaza)}
 .pt__b i:nth-child(5){background:var(--terracota)}
-/* El texto va en una tarjeta opaca: sobre los paños no se leeria */
+.pt>.w{position:relative;z-index:1}
+
+/* La tarjeta: el texto y las credenciales juntos, como estaba antes */
 .pt__t{background:var(--crema);color:var(--negro);
-  padding:clamp(1.8rem,4vw,3rem);align-self:center}
+  padding:clamp(1.8rem,4vw,3.2rem);align-self:stretch;grid-row:1}
+.firma{grid-column:1;grid-row:2;background:var(--crema);color:var(--negro);
+  margin:0;padding:0 clamp(1.8rem,4vw,3.2rem) clamp(1.6rem,3vw,2.4rem);
+  border-top:0;gap:0 1.6rem}
+.firma>div{background:none;color:var(--negro);padding:.9rem 0 0;
+  border-right:0;border-top:1px solid rgba(0,0,0,.16);text-align:left}
+
 /* El logotipo cae sobre un paño u otro según el ancho, así que no puede
-   depender de cuál: lleva su propio plano, y así funciona siempre. */
-.lock{background:var(--cacao);color:var(--crema);
-  padding:clamp(1.6rem,3.4vw,2.4rem) clamp(1.2rem,2.6vw,2rem);align-self:center}
+   depender de cuál: lleva su propio plano. */
+.lock{background:var(--cacao);color:var(--crema);grid-column:2;grid-row:1 / span 2;
+  padding:clamp(1.8rem,3.6vw,2.6rem) clamp(1.2rem,2.6vw,2rem);
+  align-self:stretch;display:grid;align-content:center}
 .lock .lg{color:var(--crema)}
 .lock__b{color:var(--crema);opacity:.86}
-.firma>div{background:var(--crema);color:var(--negro)}

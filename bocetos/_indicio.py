@@ -303,7 +303,9 @@ def portada(clase, fondo):
     cruzando debajo. Los tres son hijos directos de la rejilla: antes el
     bloque de marca colgaba de dentro del texto y por eso no se podia colocar."""
     return u"""
-<header class="pt %s %s" id="inicio"><div class="w pt__g">
+<header class="pt %s %s" id="inicio">
+  <div class="pt__b" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="w pt__g">
   <div class="pt__t">
     <h1>Acompa\u00f1o a <em>adolescentes</em> en consulta y a <em>familias</em> en procesos judiciales.</h1>
     <p class="pt__d">Dos trabajos distintos, con l\u00edmites \u00e9ticos distintos.
@@ -317,7 +319,6 @@ def portada(clase, fondo):
     %s
     <p class="lock__b">Psicolog\u00eda forense y psicoterapia</p>
   </div>
-  <div class="pt__b" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   <dl class="firma">
     <div><dt>Psic\u00f3loga</dt><dd>Thania Huerta</dd></div>
     <div><dt>C\u00e9dula profesional</dt><dd>14661976</dd></div>
